@@ -1,0 +1,4 @@
+rootProject.name = 'el59_office'
+
+include 'dto'
+include 'office'

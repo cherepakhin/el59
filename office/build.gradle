@@ -1,0 +1,92 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.18'
+	id 'io.spring.dependency-management' version '1.1.4'
+	id 'java'
+	id 'maven-publish'
+}
+
+group = 'ru.perm.v.multi_module'
+version = '0.0.5'
+
+java {
+	sourceCompatibility = '11'
+	withSourcesJar()
+}
+
+jar {
+	enabled = true
+	archiveClassifier = '' //change PLAIN to empty string
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	maven {
+		url = "http://v.perm.ru:8082/repository/ru.perm.v"
+		allowInsecureProtocol = true
+		credentials {
+			username = "admin"
+			password = "pass"
+		}
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-autoconfigure'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	Import module from THIS multi modules project
+	implementation 'ru.perm.v.multi_module:library:0.0.5'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+//tasks.wrapper {
+//	gradleVersion = "8.0"
+//	// You can either download the binary-only version of Gradle (BIN) or
+//	// the full version (with sources and documentation) of Gradle (ALL)
+//	distributionType = Wrapper.DistributionType.ALL
+//}
+
+tasks.withType(JavaCompile).configureEach {
+	println "Module Application. On JavaCompile. Executing TASK: " + it.name
+//	println "Module Application. Java version:" + System.getProperty("java.version")
+	println "----------------"
+}
+
+tasks.withType(Test).configureEach {
+	println "Module Application. On Test. Executing TASK: " + it.name
+//	println "Module Application. Java version:" + System.getProperty("java.version")
+	println "----------------"
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			versionMapping {
+				usage('java-api') {
+					fromResolutionOf('runtimeClasspath')
+				}
+				usage('java-runtime') {
+					fromResolutionResult()
+				}
+			}
+		}
+	}
+	repositories {
+		maven {
+			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
+			allowInsecureProtocol = true
+			credentials {
+				username = 'admin'
+				password = 'pass'
+			}
+		}
+	}
+}
