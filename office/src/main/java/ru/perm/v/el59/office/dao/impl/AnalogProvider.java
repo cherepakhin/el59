@@ -5,23 +5,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Logger;
-import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.el.parser.ParseException;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ru.perm.v.el59.office.critery.AnalogCritery;
-import ru.perm.v.el59.office.critery.TovarCritery;
-import ru.perm.v.el59.office.db.Analog;
-import ru.perm.v.el59.office.db.Manager;
-import ru.perm.v.el59.office.db.Tovar;
-import ru.perm.v.el59.office.db.dto.TTovar;
-import ru.perm.v.el59.office.iproviders.IAnalogProvider;
-import ru.perm.v.el59.office.iproviders.IManagerProvider;
-import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.el59.office.critery.AnalogCritery;
+import ru.el59.office.critery.TovarCritery;
+import ru.el59.office.db.Analog;
+import ru.el59.office.db.Manager;
+import ru.el59.office.db.Tovar;
+import ru.el59.office.db.dto.TTovar;
+import ru.el59.office.iproviders.IAnalogProvider;
+import ru.el59.office.iproviders.IManagerProvider;
+import ru.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.util.ILuceneSearcher;
 
 public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
@@ -33,7 +34,7 @@ public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 
 	private Tovar nullTovar;
 	private Integer nullTovarNnum;
-	private static Logger LOGGER = Logger.getLogger(AnalogProvider.class);
+	private static Logger LOGGER = Logger.getLogger(AnalogProvider.class.getName());
 	private int counter = 0;
 
 	public AnalogProvider(Class<Analog> type) {
@@ -94,19 +95,19 @@ public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 	public void change(String name, Tovar newTovar, Manager manager)
 			throws Exception {
 		// CommonCritery critery = new CommonCritery(name);
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Поиск в аналогах:" + name + " nnum:" + newTovar.getNnum());
 //		Analog a = getByEqName(name);
 		Analog analog = getByEqName(name);
 //		Analog a = null;
 		if (analog != null) {
-			Logger.getLogger(this.getClass()).info("Обновление:" + name);
+			Logger.getLogger(this.getClass().getName()).info("Обновление:" + name);
 			analog.setTovar(newTovar);
 			analog.setManager(manager);
 			analog.setDdate(new Date());
 			update(analog);
 		} else {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Создание аналога:" + name + " nnum:" + newTovar.getNnum());
 			analog = new Analog();
 			analog.setName(name);
@@ -119,9 +120,6 @@ public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 	/**
 	 * Процедура распознавания
 	 * 
-	 * @param listTTovar
-	 *            - список <code>TTovar</code>.
-	 * @throws ParseException
 	 * @throws IOException
 	 * @throws .
 	 */
@@ -131,9 +129,9 @@ public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 		if (ret == null) {
 			try {
 				fillListTovar(t);
-			} catch (ParseException e) {
+			} catch (ParseException | java.text.ParseException e) {
 				e.printStackTrace();
-				LOGGER.error(e);
+				LOGGER.log(Level.SEVERE, e.getMessage());
 			}
 			fillSeletedTovar(t);
 			return t;
@@ -206,7 +204,7 @@ public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 		return nullTovar;
 	}
 
-	protected void fillListTovar(TTovar t) throws IOException, ParseException {
+	protected void fillListTovar(TTovar t) throws IOException, ParseException, java.text.ParseException {
 		List<Integer> listNnum = getLuceneSearcher().getAnalog(
 				t.getItemDTO().getDescription());
 		TovarCritery tovarCritery = new TovarCritery();
