@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.dao.CommonCritery;
-import ru.el59.office.iproviders.shopmodel.IExpenseProvider;
+import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IExpenseProvider;
 import ru.el59.office.shopmodel.Expense;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 

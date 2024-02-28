@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
 
-import ru.el59.office.iproviders.shopmodel.IPaymentProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IPaymentProvider;
 import ru.el59.office.shopmodel.Payment;
 
 public class PaymentProvider extends APaymentProvider<Payment, Long> implements

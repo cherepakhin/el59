@@ -14,24 +14,28 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ru.el59.dao.CommonCritery;
-import ru.el59.office.critery.DocTitleCritery;
+import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.dto.office.critery.DocTitleCritery;
 import ru.el59.office.db.Doc;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.TypeDoc;
 import ru.el59.office.db.web.DocW;
 import ru.el59.office.db.web.DocWInfo;
 import ru.el59.office.db.web.DocWItem;
-import ru.el59.office.iproviders.IDocItemProvider;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.ITovarProvider;
-import ru.el59.office.iproviders.ITypeDocProvider;
-import ru.el59.office.iproviders.shopmodel.IDocTitleProvider;
-import ru.el59.office.iproviders.shopmodel.IPaymentProvider;
-import ru.el59.office.iproviders.shopmodel.ITypeDocShopProvider;
-import ru.el59.office.iproviders.web.*;
+import ru.perm.v.el59.dto.office.iproviders.IDocItemProvider;
+import ru.perm.v.el59.dto.office.iproviders.IShopProvider;
+import ru.perm.v.el59.dto.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.dto.office.iproviders.ITypeDocProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IDocTitleProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IPaymentProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.ITypeDocShopProvider;
 import ru.el59.office.shopmodel.DocTitle;
 import ru.el59.office.shopmodel.TypeDocShop;
+import ru.perm.v.el59.dto.office.iproviders.web.DocWItemCritery;
+import ru.perm.v.el59.dto.office.iproviders.web.DocWCritery;
+import ru.perm.v.el59.dto.office.iproviders.web.ICommentDocWProvider;
+import ru.perm.v.el59.dto.office.iproviders.web.IDocWItemProvider;
+import ru.perm.v.el59.dto.office.iproviders.web.IDocWProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements

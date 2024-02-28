@@ -12,12 +12,16 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 
-import ru.el59.office.critery.PaymentCritery;
+import ru.perm.v.el59.dto.office.critery.PaymentCritery;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.web.DocW;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.shopmodel.*;
+import ru.perm.v.el59.dto.office.iproviders.IShopProvider;
 import ru.el59.office.shopmodel.Payment;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.ITypeDocShopProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IDocTitleProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IPaymentProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IReasonProvider;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.ITypePaymentProvider;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.util.Helper;
 

@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.el59.dao.CommonCritery;
+import ru.perm.v.el59.dto.dao.CommonCritery;
 import ru.el59.office.db.BonusK;
-import ru.el59.office.iproviders.IBonuskProvider;
+import ru.perm.v.el59.dto.office.iproviders.IBonuskProvider;
 
 import java.util.List;
 

@@ -104,7 +104,7 @@
 	<bean id="ConvertorXmlTovar" class="ru.el59.office.camelcontext.receiver.ConvertorXmlTovar">
 		<property name="dao" ref="tovarDao" />
 		<property name="tovarInfoProvider" ref="tovarInfoDao" />
-		<property name="type" value="ru.el59.office.critery.TovarCritery" />
+		<property name="type" value="ru.perm.v.el59.dto.office.critery.TovarCritery" />
 		<property name="entity" value="TovarCritery" />
 		<property name="commander" ref="commander" />
 	</bean>

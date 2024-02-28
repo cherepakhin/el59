@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ru.el59.dao.AEntity;
-import ru.el59.dao.CommonCritery;
+import ru.perm.v.el59.dto.dao.CommonCritery;
 import ru.el59.dao.IGenericDao;
 
 @Transactional(propagation = Propagation.REQUIRED)

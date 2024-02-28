@@ -24,10 +24,11 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import org.jboss.logging.Logger;
-import ru.el59.office.critery.PriceCritery;
+import ru.perm.v.el59.dto.office.critery.PriceCritery;
 import ru.el59.office.db.*;
 import ru.el59.office.db.dto.PriceDbf;
-import ru.el59.office.iproviders.*;
+import ru.perm.v.el59.dto.office.iproviders.IPriceProvider;
+import ru.perm.v.el59.dto.office.iproviders.*;
 import ru.perm.v.el59.office.util.Helper;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 import bsh.EvalError;

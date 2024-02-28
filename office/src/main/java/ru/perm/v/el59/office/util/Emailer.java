@@ -1,13 +1,9 @@
 package ru.perm.v.el59.office.util;
 
-import org.hibernate.boot.archive.spi.ArchiveException;
 import ru.el59.office.db.Manager;
 import ru.el59.office.db.dto.FileAttach;
-import ru.el59.office.emailer.IEmailer;
+import ru.perm.v.el59.dto.office.emailer.IEmailer;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 //import java.util.List;
 //

@@ -1,19 +1,19 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import ru.el59.office.critery.DocTitleCritery;
+import ru.perm.v.el59.dto.office.critery.DocTitleCritery;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.TypeStock;
 import ru.el59.office.db.UserShop;
-import ru.el59.office.iproviders.IContragentProvider;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.ITypeStockProvider;
-import ru.el59.office.iproviders.IUserShopProvider;
-import ru.el59.office.iproviders.shopmodel.*;
+import ru.perm.v.el59.dto.office.iproviders.IContragentProvider;
+import ru.perm.v.el59.dto.office.iproviders.IShopProvider;
+import ru.perm.v.el59.dto.office.iproviders.ITypeStockProvider;
+import ru.perm.v.el59.dto.office.iproviders.IUserShopProvider;
 import ru.el59.office.shopmodel.DocDetail;
 import ru.el59.office.shopmodel.DocTitle;
 import ru.el59.office.shopmodel.TypeDocShop;
 import ru.el59.office.shopmodel.TypePrice;
 import ru.perm.v.el59.dto.DocTitleDTO;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.ITypeOperationProvider;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 
 import java.util.Collections;

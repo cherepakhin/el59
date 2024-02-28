@@ -1,5 +1,6 @@
 package ru.perm.v.el59.office.analisebest;
 
+import ru.perm.v.el59.dto.BestTag;
 import ru.perm.v.el59.office.dto.BestTag;
 
 public interface ICreatotBestTag {

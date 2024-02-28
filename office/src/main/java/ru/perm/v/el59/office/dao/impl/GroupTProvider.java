@@ -8,20 +8,26 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ru.perm.v.el59.office.critery.GroupTCritery;
-import ru.perm.v.el59.office.db.GroupT;
-import ru.perm.v.el59.office.db.Tovar;
-import ru.perm.v.el59.office.db.Var;
-import ru.perm.v.el59.office.iproviders.IGroupTProvider;
-import ru.perm.v.el59.office.iproviders.ITovarProvider;
-import ru.perm.v.el59.office.iproviders.IVarProvider;
+//import ru.perm.v.el59.office.critery.GroupTCritery;
+//import ru.perm.v.el59.office.db.GroupT;
+//import ru.perm.v.el59.office.db.Tovar;
+//import ru.perm.v.el59.office.db.Var;
+//import ru.perm.v.el59.office.iproviders.IGroupTProvider;
+//import ru.perm.v.el59.office.iproviders.ITovarProvider;
+//import ru.perm.v.el59.office.iproviders.IVarProvider;
+import ru.perm.v.el59.dto.office.critery.GroupTCritery;
+import ru.el59.office.db.GroupT;
+import ru.el59.office.db.Tovar;
+import ru.el59.office.db.Var;
+import ru.perm.v.el59.dto.office.iproviders.IGroupTProvider;
+import ru.perm.v.el59.dto.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.dto.office.iproviders.IVarProvider;
 import ru.perm.v.el59.office.util.Helper;
 
 public class GroupTProvider extends GenericDaoHibernateImpl<GroupT, String>

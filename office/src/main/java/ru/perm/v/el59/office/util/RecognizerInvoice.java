@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 
 import org.apache.log4j.Logger;
 
-import ru.el59.office.util.IRecognizerInvoice;
+import ru.perm.v.el59.dto.office.util.IRecognizerInvoice;
 import ru.perm.v.el59.office.db.Doc;
 import ru.perm.v.el59.office.db.dto.TTovar;
 import ru.perm.v.el59.office.iproviders.IAnalogProvider;

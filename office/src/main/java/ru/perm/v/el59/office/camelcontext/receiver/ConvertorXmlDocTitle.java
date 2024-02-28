@@ -1,6 +1,5 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
-import ru.el59.office.iproviders.shopmodel.IDocTitleProvider;
 import ru.el59.office.shopmodel.DocTitle;
 import ru.perm.v.el59.dto.DocTitleDTO;
 

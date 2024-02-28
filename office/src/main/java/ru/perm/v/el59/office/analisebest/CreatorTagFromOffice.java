@@ -1,6 +1,19 @@
 package ru.perm.v.el59.office.analisebest;
 
 
+import ru.el59.office.db.Formula;
+import ru.el59.office.db.Shop;
+import ru.el59.office.db.dto.PriceDbf;
+import ru.el59.office.iproviders.IFormulaProvider;
+import ru.el59.office.iproviders.IPriceProvider;
+import ru.el59.office.iproviders.IShopProvider;
+import ru.el59.office.iproviders.ITovarInfoProvider;
+import ru.perm.v.el59.dto.BestTag;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Подгружает прайсы для магазина
  *
@@ -46,7 +59,7 @@ public class CreatorTagFromOffice implements ICreatotBestTag {
                     getTovarInfoProvider().getAnnotation(nnum),
                     priceDbf.getCena(),
                     priceDbf.getCena1(),
-                    priceDbf.getPriceName()
+                    priceDbf.getName()
             );
             return betsTag;
         }

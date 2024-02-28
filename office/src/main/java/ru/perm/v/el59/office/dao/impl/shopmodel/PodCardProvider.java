@@ -10,11 +10,11 @@ import java.util.regex.Pattern;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.critery.PodCardCritery;
+import ru.perm.v.el59.dto.office.critery.PodCardCritery;
 import ru.el59.office.db.Shop;
 import ru.el59.office.shopmodel.PodCard;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
-import ru.el59.office.iproviders.IPodCardProvider;
+import ru.perm.v.el59.dto.office.iproviders.IPodCardProvider;
 
 public class PodCardProvider extends GenericDaoMessageImpl<PodCard, Long>
 		implements IPodCardProvider {

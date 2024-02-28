@@ -41,7 +41,7 @@ public class ProtocolForTagTest {
 		class CreatorBestTagForEqual implements ICreatotBestTag {
 
 			@Override
-			public BestTag getBestTag(Integer nnum,String shopCod) {
+			public ru.perm.v.el59.dto.BestTag getBestTag(Integer nnum, String shopCod) {
 				if (nnum.equals(bestTag1.nnum)) {
 					return bestTag1;
 				}
@@ -67,7 +67,7 @@ public class ProtocolForTagTest {
 		class CreatorBestTagForNotEqual implements ICreatotBestTag{
 
 			@Override
-			public BestTag getBestTag(Integer nnum,String shopCod) {
+			public ru.perm.v.el59.dto.BestTag getBestTag(Integer nnum, String shopCod) {
 				if (nnum.equals(bestTag1.nnum)) {
 					return bestTag11;
 				}

@@ -34,7 +34,7 @@
 		<property name="service">
   			<ref bean="commander"/>
   		</property>
-  		<property name="serviceInterface" value="ru.el59.office.wscommand.ICommander" /> 
+  		<property name="serviceInterface" value="ru.perm.v.el59.dto.office.wscommand.ICommander" />
   	</bean>
 
 </beans>

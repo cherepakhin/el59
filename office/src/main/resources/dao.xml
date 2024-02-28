@@ -1029,7 +1029,7 @@
 	
 	<bean name="analogServiceClient" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
 		p:serviceUrl="${analogService}"
-		p:serviceInterface="ru.el59.office.iproviders.IAnalogProvider"/>
+		p:serviceInterface="ru.perm.v.el59.dto.office.iproviders.IAnalogProvider"/>
 
 	<bean name="luceneSearcher" class="ru.el59.office.util.LuceneSearcher"
 		p:luceneIndexDir="${luceneDir}"

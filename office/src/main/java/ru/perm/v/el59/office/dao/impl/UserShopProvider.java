@@ -6,11 +6,11 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.critery.UserShopCritery;
+import ru.perm.v.el59.dto.office.critery.UserShopCritery;
 import ru.el59.office.db.UserShop;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.IUserShopProvider;
-import ru.el59.office.wscommand.ICommander;
+import ru.perm.v.el59.dto.office.iproviders.IShopProvider;
+import ru.perm.v.el59.dto.office.iproviders.IUserShopProvider;
+import ru.perm.v.el59.dto.office.wscommand.ICommander;
 
 public class UserShopProvider extends GenericDaoHibernateImpl<UserShop, Long>
 		implements IUserShopProvider {

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
-import ru.el59.dao.CommonCritery;
-import ru.el59.office.iproviders.shopmodel.IReasonProvider;
+import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.dto.office.iproviders.shopmodel.IReasonProvider;
 import ru.el59.office.shopmodel.Reason;
 import ru.el59.office.shopmodel.TypePayment;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
