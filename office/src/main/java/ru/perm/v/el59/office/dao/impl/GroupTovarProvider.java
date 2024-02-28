@@ -11,10 +11,10 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ru.perm.v.el59.office.critery.GroupTovarCritery;
-import ru.perm.v.el59.office.db.BonusK;
-import ru.perm.v.el59.office.db.GroupTovar;
-import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
+import ru.el59.office.critery.GroupTovarCritery;
+import ru.el59.office.db.BonusK;
+import ru.el59.office.db.GroupTovar;
+import ru.el59.office.iproviders.IGroupTovarProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 public class GroupTovarProvider extends
