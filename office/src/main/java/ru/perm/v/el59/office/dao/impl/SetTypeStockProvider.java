@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.dao.impl;
 
 import org.hibernate.Hibernate;
 
-import ru.perm.v.el59.office.db.SetTypeStock;
+import ru.el59.office.db.SetTypeStock;
 import ru.perm.v.el59.office.iproviders.ISetTypeStockProvider;
 
 public class SetTypeStockProvider extends
