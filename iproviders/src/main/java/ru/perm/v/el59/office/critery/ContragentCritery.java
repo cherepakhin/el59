@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.critery;
 
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.dao.CommonCritery;
 
 import java.io.Serializable;
 

@@ -9,7 +9,7 @@ import ru.el59.office.db.Shop;
 import ru.el59.office.shopmodel.DocTitle;
 import ru.el59.office.shopmodel.TypeDocShop;
 import ru.el59.office.shopmodel.TypeDocStatusShop;
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.dao.CommonCritery;
 
 public class DocTitleCritery extends CommonCritery implements Serializable {
    private static final long serialVersionUID = 1699673651169954021L;

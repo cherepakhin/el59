@@ -10,7 +10,7 @@ import ru.el59.office.db.Shop;
 import ru.el59.office.db.routedoc.Dispatcher;
 import ru.el59.office.db.routedoc.Driver;
 import ru.el59.office.db.routedoc.Machine;
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.dao.CommonCritery;
 
 public class PathPageCritery extends CommonCritery implements Serializable {
    private static final long serialVersionUID = 911519895769664483L;

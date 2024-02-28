@@ -9,7 +9,7 @@ import ru.el59.office.db.Contragent;
 import ru.el59.office.db.Manager;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.TypeFile;
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.dao.CommonCritery;
 
 public class DocFileCritery extends CommonCritery implements Serializable {
    private static final long serialVersionUID = 2928305409170385801L;

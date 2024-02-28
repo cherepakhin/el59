@@ -1,14 +1,13 @@
 package ru.perm.v.el59.office.critery;
 
+import ru.el59.office.db.Manager;
+import ru.el59.office.db.TypeDoc;
+import ru.perm.v.el59.office.dao.CommonCritery;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.TypeDoc;
-import ru.perm.v.el59.dto.dao.CommonCritery;
 
 public abstract class ADocCritery extends CommonCritery implements Serializable {
    public List<Long> listN = new ArrayList();
