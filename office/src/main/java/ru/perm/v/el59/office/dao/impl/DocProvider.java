@@ -5,18 +5,19 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
-import ru.perm.v.el59.dto.dao.CommonCritery;
-import ru.perm.v.el59.dto.office.critery.DocCritery;
-import ru.perm.v.el59.dto.office.critery.DocItemCritery;
-import ru.perm.v.el59.dto.office.critery.ShopCritery;
-import ru.perm.v.el59.dto.office.critery.TovarCritery;
+import ru.el59.office.critery.DocItemCritery;
+import ru.el59.office.critery.TovarCritery;
 import ru.el59.office.db.*;
 import ru.el59.office.db.dto.DocItemDTO;
-import ru.perm.v.el59.dto.office.iproviders.IDocItemProvider;
-import ru.perm.v.el59.dto.office.iproviders.*;
-import ru.perm.v.el59.dto.office.iproviders.routedoc.IPathPageProvider;
-import ru.perm.v.el59.dto.office.iproviders.routedoc.IPlanDownloadSumProvider;
-import ru.perm.v.el59.dto.office.iproviders.web.IDocWItemProvider;
+import ru.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.ITypeDocProvider;
+import ru.perm.v.el59.office.iproviders.critery.DocCritery;
+import ru.perm.v.el59.office.iproviders.critery.ShopCritery;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+import ru.perm.v.el59.office.iproviders.routedoc.IPathPageProvider;
+import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadSumProvider;
+import ru.perm.v.el59.office.iproviders.web.IDocWItemProvider;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -221,6 +222,11 @@ public class DocProvider extends GenericDaoHibernateImpl<Doc, Long> implements
 	}
 
 	@Override
+	public List<Doc> getFreeForPathPage(ru.el59.office.critery.DocCritery var1) {
+		return null;
+	}
+
+	@Override
 	public byte[] getBody(DocFile docFile) throws IOException {
 		return getDocFileProvider().getBody(docFile);
 	}
@@ -410,7 +416,6 @@ public class DocProvider extends GenericDaoHibernateImpl<Doc, Long> implements
 		return supplier;
 	}
 
-	@Override
 	public List<Doc> getFreeForPathPage(DocCritery critery) {
 		Calendar calFromDate = Calendar.getInstance();
 		calFromDate.set(Calendar.YEAR, 2013);

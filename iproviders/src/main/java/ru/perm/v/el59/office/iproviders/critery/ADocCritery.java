@@ -1,6 +1,7 @@
 package ru.perm.v.el59.office.iproviders.critery;
 
 import ru.el59.office.db.Manager;
+import ru.el59.office.db.Shop;
 import ru.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
