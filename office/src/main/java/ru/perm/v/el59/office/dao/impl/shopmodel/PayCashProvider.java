@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import ru.perm.v.el59.office.iproviders.shopmodel.IPayCashProvider;
-import ru.perm.v.el59.office.shopmodel.PayCash;
+import ru.el59.office.iproviders.shopmodel.IPayCashProvider;
+import ru.el59.office.shopmodel.PayCash;
 
 public class PayCashProvider extends APaymentProvider<PayCash, Long> implements
 		IPayCashProvider {
