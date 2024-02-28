@@ -2,8 +2,6 @@ package ru.perm.v.el59.office.dao.impl;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
-import org.dozer.Mapper;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
@@ -11,33 +9,35 @@ import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.mapstruct.Mapper;
+import ru.el59.office.critery.FeatureCritery;
+import ru.el59.office.db.*;
+import ru.el59.office.db.dto.Annotation;
+import ru.el59.office.db.dto.elxml.Good;
+import ru.el59.office.db.subs.GroupTovarMainFeature;
+import ru.el59.office.db.subs.MainFeature;
+import ru.el59.office.iproviders.IManagerProvider;
+import ru.el59.office.iproviders.ITovarInfoProvider;
+import ru.el59.office.iproviders.ITovarProvider;
+import ru.el59.office.iproviders.IVarProvider;
+import ru.el59.office.iproviders.subs.IGroupTovarMainFeatureProvider;
+import ru.el59.office.iproviders.subs.IMainFeatureProvider;
+import ru.el59.office.iproviders.web.IRestWebProvider;
 import ru.perm.v.el59.office.commerceml.IExporterToCommerceML;
-import ru.perm.v.el59.office.critery.FeatureCritery;
-import ru.perm.v.el59.office.critery.TovarCritery;
-import ru.perm.v.el59.office.db.*;
-import ru.perm.v.el59.office.db.dto.Annotation;
-import ru.perm.v.el59.office.db.dto.elxml.Good;
-import ru.perm.v.el59.office.db.subs.GroupTovarMainFeature;
-import ru.perm.v.el59.office.db.subs.MainFeature;
 import ru.perm.v.el59.office.db.subs.ValFeature;
-import ru.perm.v.el59.office.iproviders.IManagerProvider;
-import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
-import ru.perm.v.el59.office.iproviders.ITovarProvider;
-import ru.perm.v.el59.office.iproviders.IVarProvider;
-import ru.perm.v.el59.office.iproviders.subs.IGroupTovarMainFeatureProvider;
-import ru.perm.v.el59.office.iproviders.subs.IMainFeatureProvider;
-import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.util.Helper;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.io.File;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class TovarInfoProvider extends
         GenericDaoMessageImpl<TovarInfo, Integer> implements ITovarInfoProvider {
     private static final String DELIMETER_NAME_VAL = ":";
     private static final String DELIMETER_VAL = ";";
-    private static Logger LOGGER = Logger.getLogger(TovarInfoProvider.class);
+    private static Logger LOGGER = Logger.getLogger(TovarInfoProvider.class.getName());
     private ITovarProvider tovarProvider;
     private IVarProvider varProvider;
     private IRestWebProvider restWebProvider;
@@ -84,67 +84,68 @@ public class TovarInfoProvider extends
      * @return сообщение о результате
      * @throws Exception
      */
-    @Override
     public String createByListGood(List<Good> listGood, String filename)
             throws Exception {
-        LOGGER.info(filename);
-        for (Good good : listGood) {
-            LOGGER.info(good.getGoodCode());
-            if (checkString(good.getGoodCode())) {
-                Tovar tovarGood = getMapper().map(good, Tovar.class);
-                Tovar tovar = (Tovar) getTovarProvider().initialize(
-                        tovarGood.getNnum());
+        return "NOT IMPLEMENTED";
+// TODO!!!!
+//        LOGGER.info(filename);
+//        for (Good good : listGood) {
+//            LOGGER.info(good.getGoodCode());
+//            if (checkString(good.getGoodCode())) {
+//                Tovar tovarGood = getMapper().builder().build(good);.map(good, Tovar.class);
+//                Tovar tovar = (Tovar) getTovarProvider().initialize(
+//                        tovarGood.getNnum());
                 // Если двойник , то пропустить
-                if (tovar != null && tovar.getParentnnum() != null) {
-                    continue;
-                }
-                // Если он уже есть, то тоже пропустить.
-                if (tovar != null) {
-                    continue;
-                } else {
-/*                    tovar.setFile(filename);
-                    tovar.setName(tovarGood.getName());
-                    tovar.setGroup(tovarGood.getGroup());
-                    tovar.setTypetovar(tovarGood.getTypetovar());
-                    tovar.setBrand(tovarGood.getBrand());
-                    tovar.setDateinsert(new Date());
-*/                    
-                	
-                	GroupTovar g = getTovarProvider().getGroupByTrade(
-                            good.getMecat());
-                	
-                	// ВОТ оно создание!
-                    tovar = tovarGood;
-                    tovar.setFile(filename);
-                    tovar.setGroup(g);
-                }
+//                if (tovar != null && tovar.getParentnnum() != null) {
+//                    continue;
+//                }
+//                // Если он уже есть, то тоже пропустить.
+//                if (tovar != null) {
+//                    continue;
+//                } else {
+///*                    tovar.setFile(filename);
+//                    tovar.setName(tovarGood.getName());
+//                    tovar.setGroup(tovarGood.getGroup());
+//                    tovar.setTypetovar(tovarGood.getTypetovar());
+//                    tovar.setBrand(tovarGood.getBrand());
+//                    tovar.setDateinsert(new Date());
+//*/
+//
+//                	GroupTovar g = getTovarProvider().getGroupByTrade(
+//                            good.getMecat());
+//
+//                	// ВОТ оно создание!
+//                    tovar = tovarGood;
+//                    tovar.setFile(filename);
+//                    tovar.setGroup(g);
+//                }
+//
+//                TovarInfo tovarInfoGood = getMapper()
+//                        .map(good, TovarInfo.class);
+//                TovarInfo tovarInfo = (TovarInfo) initialize(tovar.getNnum());
+//                if (tovarInfo != null) {
+//                    if (tovarInfoGood.getListFeaturePrice() != null) {
+//                        for (FeaturePrice f : tovarInfoGood
+//                                .getListFeaturePrice()) {
+//                            tovarInfo.addFeaturePrice(f);
+//                        }
+//                    }
+//                } else {
+//                    tovarInfo = tovarInfoGood;
+//                }
+//                tovarInfo.setTovar(tovar);
+//                try {
+//                    getSession().flush();
+//                    getSession().clear();
+//                    getTovarProvider().update(tovar);
+//                } catch (Exception e) {
+//                    LOGGER.error(e);
+//                }
+//                update(tovarInfo);
+//            }
 
-                TovarInfo tovarInfoGood = getMapper()
-                        .map(good, TovarInfo.class);
-                TovarInfo tovarInfo = (TovarInfo) initialize(tovar.getNnum());
-                if (tovarInfo != null) {
-                    if (tovarInfoGood.getListFeaturePrice() != null) {
-                        for (FeaturePrice f : tovarInfoGood
-                                .getListFeaturePrice()) {
-                            tovarInfo.addFeaturePrice(f);
-                        }
-                    }
-                } else {
-                    tovarInfo = tovarInfoGood;
-                }
-                tovarInfo.setTovar(tovar);
-                try {
-                    getSession().flush();
-                    getSession().clear();
-                    getTovarProvider().update(tovar);
-                } catch (Exception e) {
-                    LOGGER.error(e);
-                }
-                update(tovarInfo);
-            }
-
-        }
-        return null;
+//        }
+//        return null;
     }
 
     @Override
@@ -625,19 +626,18 @@ public class TovarInfoProvider extends
         tovarInfo = initialize(tovarInfo.getNnum());
         // Вычисление установленных основных хар-к
         ArrayList<Feature> listPrimaryFeature = new ArrayList<Feature>();
-        HashMap<Feature, ValFeature> hashPrimaryFeature = new HashMap<Feature, ValFeature>();
-        List<MainFeature> mainFeatures = getMainFeatureProvider()
-                .getMainFeatureForGroupTovar(tovarInfo.getTovar().getGroup());
+        HashMap<Feature, ValFeature> hashPrimaryFeature = new HashMap<>();
+        List<ru.el59.office.db.subs.MainFeature> mainFeatures = getMainFeatureProvider().getMainFeatureForGroupTovar(tovarInfo.getTovar().getGroup());
         for (Feature feature : tovarInfo.getListFeature()) {
             if (feature.getPrmry()) {
-                for (MainFeature mainFeature : mainFeatures) {
+                for (ru.el59.office.db.subs.MainFeature mainFeature : mainFeatures) {
                     if (feature.getName().equals(mainFeature.getName())) {
-                        MainFeature m = getMainFeatureProvider().init(
-                                mainFeature);
-                        for (ValFeature v : m.getListValFeature()) {
+                        MainFeature m = getMainFeatureProvider().init(mainFeature);
+                        for (ru.el59.office.db.subs.ValFeature v : m.getListValFeature()) {
                             if (feature.getVal().equals(v.getName())) {
-                                hashPrimaryFeature.put(feature, v);
-                                listPrimaryFeature.add(feature);
+//TODO: Проверить, что это правильно
+//                                hashPrimaryFeature.put(feature, );
+//                                listPrimaryFeature.add(feature);
                             }
                         }
                     }

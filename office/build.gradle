@@ -65,9 +65,11 @@ dependencies {
 	implementation 'org.apache.lucene:lucene-analyzers-common:5.3.1'
 	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser
 	implementation 'org.apache.lucene:lucene-queryparser:9.10.0'
+	implementation("org.mapstruct:mapstruct:1.5.5.Final")
+	// https://mvnrepository.com/artifact/org.freemarker/freemarker
+	implementation 'org.freemarker:freemarker:2.3.32'
 
-//Thanks for using https://jar-download.com
-
+	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
 }
 
 test {
