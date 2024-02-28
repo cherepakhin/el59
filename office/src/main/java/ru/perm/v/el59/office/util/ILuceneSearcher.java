@@ -26,7 +26,7 @@ public interface ILuceneSearcher {
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-	public List<Integer> getAnalog(String description) throws IOException, ParseException;
+	public List<Integer> getAnalog(String description) throws IOException, ParseException, org.apache.el.parser.ParseException;
 	/**
 	 * Добавить в индекс поиска список товаров
 	 * @param listTovar

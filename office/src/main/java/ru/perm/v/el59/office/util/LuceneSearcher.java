@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.el.parser.ParseException;
+import org.apache.lucene.analysis.ru.RussianAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
@@ -14,8 +16,6 @@ import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.morphology.russian.RussianAnalyzer;
-import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
@@ -24,6 +24,8 @@ import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import ru.el59.office.db.Tovar;
+
+import static org.apache.lucene.search.TopScoreDocCollector.create;
 
 public class LuceneSearcher implements ILuceneSearcher {
 
@@ -121,17 +123,21 @@ public class LuceneSearcher implements ILuceneSearcher {
 			ParseException {
 		QueryParser queryParser = getQueryParser();
 		IndexSearcher _searcher = getSearcher();
-		List<Integer> ret = getResults(queryParser, _searcher, searchTovar);
-		return ret;
+        List<Integer> ret = null;
+        try {
+            ret = getResults(queryParser, _searcher, searchTovar);
+        } catch (org.apache.lucene.queryparser.classic.ParseException e) {
+            throw new RuntimeException(e);
+        }
+        return ret;
 	}
 
 	private List<Integer> getResults(QueryParser queryParser,
-			IndexSearcher _searcher, String searchTovar) throws ParseException,
-			IOException {
+									 IndexSearcher _searcher, String searchTovar) throws ParseException,
+			IOException, org.apache.lucene.queryparser.classic.ParseException {
 		ArrayList<Integer> ret = new ArrayList<Integer>();
 		Query q = queryParser.parse(getIndex(searchTovar));
-		TopScoreDocCollector collector = TopScoreDocCollector
-				.create(getMaxCountResult());
+		TopScoreDocCollector collector = create(getMaxCountResult(),10);
 
 		_searcher.search(q, collector);
 		ScoreDoc[] hits = collector.topDocs().scoreDocs;
@@ -149,14 +155,19 @@ public class LuceneSearcher implements ILuceneSearcher {
 
 	@Override
 	public Map<String, List<Integer>> getAnalogForListName(List<String> listName)
-			throws ParseException, IOException {
+			throws IOException {
 		Map<String, List<Integer>> ret = new HashMap<String, List<Integer>>();
 		IndexSearcher _searcher = getSearcher();
 		QueryParser queryParser = getQueryParser();
 		for (String searchTovar : listName) {
-			List<Integer> nnums = getResults(queryParser, _searcher,
-					searchTovar);
-			ret.put(searchTovar, nnums);
+            List<Integer> nnums = null;
+            try {
+                nnums = getResults(queryParser, _searcher,
+                        searchTovar);
+            } catch (ParseException | org.apache.lucene.queryparser.classic.ParseException e) {
+                throw new RuntimeException(e);
+            }
+            ret.put(searchTovar, nnums);
 		}
 		return ret;
 	}
