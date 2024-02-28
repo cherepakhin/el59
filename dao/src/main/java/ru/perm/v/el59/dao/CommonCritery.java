@@ -1,4 +1,4 @@
-package ru.perm.v.dao;
+package ru.perm.v.el59.dao;
 
 import java.io.Serializable;
 

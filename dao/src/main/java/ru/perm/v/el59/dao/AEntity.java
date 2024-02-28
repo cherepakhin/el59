@@ -1,4 +1,4 @@
-package ru.perm.v.dao;
+package ru.perm.v.el59.dao;
 
 import ru.el59.ui.AUIBean;
 import ru.el59.ui.Justify;

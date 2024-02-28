@@ -1,11 +1,13 @@
 package ru.perm.v.el59.office.iproviders;
 
-import java.util.List;
-import ru.el59.dao.IGenericDao;
+
 import ru.el59.office.db.TypeFile;
+import ru.perm.v.el59.dao.IGenericDao;
+
+import java.util.List;
 
 public interface ITypeFileProvider extends IGenericDao<TypeFile, Long> {
    TypeFile getNullTypeFile();
 
-   List<TypeFile> getAll();
+   List<ru.perm.v.el59.office.db.TypeFile> getAll();
 }

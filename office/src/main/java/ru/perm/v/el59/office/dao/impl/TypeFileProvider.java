@@ -1,8 +1,7 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.perm.v.el59.dto.dao.CommonCritery;
 import ru.el59.office.db.TypeFile;
-import ru.perm.v.el59..office.iproviders.ITypeFileProvider;
+import ru.el59.office.iproviders.ITypeFileProvider;
 
 import java.util.List;
 
@@ -17,7 +16,8 @@ public class TypeFileProvider extends GenericDaoHibernateImpl<TypeFile, Long>
 
 	@Override
 	public List<TypeFile> getAll() {
-		return getByCritery(new CommonCritery(""));
+//		ru.el59.office.db.TypeFile
+		return getAll();
 	}
 
 	@Override
@@ -38,4 +38,18 @@ public class TypeFileProvider extends GenericDaoHibernateImpl<TypeFile, Long>
 		return nullTypeFile;
 	}
 
+	@Override
+	public Long create(ru.el59.office.db.TypeFile typeFile) throws Exception {
+		return null;
+	}
+
+	@Override
+	public void update(ru.el59.office.db.TypeFile typeFile) throws Exception {
+
+	}
+
+	@Override
+	public void delete(ru.el59.office.db.TypeFile typeFile) throws Exception {
+
+	}
 }
