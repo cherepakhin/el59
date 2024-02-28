@@ -3,31 +3,28 @@ package ru.perm.v.el59.office.dao.impl;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ru.perm.v.el59.office.critery.HistoryTagCritery;
-import ru.perm.v.el59.office.db.HistoryTag;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.db.Tovar;
+import ru.el59.office.db.HistoryTag;
+import ru.el59.office.db.Shop;
+import ru.el59.office.db.Tovar;
 import ru.perm.v.el59.office.iproviders.IHistoryTagProvider;
+import ru.perm.v.el59.office.iproviders.critery.HistoryTagCritery;
 import ru.perm.v.el59.office.util.Helper;
 
-/**
- * @see iprovider.IHistoryTagProvider
- * @author vasi
- * 
- */
+import static java.lang.String.format;
+
 public class HistoryTagProvider extends
 		GenericDaoHibernateImpl<HistoryTag, Long> implements
 		IHistoryTagProvider {
 
-	private static Logger LOGGER = Logger.getLogger(HistoryTagProvider.class);
+	private static Logger LOGGER = Logger.getLogger(String.valueOf(HistoryTagProvider.class));
 	// Дата внедрения истории ценников
 	private static Date startDate;
 	
@@ -95,6 +92,10 @@ public class HistoryTagProvider extends
 	}
 
 	@Override
+	public HistoryTag getByNnumShopCodDate(Integer nnum, Shop shop, Date ddate) {
+		return null;
+	}
+
 	public HistoryTag getByNnumShopCodDate(Integer nnum, String shopCod,
 			Date ddate) {
 		Criteria historyTagQuery = getSession().createCriteria(
@@ -113,7 +114,8 @@ public class HistoryTagProvider extends
 		if(list.size()>0) {
 			return list.get(0);
 		}
-		LOGGER.error(String.format("Not found history for nnum=%d,shopCod=%s,ddate=%tF",nnum,shopCod,ddate));
+
+		LOGGER.severe(format("Not found history for nnum=%d,shopCod=%s,ddate=%tF",nnum,shopCod,ddate));
 		return null;
 	}
 
