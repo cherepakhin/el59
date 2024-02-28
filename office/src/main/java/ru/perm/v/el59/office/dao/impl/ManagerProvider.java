@@ -7,11 +7,10 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.dto.dao.CommonCritery;
-import ru.perm.v.el59.dto.office.critery.ManagerCritery;
 import ru.el59.office.db.Manager;
-import ru.perm.v.el59..office.iproviders.IManagerProvider;
-
+import ru.el59.office.iproviders.IManagerProvider;
+import ru.perm.v.el59.office.iproviders.critery.ManagerCritery;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 public class ManagerProvider extends GenericDaoHibernateImpl<Manager, Long>
 		implements IManagerProvider {
