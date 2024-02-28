@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.PeopleCount" table="PeopleCount">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">peoplecount_n_seq</param>
+			</generator>
+		</id>
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+		<property name="qty" column="qty" type="java.lang.Integer" />
+		<many-to-one name="shop" class="ru.el59.office.db.Shop"
+			column="shop_cod" not-null="true"  lazy="false" />
+	</class>
+</hibernate-mapping>

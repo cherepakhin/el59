@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.routedoc.PlanDownloadSum" table="PlanDownloadSum">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+   		<many-to-one 
+			name="planDownload" 
+			class="ru.el59.office.db.routedoc.PlanDownload"
+			column="plandownload_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="contragent" 
+			class="ru.el59.office.db.Contragent"
+			column="contragent_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="manager" 
+			class="ru.el59.office.db.Manager"
+			column="manager_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="plan" column="plan" type="java.math.BigDecimal" precision="19" scale="2" />
+		<bag name="listdoc" table="planDownloadsum_doc" inverse="false">
+            <key column="PlanDownloadsum_n" />
+ 			<many-to-many class="ru.el59.office.db.Doc">
+ 				<column name="listdoc_n" not-null="true" />
+			</many-to-many>
+		</bag>
+	</class>
+</hibernate-mapping>
+

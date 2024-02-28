@@ -4,8 +4,8 @@ plugins {
 	id 'maven-publish'
 }
 
-group = 'ru.perm.v.multi_module'
-version = '0.0.5'
+group = 'ru.perm.v.el59_office'
+version = '0.0.1'
 
 java {
 	sourceCompatibility = '11'
@@ -19,8 +19,8 @@ jar {
 }
 
 repositories {
-	mavenCentral()
 	mavenLocal()
+	mavenCentral()
 	maven {
 		url = "http://v.perm.ru:8082/repository/ru.perm.v/"
 		allowInsecureProtocol = true
@@ -40,25 +40,6 @@ test {
 	useJUnitPlatform()
 }
 
-//tasks.wrapper {
-//	gradleVersion = "9.0"
-//	// You can either download the binary-only version of Gradle (BIN) or
-//	// the full version (with sources and documentation) of Gradle (ALL)
-//	distributionType = Wrapper.DistributionType.ALL
-//}
-
-tasks.withType(JavaCompile).configureEach {
-	println "Module Library. On JavaCompile. Executing TASK: " + it.name
-//	println "Module Library. Java version:" + System.getProperty("java.version")
-	println "----------------"
-}
-
-tasks.withType(Test).configureEach {
-	println "Module Library. On Test. Executing TASK: " + it.name
-//	println "Module Library. Java version:" + System.getProperty("java.version")
-	println "----------------"
-}
-
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
@@ -72,19 +53,9 @@ publishing {
 				}
 			}
 			pom {
-				name = 'Library for Multi Module Project'
-				description = 'Description for Multi Module Project'
-				url = 'https://github.com/cherepakhin/multi_module'
-				properties = [
-						myProp: "value",
-						"prop.with.dots": "anotherValue"
-				]
-				licenses {
-					license {
-						name = 'The Apache License, Version 2.0'
-						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-					}
-				}
+				name = 'DTO for el59_office'
+				description = 'Description for el59_office'
+				url = 'https://github.com/cherepakhin/el59_office'
 				developers {
 					developer {
 						id = 'vasi.che'
@@ -93,9 +64,9 @@ publishing {
 					}
 				}
 				scm {
-					connection = 'scm:git:git://github.com/cherepakhin/multi_module.git'
-					developerConnection = 'scm:git:ssh://github.com/cherepakhin/multi_module.git'
-					url = 'https://github.com/cherepakhin/multi_module'
+					connection = 'scm:git:git://github.com/cherepakhin/el59_office.git'
+					developerConnection = 'scm:git:ssh://github.com/cherepakhin/el59_office.git'
+					url = 'https://github.com/cherepakhin/el59_office'
 				}
 			}
 		}

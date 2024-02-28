@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.GroupT" table="groupt">
+		<id name="cod" column="cod" type="java.lang.String"/>
+		<property name="name" column="name" type="java.lang.String" />
+  		<many-to-one 
+			name="parent" 
+			class="ru.el59.office.db.GroupT"
+			column="parent_cod"
+			not-null="true"
+		/>
+		<property name="pathImage" column="pathimage" type="java.lang.String" />
+
+		<list name="childs" table="groupt_groupt" inverse="false" cascade="all" lazy="false">
+            <key column="groupt_cod" />
+ 			 <list-index column="position" base="1"/>
+ 			<many-to-many class="ru.el59.office.db.GroupT">
+ 				<column name="childs_cod" not-null="true" />
+			</many-to-many>
+		</list>
+        
+		<list name="relationTovar" table="groupt_tovar" inverse="false" >
+            <key column="groupt_cod" />
+ 			 <list-index column="position" />
+ 			<many-to-many class="ru.el59.office.db.Tovar">
+ 				<column name="tovar_nnum" not-null="true" />
+			</many-to-many>
+		</list>
+	</class>
+</hibernate-mapping>

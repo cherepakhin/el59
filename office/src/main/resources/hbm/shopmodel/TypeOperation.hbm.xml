@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.shopmodel.TypeOperation" table="TypeOperation">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+   		<many-to-one 
+			name="typeDocShop" 
+			class="ru.el59.office.shopmodel.TypeDocShop"
+			column="typedocshop_n"
+			not-null="true"
+			
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="worked" column="worked" type="java.lang.Boolean" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.shopmodel.TypePDS" table="TypePDS">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="min" column="min" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="max" column="max" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="cena" column="cena" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="year" column="year" type="java.lang.Integer" />
+		<property name="nnum" column="nnum" type="java.lang.Integer" />
+	</class>
+</hibernate-mapping>

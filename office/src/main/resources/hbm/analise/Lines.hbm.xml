@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.analise.Lines" table="lines">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">lines_n_seq</param>
+			</generator>
+		</id>
+		<property name="name" type="java.lang.String" />
+		<many-to-one name="shop" class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="false"
+			lazy="false"
+			fetch="join" 
+		/>
+  		<many-to-one 
+			name="group" 
+			class="ru.el59.office.db.GroupTovar"
+			column="group_cod"
+
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="minPrice" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="minPrice" default="0.00" />
+		</property>
+		<property name="maxPrice" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="maxPrice" default="0.00" />
+		</property>
+		<property name="qtyPlan" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="qtyPlan" default="0.00" />
+		</property>
+		<property name="qtyFact" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="qtyFact" default="0.00" />
+		</property>
+	</class>
+</hibernate-mapping>

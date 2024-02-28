@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+<configuration>
+	<custom-converters> 
+      <converter type="ru.el59.office.dozer.converter.ConverterStringToBigDecimal" >
+        <class-a>java.lang.String</class-a>
+        <class-b>java.math.BigDecimal</class-b>
+      </converter>
+      <converter type="ru.el59.office.dozer.converter.ConverterStringYNToBoolean" >
+        <class-a>java.lang.String</class-a>
+        <class-b>java.lang.Boolean</class-b>
+      </converter>
+      <converter type="ru.el59.office.dozer.converter.ConverterGroupCodToGroupTovar" >
+        <class-a>java.lang.String</class-a>
+        <class-b>ru.el59.office.db.GroupTovar</class-b>
+      </converter>
+	</custom-converters>      
+</configuration>
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.dto.elxml.Good</class-a>
+	<class-b>ru.el59.office.db.Tovar</class-b>
+	<field>
+		<a>GoodCode</a>
+		<b>nnum</b>
+	</field>
+	<field>
+		<a>Category</a>
+		<b>category</b>
+	</field>
+	<field>
+		<a>Brand_Code</a>
+		<b>brand</b>
+	</field>
+	<field>
+		<a>Name</a>
+		<b>name</b>
+	</field>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterGroupCodToGroupTovar">
+		<a>Mecat</a>
+		<b>group</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.dto.elxml.Good</class-a>
+	<class-b>ru.el59.office.db.TovarInfo</class-b>
+	<field>
+		<a>GoodCode</a>
+		<b>nnum</b>
+	</field>
+	<field>
+		<a>units</a>
+		<b>units</b>
+	</field>
+	<field>
+		<a>features</a>
+		<b>listFeaturePrice</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.dto.elxml.Units</class-a>
+	<class-b>ru.el59.office.db.Units</class-b>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterStringToBigDecimal">
+		<a>Lenght</a>
+		<b>lenght</b>
+	</field>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterStringToBigDecimal">
+		<a>Height</a>
+		<b>height</b>
+	</field>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterStringToBigDecimal">
+		<a>Width</a>
+		<b>width</b>
+	</field>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterStringToBigDecimal">
+		<a>Weight</a>
+		<b>weight</b>
+	</field>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterStringToBigDecimal">
+		<a>Weight_Net</a>
+		<b>weightNet</b>
+	</field>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterStringYNToBoolean">
+		<a>Is_Base</a>
+		<b>isBase</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.dto.elxml.FeaturePrice</class-a>
+	<class-b>ru.el59.office.db.FeaturePrice</class-b>
+	<field>
+		<a>Feature_Code</a>
+		<b>code</b>
+	</field>
+	<field>
+		<a>Name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>Value</a>
+		<b>val</b>
+	</field>
+</mapping>
+
+</mappings>
+          

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.HistoryTag" table="HistoryTag">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">historytag_n_seq</param>
+			</generator>
+		</id>
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+  		<many-to-one 
+			name="tovar" 
+			class="ru.el59.office.db.Tovar"
+			column="tovar_nnum"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="price" type="java.math.BigDecimal" precision="19" scale="2"> 			
+			<column name="price" default="0.00" />
+		</property>
+
+		<property name="cenaInOnDate" type="java.math.BigDecimal" precision="19" scale="2" > 			
+			<column name="cenaInOnDate" default="0.00" />
+		</property>
+		<property name="category" type="java.lang.Integer" > 			
+			<column name="category" default="0" />
+		</property>
+		<property name="label" type="java.math.BigDecimal" precision="19" scale="2" > 			
+			<column name="label" default="" />
+		</property>
+		<property name="priceName" type="java.lang.String" > 			
+			<column name="priceName" default="" />
+		</property>
+	</class>
+</hibernate-mapping>
+

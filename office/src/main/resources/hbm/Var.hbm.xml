@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.Var" table="var">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="info" column="info" type="java.lang.String" />
+		<property name="val" column="val" type="java.lang.String" />
+		<property name="typevar" column="typevar">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ru.el59.office.db.TypeVar</param>
+			</type>
+		</property>
+	</class>
+</hibernate-mapping>

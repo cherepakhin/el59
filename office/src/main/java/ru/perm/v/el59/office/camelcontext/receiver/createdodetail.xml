@@ -1,0 +1,19 @@
+<message>
+  <command>CREATE</command>
+  <className>DocDetail</className>
+  <shopCod>07220</shopCod>
+  <entity type="DocDetail">
+    <n>23166</n>
+    <name></name>
+    <docn>14941</docn>
+    <nnum>71069178</nnum>
+    <qty>1.0</qty>
+    <price>0.0</price>
+    <summain>990.2</summain>
+    <summaout>990.2</summaout>
+    <comment></comment>
+    <k1>990.2</k1>
+    <k2>0.0</k2>
+    <deleted>false</deleted>
+  </entity>
+</message>

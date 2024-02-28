@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.shopmodel.RewardCredit" table="RewardCredit">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+   		<many-to-one 
+			name="bank" 
+			class="ru.el59.office.db.CreditBank"
+			column="bank_n"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+		<property name="numberContract" column="numberContract" type="java.lang.String" />
+		<property name="sumCredit" column="sumCredit" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="percent" column="percent" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="sumReward" column="sumReward" type="java.math.BigDecimal" precision="19" scale="2" />
+   		<many-to-one 
+			name="userShop" 
+			class="ru.el59.office.db.UserShop"
+			column="usershop_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		
+	</class>
+</hibernate-mapping>

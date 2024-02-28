@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.routedoc.TemplatePathPage" table="TemplatePathPage">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="worked" column="worked" type="java.lang.Boolean" />
+		<property name="dayOfWeek" column="dayOfWeek" type="java.lang.Integer" />
+		
+		<bag name="listShop" table="templatepathpage_shop" inverse="false" >
+            <key column="templatepathpage_n" />
+ 			<many-to-many class="ru.el59.office.db.Shop">
+ 				<column name="listshop_cod" not-null="true" />
+			</many-to-many>
+		</bag>
+
+		<bag name="listContragent" table="templatepathpage_contragent" inverse="false" >
+            <key column="TemplatePathPage_n" />
+ 			<many-to-many class="ru.el59.office.db.Contragent">
+ 				<column name="listcontragent_n" not-null="true" />
+			</many-to-many>
+		</bag>
+ 		<many-to-one 
+			name="machine" 
+			class="ru.el59.office.db.routedoc.Machine"
+			column="machine_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="dispatcher" 
+			class="ru.el59.office.db.routedoc.Dispatcher"
+			column="dispatcher_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="driver" 
+			class="ru.el59.office.db.routedoc.Driver"
+			column="driver_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+	</class>
+</hibernate-mapping>

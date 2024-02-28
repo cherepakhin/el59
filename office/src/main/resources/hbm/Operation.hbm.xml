@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.Operation" table="operation">
+		<id name="chr" column="chr" type="java.lang.String" length="1"/>
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="best" column="best" type="java.lang.String" length="4"/>
+		<property name="znak" column="znak" type="java.lang.Integer" />
+		<many-to-one name="opgroup" class="ru.el59.office.db.OpGroup"
+			column="opgroup_n" 
+			not-null="true" 
+			
+			fetch="join"
+			lazy="false" />
+	</class>
+</hibernate-mapping>

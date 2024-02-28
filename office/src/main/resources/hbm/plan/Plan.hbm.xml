@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.plan.Plan" table="plan">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="increment"/>
+		</id>
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="month" column="month" type="java.lang.Integer" />
+		<property name="year" column="year" type="java.lang.Integer" />
+   		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="plansummaout" column="plansummaout" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="plansummain" column="plansummain" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="planmarga" column="planmarga" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="kTO" column="kTO" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="kMarga" column="kMarga" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="summaout" column="summaout" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="summain" column="summain" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="fond" column="fond" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="pds" column="pds" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="pdsin" column="pdsin" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="acc" column="acc" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="accin" column="accin" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+		<property name="planqtysmen" column="planqtysmen" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="closed" column="closed" type="java.lang.Boolean" />
+		<property name="planPercentPDS" column="planPercentPDS" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="planPercentAcc" column="planPercentAcc" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="fromDate" column="fromDate" type="java.sql.Date" />
+		<property name="toDate" column="toDate" type="java.sql.Date" />
+   		<many-to-one 
+			name="parent" 
+			class="ru.el59.office.db.plan.Plan"
+			column="parent_n"
+		/>
+ 		<bag name="dayplan" table="plan" inverse="false"
+			lazy="true" fetch="select" >
+			<key>
+				<column name="parent_n" not-null="true" />
+			</key>
+			<one-to-many entity-name="ru.el59.office.db.plan.Plan" />
+		</bag>
+ 		<bag name="restforplan" table="restforplan" inverse="false"
+			lazy="true" fetch="select">
+			<key>
+				<column name="plan_n" not-null="true" />
+			</key>
+			<one-to-many entity-name="ru.el59.office.db.plan.RestForPlan" />
+		</bag>
+	</class>
+</hibernate-mapping>

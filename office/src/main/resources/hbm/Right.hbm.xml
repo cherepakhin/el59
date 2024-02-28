@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.Right" table="right">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">right_n_seq</param>
+			</generator>
+		</id>
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="read" column="read" type="java.lang.Boolean" />
+		<property name="write" column="write" type="java.lang.Boolean" />
+	</class>
+</hibernate-mapping>

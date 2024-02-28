@@ -1,0 +1,95 @@
+// Расчет меток "С учетом всех скидок", "Рассрочка"
+// по требованиям ТЗ от 16.03.16
+// На входе переменная listPrice=ArrayList<Price>()
+Map ret = new HashMap();  
+java.math.BigDecimal FREE_FOR_AKS=new java.math.BigDecimal("0.00"); // Можно все для аксов
+java.math.BigDecimal FREE_FOR_MAIN=new java.math.BigDecimal("1.00"); // Можно все для Основного товара
+java.math.BigDecimal NOTCREDIT0024=new java.math.BigDecimal("2.00"); // Нельзя продавать в рассрочку, в акцию можно
+java.math.BigDecimal RESTRICTED=new java.math.BigDecimal("3.00"); // Нельзя давать никакую скидку 
+java.math.BigDecimal NONE=new java.math.BigDecimal("-1.00");
+String AKS = "Аксы";
+String MAIN_TOVAR = "Основной товар";
+String MAIN_TOVAR_5_2 = "Основной товар(5-2)";
+boolean debug=false;
+for(int i=0;i<listPrice.size();i++) {
+	ru.el59.office.db.Price price = listPrice.get(i);
+	double cenain = price.getTovar().getCenainrub().doubleValue();
+	double cena = price.getCena().doubleValue();
+	Integer nnum=price.getTovar().getNnum();
+	// Зарплатная группа "Основнойтовар", "Основнойтовар(5-2)","Аксы"
+	String zpgroup=price.getTovar().getGroup().getBonusk().getName();
+	if(debug) {
+		System.out.println(">>>>"+nnum);
+	}
+	if(debug) {
+		System.out.println(zpgroup);
+	}
+
+	// Наценка
+	k=0;
+	if(cenain!=0.00) {
+		k=cena/cenain-1.00;
+	} 
+	if(debug) {
+		System.out.println(k);
+	}
+	// Наценка > 25% 
+	if(k>=0.25) { 
+		if(zpgroup.equals(MAIN_TOVAR)) {
+			ret.put(nnum, FREE_FOR_MAIN); // На ценнике д.б. метка "Рассрочка" 
+			continue; 
+		}
+		ret.put(nnum, FREE_FOR_AKS);
+		continue; 
+	}
+
+// Убрано по распоряжению Максима 18.04.16. Аксами считаем товары, ктр. в ЗП группе "Аксы"
+// а не в ТОВАРНОЙ группе "Аксессуары"
+//	if(price.getTovar().getGroup().getRoot().getName().toLowerCase().contains(AKS)) {  
+	if(zpgroup.equals(AKS)) {
+		ret.put(nnum, FREE_FOR_AKS);
+		continue; 
+	}
+
+	// Для товаров "Основнойтовар(5-2)" можно все
+		if(debug) {
+			System.out.println("Основнойтовар(5-2):"+nnum+":"+zpgroup+":"+MAIN_TOVAR_5_2);
+		}
+	if(zpgroup.equals(MAIN_TOVAR_5_2)) {
+		ret.put(nnum, FREE_FOR_AKS); // Ценник как у аксов
+		continue; 
+	}
+
+	// Стоки
+	if(price.getPriceType().getName().toLowerCase().contains("стоки")) {
+		ret.put(nnum, NOTCREDIT0024);
+		continue; 
+ 	} 
+
+	// Услуги
+	if(cenain <1.00) { 
+		ret.put(nnum, FREE_FOR_AKS);
+		continue; 
+	}
+	if(debug) {
+		System.out.println("---"+price.getCategory());
+	}
+	// Если наценка меньше 20%
+	if(k<0.20) {
+		// Если 15 категория, то акции можно 
+		if(price.getCategory()==15) {
+			ret.put(nnum, NOTCREDIT0024);
+			continue; 
+		} 
+		ret.put(nnum, RESTRICTED);
+		continue; 
+	}
+
+	// Если наценка между 20% и 25% 
+	if(k>=0.20 && k<0.25) {
+		ret.put(nnum, NOTCREDIT0024);
+		continue; 
+	}
+	ret.put(nnum, NONE);
+}
+return ret;

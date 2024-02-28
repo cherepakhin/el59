@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+	<worksheet name="Лист2">
+        <section startRow="0" endRow="0">
+	</section>
+		<loop startRow="1" endRow="1" items="arr" var="c" varType="ru.el59.office.shopmodel.RewardCreditXLS">
+			<section startRow="1" endRow="1">
+				<mapping row="1" col="12">c.numberContract</mapping>
+				<mapping row="1" col="13">c.ddate</mapping>
+				<mapping row="1" col="15">c.sumCredit</mapping>
+				<mapping row="1" col="16">c.percent</mapping>
+				<mapping row="1" col="17">c.sumReward</mapping>
+			</section>
+			<loopbreakcondition>
+                <rowcheck offset="0"/>
+            </loopbreakcondition>
+		</loop>
+	</worksheet>
+</workbook>       

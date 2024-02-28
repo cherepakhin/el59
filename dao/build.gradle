@@ -1,0 +1,95 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.18' apply false // "apply false" this is LIBRARY! not running
+	id 'java'
+	id 'maven-publish'
+}
+
+group = 'ru.perm.v.el59_office'
+version = '0.0.1'
+
+java {
+	sourceCompatibility = '11'
+	withJavadocJar()
+	withSourcesJar()
+}
+
+jar {
+	enabled = true
+	archiveClassifier = '' //change PLAIN to empty string
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	maven {
+		url = "http://v.perm.ru:8082/repository/ru.perm.v/"
+		allowInsecureProtocol = true
+		credentials {
+			username = "admin"
+			password = "pass"
+		}
+	}
+}
+
+dependencies {
+	implementation 'ru.perm.v.el59_office:ui:0.0.1'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			versionMapping {
+				usage('java-api') {
+					fromResolutionOf('runtimeClasspath')
+				}
+				usage('java-runtime') {
+					fromResolutionResult()
+				}
+			}
+			pom {
+				name = 'Library for Multi Module Project'
+				description = 'Description for el59_office'
+				url = 'https://github.com/cherepakhin/el59'
+				properties = [
+						myProp: "value",
+						"prop.with.dots": "anotherValue"
+				]
+				licenses {
+					license {
+						name = 'The Apache License, Version 2.0'
+						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+				developers {
+					developer {
+						id = 'vasi.che'
+						name = 'Vasili Cherepakhin'
+						email = 'vasi.che@gmail.com'
+					}
+				}
+				scm {
+					connection = 'scm:git:git://github.com/cherepakhin/el59_office.git'
+					developerConnection = 'scm:git:ssh://github.com/cherepakhin/el59_office.git'
+					url = 'https://github.com/cherepakhin/el59_office'
+				}
+			}
+		}
+	}
+	repositories {
+		maven {
+			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
+			allowInsecureProtocol = true
+			credentials {
+				username = 'admin'
+				password = 'pass'
+			}
+		}
+	}
+}

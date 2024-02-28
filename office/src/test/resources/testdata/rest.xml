@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbook>
+	<worksheet name="Лист1">
+		<section startRow="0" endRow="1">
+		</section>
+		<loop startRow="1" endRow="1" items="arrrestxls" var="rest"
+			varType="ru.el59.office.db.RestXls">
+			<section startRow="1" endRow="1">
+				<mapping row="1" col="0">rest.nnum</mapping>
+				<mapping row="1" col="1">rest.name</mapping>
+				<mapping row="1" col="2">rest.qty</mapping>
+				<mapping row="1" col="3">rest.cena</mapping>
+			</section>
+			<loopbreakcondition>
+				<rowcheck offset="0">
+				 <cellcheck offset="1"></cellcheck>
+				</rowcheck>
+			</loopbreakcondition>
+		</loop>
+	</worksheet>
+</workbook>

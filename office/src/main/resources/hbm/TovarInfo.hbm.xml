@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.TovarInfo" table="tovarinfo">
+		<id name="nnum" column="nnum" type="java.lang.Integer" />
+   		<many-to-one 
+			name="tovar" 
+			class="ru.el59.office.db.Tovar"
+			column="tovar_nnum"
+			not-null="true"
+			lazy="proxy"
+			fetch="join"
+		/>
+		<property name="info" column="info" type="java.lang.String" length="4096"/>
+		<property name="dateChanged" column="dateChanged" type="java.sql.Date" />
+		<property name="qtyPhoto" column="qtyPhoto" type="java.lang.Integer"/>
+		<property name="qtyFeatures" column="qtyFeatures" type="java.lang.Integer"/>
+		<property name="qtyFeaturesAnnot" column="qtyFeaturesAnnot" type="java.lang.Integer"/>
+		<property name="qtyMainFeature" column="qtyMainFeature" type="java.lang.Integer"/>
+		<property name="qtyErrMainFeature" column="qtyErrMainFeature" type="java.lang.Integer"/>
+		<property name="link" column="link" type="java.lang.String"/>
+   		<many-to-one 
+			name="manager" 
+			class="ru.el59.office.db.Manager"
+			column="manager_n"
+			not-null="true"
+			lazy="proxy"
+			fetch="join"
+		/>
+		<property name="isDublicate" column="isdouble" type="java.lang.Boolean"/>
+		<list name="listFeaturePrice" table="tovarinfo_listFeaturePrice" inverse="false" lazy="false">
+            <key column="tovarinfo_nnum" />
+ 			 <list-index column="position" base="1"/>
+ 			<composite-element class="ru.el59.office.db.FeaturePrice">
+ 				<parent name="tovarInfo"/>
+				<property name="name" column="name" type="java.lang.String"/>
+				<property name="val" column="val" type="java.lang.String" length="4096"/>
+				<property name="code" column="code" type="java.lang.String"/>
+ 			</composite-element>
+		</list>
+		<list name="listFeature" table="tovarinfo_listFeature" inverse="false" lazy="false" cascade="all">
+            <key column="tovarinfo_nnum" />
+ 			 <list-index column="position" base="1"/>
+ 			<composite-element class="ru.el59.office.db.Feature">
+<!-- 				<property name="n"  type="java.lang.Long">
+					<column name="n" default="1"/>
+				</property> -->
+				<property name="name" column="name" type="java.lang.String" />
+				<property name="oldname" column="oldname" type="java.lang.String" />
+				<property name="val" column="val" type="java.lang.String" length="4096"/>
+				<property name="oldval" column="oldval" type="java.lang.String" length="4096"/>
+				<property name="grp" column="grp" type="java.lang.String" length="4096"/>
+				<property name="prmry" column="prmry" type="java.lang.Boolean" />
+				<property name="positionPrmry" column="positionprmry" type="java.lang.Integer" />
+ 			</composite-element>
+		</list>
+		<list name="listPhoto" table="tovarinfo_listPhoto" inverse="false" >
+            <key column="tovarinfo_nnum" />
+ 			 <list-index column="position" base="1"/>
+ 			<composite-element class="ru.el59.office.db.Photo">
+ 				<parent name="tovarInfo"/>
+				<property name="name" column="name" type="java.lang.String"/>
+				<property name="path" column="path" type="java.lang.String"/>
+				<property name="ord" column="ord" type="java.lang.Integer" />
+				<property name="ddate" column="ddate" type="java.sql.Date" />
+   				<many-to-one 
+					name="manager" 
+					class="ru.el59.office.db.Manager"
+					column="manager_n"
+					lazy="proxy"
+					fetch="join"
+				/>
+ 			</composite-element>
+		</list>
+		<list name="units" table="tovarinfo_units" inverse="false" >
+            <key column="tovarinfo_nnum" />
+ 			 <list-index column="position" base="1"/>
+ 			<composite-element class="ru.el59.office.db.Units">
+ 				<parent name="tovarInfo"/>
+			<property name="lenght" column="lenght" type="java.math.BigDecimal" precision="19" scale="2"/>
+			<property name="height" column="height" type="java.math.BigDecimal" precision="19" scale="2"/>
+			<property name="width" column="width" type="java.math.BigDecimal" precision="19" scale="2"/>
+			<property name="weight" column="weight" type="java.math.BigDecimal" precision="19" scale="2"/>
+			<property name="weightNet" column="weightNet" type="java.math.BigDecimal" precision="19" scale="2"/>
+				<property name="isBase" column="isBase" type="java.lang.Boolean"/>
+ 			</composite-element>
+		</list>
+
+ 	</class>
+ 	
+</hibernate-mapping>

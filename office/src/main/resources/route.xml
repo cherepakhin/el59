@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+	<!-- <bean id="camelTracer" class="org.apache.camel.processor.interceptor.Tracer"> 
+		<property name="traceExceptions" value="false"/> <property name="traceInterceptors" 
+		value="true"/> <property name="logLevel" value="ERROR"/> <property name="logName" 
+		value="elweb.jms"/> </bean> -->
+
+	<!-- <bean id="logger" class="org.apache.camel.processor.Logger"> </bean> -->
+
+	<!-- <bean id="protocolTagsPolicy" class="org.apache.camel.routepolicy.quartz.CronScheduledRoutePolicy"> 
+		<property name="routeStartTime" value="0 50 15 * * ?" /> <property name="routeStopTime" 
+		value="1 50 15 * * ?" /> </bean> -->
+	<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+
+		<propertyPlaceholder id="properties"
+			location="classpath:jdbc.properties" />
+
+		<route>
+			<from uri="jms:queue:to_shop" />
+			<when>
+				<xpath>//shopCod = '07260'</xpath>
+				<to
+					uri="{{ftp}}/mqto07260?username={{ftp-user}}&amp;password={{ftp-password}}" />
+			</when>
+			<when>
+				<xpath>//shopCod = '07443'</xpath>
+				<to
+					uri="{{ftp}}/mqto07443?username={{ftp-user}}&amp;password={{ftp-password}}" />
+			</when>
+			<when>
+				<xpath>//shopCod = '07258'</xpath>
+				<to
+					uri="{{ftp}}/mqto07258?username={{ftp-user}}&amp;password={{ftp-password}}" />
+			</when>
+			<when>
+				<xpath>//shopCod = '07863'</xpath>
+				<to
+					uri="{{ftp}}/mqto07863?username={{ftp-user}}&amp;password={{ftp-password}}" />
+			</when>
+			<when>
+				<xpath>//className = 'BestTags'</xpath>
+				<to
+					uri="{{ftp}}/mqbesttag?username={{ftp-user}}&amp;password={{ftp-password}}" />
+			</when>
+			<when>
+				<xpath>//shopCod = '*'</xpath>
+				<multicast>
+					<to
+						uri="{{ftp}}/mqto07260?username={{ftp-user}}&amp;password={{ftp-password}}&amp;reconnectDelay=60000" />
+					<to
+						uri="{{ftp}}/mqto07443?username={{ftp-user}}&amp;password={{ftp-password}}&amp;reconnectDelay=60000" />
+					<to
+						uri="{{ftp}}/mqto07258?username={{ftp-user}}&amp;password={{ftp-password}}&amp;reconnectDelay=60000" />
+					<to
+						uri="{{ftp}}/mqto07863?username={{ftp-user}}&amp;password={{ftp-password}}&amp;reconnectDelay=1000" />
+					<to
+						uri="{{ftp}}/mq?username={{ftp-user}}&amp;password={{ftp-password}}&amp;reconnectDelay=60000" />
+					<to uri="file:c:/temp/?fileName=testfile.xml" />
+				</multicast>
+			</when>
+			<otherwise>
+			</otherwise>
+		</route>
+
+		<route>
+			<from uri="jms:queue:updateq" />
+			<bean ref="ConvertorFromOfficeDB" method="getXML" />
+			<to uri="jms:queue:to_shop" />
+		</route>
+
+		<route>
+			<from uri="jms:queue:fromshop" />
+			<when>
+				<xpath>//className = 'TovarCritery'</xpath>
+				<bean ref="ConvertorXmlTovar" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PayCash'</xpath>
+				<multicast>
+					<bean ref="ConvertorXmlPayCash" method="fromXmlToMessageEntity" />
+					<to
+						uri="{{ftp}}/mqmonitor?username={{ftp-user}}&amp;password={{ftp-password}}" />
+				</multicast>
+			</when>
+			<when>
+				<xpath>//className = 'PayCredit'</xpath>
+				<bean ref="ConvertorXmlPayCredit" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PaySert'</xpath>
+				<bean ref="ConvertorXmlPaySert" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PayBonusCard'</xpath>
+				<bean ref="ConvertorXmlPayBonusCard" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PayPBank'</xpath>
+				<bean ref="ConvertorXmlPayPBank" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PayPDS'</xpath>
+				<bean ref="ConvertorXmlPayPDS" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PayTerminal'</xpath>
+				<bean ref="ConvertorXmlPayTerminal" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PayPodCard'</xpath>
+				<bean ref="ConvertorXmlPayPodCard" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'PayPodCardEldorado'</xpath>
+				<bean ref="ConvertorXmlPayPodCardEldorado" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'DocTitle'</xpath>
+				<bean ref="ConvertorXmlDocTitle" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'DocDetail'</xpath>
+				<bean ref="ConvertorXmlDocDetail" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'SMS'</xpath>
+				<bean ref="ConvertorXmlSMS" method="fromXmlToMessageEntity" />
+			</when>
+			<when>
+				<xpath>//className = 'BestTags'</xpath>
+				<bean ref="ConvertorXmlBestTags" method="fromXmlToMessageEntity" />
+				<multicast>
+					<to uri="jms:queue:to_shop" />
+					<to uri="{{ftp}}/besttag?username={{ftp-user}}&amp;password={{ftp-password}}&amp;binary=false&amp;delay=60000&amp;delete=true&amp;reconnectDelay=60000" />
+				</multicast>
+			</when>
+			<otherwise>
+				<to uri="jms:queue:errorq" />
+			</otherwise>
+		</route>
+
+		<route>
+			<from
+				uri="{{ftp}}/mqfromshop?username={{ftp-user}}&amp;password={{ftp-password}}&amp;binary=false&amp;delay=60000&amp;delete=true&amp;reconnectDelay=60000&amp;sortBy=file:modified" />
+			<convertBodyTo type="java.lang.String" />
+			<to uri="jms:queue:fromshop" />
+		</route>
+
+		<!-- Получение выписок сайта -->
+		<route>
+			<from
+				uri="{{ftp}}/?username=wshop&amp;password=polpot&amp;binary=false&amp;delay=30000&amp;delete=true&amp;reconnectDelay=60000&amp;sortBy=file:modified" />
+			<convertBodyTo type="java.lang.String" />
+			<multicast>
+				<to uri="jms:queue:fromsite" />
+				<!-- <to uri="xmpp://el-shop@jabber.ru/el-wmanager@jabber.ru?password=bazilio"/> 
+					<to uri="xmpp://el-shop@jabber.ru/492316754@qip.ru?password=bazilio"/> -->
+				<to
+					uri="{{ftp}}/mqfromsite?username={{ftp-user}}&amp;password={{ftp-password}}&amp;binary=false&amp;delay=60000&amp;delete=true&amp;reconnectDelay=60000" />
+			</multicast>
+		</route>
+
+		<!-- Выгрузка каталога на сайт -->
+		<!-- <route> <from uri="quartz://myGroup/catalog?cron=0+01+03+*+*+?"/> 
+			<bean ref="uploaderForSite" method="getCatalog"/> <to uri="file:c:\\OfficeData\\photo\\?fileName=import.xml"/> 
+			</route> -->
+		<!-- Выгрузка остатков на сайт -->
+		<!-- <route> <from uri="quartz://myGroup/restweb?cron=0+04+03+*+*+?" /> 
+			<bean ref="uploaderForSite" method="getRest" /> <to uri="file:c:\\OfficeData\\photo\\?fileName=rest.csv" 
+			/> </route> -->
+		<route>
+			<from uri="jms:queue:fromsite" />
+			<bean ref="creatorFromXmlToDocW" method="toOrderDTO" />
+			<multicast>
+				<bean ref="creatorFromXmlToDocW" method="buildDocW" />
+				<bean ref="senderOrderWToShop" method="send" />
+			</multicast>
+		</route>
+
+		<!-- Выгрузка измененных групп -->
+		<route>
+			<from uri="quartz2://myGroup/changenn?cron=0+57+09+*+*+?" />
+			<bean ref="creatorChangeNN" method="process" />
+			<to
+				uri="{{ftp}}/tmp/data/?fileName=CHANGENN.DBF&amp;username={{ftp-user}}&amp;password={{ftp-password}}&amp;binary=true" />
+		</route>
+
+		<!-- Получение протокола ценников для перепечатки -->
+		<!-- по времени -->
+		<route id="protocolTags">
+			<from
+				uri="{{ftp}}/arc?username={{ftp-user}}&amp;password={{ftp-password}}&amp;binary=true&amp;delete=false&amp;sortBy=file:modified&amp;scheduler=spring&amp;scheduler.cron=00+44+8+*+*+?" />
+			<bean ref="protocolProcessor" method="process" />
+			<multicast>
+				<!-- Отправка протокола по почте -->
+				<bean ref="senderBestTags" method="process" />
+				<!-- Отправка сообщений через ftp для обновления db.shop -->
+				<bean ref="ConvertorBestTagsXml" method="process" />
+				<multicast>
+					<to uri="jms:queue:updateq" />
+				</multicast>
+			</multicast>
+		</route>
+
+
+		<!-- по наличию в каталоге. Событием для обработки является появление файла 
+			на ftp://besttag -->
+		<!-- <route id="protocolTagsCheckExist"> <from uri="{{ftp}}/besttag?username={{ftp-user}}&amp;password={{ftp-password}}&amp;binary=true&amp;delete=true&amp;sortBy=file:modified" 
+			/> <bean ref="protocolProcessor" method="process" /> <multicast> Делаю только 
+			обработку. В почту не посылаю <bean ref="senderBestTags" method="process" 
+			/> <bean ref="ConvertorBestTagsXml" method="process" /> <multicast> <to uri="jms:queue:updateq" 
+			/> </multicast> </multicast> </route> -->
+		<!-- Обнуление устареших локальных прайсов -->
+		<!-- <route> <from uri="quartz://myGroup/utilProcessor?cron=0+25+13+*+*+?"/> 
+			<bean ref="utilProcessor" method="setToZeroOldLocalPrice"/> </route> -->
+		<!-- Кляуза о несделанных заказах к инет-выпискам -->
+		<!-- <route> <from uri="quartz://myGroup/mailNotWebOrder?cron=0+25+13+*+*+?"/> 
+			<bean ref="utilProcessor" method="sendMessageOpenDocw"/> </route> -->
+
+		<!-- Формирование отчета реализации и отправка по почте -->
+		<route>
+			<from uri="quartz2://myGroup/realmove?cron=0+30+9+?+*+1" />
+			<bean ref="reportSender" method="sendRealWeek" />
+		</route>
+
+	</camelContext>
+</beans>

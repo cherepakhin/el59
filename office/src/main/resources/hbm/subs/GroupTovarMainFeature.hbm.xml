@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.subs.GroupTovarMainFeature" table="ftr_groupmainfeature">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+
+  		<many-to-one 
+			name="groupTovar" 
+			class="ru.el59.office.db.GroupTovar"
+			column="group_cod"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+
+		<list name="mainFeatures" table="ftr_mainfeature" inverse="false">
+            <key column="groupMainFeature_n" />
+ 			<list-index column="position" base="1"/>
+ 			<one-to-many class="ru.el59.office.db.subs.MainFeature"/>
+		</list>
+		
+	</class>
+</hibernate-mapping>

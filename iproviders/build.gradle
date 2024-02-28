@@ -1,0 +1,85 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.18' apply false // "apply false" this is LIBRARY! not running
+	id 'io.spring.dependency-management' version '1.1.4'
+	id 'java'
+	id 'maven-publish'
+}
+
+group = 'ru.perm.v.el59_office'
+version = '0.0.1'
+
+java {
+	sourceCompatibility = '11'
+	withSourcesJar()
+}
+
+jar {
+	enabled = true
+	archiveClassifier = '' //change PLAIN to empty string
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	maven {
+		url = "http://v.perm.ru:8082/repository/ru.perm.v"
+		allowInsecureProtocol = true
+		credentials {
+			username = "admin"
+			password = "pass"
+		}
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-test-autoconfigure:2.7.8'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.8'
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.8'
+
+	implementation 'org.apache.camel:camel-core:4.0.0'
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation  'commons-io:commons-io:2.15.1'
+// https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream
+	implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.20'
+
+//	Import module from THIS multi modules project
+	implementation 'ru.perm.v.el59_office:ui:0.0.1'
+	implementation 'ru.perm.v.el59_office:dto:0.0.1'
+	implementation 'ru.perm.v.el59_office:dao:0.0.1'
+	implementation 'ru.perm.v.el59_office:model:0.0.2'
+	implementation 'org.beanshell:bsh:2.0b5'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+			versionMapping {
+				usage('java-api') {
+					fromResolutionOf('runtimeClasspath')
+				}
+				usage('java-runtime') {
+					fromResolutionResult()
+				}
+			}
+		}
+	}
+	repositories {
+		maven {
+			url = 'http://v.perm.ru:8082/repository/ru.perm.v/'
+			allowInsecureProtocol = true
+			credentials {
+				username = 'admin'
+				password = 'pass'
+			}
+		}
+	}
+}

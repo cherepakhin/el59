@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.service.TDocToSC" table="TDocToSC">
+		<id name="n" column="n" type="java.lang.Long" />
+		<many-to-one 
+			name="tdoc" 
+			class="ru.el59.office.db.service.TDoc"
+			column="tdoc_n"
+			not-null="true"
+			
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="sc" column="sc" type="java.lang.String" />
+		<property name="nacl" column="nacl" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

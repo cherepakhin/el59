@@ -1,0 +1,800 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	   					   http://www.springframework.org/schema/tx
+	   					   http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+<!--
+	Сервисы 
+ -->
+
+<!-- 	<import resource="parser.xml"/> -->
+ 	
+ 	<bean name="typeDocService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="typeDocDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ITypeDocProvider" /> 
+  	</bean>
+ 	
+ 	<bean name="tovarService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="tovarDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ITovarProvider"/> 
+  	</bean>
+  	
+ 	<bean name="historyTovarService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="historyTovarDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IHistoryTovarProvider" /> 
+  	</bean>
+
+ 	<bean name="priceTypeService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="priceTypeDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IPriceTypeProvider" /> 
+  	</bean>
+  	
+ 	<bean name="priceService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="priceDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IPriceProvider" /> 
+  	</bean>
+  	
+ 	<bean name="historyPriceService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="historyPriceDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IHistoryPriceProvider" /> 
+  	</bean>
+
+ 	<bean name="formulaService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="formulaDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IFormulaProvider" /> 
+  	</bean>
+
+ 	<bean name="errService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="errDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IErrProvider" /> 
+  	</bean>
+
+ 	<bean name="typeErrService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="typeErrDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ITypeErrProvider" /> 
+  	</bean>
+
+ 	<bean name="restCurService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="restCurDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IRestCurProvider" /> 
+  	</bean>
+  	
+ 	<bean name="restService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="restDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IRestProvider" /> 
+  	</bean>
+  	
+  	<bean name="groupTovarService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="groupTovarDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IGroupTovarProvider" /> 
+  	</bean>
+  	
+  	<bean name="groupTService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="groupTDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IGroupTProvider" /> 
+  	</bean>
+  	
+  	<bean id="shopService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="shopDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IShopProvider" /> 
+  	</bean>
+  	
+  	<bean id="userShopService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="userShopDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IUserShopProvider" /> 
+  	</bean>
+  	
+  	<bean name="tdocService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="tdocDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.ITDocProvider" /> 
+  	</bean>
+  	
+  	<bean name="opGroupService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="opGroupDao" /> 
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IOpGroupProvider" /> 
+  	</bean>
+  	
+ 	<bean name="managerService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="managerDao" /> 
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IManagerProvider" /> 
+  	</bean>
+  	
+   	<bean name="moveService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="moveDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IMoveProvider" /> 
+  	</bean>
+   	
+
+<!--    	<bean name="moveService" class="org.springframework.remoting.caucho.HessianServiceExporter">
+  		<property name="service" ref="moveDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IMoveProvider" /> 
+  	</bean>
+ -->
+	<bean name="lowSaleService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="lowSaleDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ILowSaleProvider" /> 
+  	</bean>
+  	
+  	<bean name="complaintService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="complaintDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.IComplaintProvider" /> 
+  	</bean>
+  	
+  	<bean name="vneshVidService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="vneshVidDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.IVneshvidProvider" /> 
+  	</bean>
+  	
+  	<bean name="complectService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="complectDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.IComplectProvider" /> 
+  	</bean>
+  	
+  	<bean name="warrantyService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="warrantyDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.IWarrantyProvider" /> 
+  	</bean>
+  	
+  	<bean name="clientService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="clientDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.IClientProvider" /> 
+  	</bean>
+  	
+  	<bean name="loptService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="loptDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.ILOPTDao" /> 
+  	</bean>
+  	
+  	<bean name="controllerTDocService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="controllerTDoc" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.IControllerTDoc" /> 
+  	</bean>
+  	
+  	<bean name="typeTDocImageService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="typeTDocImageDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.ITypeTDocImageProvider" /> 
+  	</bean>
+  	
+  	<bean name="tdocImageService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="tdocImageDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.service.ITDocImageProvider" /> 
+  	</bean>
+  	
+  	<bean name="varService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="varDao" />
+  		<property name="serviceInterface" value="ru.el59.dao.IGenericDao" /> 
+  	</bean>
+  	
+  	<bean name="controllerZPService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="controllerZP" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.plan.IControllerZP" /> 
+  	</bean>
+  	
+  	<bean name="planService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="planDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.plan.IPlanProvider" /> 
+  	</bean>
+  	
+  	<bean name="userZPService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="userZPDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.plan.IUserZPProvider" /> 
+  	</bean>
+  	
+  	<bean name="bonusKService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="bonusKDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IBonuskProvider" /> 
+  	</bean>
+  	
+  	<bean name="diapazonKService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="diapazonKDao" />
+  		<property name="serviceInterface" value="ru.el59.dao.IGenericDao" /> 
+  	</bean>
+  	
+  	<bean name="dolgnostService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="dolgnostDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IDolgnostProvider" /> 
+  	</bean>
+  	
+  	<bean name="operationService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="operationDao" />
+  		<property name="serviceInterface" value="ru.el59.dao.IGenericDao" /> 
+  	</bean>
+  	
+  	<bean name="typeTabelService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="typeTabelDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.plan.ITypeTabelProvider" /> 
+  	</bean>
+  	
+  	<bean name="smenaService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="smenaDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.plan.ISmenaProvider" /> 
+  	</bean>
+  	
+  	<bean name="typeTabelValService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref="typeTabelValDao" />
+  		<property name="serviceInterface" value="ru.el59.dao.IGenericDao" /> 
+  	</bean>
+  	
+  	<bean id="tdocTabelService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="tdocTabelDao" />
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.plan.ITDocTabelProvider" /> 
+  	</bean>
+  	
+	<bean id="typeStockService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typeStockDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ITypeStockProvider" /> 
+  	</bean>
+  	
+	<bean id="openSessionInViewInterceptor" class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="singleSession" value="true"/>
+		<property name="flushModeName" value="FLUSH_AUTO"/>
+	</bean> 
+
+	<bean id="peopleCountService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="peopleCountDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IPeopleCountProvider" /> 
+  	</bean>
+  	
+  	
+	<bean id="docService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="docDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IDocProvider" /> 
+  	</bean>
+	
+	<bean id="docFileService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="docFileDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IDocFileProvider" /> 
+  	</bean>
+  	
+	<bean id="typeFileService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typeFileDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ITypeFileProvider" /> 
+  	</bean>
+
+	<bean id="typeDocStatusService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typeDocStatusDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ITypeDocStatusProvider" /> 
+  	</bean>
+  	
+	<bean id="docItemService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="docItemDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IDocItemProvider" /> 
+  	</bean>
+  	
+	<bean id="causeNoPayService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="causeNoPayDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ICauseNoPayProvider" /> 
+  	</bean>
+  	
+	<bean id="creditBankService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="creditBankDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ICreditBankProvider" /> 
+  	</bean>
+  	
+	<bean id="brandService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="brandDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IBrandProvider" /> 
+  	</bean>
+  	
+	<bean id="thingService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="thingDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IThingProvider" /> 
+  	</bean>
+  	
+	<bean id="contragentService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="contragentDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IContragentProvider" /> 
+  	</bean>
+  	
+  	<bean name="groupContragentService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="groupContragentDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IGroupContragentProvider" /> 
+  	</bean>
+  	
+  	<bean name="setTovarService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="setTovarDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ISetTovarProvider" /> 
+  	</bean>
+  	
+  	<bean name="analogService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="analogDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IAnalogProvider" /> 
+  	</bean>
+  	
+  	<bean name="setGroupTovarService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="setGroupTovarDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ISetGroupTovarProvider" /> 
+  	</bean>
+
+  	<bean name="fillerINSTAR" class="ru.el59.office.commerceml.FillerInstar">
+  		<property name="tovarInfoProvider" ref ="tovarInfoDao"/>
+  	</bean>
+
+  	<bean name="commerceMLCatalog" class="ru.el59.office.commerceml.CommerceMLCatalog" >
+  		<property name="varProvider" ref ="varDao"/>
+  		<property name="tovarInfoProvider" ref ="tovarInfoDao"/>
+  		<property name="tovarProvider" ref ="tovarDao"/>
+  		<property name="subsFeatureProvider" ref ="subsFeatureDao"/>
+  		<property name="fillerFeatures" ref ="fillerINSTAR"/>
+  	</bean>
+  	
+  	<bean name="commerceMLCatalogService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="commerceMLCatalog"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ICommerceMLCatalog" /> 
+  	</bean>
+
+  	<bean name="tovarInfoService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="tovarInfoDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ITovarInfoProvider" /> 
+  	</bean>
+  	
+  	<bean name="loaderMdocm" class="ru.el59.office.loaders.LoaderMdocm" >
+  		<property name="moveProvider" ref ="moveDao"/>
+  		<property name="operationProvider" ref ="operationDao"/>
+  		<property name="tovarProvider" ref ="tovarDao"/>
+  		<property name="typeStockProvider" ref ="typeStockDao"/>
+  		<property name="shopProvider" ref ="shopDao"/>
+  		<property name="historyTagProvider" ref ="historyTagDao"/>
+  		<property name="historyPriceProvider" ref ="historyPriceDao"/>
+  		<property name="nameReal" ref ="nameReal"/>
+  	</bean>
+  	
+  	<bean name="loaderMdocmService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="loaderMdocm"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.ILoaderMdocm" /> 
+  	</bean>
+  	
+<!-- W-магазин -->
+	<bean id="docWItemService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="docWItemDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.web.IDocWItemProvider" /> 
+  	</bean>
+	
+	<bean id="docWService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="docWDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.web.IDocWProvider" /> 
+  	</bean>
+  	
+	<bean id="commentDocWService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="commentDocWDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.web.ICommentDocWProvider" /> 
+  	</bean>
+	
+<!-- 	<bean id="routedocService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service">
+  			<ref bean="routedocDao"/>
+  		</property>
+  		<property name="serviceInterface" value="iproviders.routedoc.IRouteDocProvider" /> 
+  	</bean>
+ -->
+
+	<bean id="reestrDocService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="reestrDocDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IReestrDocProvider" /> 
+  	</bean>
+
+	<bean id="pathPageService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="pathPageDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IPathPageProvider" /> 
+  	</bean>
+
+	<bean id="routeJobService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="routeJobDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IRouteJobProvider" /> 
+  	</bean>
+
+	<bean id="templatePathPageService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="templatePathPageDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.ITemplatePathPageProvider" /> 
+  	</bean>
+
+	<bean id="machineService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="machineDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IMachineProvider" /> 
+  	</bean>
+
+	<bean id="dispatcherService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="dispatcherDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IDispatcherProvider" /> 
+  	</bean>
+
+	<bean id="driverService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="driverDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IDriverProvider" /> 
+  	</bean>
+
+	<bean id="supplierPriorityService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="supplierPriorityDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.ISupplierPriorityProvider" /> 
+  	</bean>
+
+	<bean id="planDownloadService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="planDownloadDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IPlanDownloadProvider" /> 
+  	</bean>
+
+	<bean id="planDownloadSumService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="planDownloadSumDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IPlanDownloadSumProvider" /> 
+  	</bean>
+
+	<bean id="procuratoryService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="procuratoryDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.routedoc.IProcuratoryProvider" /> 
+  	</bean>
+
+	<bean id="restSupplierService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="restSupplierDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IRestSupplierProvider" /> 
+  	</bean>
+  	
+	<bean id="restWebService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="restWebDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.web.IRestWebProvider" /> 
+  	</bean>
+
+	<bean id="subsFeatureService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="subsFeatureDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.web.ISubsFeatureProvider" /> 
+  	</bean>
+  	
+ 	<bean name="parserElService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="parserEl"/>
+		<property name="serviceInterface" value="ru.el59.office.iproviders.web.IParserEl"/>
+	</bean>
+
+	<bean id="parserControllerService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service">
+  			<ref bean="parserController"/>
+  		</property>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.web.IParserController" /> 
+  	</bean>
+
+<!-- Магазины -->	  	
+	<bean id="typeSertService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typeSertDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypeSertProvider" /> 
+  	</bean>
+  	
+	<bean id="typePriceService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typePriceDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypePriceProvider" /> 
+  	</bean>
+  	
+  	<bean name="typePDSService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="typePDSDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypePDSProvider" /> 
+  	</bean>
+  	
+	<bean id="typePaymentService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typePaymentDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypePaymentProvider" /> 
+  	</bean>
+
+  	<bean name="typeOperationService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="typeOperationDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypeOperationProvider" /> 
+  	</bean>
+  	
+	<bean id="typeDocStatusShopService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typeDocStatusShopDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypeDocStatusShopProvider" /> 
+  	</bean>
+  	
+	<bean id="typeDocShopService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="typeDocShopDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypeDocShopProvider" /> 
+  	</bean>
+  	
+  	<bean name="typeCashService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="typeCashDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITypeCashProvider" /> 
+  	</bean>
+  	
+  	<bean name="tovarBonusService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="tovarBonusDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ITovarBonusProvider" /> 
+  	</bean>
+  	
+  	<bean name="SMSService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="SMSDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.ISMSProvider" />
+  	</bean>
+
+  	<bean name="shopRightService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="shopRightDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IShopRightProvider" /> 
+  	</bean>
+  	
+  	<bean name="reasonService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="reasonDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IReasonProvider" /> 
+  	</bean>
+  	
+  	<bean name="podCardRangeService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="podCardRangeDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPodCardRangeProvider" /> 
+  	</bean>
+  	
+  	<bean name="podCardService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="podCardDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPodCardProvider" /> 
+  	</bean>
+  	
+  	<bean name="payTerminalService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="payTerminalDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPayTerminalProvider" /> 
+  	</bean>
+  	
+  	<bean name="paySertService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="paySertDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPaySertProvider" /> 
+  	</bean>
+  	
+  	<bean name="payPDSService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="payPDSDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPayPDSProvider" /> 
+  	</bean>
+  	
+  	<bean name="payPBankService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="payPBankDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPayPBankProvider" /> 
+  	</bean>
+  	
+  	<bean name="paymentService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="paymentDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPaymentProvider" /> 
+  	</bean>
+  	
+  	<bean name="payCreditService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="payCreditDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPayCreditProvider" /> 
+  	</bean>
+  	
+  	<bean name="payCashService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="payCashDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPayCashProvider" /> 
+  	</bean>
+  	
+  	<bean name="payBonusCardService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="payBonusCardDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IPayBonusCardProvider" /> 
+  	</bean>
+  	
+  	<bean name="expenseService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="expenseDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IExpenseProvider" /> 
+  	</bean>
+  	
+  	<bean name="docTitleService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="docTitleDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IDocTitleProvider" /> 
+  	</bean>
+
+  	<bean name="docDetailService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="docDetailDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IDocDetailProvider" /> 
+  	</bean>
+  	
+  	<bean name="discountService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="discountDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IDiscountProvider" /> 
+  	</bean>
+  	
+	<bean id="bankActionService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+		<property name="service" ref="bankActionDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IBankActionProvider" /> 
+  	</bean>
+  	
+  	<bean name="bonusCardService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="bonusCardDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IBonusCardProvider" /> 
+  	</bean>
+  	
+  	<bean name="emailerService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="emailer"/>
+  		<property name="serviceInterface" value="ru.el59.office.emailer.IEmailer" />
+  	</bean>
+
+  	<bean name="mainFeatureService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="mainFeatureDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.subs.IMainFeatureProvider" />
+  	</bean>
+
+  	<bean name="valFeatureService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="valFeatureDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.subs.IValFeatureProvider" />
+  	</bean>
+
+  	<bean name="correctionNameService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="correctionNameDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.subs.ICorrectionNameProvider" />
+  	</bean>
+
+  	<bean name="correctionValService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="correctionValDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.subs.ICorrectionValProvider" />
+  	</bean>
+
+  	<bean name="SMSSenderService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="SMSSenderThrowEmail"/>
+  		<property name="serviceInterface" value="ru.el59.office.util.ISMSSender" />
+  	</bean>
+
+  	<bean name="recognizerInvoiceService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="recognizerInvoice"/>
+  		<property name="serviceInterface" value="ru.el59.office.util.IRecognizerInvoice" />
+  	</bean>
+
+  	<bean name="uploaderForSiteService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="uploaderForSite"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.web.IUploaderForSite" />
+  	</bean>
+
+  	<bean name="rewardCreditService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="rewardCreditDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.shopmodel.IRewardCreditProvider" />
+  	</bean>
+
+  	<bean name="historyTagService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="historyTagDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.IHistoryTagProvider" />
+  	</bean>
+
+  	<bean name="linesService" class="org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter">
+  		<property name="service" ref ="linesDao"/>
+  		<property name="serviceInterface" value="ru.el59.office.iproviders.analise.ILinesProvider" />
+  	</bean>
+
+<!--
+	UrlMapping 
+ -->
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="openSessionInViewInterceptor"/>
+			</list>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="/typedoc.service">typeDocService</prop>
+				<prop key="/shop.service">shopService</prop>
+				<prop key="/tdoc.service">tdocService</prop>
+				<prop key="/tovar.service">tovarService</prop>
+				<prop key="/historytovar.service">historyTovarService</prop>
+				<prop key="/pricetype.service">priceTypeService</prop>
+				<prop key="/price.service">priceService</prop>
+				<prop key="/historyprice.service">historyPriceService</prop>
+				<prop key="/historytag.service">historyTagService</prop>
+				<prop key="/formula.service">formulaService</prop>
+				<prop key="/err.service">errService</prop>
+				<prop key="/typeerr.service">typeErrService</prop>
+				<prop key="/opgroup.service">opGroupService</prop>
+				<prop key="/manager.service">managerService</prop>
+				<prop key="/grouptovar.service">groupTovarService</prop>
+				<prop key="/groupt.service">groupTService</prop>
+				<prop key="/typestock.service">typeStockService</prop>
+				<prop key="/move.service">moveService</prop>
+<!--  				<prop key="/move.service.hessian">moveServiceHessian</prop> -->
+				<prop key="/lowsale.service">lowSaleService</prop>
+				<prop key="/complaint.service">complaintService</prop>
+				<prop key="/vneshvid.service">vneshVidService</prop>
+				<prop key="/complect.service">complectService</prop>
+				<prop key="/warranty.service">warrantyService</prop>
+				<prop key="/client.service">clientService</prop>
+				<prop key="/controllertdoc.service">controllerTDocService</prop>
+				<prop key="/typetdocimage.service">typeTDocImageService</prop>
+				<prop key="/tdocimage.service">tdocImageService</prop>
+				<prop key="/var.service">varService</prop>
+				<prop key="/lopt.service">loptService</prop>
+				<prop key="/controllerzp.service">controllerZPService</prop>
+				<prop key="/plan.service">planService</prop>
+				<prop key="/userzp.service">userZPService</prop>
+				<prop key="/bonusk.service">bonusKService</prop>
+				<prop key="/diapazonk.service">diapazonKService</prop>
+				<prop key="/dolgnost.service">dolgnostService</prop>
+				<prop key="/restcur.service">restCurService</prop>
+				<prop key="/typetabel.service">typeTabelService</prop>
+				<prop key="/smena.service">smenaService</prop>
+				<prop key="/typetabelval.service">typeTabelValService</prop>
+				<prop key="/rest.service">restService</prop>
+				<prop key="/operation.service">operationService</prop>
+				<prop key="/tdoctabel.service">tdocTabelService</prop>
+				<prop key="/usershop.service">userShopService</prop>
+				<prop key="/peoplecount.service">peopleCountService</prop>
+				<prop key="/doc.service">docService</prop>
+				<prop key="/docfile.service">docFileService</prop>
+				<prop key="/typefile.service">typeFileService</prop>
+				<prop key="/docitem.service">docItemService</prop>
+				<prop key="/typedocstatus.service">typeDocStatusService</prop>
+				<prop key="/causenopay.service">causeNoPayService</prop>
+				<prop key="/creditbank.service">creditBankService</prop>
+				<prop key="/bankaction.service">bankActionService</prop>
+				<prop key="/brand.service">brandService</prop>
+				<prop key="/thing.service">thingService</prop>
+				<prop key="/commander.service">commanderService</prop>
+				<prop key="/typedocshop.service">typeDocShopService</prop>
+				<prop key="/typepayment.service">typePaymentService</prop>
+				<prop key="/contragent.service">contragentService</prop>
+				<prop key="/typeprice.service">typePriceService</prop>
+				<prop key="/typedocstatusshop.service">typeDocStatusShopService</prop>
+				<prop key="/expense.service">expenseService</prop>
+				<prop key="/reason.service">reasonService</prop>
+				<prop key="/typecash.service">typeCashService</prop>
+				<prop key="/settovar.service">setTovarService</prop>
+				<prop key="/analog.service">analogService</prop>
+				<prop key="/setgrouptovar.service">setGroupTovarService</prop>
+				<prop key="/historytag.service">historyTagService</prop>
+<!-- Магазины -->
+				<prop key="/shop.doctitle.service">docTitleService</prop>
+				<prop key="/shop.docdetail.service">docDetailService</prop>
+				<prop key="/shop.payment.service">paymentService</prop>
+				<prop key="/shop.paycash.service">payCashService</prop>
+				<prop key="/shop.paycredit.service">payCreditService</prop>
+				<prop key="/shop.paybonuscard.service">payBonusCardService</prop>
+				<prop key="/shop.paypds.service">payPDSService</prop>
+				<prop key="/shop.paypbank.service">payPBankService</prop>
+				<prop key="/shop.paysert.service">paySertService</prop>
+				<prop key="/shop.payterminal.service">payTerminalService</prop>
+				<prop key="/shop.groupcontragent.service">groupContragentService</prop>
+				<prop key="/shop.discount.service">discountService</prop>
+				<prop key="/shop.typesert.service">typeSertService</prop>
+				<prop key="/shop.typepds.service">typePDSService</prop>
+				<prop key="/shop.tovarbonus.service">tovarBonusService</prop>
+				<prop key="/shop.bonuscard.service">bonusCardService</prop>
+				<prop key="/shop.podcard.service">podCardService</prop>
+				<prop key="/shop.podcardrange.service">podCardRangeService</prop>
+				<prop key="/shop.shopright.service">shopRightService</prop>
+				<prop key="/shop.typeoperation.service">typeOperationService</prop>
+<!-- Парсер -->				
+				<prop key="/parserel.service">parserElService</prop>
+				<prop key="/parsercontroller.service">parserControllerService</prop>
+				<prop key="/tovarinfo.service">tovarInfoService</prop>
+				<prop key="/loadermdocm.service">loaderMdocmService</prop>
+				<prop key="/commerceml.service">commerceMLCatalogService</prop>
+				<prop key="/subsfeature.service">subsFeatureService</prop>
+
+<!-- W-магазин -->
+				<prop key="/docw.service">docWService</prop>
+				<prop key="/docwitem.service">docWItemService</prop>
+				<prop key="/commentdocw.service">commentDocWService</prop>
+				<prop key="/restweb.service">restWebService</prop>
+				<prop key="/restsupplier.service">restSupplierService</prop>
+
+				<prop key="/templatepathpage.service">templatePathPageService</prop>
+				<prop key="/pathpage.service">pathPageService</prop>
+				<prop key="/dispatcher.service">dispatcherService</prop>
+				<prop key="/driver.service">driverService</prop>
+				<prop key="/machine.service">machineService</prop>
+				<prop key="/supplierpriority.service">supplierPriorityService</prop>
+				<prop key="/routejob.service">routeJobService</prop>
+
+				<prop key="/reestrdoc.service">reestrDocService</prop>
+				<prop key="/emailer.service">emailerService</prop>
+				<prop key="/plandownload.service">planDownloadService</prop>
+				<prop key="/plandownloadsum.service">planDownloadSumService</prop>
+				<prop key="/procuratory.service">procuratoryService</prop>
+				<prop key="/uploaderforsite.service">uploaderForSiteService</prop>
+
+<!-- Подстановка основных хар-к -->
+				<prop key="/mainfeature.service">mainFeatureService</prop>
+				<prop key="/valfeature.service">valFeatureService</prop>
+				<prop key="/correctionname.service">correctionNameService</prop>
+				<prop key="/correctionval.service">correctionValService</prop>
+<!-- Работа с SMS -->
+				<prop key="/smssender.service">SMSSenderService</prop>
+				<prop key="/sms.service">SMSService</prop>
+
+				<prop key="/recognizerinvoice.service">recognizerInvoiceService</prop>
+				<prop key="/rewardcredit.service">rewardCreditService</prop>
+
+				<prop key="/lines.service">linesService</prop>
+			</props>
+		</property>
+	</bean>
+</beans>	  

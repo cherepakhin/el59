@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.HistoryPrice" table="historyprice">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">historyprice_n_seq</param>
+			</generator>
+		</id>
+		<property name="ddatechange" column="ddatechange" type="java.sql.Date" />
+  		<many-to-one 
+			name="manager" 
+			class="ru.el59.office.db.Manager"
+			column="manager_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+  		<many-to-one 
+			name="tovar" 
+			class="ru.el59.office.db.Tovar"
+			column="tovar_nnum"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="priceType" 
+			class="ru.el59.office.db.PriceType"
+			column="pricetype_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="cena" type="java.math.BigDecimal" precision="19" scale="2"> 			
+			<column name="cena" default="0.00" />
+		</property>
+		<property name="newcena" type="java.math.BigDecimal" precision="19" scale="2"> 			
+			<column name="newcena" default="0.00" />
+		</property>
+	</class>
+</hibernate-mapping>
+

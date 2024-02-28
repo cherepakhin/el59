@@ -1,0 +1,224 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	ttp://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+<!--
+	Контроллер документов 
+ -->
+	<bean id="handlerTDoc" class="ru.el59.office.dao.impl.service.HandlerTDoc" abstract="true">
+		<property name="typeDocProvider" ref="typeDocDao" />
+		<property name="tdocProvider" ref="tdocDao" />
+	</bean>
+ 	
+	<bean id="controllerTDoc" class="ru.el59.office.dao.impl.service.ControllerTDoc"
+		p:typedocProvider-ref="typeDocDao"
+		p:tdocProvider-ref="tdocDao"
+		p:managerProvider-ref="managerDao"
+		p:loptProvider-ref="loptDao">
+		<property name="firstHandlers">
+			<list>
+				<ref bean="handlerTDocCallMaster"/>
+				<ref bean="handlerTDocSendToSC"/>
+				<ref bean="handlerTDocServicePDS"/>
+				<ref bean="handlerTDocToCustomer"/>
+			</list>
+		</property>
+		<property name="listHandler">
+			<list>
+				<ref bean="handlerTDocCallMaster"/>
+				<ref bean="handlerTDocOrder"/>
+				<ref bean="handlerTDocRequestManager"/>
+				<ref bean="handlerTDocSendToSC"/>
+				<ref bean="handlerTDocToSC"/>
+				<ref bean="handlerTDocReceiveFromSC"/>
+				<ref bean="handlerTDocAct"/>
+				<ref bean="handlerTDocToCustomer"/>
+				<ref bean="handlerTDocToShop"/>
+				<ref bean="handlerTDocFromSupplier"/>
+				<ref bean="handlerTDocToSupplier"/>
+				<ref bean="handlerTDocObmen"/>
+				<ref bean="handlerTDocStatementCustomer"/>
+				<ref bean="handlerTDocLOPT"/>
+				<ref bean="handlerTDocServicePDS"/>
+			</list>
+		</property>
+	</bean>
+ 
+ 	<bean name="handlerTDocCallMaster" class="ru.el59.office.dao.impl.service.HandlerTDocCallMaster" parent="handlerTDoc"
+ 		p:dao-ref="tdocCallMasterDao"
+ 		p:typeDocName="Вызов мастера">
+		<constructor-arg value="ru.el59.office.db.service.TDocCallMaster"/>
+		<property name="requestNotRepairAndPaid">
+			<list>
+				<ref bean="handlerTDocSendToSC"/>
+			</list>
+		</property>
+		<property name="requestNotRepairAndWarranty">
+			<list>
+				<ref bean="handlerTDocSendToSC"/>
+			</list>
+		</property>
+		<property name="requestRepairAndPaid">
+			<list>
+				<ref bean="handlerTDocOrder"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocOrder" class="ru.el59.office.dao.impl.service.HandlerTDocOrder" parent="handlerTDoc"
+		p:dao-ref="tdocOrderDao"
+		p:typeDocName="Счет за ремонт">
+		<constructor-arg value="ru.el59.office.db.service.TDocOrder"/>
+		<property name="requestAfterMaster">
+			<list>
+				<ref bean="handlerTDocRequestManager"/>
+			</list>
+		</property>
+		<property name="requestAfterSC">
+			<list>
+				<ref bean="handlerTDocToCustomer"/>
+				<ref bean="handlerTDocToShop"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocRequestManager" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocRequestManagerDao"
+		p:typeDocName="Согласование">
+		<constructor-arg value="ru.el59.office.db.service.TDocRequestManager"/>
+		<property name="requestNextTDoc">
+			<list>
+				<ref bean="handlerTDocToCustomer"/>
+				<ref bean="handlerTDocToShop"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocSendToSC" class="ru.el59.office.dao.impl.service.HandlerTDocSendToSC" parent="handlerTDoc"
+		p:dao-ref="tdocSendToSCDao"
+		p:typeDocName="Отправка в СЦ">
+		<constructor-arg value="ru.el59.office.db.service.TDocSendToSC"/>
+		<property name="requestNextTDoc">
+			<list>
+				<ref bean="handlerTDocToSC"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocToSC" class="ru.el59.office.dao.impl.service.HandlerTDocToSC" parent="handlerTDoc"
+		p:dao-ref="tdocToSCDao"
+		p:typeDocName="Передача в ремонт СЦ">
+		<constructor-arg value="ru.el59.office.db.service.TDocToSC"/>
+		<property name="requestNextTDoc">
+			<list>
+				<ref bean="handlerTDocReceiveFromSC"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocReceiveFromSC" class="ru.el59.office.dao.impl.service.HandlerTDocRecieveFromSC" parent="handlerTDoc"
+		p:dao-ref="tdocReceiveFromSCDao"
+		p:typeDocName="Прием из ремонта">
+		<constructor-arg value="ru.el59.office.db.service.TDocReceiveFromSC"/>
+		<property name="requestNotRepair">
+			<list>
+				<ref bean="handlerTDocAct"/>
+			</list>
+		</property>
+		<property name="requestRepairAndPaid">
+			<list>
+				<ref bean="handlerTDocOrder"/>
+			</list>
+		</property>
+		<property name="requestRepairAndWarranty">
+			<list>
+				<ref bean="handlerTDocToCustomer"/>
+				<ref bean="handlerTDocToShop"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocAct" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocActDao"
+		p:typeDocName="Акт неремонтопригодности">
+		<constructor-arg value="ru.el59.office.db.service.TDocAct"/>
+		<property name="requestNextTDoc">
+			<list>
+				<ref bean="handlerTDocStatementCustomer"/>
+				<ref bean="handlerTDocToSupplier"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocToCustomer" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocToCustomerDao"
+		p:typeDocName="Доставка покупателю">
+		<constructor-arg value="ru.el59.office.db.service.TDocToCustomer"/>
+	</bean>
+
+	<bean name="handlerTDocServicePDS" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocServicePDSDao"
+		p:typeDocName="Обслуживание по ПДС">
+		<constructor-arg value="ru.el59.office.db.service.TDocServicePDS"/>
+	</bean>
+
+	<bean name="handlerTDocToShop" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocToShopDao"
+		p:typeDocName="Доставка в магазин">
+		<constructor-arg value="ru.el59.office.db.service.TDocToShop"/>
+		<property name="requestNextTDoc">
+			<list>
+				<ref bean="handlerTDocToCustomer"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocFromSupplier" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocFromSupplierDao"
+		p:typeDocName="Получение компенсации">
+		<constructor-arg value="ru.el59.office.db.service.TDocFromSupplier"/>
+	</bean>
+
+	<bean name="handlerTDocToSupplier" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocToSupplierDao"
+		p:typeDocName="Отправка документов на компенсацию">
+		<constructor-arg value="ru.el59.office.db.service.TDocToSupplier"/>
+		<property name="requestNextTDoc">
+			<list>
+				<ref bean="handlerTDocFromSupplier"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocObmen" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocObmenDao"
+		p:typeDocName="Обмен/Возврат денег">
+		<constructor-arg value="ru.el59.office.db.service.TDocObmen"/>
+	</bean>
+
+	<bean name="handlerTDocStatementCustomer" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="tdocStatementCustomerDao"
+		p:typeDocName="Заявление покупателя">
+		<constructor-arg value="ru.el59.office.db.service.TDocStatementCustomer"/>
+		<property name="requestNextTDoc">
+			<list>
+				<ref bean="handlerTDocObmen"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="handlerTDocLOPT" class="ru.el59.office.dao.impl.service.HandlerTDoc" parent="handlerTDoc"
+		p:dao-ref="loptDao"
+		p:typeDocName="Квитанция">
+		<constructor-arg value="ru.el59.office.db.service.LOPT"/>
+	</bean>
+</beans>

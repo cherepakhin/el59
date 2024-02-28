@@ -1,0 +1,1125 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	   					   http://www.springframework.org/schema/tx
+	   					   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<bean id="nameTypeFileOrder" class="java.lang.String">
+		<constructor-arg value="Заказ"/>
+	</bean>
+
+	<bean id="nnumBonusCard" class="java.lang.Integer">
+		<constructor-arg value="71049743"/>
+	</bean>
+
+	<bean id="nameTypeFileInvoice" class="java.lang.String">
+		<constructor-arg value="Счет"/>
+	</bean>
+
+	<bean id="nameReturnOpGroup" class="java.lang.String">
+		<constructor-arg value="Возвраты"/>
+	</bean>
+
+	<bean id="nameRealOpGroup" class="java.lang.String">
+		<constructor-arg value="Реализация"/>
+	</bean>
+
+	<bean id="nameReal" class="java.lang.String">
+		<constructor-arg value="Реализация"/>
+	</bean>
+
+	<bean id="namePrihod" class="java.lang.String">
+		<constructor-arg value="Приход"/>
+	</bean>
+
+	<bean id="nameTypeFileReceive" class="java.lang.String">
+		<constructor-arg value="Акт"/>
+	</bean>
+
+	<bean id="namePriceW" class="java.lang.String">
+		<constructor-arg value="Прайс W-магазина"/>
+	</bean>
+
+	<bean id="nameDefaultPrice" class="java.lang.String">
+		<constructor-arg value="Розничный"/>
+	</bean>
+
+	<bean id="dirforphoto" class="java.lang.String">
+		<constructor-arg value="/temp/parser"/>
+	</bean>
+
+	<bean id="genericDao" class="ru.el59.office.dao.impl.GenericDaoHibernateImpl" abstract="true">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="dolgnostDao" class="ru.el59.office.dao.impl.shopmodel.DolgnostProvider"
+		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.db.Dolgnost"/>
+	</bean>
+
+	<bean name="shopDao" class="ru.el59.office.dao.impl.ShopProvider"
+		p:commander-ref="commander"
+		p:nullShopCod="00000">
+		<constructor-arg value="ru.el59.office.db.Shop"/>
+	</bean>
+
+	<bean name="userShopDao" class="ru.el59.office.dao.impl.UserShopProvider"
+		p:commander-ref="commander"
+		p:shopProvider-ref="shopDao"
+		p:nNullUserShop="0">
+		<constructor-arg value="ru.el59.office.db.UserShop"/>
+	</bean>
+
+	<bean id="bonusKDao" class="ru.el59.office.dao.impl.BonusKProvider">
+		<constructor-arg value="ru.el59.office.db.BonusK"/>
+	</bean>
+
+	<bean id="varDao" class="ru.el59.office.dao.impl.VarProvider">
+		<constructor-arg value="ru.el59.office.db.Var"/>
+	</bean>
+
+	<bean id="groupTDao" class="ru.el59.office.dao.impl.GroupTProvider"
+		p:varProvider-ref="varDao"
+		p:tovarProvider-ref="tovarDao"
+		p:nameVarDirForPhoto="DirForPhoto">
+		<constructor-arg value="ru.el59.office.db.GroupT"/>
+	</bean>
+	
+	<bean id="groupTovarDao" class="ru.el59.office.dao.impl.GroupTovarProvider"
+		p:commander-ref="commander"
+		p:defaultNBonusK="3"
+		p:defaultGroup="1604000000">
+		<constructor-arg value="ru.el59.office.db.GroupTovar"/>
+	</bean>
+
+	<bean id="tovarDao" class="ru.el59.office.dao.impl.TovarProvider"
+		p:groupTovarProvider-ref="groupTovarDao"
+		p:managerProvider-ref="managerDao"
+		p:tovarInfoProvider-ref="tovarInfoDao"
+		p:restCurProvider-ref="restCurDao"
+		p:historyTovarProvider-ref="historyTovarDao"
+		p:luceneSearcher-ref="luceneSearcher"
+		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.db.Tovar"/>
+	</bean>
+
+ 	<bean id="managerDao" class="ru.el59.office.dao.impl.ManagerProvider">
+		<constructor-arg value="ru.el59.office.db.Manager"/>
+	</bean>
+
+	<bean id="historyTovarDao" class="ru.el59.office.dao.impl.HistoryTovarProvider"
+		p:tovarProvider-ref="tovarDao">
+		<constructor-arg value="ru.el59.office.db.HistoryTovar"/>
+	</bean>
+
+<!-- 	Подстановка основных хар-к -->
+
+	<bean id="correctionNameDao" class="ru.el59.office.dao.impl.subs.CorrectionNameProvider">
+		<constructor-arg value="ru.el59.office.db.subs.CorrectionName"/>
+	</bean>
+
+	<bean id="correctionValDao" class="ru.el59.office.dao.impl.subs.CorrectionValProvider">
+		<constructor-arg value="ru.el59.office.db.subs.CorrectionVal"/>
+	</bean>
+
+	<bean id="valFeatureDao" class="ru.el59.office.dao.impl.subs.ValFeatureProvider"
+		p:correctionValProvider-ref="correctionValDao">
+		<constructor-arg value="ru.el59.office.db.subs.ValFeature"/>
+	</bean>
+
+ 	<bean id="mainFeatureDao" class="ru.el59.office.dao.impl.subs.MainFeatureProvider"
+ 		p:correctionNameProvider-ref="correctionNameDao"
+ 		p:valFeatureProvider-ref="valFeatureDao"
+ 		p:groupTovarMainFeatureProvider-ref="groupTovarMainFeatureDao"
+ 		p:groupTovarProvider-ref="groupTovarDao"
+ 		p:featureOldProvider-ref="featureOldDao"
+ 		p:tovarInfoProvider-ref="tovarInfoDao">
+		<constructor-arg value="ru.el59.office.db.subs.MainFeature"/>
+	</bean>
+
+
+ 	<bean id="groupTovarMainFeatureDao" class="ru.el59.office.dao.impl.subs.GroupTovarMainFeatureProvider"
+ 		p:mainFeatureProvider-ref="mainFeatureDao"
+ 		p:groupTovarProvider-ref="groupTovarDao">
+		<constructor-arg value="ru.el59.office.db.subs.GroupTovarMainFeature"/>
+	</bean>
+
+	<bean id="featureOldDao" class="ru.el59.office.dao.impl.FeatureOldProvider">
+		<constructor-arg value="ru.el59.office.db.FeatureOld"/>
+	</bean>
+
+ 	<bean id="tovarInfoDao" class="ru.el59.office.dao.impl.TovarInfoProvider"
+ 		p:tovarProvider-ref="tovarDao"
+ 		p:restWebProvider-ref="restWebDao"
+ 		p:managerProvider-ref="managerDao"
+ 		p:mainFeatureProvider-ref="mainFeatureDao"
+ 		p:groupTovarMainFeatureProvider-ref="groupTovarMainFeatureDao"
+ 		p:mapper-ref="mapperGood"
+ 		p:varProvider-ref="varDao"
+ 		p:nameVarDirForPhoto="DirForPhoto"
+ 		p:defaultDirForPhoto-ref="dirforphoto"
+ 		p:exporterToCommerceML-ref="exporterCommerceML"
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.db.TovarInfo"/>
+	</bean>
+
+	<bean id="restWebDao" class="ru.el59.office.dao.impl.web.RestWebProvider"
+		p:tovarProvider-ref="tovarDao"
+		p:shopProvider-ref="shopDao"
+		p:setTovarProvider-ref="setTovarDao"
+		p:priceProvider-ref="priceDao"
+		p:nameSetForDeleteFromSite="Удалить с сайта">
+		<constructor-arg value="ru.el59.office.db.web.RestWeb"/>
+		<property name="listBlackWord">
+			<list>
+				<value>*</value>
+				<value>не исп</value>
+			</list>
+		</property>
+		<property name="maxResultLeaderSale" value="10" />
+		<property name="codeOperSale" value="43" />
+		<property name="categoryLeaderSale">
+			<list>
+				<value>Пылесос%</value>
+				<value>%ел-р%</value>
+				<value>Ст.маш%</value>
+				<value>Хол-к%</value>
+				<value>Ноутбук%</value>
+				<value>%пл.%</value>
+				<value>СВЧ%</value>
+				<value>Планшет%</value>
+				<value>Ф-т%</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="contragentDao" class="ru.el59.office.dao.impl.ContragentProvider"
+		p:shopProvider-ref="shopDao"
+		p:groupContragentProvider-ref="groupContragentDao"
+		p:nameOrderW="Заказ для W-магазина"
+		p:nameGroupSupplier="Поставщики"
+		p:defaultGroupContragent="Розничный покупатель">
+		<constructor-arg value="ru.el59.office.db.Contragent"/>
+	</bean>
+
+	<bean id="groupContragentDao" class="ru.el59.office.dao.impl.GroupContragentProvider"
+		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.db.GroupContragent"/>
+	</bean>
+
+	<bean id="priceTypeDao" class="ru.el59.office.dao.impl.PriceTypeProvider"
+		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.db.PriceType"/>
+	</bean>
+
+	<bean id="analogDao" class="ru.el59.office.dao.impl.AnalogProvider"
+		p:tovarProvider-ref="tovarDao"
+		p:luceneSearcher-ref="luceneSearcher"
+		p:nullTovarNnum="10">
+		<constructor-arg value="ru.el59.office.db.Analog"/>
+	</bean>
+
+
+	<bean id="priceDao" class="ru.el59.office.dao.impl.PriceProvider"
+		p:tovarProvider-ref="tovarDao"
+		p:priceTypeProvider-ref="priceTypeDao"
+		p:restSupplierProvider-ref="restSupplierDao"
+		p:shopProvider-ref="shopDao"
+		p:managerProvider-ref="managerDao"
+		p:formulaProvider-ref="formulaDao"
+		p:nameDefaultPrice-ref="nameDefaultPrice"
+		p:namePriceW-ref="namePriceW"
+		p:commander-ref="commander"
+		p:defaultFormulaName="Для ценника">
+		<constructor-arg value="ru.el59.office.db.Price"/>
+	</bean>
+
+	<bean id="historyPriceDao" class="ru.el59.office.dao.impl.HistoryPriceProvider"
+		p:shopProvider-ref="shopDao">
+		<constructor-arg value="ru.el59.office.db.HistoryPrice"/>
+	</bean>
+
+	<bean id="restSupplierDao" class="ru.el59.office.dao.impl.RestSupplierProvider"
+		p:tovarProvider-ref="tovarDao"
+		p:contragentProvider-ref="contragentDao"
+		p:analogProvider-ref="analogDao"
+		p:restWebProvider-ref="restWebDao"
+		p:shopProvider-ref="shopDao"
+		p:priceProvider-ref="priceDao"
+		p:restCurProvider-ref="restCurDao">
+		<constructor-arg value="ru.el59.office.db.RestSupplier"/>
+	</bean>
+
+	<bean id="setTovarDao" class="ru.el59.office.dao.impl.SetTovarProvider"
+		p:commander-ref="commander"
+		p:tovarProvider-ref="tovarDao">
+		<constructor-arg value="ru.el59.office.db.SetTovar"/>
+	</bean>
+
+	<bean id="formulaDao" class="ru.el59.office.dao.impl.FormulaProvider">
+		<constructor-arg value="ru.el59.office.db.Formula"/>
+	</bean>
+
+	<bean id="errDao" class="ru.el59.office.dao.impl.ErrProvider"
+		p:shopProvider-ref="shopDao"
+		p:defaultNameShop="Офис"
+		p:defaultTypeErr="Ошибка ПО">
+		<constructor-arg value="ru.el59.office.db.Err"/>
+	</bean>
+
+	<bean id="typeStockDao" class="ru.el59.office.dao.impl.TypeStockProvider">
+		<constructor-arg value="ru.el59.office.db.TypeStock"/>
+		<property name="commander" ref="commander" />
+	</bean>
+
+	<bean id="operationDao" class="ru.el59.office.dao.impl.OperationProvider">
+		<constructor-arg value="ru.el59.office.db.Operation"/>
+	</bean>
+
+	<bean id="opGroupDao" class="ru.el59.office.dao.impl.OpGroupProvider">
+		<constructor-arg value="ru.el59.office.db.OpGroup"/>
+	</bean>
+
+	<bean id="setTypeStockDao" class="ru.el59.office.dao.impl.SetTypeStockProvider">
+		<constructor-arg value="ru.el59.office.db.SetTypeStock"/>
+	</bean>
+
+	<bean id="setGroupTovarDao" class="ru.el59.office.dao.impl.SetGroupTovarProvider"
+		p:groupTovarProvider-ref="groupTovarDao">
+		<constructor-arg value="ru.el59.office.db.SetGroupTovar"/>
+	</bean>
+
+	<bean id="agentDao" class="ru.el59.office.dao.impl.AgentProvider">
+		<constructor-arg value="ru.el59.office.db.Agent"/>
+	</bean>
+
+	<bean id="moveDao" class="ru.el59.office.dao.impl.MoveProvider"
+		p:tovarprovider-ref="tovarDao"
+		p:shopprovider-ref="shopDao"
+		p:agentprovider-ref="agentDao"
+		p:operationprovider-ref="operationDao"
+		p:setgrouptovarprovider-ref="setGroupTovarDao"
+		p:groupTovarProvider-ref="groupTovarDao"
+		p:settypestockprovider-ref="setTypeStockDao"
+		p:restProvider-ref="restDao"
+		p:setTovarProvider-ref="setTovarDao"
+		p:typePDSProvider-ref="typePDSDao"
+		p:nameReal-ref="nameReal"
+		p:namePrihod-ref="namePrihod"
+		p:nnumBonusCard-ref="nnumBonusCard">
+		
+		<constructor-arg value="ru.el59.office.db.Move"/>
+		<property name="competitionNameOpGroup">
+			<list>
+				<ref bean="nameReal"/>
+			</list>
+		</property>
+		<property name="competitionNameTovar" value="%philips%"/>
+		<property name="competitionCodGroupTovar">
+			<list>
+<value>0304000000</value>
+<value>0304020000</value>
+<value>0304030000</value>
+<value>0304040000</value>
+<value>0304050000</value>
+<value>0304060000</value>
+<value>0304070000</value>
+<value>0304080000</value>
+<value>0304090000</value>
+<value>0304100000</value>
+<value>0304110000</value>
+<value>0304120000</value>
+<value>0304130000</value>
+<value>0304140000</value>
+<value>0304150000</value>
+<value>0304160000</value>
+<value>0304170000</value>
+<value>0304180000</value>
+<value>0304190000</value>
+<value>0304200000</value>
+<value>0304210000</value>
+<value>0304220000</value>
+<value>0304230000</value>
+<value>0304240000</value>
+<value>0304250000</value>
+<value>0304260000</value>
+<value>0304270000</value>
+<value>0204000000</value>
+<value>0205000000</value>
+<value>0206000000</value>
+<value>0210000000</value>
+<value>0210020000</value>
+<value>0210030000</value>
+<value>0210040000</value>
+<value>0502000000</value>
+<value>0502020000</value>
+<value>0502030000</value>
+<value>0502040000</value>
+<value>0502050000</value>
+<value>0502060000</value>
+<value>0502070000</value>
+<value>0502080000</value>
+<value>0502090000</value>
+<value>0503000000</value>
+<value>0503020000</value>
+<value>0503030000</value>
+<value>0503040000</value>
+<value>0503050000</value>
+<value>0503060000</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="restCurDao" class="ru.el59.office.dao.impl.RestCurProvider"
+		p:typeStockProvider-ref="typeStockDao"
+		p:shopProvider-ref="shopDao"
+		p:tovarProvider-ref="tovarDao"
+		p:priceProvider-ref="priceDao"
+		p:setTypeStockProvider-ref="setTypeStockDao">
+		<constructor-arg value="ru.el59.office.db.RestCur"/>
+	</bean>
+
+	<bean id="restDao" class="ru.el59.office.dao.impl.RestProvider" 
+		p:tovarProvider-ref="tovarDao"
+		p:restCurProvider-ref="restCurDao">
+		<constructor-arg value="ru.el59.office.db.Rest"/>
+	</bean>
+
+	<bean id="typeDocDao" class="ru.el59.office.dao.impl.TypeDocProvider">
+		<constructor-arg value="ru.el59.office.db.TypeDoc"/>
+	</bean>
+
+	<bean id="typeErrDao" class="ru.el59.office.dao.impl.TypeErrProvider">
+		<constructor-arg value="ru.el59.office.db.TypeErr"/>
+	</bean>
+	
+<!-- Сервис -->
+	<bean id="typeTDocImageDao" class="ru.el59.office.dao.impl.service.TypeTDocImageProvider">
+		<constructor-arg value="ru.el59.office.db.service.TypeTDocImage"/>
+	</bean>
+
+ 	<bean id="tdocImageDao" class="ru.el59.office.dao.impl.service.TDocImageProvider"
+ 		p:dirForDoc="${dirForDoc}">
+		<constructor-arg value="ru.el59.office.db.service.TDocImage"/>
+		
+	</bean>
+
+ 	<bean id="tdocDao" class="ru.el59.office.dao.impl.service.TDocProvider">
+		<constructor-arg value="ru.el59.office.db.service.TDoc"/>
+	</bean>
+
+	<bean id="tdocCallMasterDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocCallMaster"/>
+	</bean>
+
+	<bean id="tdocSendToSCDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocSendToSC"/>
+	</bean>
+
+	<bean id="tdocOrderDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocOrder"/>
+	</bean>
+
+	<bean id="tdocRequestManagerDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocRequestManager"/>
+	</bean>
+
+	<bean id="tdocToSCDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocToSC"/>
+	</bean>
+
+	<bean id="tdocReceiveFromSCDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocReceiveFromSC"/>
+	</bean>
+
+	<bean id="tdocActDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocAct"/>
+	</bean>
+
+	<bean id="tdocToCustomerDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocToCustomer"/>
+	</bean>
+
+	<bean id="tdocServicePDSDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocServicePDS"/>
+	</bean>
+
+	<bean id="tdocStatementCustomerDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocStatementCustomer"/>
+	</bean>
+
+	<bean id="tdocToShopDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocToShop"/>
+	</bean>
+
+	<bean id="tdocObmenDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocObmen"/>
+	</bean>
+
+	<bean id="tdocFromSupplierDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocFromSupplier"/>
+	</bean>
+
+	<bean id="tdocToSupplierDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.service.TDocToSupplier"/>
+	</bean>
+
+	<bean id="complaintDao" class="ru.el59.office.dao.impl.service.ComplaintProvider">
+		<constructor-arg value="ru.el59.office.db.service.Complaint"/>
+	</bean>
+
+	<bean id="vneshVidDao" class="ru.el59.office.dao.impl.service.VneshVidProvider">
+		<constructor-arg value="ru.el59.office.db.service.VneshVid"/>
+	</bean>
+	
+	<bean id="complectDao" class="ru.el59.office.dao.impl.service.ComplectProvider">
+		<constructor-arg value="ru.el59.office.db.service.Complect"/>
+	</bean>
+
+	<bean id="warrantyDao" class="ru.el59.office.dao.impl.service.WarrantyProvider">
+		<constructor-arg value="ru.el59.office.db.service.Warranty"/>
+	</bean>
+
+	<bean id="clientDao" class="ru.el59.office.dao.impl.service.ClientProvider">
+		<constructor-arg value="ru.el59.office.db.service.Client"/>
+	</bean>
+
+	<bean id="diapazonKDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.DiapazonK"/>
+	</bean>
+
+	<bean id="loptDao" class="ru.el59.office.dao.impl.service.LOPTProvider"
+		p:contragentProvider-ref="contragentDao"
+		p:tdocProvider-ref="tdocDao"
+		p:typeDocProvider-ref="typeDocDao"
+		p:managerProvider-ref="managerDao">
+		<constructor-arg value="ru.el59.office.db.service.LOPT"/>
+	</bean>
+
+	<bean id="lowSaleDao" class="ru.el59.office.dao.impl.LowSaleProvider"
+		p:moveprovider-ref="moveDao"
+		p:opgroupprovider-ref="opGroupDao"
+		p:restprovider-ref="restDao"
+		p:shopprovider-ref="shopDao">
+	</bean>
+
+	<bean id="peopleCountDao" class="ru.el59.office.dao.impl.PeopleCountProvider">
+		<constructor-arg value="ru.el59.office.db.PeopleCount"/>
+	</bean>
+	
+<!-- 	Планы и зп -->
+
+	<bean id="planDao" class="ru.el59.office.dao.impl.plan.PlanProvider"
+		p:shopProvider-ref="shopDao"
+		p:opGroupProvider-ref="opGroupDao"
+		p:setTypeStockProvider-ref="setTypeStockDao"
+		p:nameRealOpGroup-ref="nameRealOpGroup"
+		p:nameReturnOpGroup-ref="nameReturnOpGroup"
+		p:moveProvider-ref="moveDao">
+		<constructor-arg value="ru.el59.office.db.plan.Plan"/>
+		<property name="excludeGroupTovarForAccPDS">
+			<list>
+				<value>Скутеры</value>
+				<value>Квадроциклы</value>
+				<value>Мопеды</value>
+				<value>Мотоциклы</value>
+				<value>Велосипеды</value>
+			</list>
+		</property>
+		<property name="excludeForSeller">
+			<list>
+				<value>Ургачев Н.А.</value>
+			</list>
+		</property>
+		<property name="excludeNnumFromZP">
+			<list>
+				<value>98210010</value>
+			</list>
+		</property>
+		
+	</bean>
+
+	<bean id="restForPlanDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.plan.RestForPlan"/>
+	</bean>
+
+	<bean id="typeTabelValDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.plan.TypeTabelVal"/>
+	</bean>
+
+	<bean id="typeTabelDao" class="ru.el59.office.dao.impl.plan.TypeTabelProvider">
+		<constructor-arg value="ru.el59.office.db.plan.TypeTabel"/>
+	</bean>
+
+	<bean id="smenaDao" class="ru.el59.office.dao.impl.plan.SmenaProvider">
+		<constructor-arg value="ru.el59.office.db.plan.Smena"/>
+	</bean>
+
+	<bean id="tabelDao" parent="genericDao">
+		<constructor-arg value="ru.el59.office.db.plan.Tabel"/>
+	</bean>
+
+	<bean id="userZPDao" class="ru.el59.office.dao.impl.plan.UserZPProvider">
+		<constructor-arg value="ru.el59.office.db.plan.UserZP"/>
+	</bean>
+
+	<bean id="tdocTabelDao" class="ru.el59.office.dao.impl.plan.TDocTabelProvider"
+		p:userZPProvider-ref="userZPDao"
+		p:typedocProvider-ref="typeDocDao"
+		p:tdocProvider-ref="tdocDao">
+		<constructor-arg value="ru.el59.office.db.plan.TDocTabel"/>
+	</bean>
+
+	<bean id="typeFileDao" class="ru.el59.office.dao.impl.TypeFileProvider">
+		<constructor-arg value="ru.el59.office.db.TypeFile"/>
+	</bean>
+
+	<bean id="typeDocStatusDao" class="ru.el59.office.dao.impl.TypeDocStatusProvider">
+		<constructor-arg value="ru.el59.office.db.TypeDocStatus"/>
+	</bean>
+
+	<bean id="causeNoPayDao" class="ru.el59.office.dao.impl.CauseNoPayProvider">
+		<constructor-arg value="ru.el59.office.db.CauseNoPay"/>
+	</bean>
+
+	<bean id="creditBankDao" class="ru.el59.office.dao.impl.CreditBankProvider"
+		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.db.CreditBank"/>
+	</bean>
+
+	<bean id="brandDao" class="ru.el59.office.dao.impl.BrandProvider">
+		<constructor-arg value="ru.el59.office.db.Brand"/>
+	</bean>
+
+	<bean id="thingDao" class="ru.el59.office.dao.impl.ThingProvider">
+		<constructor-arg value="ru.el59.office.db.Thing"/>
+	</bean>
+
+<!-- 	W-магазин -->
+	<bean id="exporterCommerceML" class="ru.el59.office.commerceml.ExporterToCommerceML"
+		p:groupTovarProvider-ref="groupTovarDao"
+		p:groupTProvider-ref="groupTDao"
+		p:thingProvider-ref="thingDao"
+		p:tovarInfoProvider-ref="tovarInfoDao"
+		p:nameXmlFile="import.xml"
+		p:nameZipFile="import.zip"
+		p:templateCatalog="tovarinfoxml.ftl">
+	</bean>
+
+<!-- Магазин -->
+
+ 	<bean id="shopRightDao" class="ru.el59.office.dao.impl.ShopRightProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.ShopRight"/>
+	</bean>
+
+	<bean id="typeDocShopDao" class="ru.el59.office.dao.impl.shopmodel.TypeDocShopProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypeDocShop"/>
+	</bean>
+
+	<bean id="typePaymentDao" class="ru.el59.office.dao.impl.shopmodel.TypePaymentProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypePayment"/>
+	</bean>
+
+	<bean id="discountDao" class="ru.el59.office.dao.impl.DiscountProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.Discount"/>
+	</bean>
+
+	<bean id="typeSertDao" class="ru.el59.office.dao.impl.shopmodel.TypeSertProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypeSert"/>
+	</bean>
+
+	<bean id="typeDocStatusShopDao" class="ru.el59.office.dao.impl.shopmodel.TypeDocStatusShopProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypeDocStatusShop"/>
+	</bean>
+
+	<bean id="expenseDao" class="ru.el59.office.dao.impl.shopmodel.ExpenseProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.Expense"/>
+	</bean>
+
+	<bean id="reasonDao" class="ru.el59.office.dao.impl.shopmodel.ReasonProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.Reason"/>
+		<property name="listRealReason">
+			<list>
+				<value>Реализация</value>
+				<value>Предоплата</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="typeCashDao" class="ru.el59.office.dao.impl.shopmodel.TypeCashProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypeCash"/>
+	</bean>
+
+	<bean id="typePDSDao" class="ru.el59.office.dao.impl.TypePDSProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypePDS"/>
+		<property name="listNnumPDS">
+			<list>
+				<value>98420001</value>
+				<value>98430001</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="typePriceDao" class="ru.el59.office.dao.impl.TypePriceProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypePrice"/>
+	</bean>
+
+	<bean id="bankActionDao" class="ru.el59.office.dao.impl.shopmodel.BankActionProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.BankAction"/>
+	</bean>
+
+	<bean id="bonusCardDao" class="ru.el59.office.dao.impl.shopmodel.BonusCardProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.BonusCard"/>
+	</bean>
+
+	<bean id="bonusCardMoveDao" class="ru.el59.office.dao.impl.shopmodel.BonusCardMoveProvider"
+		p:bonusCardProvider-ref="bonusCardDao"
+		p:docTitleProvider-ref="docTitleDao"
+		p:shopProvider-ref="shopDao">
+		<constructor-arg value="ru.el59.office.shopmodel.BonusCardMove"/>
+	</bean>
+
+	<bean id="tovarBonusDao" class="ru.el59.office.dao.impl.TovarBonusProvider" 
+ 		p:commander-ref="commander"
+ 		p:tovarProvider-ref="tovarDao">
+		<constructor-arg value="ru.el59.office.shopmodel.TovarBonus"/>
+	</bean>
+
+	<bean id="typeOperationDao" class="ru.el59.office.dao.impl.TypeOperationProvider" 
+ 		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.TypeOperation"/>
+	</bean>
+
+	<bean id="docDao" class="ru.el59.office.dao.impl.DocProvider"
+		p:shopProvider-ref="shopDao"
+		p:typeDocProvider-ref="typeDocDao"
+		p:contragentProvider-ref="contragentDao"
+		p:tovarProvider-ref="tovarDao"
+		p:docItemProvider-ref="docItemDao"
+		p:pathPageProvider-ref="pathPageDao"
+		p:planDownloadSumProvider-ref="planDownloadSumDao"
+		p:docWItemProvider-ref="docWItemDao"
+		p:managerProvider-ref="managerDao"
+		p:docFileProvider-ref="docFileDao"
+		p:typeFileProvider-ref="typeFileDao"
+		p:NET="Нет"
+		p:VIPISKA="Выписка"
+		p:ORDER="Счет"
+		p:nameTypeDocOrderSupplier="Заказ">
+		<constructor-arg value="ru.el59.office.db.Doc"/>
+	</bean>
+
+	<bean id="docFileDao" class="ru.el59.office.dao.impl.DocFileProvider"
+		p:dirForDoc="${dirForDoc}"
+		p:typeFileProvider-ref="typeFileDao"
+		p:tovarProvider-ref="tovarDao"
+		p:nameOrder-ref="nameTypeFileOrder"
+		p:nameInvoice-ref="nameTypeFileInvoice"
+		p:nameReceive-ref="nameTypeFileReceive"
+		p:emailer-ref="emailer"
+		p:reestrDocProvider-ref="reestrDocDao"
+		p:managerProvider-ref="managerDao">
+		<constructor-arg value="ru.el59.office.db.DocFile"/>
+	</bean>
+
+	<bean id="docItemDao" class="ru.el59.office.dao.impl.DocItemProvider">
+		<constructor-arg value="ru.el59.office.db.DocItem"/>
+		<property name="docProvider" ref="docDao" />
+		<property name="priceProvider" ref="priceDao" />
+		<property name="tovarProvider" ref="tovarDao" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
+		p:host="smtp.gmail.com"
+		p:port="587"
+		p:username="uk.el.robot@gmail.com"
+		p:password="PolPot67"
+		p:defaultEncoding="UTF-8">
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.userset">true</prop>
+				<prop key="mail.mime.charset">ISO-8859-1</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="emailer" class="ru.el59.office.util.Emailer"
+		p:mailSender-ref="mailSender"
+		p:fromAddress="uk.el.robot@gmail.com"
+		p:nameAddress="УК Эльдорадо"
+		p:controlMail="bam.1972@yandex.ru">
+	</bean>
+
+<!-- 	Путевые листы -->
+	<bean id="dispatcherDao" class="ru.el59.office.dao.impl.routedoc.DispatcherProvider"
+		p:nDefaultDispatcher="0">
+		<constructor-arg value="ru.el59.office.db.routedoc.Dispatcher"/>
+	</bean>
+
+	<bean id="driverDao" class="ru.el59.office.dao.impl.routedoc.DriverProvider"
+		p:nDefaultDriver="0">
+		<constructor-arg value="ru.el59.office.db.routedoc.Driver"/>
+	</bean>
+
+	<bean id="supplierPriorityDao" class="ru.el59.office.dao.impl.routedoc.SupplierPriorityProvider"
+		p:shopProvider-ref="shopDao">
+		<constructor-arg value="ru.el59.office.db.routedoc.SupplierPriority"/>
+	</bean>
+
+	<bean id="machineDao" class="ru.el59.office.dao.impl.routedoc.MachineProvider"
+		p:nDefaultMachine="0">
+		<constructor-arg value="ru.el59.office.db.routedoc.Machine"/>
+	</bean>
+
+	<bean id="routeJobDao" class="ru.el59.office.dao.impl.routedoc.RouteJobProvider">
+		<constructor-arg value="ru.el59.office.db.routedoc.RouteJob"/>
+	</bean>
+ 
+	<bean id="templatePathPageDao" class="ru.el59.office.dao.impl.routedoc.TemplatePathPageProvider"
+		p:machineProvider-ref="machineDao"
+		p:dispatcherProvider-ref="dispatcherDao"
+		p:driverProvider-ref="driverDao"
+		p:contragentProvider-ref="contragentDao">
+		<constructor-arg value="ru.el59.office.db.routedoc.TemplatePathPage"/>
+	</bean>
+
+	<bean id="routeJobComparator" class="ru.el59.office.dao.impl.routedoc.RouteJobComparator"
+		p:supplierPriorityProvider-ref="supplierPriorityDao">
+	</bean>
+
+	<bean id="pathPageDao" class="ru.el59.office.dao.impl.routedoc.PathPageProvider"
+		p:machineProvider-ref="machineDao"
+		p:dispatcherProvider-ref="dispatcherDao"
+		p:driverProvider-ref="driverDao"
+		p:docProvider-ref="docDao"
+		p:contragentProvider-ref="contragentDao"
+		p:routeJobProvider-ref="routeJobDao"
+		p:templatePathPageProvider-ref="templatePathPageDao"
+		p:routeJobComparator-ref="routeJobComparator">
+		<constructor-arg value="ru.el59.office.db.routedoc.PathPage"/>
+	</bean>
+
+	<bean id="podCardRangeDao" class="ru.el59.office.dao.impl.shopmodel.PodCardRangeProvider"
+		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.PodCardRange"/>
+	</bean>
+
+	<bean id="mapperGood" class="org.dozer.DozerBeanMapper">
+		<property name="mappingFiles">
+			<list>
+				<value>Good-TovarInfo-mapping.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="podCardDao" class="ru.el59.office.dao.impl.shopmodel.PodCardProvider"
+		p:commander-ref="commander">
+		<constructor-arg value="ru.el59.office.shopmodel.PodCard"/>
+	</bean>
+
+<!-- 	Документы заказов -->
+
+	<bean id="reestrDocDao" class="ru.el59.office.dao.impl.routedoc.ReestrDocProvider"
+		p:docFileProvider-ref="docFileDao"
+		p:managerProvider-ref="managerDao">
+		<constructor-arg value="ru.el59.office.db.routedoc.ReestrDoc"/>
+	</bean>
+
+	<bean id="planDownloadDao" class="ru.el59.office.dao.impl.routedoc.PlanDownloadProvider"
+		p:groupContragentProvider-ref="groupContragentDao"
+		p:shopProvider-ref="shopDao"
+		p:planDownloadSumProvider-ref="planDownloadSumDao"
+		p:pathPageProvider-ref="pathPageDao"
+		p:typeFileProvider-ref="typeFileDao"
+		p:nameEldorado="Эльдорадо"
+		>
+		<constructor-arg value="ru.el59.office.db.routedoc.PlanDownload"/>
+		<property name="listNameGroupContragent">
+			<list>
+				<value>Эльдорадо</value>
+				<value>Другие поставщики</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="planDownloadSumDao" class="ru.el59.office.dao.impl.routedoc.PlanDownloadSumProvider"
+		p:shopProvider-ref="shopDao"
+		p:planDownloadProvider-ref="planDownloadDao"
+		p:pathPageProvider-ref="pathPageDao"
+		p:typeFileProvider-ref="typeFileDao"
+		p:docProvider-ref="docDao"
+		p:nameTypeFileInvoice-ref="nameTypeFileInvoice"
+		p:nameTypeFileOrder-ref="nameTypeFileOrder"
+		p:nameTypeFileReceive-ref="nameTypeFileReceive"
+		p:emailer-ref="emailer"
+		>
+		<constructor-arg value="ru.el59.office.db.routedoc.PlanDownloadSum"/>
+	</bean>
+
+	<bean id="procuratoryDao" class="ru.el59.office.dao.impl.routedoc.ProcuratoryProvider"
+		p:defaultLimitationDays="10"
+		p:managerProvider-ref="managerDao">
+		<constructor-arg value="ru.el59.office.db.routedoc.Procuratory"/>
+	</bean>
+
+	<bean id="docTitleDao" class="ru.el59.office.dao.impl.shopmodel.DocTitleProvider"
+		p:contragentProvider-ref="contragentDao"
+		p:typeDocShopProvider-ref="typeDocShopDao"
+		p:typeDocStatusShopProvider-ref="typeDocStatusShopDao"
+		p:typeOperationProvider-ref="typeOperationDao"
+		p:typePriceProvider-ref="typePriceDao"
+		p:typeStockProvider-ref="typeStockDao"
+		p:usershopProvider-ref="userShopDao"
+		p:shopProvider-ref="shopDao"
+		p:docDetailProvider-ref="docDetailDao"
+		p:nameOrder="Выписка"
+		p:nameReal-ref="nameReal"
+		p:nameOrderW="Выписка W-магазина"
+		p:nameInInvoice="Приходная накладная"
+		p:nameOutInvoice="Расходная накладная"
+		p:numberNullDocTitle="0">
+		<constructor-arg value="ru.el59.office.shopmodel.DocTitle"/>
+	</bean>
+
+	<bean id="docDetailDao" class="ru.el59.office.dao.impl.shopmodel.DocDetailProvider"
+		p:typeStockProvider-ref="typeStockDao"
+		p:shopProvider-ref="shopDao"
+		p:docTitleProvider-ref="docTitleDao"
+		p:tovarProvider-ref="tovarDao"
+		p:typePDSProvider-ref="typePDSDao"
+		p:moveProvider-ref="moveDao"
+		p:operationProvider-ref="operationDao"
+		p:nnumBonusCard-ref="nnumBonusCard">
+		<constructor-arg value="ru.el59.office.shopmodel.DocDetail"/>
+	</bean>
+
+	<bean id="apaymentDao" class="ru.el59.office.dao.impl.shopmodel.APaymentProvider"
+		abstract="true"
+		p:docTitleProvider-ref="docTitleDao"
+		p:typeDocShopProvider-ref="typeDocShopDao"
+		p:typePaymentProvider-ref="typePaymentDao"
+		p:reasonProvider-ref="reasonDao"
+		p:shopProvider-ref="shopDao">
+	</bean>
+
+
+	<bean id="paymentDao" class="ru.el59.office.dao.impl.shopmodel.PaymentProvider"
+		parent="apaymentDao">
+		<constructor-arg value="ru.el59.office.shopmodel.Payment"/>
+	</bean>
+
+	<bean id="payCashDao" class="ru.el59.office.dao.impl.shopmodel.PayCashProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayCash"/>
+	</bean>
+
+	<bean id="payCreditDao" class="ru.el59.office.dao.impl.shopmodel.PayCreditProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayCredit"/>
+	</bean>
+
+	<bean id="payTerminalDao" class="ru.el59.office.dao.impl.shopmodel.PayTerminalProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayTerminal"/>
+	</bean>
+
+	<bean id="payPodCardDao" class="ru.el59.office.dao.impl.shopmodel.PayPodCardProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayPodCard"/>
+	</bean>
+
+	<bean id="payPodCardEldoradoDao" class="ru.el59.office.dao.impl.shopmodel.PayPodCardEldoradoProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayPodCardEldorado"/>
+	</bean>
+
+	<bean id="payBonusCardDao" class="ru.el59.office.dao.impl.shopmodel.PayBonusCardProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayBonusCard"/>
+	</bean>
+
+	<bean id="payPDSDao" class="ru.el59.office.dao.impl.shopmodel.PayPDSProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayPDS"/>
+	</bean>
+
+	<bean id="paySertDao" class="ru.el59.office.dao.impl.shopmodel.PaySertProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PaySert"/>
+	</bean>
+
+	<bean id="payPBankDao" class="ru.el59.office.dao.impl.shopmodel.PayPBankProvider">
+		<constructor-arg value="ru.el59.office.shopmodel.PayPBank"/>
+	</bean>
+
+<!-- 	W-магазин -->
+	<bean id="docWDao" class="ru.el59.office.dao.impl.web.DocWProvider"
+		p:commander-ref="commander"
+		p:shopProvider-ref="shopDao"
+		p:typeDocProvider-ref="typeDocDao"
+		p:typeDocShopProvider-ref="typeDocShopDao"
+		p:docTitleProvider-ref="docTitleDao"
+		p:tovarProvider-ref="tovarDao"
+		p:docWItemProvider-ref="docWItemDao"
+		p:docItemProvider-ref="docItemDao"
+		p:commentDocWProvider-ref="commentDocWDao"
+		p:paymentProvider-ref="paymentDao"
+		p:VIPISKA="Выписка">
+		<constructor-arg value="ru.el59.office.db.web.DocW"/>
+	</bean>
+
+	<bean id="docWItemDao" class="ru.el59.office.dao.impl.web.DocWItemProvider"
+		p:commander-ref="commander"
+		p:docWProvider-ref="docWDao"
+		p:tovarProvider-ref="tovarDao"
+		p:docItemProvider-ref="docItemDao"
+		p:docTitleProvider-ref="docTitleDao"
+		p:shopProvider-ref="shopDao">
+		<constructor-arg value="ru.el59.office.db.web.DocWItem"/>
+	</bean>
+
+	<bean id="commentDocWDao" class="ru.el59.office.dao.impl.web.CommentDocWProvider">
+		<constructor-arg value="ru.el59.office.db.web.CommentDocW"/>
+	</bean>
+
+	<bean id="subsFeatureDao" class="ru.el59.office.dao.impl.web.SubsFeatureProvider"
+		p:tovarInfoProvider-ref="tovarInfoDao">
+		<constructor-arg value="ru.el59.office.db.web.SubsFeature"/>
+	</bean>
+
+	<bean id="SMSDao" class="ru.el59.office.dao.impl.shopmodel.SMSProvider"
+		p:shopProvider-ref="shopDao">
+		<constructor-arg value="ru.el59.office.shopmodel.SMS"/>
+	</bean>
+
+	<bean id="SMSSender" class="ru.el59.office.util.SMSSender"
+		p:port="COM4"
+		p:bitrate="115200"
+		p:modem="ZTE"
+		p:pin="0000"
+		p:smsc="+79024780001">
+	</bean>
+	
+	<bean id="SMSSenderThrowEmail" class="ru.el59.office.util.SMSSenderThrowEmail"
+		p:login="ht740620055"
+		p:pass="VNVFvJ7v"
+		p:smsEmailGate="smtp_gate@bsms.tele2.ru;bob1970@yandex.ru"
+		p:emailer-ref="emailer"
+		>
+	</bean>
+
+	<bean id="recognizerInvoice" class="ru.el59.office.util.RecognizerInvoice"
+		p:analogProvider-ref="analogServiceClient"
+		p:docItemProvider-ref="docItemDao"
+		p:maxQtyThread="4"
+		p:minQtyTTovarByThread="4"
+		>
+	</bean>
+	
+	<bean name="analogServiceClient" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean"
+		p:serviceUrl="${analogService}"
+		p:serviceInterface="ru.el59.office.iproviders.IAnalogProvider"/>
+
+	<bean name="luceneSearcher" class="ru.el59.office.util.LuceneSearcher"
+		p:luceneIndexDir="${luceneDir}"
+		p:minLimit="0.0"
+		p:maxCountResult="20"/>
+	
+	<bean id="rewardCreditDao" class="ru.el59.office.dao.impl.shopmodel.RewardCreditProvider"
+		p:creditBankProvider-ref="creditBankDao"
+		p:shopProvider-ref="shopDao"
+		p:userShopProvider-ref="userShopDao"
+		p:commander-ref="commander"
+		p:fileNameTemplXls="${rewardTemplFile}"
+		>
+		<constructor-arg value="ru.el59.office.shopmodel.RewardCredit"/>
+	</bean>
+	
+	<bean id="historyTagDao" class="ru.el59.office.dao.impl.HistoryTagProvider">
+		<constructor-arg value="ru.el59.office.db.HistoryTag"/>
+	</bean>
+	
+	<bean id="calculatorZPMainTovar" class="ru.el59.office.dao.impl.plan.CalculatorZPMainTovar"/>
+	<bean id="calculatorZPAcc" class="ru.el59.office.dao.impl.plan.CalculatorZPAcc"/>
+	<bean id="calculatorZPMBT" class="ru.el59.office.dao.impl.plan.CalculatorZPMBT"/>
+	<bean id="calculatorZPProtection" class="ru.el59.office.dao.impl.plan.CalculatorZPProtection"/>
+
+	<bean id="controllerZP" class="ru.el59.office.dao.impl.plan.ControllerZP"
+		p:dolgnostProvider-ref="dolgnostDao"
+		p:moveProvider-ref="moveDao"
+		p:nameRealOpGroup-ref="nameReal"
+		p:nameReaturnOpGroup-ref="nameReturnOpGroup"
+		p:opGroupProvider-ref="opGroupDao"
+		p:planProvider-ref="planDao"
+		p:smenaProvider-ref="smenaDao"
+		p:tabelProvider-ref="tabelDao"
+		p:typeTabelProvider-ref="typeTabelDao"
+		p:userShopProvider-ref="userShopDao"
+		p:userZPProvider-ref="userZPDao">
+		<property name="mapCalculators">
+			<map>
+				<entry key="Основной товар" value-ref="calculatorZPMainTovar" />
+				<entry key="Основной товар(5-2)" value-ref="calculatorZPMBT" />
+				<entry key="ПДС" value-ref="calculatorZPProtection" />
+				<entry key="Аксы" value-ref="calculatorZPAcc" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="linesDao" class="ru.el59.office.dao.impl.analise.LinesProvider">
+		<constructor-arg value="ru.el59.office.db.analise.Lines"/>
+	</bean>
+
+	<!-- Генерация отчетов -->	
+
+	<bean id="excelReport" class="ru.el59.office.util.ExcelReport"/>
+	
+	<bean id="reportBuilder" class="ru.el59.office.report.ReportBuilder"
+		p:moveProvider-ref="moveDao"
+		p:excelReport-ref="excelReport"
+		p:nameReal-ref="nameRealOpGroup"
+		p:opGroupProvider-ref="opGroupDao"
+		p:realTemplReport="reports/movesimple.xls"
+	>
+		<property name="excludeNnums">
+			<list>
+				<value>71049743</value>
+				<value>98210010</value>
+				<value>98420001</value>
+				<value>98430001</value>
+			</list>
+		</property>
+	</bean>
+	
+
+	<bean id="reportSender" class="ru.el59.office.report.ReportSender"
+		p:emailer-ref="emailer"
+		p:lastCountDays="7"
+		p:reportBuilder-ref="reportBuilder"
+		p:shopProvider-ref="shopDao"
+	>
+		<property name="emailsForWeek">
+			<list>
+				<value>bob1970@yandex.ru</value>
+				<value>vasi.che@gmail.com</value>
+			</list>
+		</property>
+		<property name="shopCodsForWeekReport">
+			<list>
+				<value>07250</value>
+				<value>07863</value>
+			</list>
+		</property>
+	</bean>
+</beans>	   					

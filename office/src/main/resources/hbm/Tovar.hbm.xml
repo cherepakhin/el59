@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.Tovar" table="tovar">
+		<id name="nnum" column="nnum" type="java.lang.Integer" />
+  		<many-to-one 
+			name="group" 
+			class="ru.el59.office.db.GroupTovar"
+			column="group_cod"
+			not-null="true"
+
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="brand" column="brand" type="java.lang.String" />
+		<property name="thing" column="thing" type="java.lang.String" />
+		<property name="ed" column="ed" type="java.lang.String" />
+		<property name="category" column="category" type="java.lang.Integer" />
+		<property name="cena0" column="cena0" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="dateinsert" column="dateinsert" type="java.util.Date" />
+		<property name="dateChanged" column="dateChanged" type="java.util.Date" />
+		<property name="checked" column="checked" type="java.lang.Boolean" />
+		<property name="file" column="file" type="java.lang.String" />
+		<property name="cenainue" column="cenainue" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="comment" column="comment" type="java.lang.String" />
+		<property name="typetovar" column="typetovar" type="java.lang.Integer" />
+		<property name="cenainrub" column="cenainrub" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="parentnnum" column="parentnnum" type="java.lang.Integer" />
+		<property name="cenaSupplier" column="cenaSupplier" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="dateCenaSupplier" column="dateCenaSupplier" type="java.sql.Date" />
+		<property name="deleted" column="deleted" type="java.lang.Boolean" />
+  		<many-to-one 
+			name="manager" 
+			class="ru.el59.office.db.Manager"
+			column="manager_n"
+			not-null="true"
+			lazy="false" 
+			fetch="join"
+		/>
+		<property name="abc" column="abc" type="java.lang.String"/>
+		
+	</class>
+</hibernate-mapping>

@@ -12,7 +12,7 @@ public class BonusCardMoveDTO extends AEntityDTO {
    private String comment = "";
    private Boolean active = true;
    private Boolean deleted = false;
-   protected static String descriptionClass = "�������� �� ������";
+   protected static String descriptionClass = "BonusCardMoveDTO";
 
    public String getDescriptionClass() {
       return descriptionClass;

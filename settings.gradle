@@ -1,4 +1,8 @@
 rootProject.name = 'el59_office'
 
+include 'dao'
 include 'dto'
+include 'iproviders'
+include 'model'
 include 'office'
+include 'ui'

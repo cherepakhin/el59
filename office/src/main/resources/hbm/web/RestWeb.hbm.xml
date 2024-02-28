@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.web.RestWeb" table="restweb">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">restweb_n_seq</param>
+			</generator>
+		</id>
+   		<many-to-one 
+			name="tovar" 
+			class="ru.el59.office.db.Tovar"
+			column="tovar_nnum"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="contragent" 
+			class="ru.el59.office.db.Contragent"
+			column="contragent_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="qty" column="qty" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="cenaSupplier" column="cena" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="qtyDayDelivery" column="qtyDayDelivery" type="java.lang.Integer" />
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+	</class>
+</hibernate-mapping>

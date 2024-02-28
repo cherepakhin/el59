@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+<configuration>
+	<custom-converters> 
+      <converter type="ru.el59.office.dozer.converter.ConverterListTovarToListInteger" >
+        <class-a>ru.el59.office.db.Tovar</class-a>
+        <class-b>java.lang.Integer</class-b>
+      </converter>
+	</custom-converters>      
+</configuration>
+
+<mapping wildcard="false" date-format="yyyy.MM.dd">
+	<class-a>ru.el59.office.db.Tovar</class-a>
+	<class-b>ru.el59.office.dto.TovarDTO</class-b>
+	<field>
+		<a>nnum</a>
+		<b>nnum</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>brand</a>
+		<b>brand</b>
+	</field>
+	<field>
+		<a>thing</a>
+		<b>thing</b>
+	</field>
+	<field>
+		<a>category</a>
+		<b>category</b>
+	</field>
+	<field>
+		<a>annotation</a>
+		<b>annotation</b>
+	</field>
+	<field>
+		<a>group.cod</a>
+		<b>group</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" >
+	<class-a>ru.el59.office.shopmodel.BankAction</class-a>
+	<class-b>ru.el59.office.dto.BankActionDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>bank.name</a>
+		<b>bank</b>
+	</field>
+	<field>
+		<a>typeprices</a>
+		<b>typeprices</b>
+	</field>
+	<field>
+		<a>discounts</a>
+		<b>discounts</b>
+	</field>
+	<field>
+		<a>worked</a>
+		<b>worked</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" >
+	<class-a>ru.el59.office.shopmodel.TovarBonus</class-a>
+	<class-b>ru.el59.office.dto.TovarBonusDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>tovar.nnum</a>
+		<b>nnum</b>
+	</field>
+	<field>
+		<a>percent</a>
+		<b>percent</b>
+	</field>
+	<field>
+		<a>increase</a>
+		<b>increase</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" >
+	<class-a>ru.el59.office.db.SetTovar</class-a>
+	<class-b>ru.el59.office.dto.SetTovarDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field custom-converter="ru.el59.office.dozer.converter.ConverterListTovarToListInteger">
+		<a>tovars</a>
+		<b>tovars</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" >
+	<class-a>ru.el59.office.db.UserShop</class-a>
+	<class-b>ru.el59.office.dto.UserShopDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>dolgnost.name</a>
+		<b>dolgnost</b>
+	</field>
+	<field>
+		<a>worked</a>
+		<b>worked</b>
+	</field>
+	<field>
+		<a>namebest</a>
+		<b>namebest</b>
+	</field>
+	<field>
+		<a>password</a>
+		<b>password</b>
+	</field>
+</mapping>
+
+<mapping wildcard="true" date-format="yyyy.MM.dd">
+	<class-a>ru.el59.office.shopmodel.Discount</class-a>
+	<class-b>ru.el59.office.dto.DiscountDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>val</a>
+		<b>val</b>
+	</field>
+	<field>
+		<a>ondetail</a>
+		<b>ondetail</b>
+	</field>
+	<field>
+		<a>fromdate</a>
+		<b>fromdate</b>
+	</field>
+	<field>
+		<a>todate</a>
+		<b>todate</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" date-format="yyyy.MM.dd">
+	<class-a>ru.el59.office.shopmodel.BonusCard</class-a>
+	<class-b>ru.el59.office.dto.BonusCardDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>stroke</a>
+		<b>stroke</b>
+	</field>
+	<field>
+		<a>ddate</a>
+		<b>ddate</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" date-format="yyyy.MM.dd">
+	<class-a>ru.el59.office.shopmodel.PodCard</class-a>
+	<class-b>ru.el59.office.dto.PodCardDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>stroke</a>
+		<b>stroke</b>
+	</field>
+	<field>
+		<a>ddate</a>
+		<b>ddate</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" >
+	<class-a>ru.el59.office.db.Dolgnost</class-a>
+	<class-b>ru.el59.office.dto.DolgnostDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>tarif</a>
+		<b>tarif</b>
+	</field>
+	<field>
+		<a>listShopRight</a>
+		<b>listShopRight</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" >
+	<class-a>ru.el59.office.shopmodel.TypeOperation</class-a>
+	<class-b>ru.el59.office.dto.TypeOperationDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>worked</a>
+		<b>worked</b>
+	</field>
+	<field>
+		<a>typeDocShop.n</a>
+		<b>typeDocShop_n</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.dao.AEntity</class-a>
+	<class-b>ru.el59.office.dto.AEntityDTO</class-b>
+ 	<field>
+		<a>n</a>
+		<b>n</b>
+	</field> 
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.PayCash</class-a>
+	<class-b>ru.el59.office.dto.PayCashDTO</class-b>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.PayPodCard</class-a>
+	<class-b>ru.el59.office.dto.PayPodCardDTO</class-b>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.PayPodCardEldorado</class-a>
+	<class-b>ru.el59.office.dto.PayPodCardEldoradoDTO</class-b>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.PayCredit</class-a>
+	<class-b>ru.el59.office.dto.PayCreditDTO</class-b>
+ 	<field>
+		<a>bankAction</a>
+		<b>bankAction</b>
+	</field> 
+ 	<field>
+		<a>firstPay</a>
+		<b>firstPay</b>
+	</field> 
+ 	<field>
+		<a>summaCredit</a>
+		<b>summaCredit</b>
+	</field> 
+ 	<field>
+		<a>contract</a>
+		<b>contract</b>
+	</field> 
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.Payment</class-a>
+	<class-b>ru.el59.office.dto.PaymentDTO</class-b>
+ 	<field>
+		<a>typePayment</a>
+		<b>typepayment</b>
+	</field> 
+ 	<field>
+		<a>docTitle</a>
+		<b>doctitle</b>
+	</field> 
+ 	<field>
+		<a>summa</a>
+		<b>summa</b>
+	</field> 
+ 	<field>
+		<a>ddate</a>
+		<b>ddate</b>
+	</field> 
+ 	<field>
+		<a>ddatecreate</a>
+		<b>ddatecreate</b>
+	</field> 
+ 	<field>
+		<a>userShop</a>
+		<b>usershop</b>
+	</field> 
+ 	<field>
+		<a>contragent</a>
+		<b>contragent</b>
+	</field> 
+ 	<field>
+		<a>reason</a>
+		<b>reason</b>
+	</field> 
+ 	<field>
+		<a>expense</a>
+		<b>expense</b>
+	</field> 
+ 	<field>
+		<a>typeCash</a>
+		<b>typecash</b>
+	</field> 
+ 	<field>
+		<a>comment</a>
+		<b>comment</b>
+	</field> 
+ 	<field>
+		<a>k1</a>
+		<b>k1</b>
+	</field> 
+ 	<field>
+		<a>k2</a>
+		<b>k2</b>
+	</field> 
+ 	<field>
+		<a>deleted</a>
+		<b>deleted</b>
+	</field> 
+ 	<field>
+		<a>stornoPayment.n</a>
+		<b>stornoPayment</b>
+	</field> 
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.DocTitle</class-a>
+	<class-b>ru.el59.office.dto.DocTitleDTO</class-b>
+ 	<field>
+		<a>numdoc</a>
+		<b>numdoc</b>
+	</field> 
+ 	<field>
+		<a>ddate</a>
+		<b>ddate</b>
+	</field> 
+ 	<field>
+		<a>summain</a>
+		<b>summain</b>
+	</field> 
+ 	<field>
+		<a>summainold</a>
+		<b>summainold</b>
+	</field> 
+ 	<field>
+		<a>summaout</a>
+		<b>summaout</b>
+	</field> 
+ 	<field>
+		<a>typeDocShop</a>
+		<b>typedoc</b>
+	</field> 
+ 	<field>
+		<a>deleted</a>
+		<b>deleted</b>
+	</field> 
+ 	<field>
+		<a>userShop</a>
+		<b>usershop</b>
+	</field> 
+ 	<field>
+		<a>contragent</a>
+		<b>contragent</b>
+	</field> 
+ 	<field>
+		<a>typeStock</a>
+		<b>typeStock</b>
+	</field> 
+ 	<field>
+		<a>k1</a>
+		<b>k1</b>
+	</field> 
+ 	<field>
+		<a>k2</a>
+		<b>k2</b>
+	</field> 
+ 	<field>
+		<a>parent.n</a>
+		<b>parentn</b>
+	</field> 
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.TypeDocShop</class-a>
+	<class-b>ru.el59.office.dto.TypeDocDTO</class-b>
+ 	<field>
+		<a>znak</a>
+		<b>znak</b>
+	</field> 
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.TypeStock</class-a>
+	<class-b>ru.el59.office.dto.TypeStockDTO</class-b>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.Expense</class-a>
+	<class-b>ru.el59.office.dto.ExpenseDTO</class-b>
+	<field>
+		<a>znak</a>
+		<b>znak</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.Reason</class-a>
+	<class-b>ru.el59.office.dto.ReasonDTO</class-b>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.shopmodel.TypeCash</class-a>
+	<class-b>ru.el59.office.dto.TypeCashDTO</class-b>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.web.DocW</class-a>
+	<class-b>ru.el59.office.dto.DocWDTO</class-b>
+ 	<field>
+		<a>numdoc</a>
+		<b>numdoc</b>
+	</field> 
+ 	<field>
+		<a>shop.cod</a>
+		<b>shopCod</b>
+	</field> 
+ 	<field>
+		<a>ddate</a>
+		<b>ddate</b>
+	</field> 
+ 	<field>
+		<a>summa</a>
+		<b>summa</b>
+	</field> 
+ 	<field>
+		<a>typeDoc</a>
+		<b>typedoc</b>
+	</field> 
+ 	<field>
+		<a>contragent</a>
+		<b>contragent</b>
+	</field> 
+ 	<field>
+		<a>comment</a>
+		<b>comment</b>
+	</field> 
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.web.DocWItem</class-a>
+	<class-b>ru.el59.office.dto.DocWItemDTO</class-b>
+ 	<field>
+		<a>docw.numdoc</a>
+		<b>numdoc</b>
+	</field> 
+ 	<field>
+		<a>docw.shop.cod</a>
+		<b>shopCod</b>
+	</field> 
+ 	<field>
+		<a>tovar.nnum</a>
+		<b>nnum</b>
+	</field> 
+ 	<field>
+		<a>qty</a>
+		<b>qty</b>
+	</field> 
+ 	<field>
+		<a>summa</a>
+		<b>summa</b>
+	</field> 
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.PriceType</class-a>
+	<class-b>ru.el59.office.dto.PriceTypeDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>isBase</a>
+		<b>isBase</b>
+	</field>
+	<field>
+		<a>shop.cod</a>
+		<b>shopCod</b>
+	</field>
+	<field>
+		<a>priority</a>
+		<b>priority</b>
+	</field>
+	<field>
+		<a>mainPriceType.n</a>
+		<b>mainPriceType</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" date-format="yyyy.MM.dd">
+	<class-a>ru.el59.office.db.Price</class-a>
+	<class-b>ru.el59.office.dto.PriceDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>cena</a>
+		<b>cena</b>
+	</field>
+	<field>
+		<a>tovar.nnum</a>
+		<b>nnum</b>
+	</field>
+	<field>
+		<a>priceType.n</a>
+		<b>priceType</b>
+	</field>
+	<field>
+		<a>ddate</a>
+		<b>ddate</b>
+	</field>
+	<field>
+		<a>manager.name</a>
+		<b>manager</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.Feature</class-a>
+	<class-b>ru.el59.office.dto.FeatureDTO</class-b>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>val</a>
+		<b>val</b>
+	</field>
+	<field>
+		<a>grp</a>
+		<b>grp</b>
+	</field>
+	<field>
+		<a>prmry</a>
+		<b>prmry</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false">
+	<class-a>ru.el59.office.db.FeaturePrice</class-a>
+	<class-b>ru.el59.office.dto.FeaturePriceDTO</class-b>
+	<field>
+		<a>name</a>
+		<b>name</b>
+	</field>
+	<field>
+		<a>val</a>
+		<b>val</b>
+	</field>
+	<field>
+		<a>code</a>
+		<b>code</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" date-format="yyyy.MM.dd">
+	<class-a>ru.el59.office.db.TovarInfo</class-a>
+	<class-b>ru.el59.office.dto.TovarInfoDTO</class-b>
+	<field>
+		<a>nnum</a>
+		<b>nnum</b>
+	</field>
+	<field>
+		<a>listFeaturePrice</a>
+		<b>listFeaturePrice</b>
+	</field>
+	<field>
+		<a>listFeature</a>
+		<b>listFeature</b>
+	</field>
+	<field>
+		<a>info</a>
+		<b>info</b>
+	</field>
+	<field>
+		<a>dateChanged</a>
+		<b>dateChanged</b>
+	</field>
+</mapping>
+
+<mapping wildcard="false" date-format="yyyy.MM.dd">
+	<class-a>ru.el59.office.shopmodel.RewardCredit</class-a>
+	<class-b>ru.el59.office.dto.RewardCreditDTO</class-b>
+	<field>
+		<a>n</a>
+		<b>n</b>
+	</field>
+	<field>
+		<a>ddate</a>
+		<b>ddate</b>
+	</field>
+	<field>
+		<a>numberContract</a>
+		<b>numberContract</b>
+	</field>
+	<field>
+		<a>sumCredit</a>
+		<b>sumCredit</b>
+	</field>
+	<field>
+		<a>percent</a>
+		<b>percent</b>
+	</field>
+	<field>
+		<a>sumReward</a>
+		<b>sumReward</b>
+	</field>
+	<field>
+		<a>bank.n</a>
+		<b>bank_n</b>
+	</field>
+	<field>
+		<a>userShop.n</a>
+		<b>userShop_n</b>
+	</field>
+	<field>
+		<a>shop.cod</a>
+		<b>shop_cod</b>
+	</field>
+</mapping>
+
+</mappings>
+          

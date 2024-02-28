@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.el59.office.shopmodel">
+	<class name="Payment" table="Payment">
+		<id name="n" column="n" type="java.lang.Long"/>
+		<property name="nn" column="nn" type="java.lang.Long" />
+		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="typePayment" 
+			class="TypePayment"
+			column="typePayment_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="docTitle" 
+			class="DocTitle"
+			column="docTitle_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="summa" column="summa" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+		<property name="ddatecreate" column="ddatecreate" type="java.sql.Date" />
+		<many-to-one 
+			name="contragent" 
+			class="ru.el59.office.db.Contragent"
+			column="contragent_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="expense" 
+			class="Expense"
+			column="expense_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="reason" 
+			class="Reason"
+			column="reason_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="typeCash" 
+			class="TypeCash"
+			column="typeCash_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="userShop" 
+			class="ru.el59.office.db.UserShop"
+			column="userShop_n"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="comment" column="comment" type="java.lang.String" />
+		<property name="deleted" column="deleted" type="java.lang.Boolean" />
+		<property name="k1" column="k1" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="k2" column="k2" type="java.math.BigDecimal" precision="19" scale="2" />
+		<many-to-one 
+			name="stornoPayment" 
+			class="Payment"
+			column="stornoPayment_n"
+			not-null="false"
+			 
+		/>
+		<joined-subclass name="PayCash" extends="Payment" table="paycash">
+                <key column="payment_n" />
+        </joined-subclass>
+		<joined-subclass name="PayCredit" extends="Payment" table="paycredit">
+                <key column="payment_n" />
+				<many-to-one 
+					name="bankAction" 
+					class="BankAction"
+					column="bankAction_n"
+					not-null="true"
+					 
+					lazy="false"
+				/>
+				<property name="firstPay" column="firstPay" type="java.math.BigDecimal" precision="19" scale="2" />
+				<property name="summaCredit" column="summaCredit" type="java.math.BigDecimal" precision="19" scale="2" />
+				<property name="contract" column="contract" type="java.lang.String" />
+        </joined-subclass>
+		<joined-subclass name="PayTerminal" extends="Payment" table="payterminal">
+                <key column="payment_n" />
+        </joined-subclass>
+		<joined-subclass name="PayPDS" extends="Payment" table="paypds">
+                <key column="payment_n" />
+        </joined-subclass>
+		<joined-subclass name="PaySert" extends="Payment" table="paysert">
+                <key column="payment_n" />
+				<property name="qty" column="qty" type="java.lang.Integer" />
+				<many-to-one 
+					name="typeSert" 
+					class="TypeSert"
+					column="typeSert_n"
+					not-null="true"
+					 
+					lazy="false"
+				/>
+        </joined-subclass>
+		<joined-subclass name="PayPBank" extends="Payment" table="paypbank">
+                <key column="payment_n" />
+				<property name="platdoc" column="platdoc" type="java.lang.String" />
+        </joined-subclass>
+		<joined-subclass name="PayBonusCard" extends="Payment" table="PayBonusCard">
+                <key column="payment_n" />
+				<many-to-one 
+					name="bonusCardMove" 
+					class="BonusCardMove"
+					column="bonusCardMove_n"
+					not-null="true"
+					lazy="false"
+				/>
+        </joined-subclass>
+		<joined-subclass name="PayPodCard" extends="Payment" table="paypodcard">
+                <key column="payment_n" />
+        </joined-subclass>
+		<joined-subclass name="PayPodCardEldorado" extends="Payment" table="paypodcardeldorado">
+                <key column="payment_n" />
+        </joined-subclass>
+	</class>
+</hibernate-mapping>

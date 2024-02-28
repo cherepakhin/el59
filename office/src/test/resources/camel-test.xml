@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Configures the Camel Context-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<import resource="route.xml"/>
+<!-- 
+ -->
+  	<bean id="mapper" class="org.dozer.DozerBeanMapper">
+ 		<property name="mappingFiles">
+      		<list>
+        		<value>VoDto-mapping.xml</value>
+      		</list>
+    	</property>
+	</bean>
+  	
+
+	<bean id="ConvertorXml" class="ru.el59.office.camelcontext.ConvertorXML">
+		<property name="mapper" ref="mapper"/>
+	</bean>
+	
+	<bean id="ConvertorGroupTovarXml" class="ru.el59.office.camelcontext.ConvertorGroupTovarXml" parent="ConvertorXml"/>
+	<bean id="ConvertorTovarXml" class="ru.el59.office.camelcontext.ConvertorTovarXml" parent="ConvertorXml"/>
+	<bean id="ConvertorBankActionXml" class="ru.el59.office.camelcontext.ConvertorBankActionXml" parent="ConvertorXml" scope="prototype">
+		<property name="bankActionProvider" ref="bankactionDao" />
+	</bean>
+	<bean id="ConvertorDolgnostXml" class="ru.el59.office.camelcontext.ConvertorDolgnostXml" parent="ConvertorXml" scope="prototype">
+		<property name="dolgnostProvider" ref="dolgnostDao" />
+	</bean>
+	<bean id="ConvertorTypeOperationXml" class="ru.el59.office.camelcontext.ConvertorTypeOperationXml" parent="ConvertorXml" scope="prototype">
+	</bean>
+	<bean id="ConvertorSetTovarXml" class="ru.el59.office.camelcontext.ConvertorSetTovarXml" parent="ConvertorXml">
+		<property name="setTovarProvider" ref="settovarDao" />
+	</bean>
+	<bean id="ConvertorBonusCardXml" class="ru.el59.office.camelcontext.ConvertorBonusCardXml" parent="ConvertorXml" scope="prototype"/>
+	<bean id="ConvertorPodCardXml" class="ru.el59.office.camelcontext.ConvertorPodCardXml" parent="ConvertorXml" scope="prototype"/>
+	<bean id="ConvertorUserShopXml" class="ru.el59.office.camelcontext.ConvertorUserShopXml" parent="ConvertorXml"/>
+	<bean id="ConvertorTypestockXml" class="ru.el59.office.camelcontext.ConvertorTypestockXml" parent="ConvertorXml"/>
+	<bean id="ConvertorTovarBonusXml" class="ru.el59.office.camelcontext.ConvertorTovarBonusXml" parent="ConvertorXml"/>
+	<bean id="ConvertorShopXml" class="ru.el59.office.camelcontext.ConvertorShopXml" parent="ConvertorXml"/>
+	<bean id="ConvertorContragentXml" class="ru.el59.office.camelcontext.ConvertorContragentXml" parent="ConvertorXml"/>
+	<bean id="ConvertorDiscountXml" class="ru.el59.office.camelcontext.ConvertorDiscountXml" parent="ConvertorXml"/>
+	<bean id="ConvertorDocWXml" class="ru.el59.office.camelcontext.ConvertorDocWXml" parent="ConvertorXml">
+		<property name="docWProvider" ref="docwDao" />
+	</bean>
+	<bean id="ConvertorDocWItemXml" class="ru.el59.office.camelcontext.ConvertorDocWItemXml" parent="ConvertorXml"/>
+	<bean id="ConvertorFromOfficeDB" class="ru.el59.office.camelcontext.ConvertorFromOfficeDB" scope="prototype">
+		<property name="mapConvertor">
+			<map>
+				<entry key="GroupTovar" value-ref="ConvertorGroupTovarXml" />
+				<entry key="UserShop" value-ref="ConvertorUserShopXml" />
+				<entry key="Tovar" value-ref="ConvertorTovarXml" />
+				<entry key="Typestock" value-ref="ConvertorTypestockXml" />
+				<entry key="BankAction" value-ref="ConvertorBankActionXml" />
+				<entry key="SetTovar" value-ref="ConvertorSetTovarXml" />
+				<entry key="Shop" value-ref="ConvertorShopXml" />
+				<entry key="Contragent" value-ref="ConvertorContragentXml" />
+				<entry key="Discount" value-ref="ConvertorDiscountXml" />
+				<entry key="TovarBonus" value-ref="ConvertorTovarBonusXml" />
+				<entry key="BonusCard" value-ref="ConvertorBonusCardXml" />
+				<entry key="PodCard" value-ref="ConvertorPodCardXml" />
+				<entry key="Dolgnost" value-ref="ConvertorDolgnostXml" />
+				<entry key="TypeOperation" value-ref="ConvertorTypeOperationXml" />
+				<entry key="DocW" value-ref="ConvertorDocWXml" />
+				<entry key="DocWItem" value-ref="ConvertorDocWItemXml" />
+			</map>
+		</property>
+		<property name="defaultConvertor" ref="ConvertorXml"/>
+	</bean>	
+	<bean id="ConvertorXmlTovar" class="ru.el59.office.camelcontext.receiver.ConvertorXmlTovar">
+		<property name="dao" ref="tovarDao" />
+		<property name="type" value="ru.el59.office.critery.TovarCritery" />
+		<property name="entity" value="TovarCritery" />
+		<property name="commander" ref="commander" />
+	</bean>
+	<bean id="ConvertorXmlDocTitle" class="ru.el59.office.camelcontext.receiver.ConvertorXmlDocTitle">
+		<property name="commander" ref="commander" />
+		<property name="docTitleProvider" ref="doctitleDao" />
+		<property name="type" value="ru.el59.office.dto.DocTitleDTO" />
+		<property name="entity" value="DocTitleDTO" />
+		<property name="dao" ref="doctitleDao" />
+	</bean>
+	<bean id="ConvertorXmlDocDetail" class="ru.el59.office.camelcontext.receiver.ConvertorXmlDocDetail">
+		<property name="commander" ref="commander" />
+		<property name="docDetailProvider" ref="docdetailDao" />
+		<property name="type" value="ru.el59.office.dto.DocDetailDTO" />
+		<property name="entity" value="DocDetailDTO" />
+		<property name="dao" ref="docdetailDao" />
+		<property name="docWItemProvider" ref="docwitemDao" />
+	</bean>
+	<bean id="AConvertorXmlPayment" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPayment" abstract="true">
+		<property name="commander" ref="commander" />
+ 		<property name="contragentProvider" ref="contragentDao" />
+		<property name="docTitleProvider" ref="doctitleDao" />
+		<property name="expenseProvider" ref="expenseDao" />
+		<property name="reasonProvider" ref="reasonDao" />
+		<property name="shopProvider" ref="shopDao" />
+		<property name="typeCashProvider" ref="typecashDao" />
+		<property name="typePaymentProvider" ref="typepaymentDao" />
+		<property name="usershopProvider" ref="usershopDao" />
+		<property name="paymentProvider" ref="paymentDao" />
+	</bean>
+	<bean id="ConvertorXmlPayCash" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPayCash" parent="AConvertorXmlPayment">
+		<property name="type" value="ru.el59.office.dto.PayCashDTO" />
+		<property name="entity" value="PayCashDTO" />
+		<property name="dao" ref="paycashDao" />
+	</bean>
+	<bean id="ConvertorXmlPayCredit" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPayCredit" parent="AConvertorXmlPayment">
+		<property name="type" value="ru.el59.office.dto.PayCreditDTO" />
+		<property name="entity" value="PayCreditDTO" />
+		<property name="dao" ref="paycreditDao" />
+		<property name="bankActionProvider" ref="bankactionDao" />
+	</bean>
+	<bean id="ConvertorXmlPaySert" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPaySert" parent="AConvertorXmlPayment">
+		<property name="type" value="ru.el59.office.dto.PaySertDTO" />
+		<property name="entity" value="PaySertDTO" />
+		<property name="dao" ref="paysertDao" />
+		<property name="typeSertProvider" ref="typesertDao" />
+	</bean>
+	<bean id="ConvertorXmlPayBonusCard" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPayBonusCard" parent="AConvertorXmlPayment">
+		<property name="type" value="ru.el59.office.dto.PayBonusCardDTO" />
+		<property name="entity" value="PayBonusCardDTO" />
+		<property name="dao" ref="paybonuscardDao" />
+		<property name="bonusCardMoveProvider" ref="bonuscardmoveDao" />
+	</bean>
+	<bean id="ConvertorXmlPayPBank" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPayPBank" parent="AConvertorXmlPayment">
+		<property name="type" value="ru.el59.office.dto.PayPBankDTO" />
+		<property name="entity" value="PayPBankDTO" />
+		<property name="dao" ref="paypbankDao" />
+	</bean>
+	<bean id="ConvertorXmlPayPDS" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPayPDS" parent="AConvertorXmlPayment">
+		<property name="type" value="ru.el59.office.dto.PayPDSDTO" />
+		<property name="entity" value="PayPDSDTO" />
+		<property name="dao" ref="paypdsDao" />
+	</bean>
+	<bean id="ConvertorXmlPayTerminal" class="ru.el59.office.camelcontext.receiver.ConvertorXmlPayTerminal" parent="AConvertorXmlPayment">
+		<property name="type" value="ru.el59.office.dto.PayTerminalDTO" />
+		<property name="entity" value="PayTerminalDTO" />
+		<property name="dao" ref="payterminalDao" />
+	</bean>
+	<bean id="loaderElXml" class="ru.el59.office.loaders.LoaderElXmlProcessor" >
+		<property name="tovarInfoProvider" ref="tovarinfoDao"/>
+		<!-- Каталог для xml -->
+		<property name="path" value="c:/s/common/soft/el/in/xml"/>
+		<!-- Только новые -->
+		<property name="onlyNew" value="true"/>
+		<property name="filename" value="z:/temp/sql/file-sortl1.txt"/>
+	</bean>
+<!-- Загрузчик выписок сайта -->
+	<bean id="creatorFromXmlToDocW" class="ru.el59.office.web.CreatorFromXmlToDocW" >
+		<property name="contragentProvider" ref="contragentDao"/>
+		<property name="docWItemProvider" ref="docwitemDao"/>
+		<property name="docWProvider" ref="docwDao"/>
+		<property name="shopProvider" ref="shopDao"/>
+		<property name="tovarProvider" ref="tovarDao"/>
+		<property name="typeDocProvider" ref="typedocDao"/>
+		<property name="nameTypeDocDocw" value="Выписка W-магазина"/>
+	</bean>
+<!-- Отправка по почте выписок сайта -->
+	<bean id="senderOrderWToShop" class="ru.el59.office.web.SenderOrderWToShop" >
+		<property name="emailer" ref="emailer"/>
+		<property name="shopProvider" ref="shopDao"/>
+	</bean>
+
+<!-- Выгрузка на сайт -->	
+ 	<bean id="uploaderForSite" class="ru.el59.office.web.UploaderForSite">
+		<property name="restWebProvider" ref="restwebDao"/>
+		<property name="tovarInfoProvider" ref="tovarinfoDao"/>
+		
+		<property name="delimCsv" value=";"/>
+		<property name="codesetXml" value="UTF-8"/>
+	</bean>
+<!-- Создание файла переносов товаров из группы в группу -->	
+	<bean id="creatorChangeNN" class="ru.el59.office.util.CreatorChangeNN">
+		<property name="historyTovarProvider" ref="historytovarDao"/>
+		<property name="qtyDays" value="-30"/>
+		<property name="filenameDst" value="/home/vasi/temp/CHANGENN1.DBF"/>
+		<property name="filenameSrc" value="/home/vasi/temp/CHANGENN.DBF"/>
+	</bean>
+
+	<bean id="utilProcessor" class="ru.el59.office.util.UtilProcessor">
+		<property name="priceProvider" ref="priceDao"/>
+		<property name="docWProvider" ref="docwDao"/>
+		<property name="emailer" ref="emailer"/>
+		<property name="shopProvider" ref="shopDao"/>
+		<property name="emailManager" value="resperm@gmail.com"/>
+	</bean>
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.plan.RestForPlan" table="RestForPlan">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="increment"/>
+		</id>
+		<property name="name" column="name" type="java.lang.String"/>
+   		<many-to-one 
+			name="plan" 
+			class="ru.el59.office.db.plan.Plan"
+			column="plan_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="summain" column="summain" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="percent" column="percent" type="java.math.BigDecimal" precision="19" scale="2" />
+	</class>
+</hibernate-mapping>

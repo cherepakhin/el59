@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   					   http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	   					   http://www.springframework.org/schema/tx
+	   					   http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<bean id="aparser" class="ru.el59.office.parser.AParserSite" abstract="true">
+  		<property name="tovarInfoProvider" ref ="tovarInfoDao"/>
+  		<property name="tovarProvider" ref ="tovarDao"/>
+  		<property name="subsFeatureProvider" ref ="subsFeatureDao"/>
+  		<property name="mainFeatureProvider" ref ="mainFeatureDao"/>
+	</bean>
+
+  	<bean name="parserEl" class="ru.el59.office.parser.ParserEl" parent="aparser"/>
+  	<bean name="parserYandex" class="ru.el59.office.parser.ParserYandex" parent="aparser"/>
+  	<bean name="parserMerlion" class="ru.el59.office.parser.ParserMerlion" parent="aparser"/>
+  	<bean name="parserE96" class="ru.el59.office.parser.ParserE96" parent="aparser"/>
+  	<bean name="parserEKatalog" class="ru.el59.office.parser.ParserEKatalog" parent="aparser"/>
+  	<bean name="parserSoftMarket" class="ru.el59.office.parser.ParserSoftMarket" parent="aparser"/>
+  	<bean name="parserIMarket" class="ru.el59.office.parser.ParserIMarket" parent="aparser"/>
+  	<bean name="parserTeplov" class="ru.el59.office.parser.ParserTeplov" parent="aparser"/>
+  	<bean name="parserMailRu" class="ru.el59.office.parser.ParserMailRu" parent="aparser"/>
+  	<bean name="parserLogoRu" class="ru.el59.office.parser.ParserLogoRu" parent="aparser"/>
+  	<bean name="parserMediaMarkt" class="ru.el59.office.parser.ParserMediaMarkt" parent="aparser"/>
+  	<bean name="parserRbt" class="ru.el59.office.parser.ParserRbt" parent="aparser"/>
+  	<bean name="parserTehnosila" class="ru.el59.office.parser.ParserTehnosila" parent="aparser"/>
+  	<bean name="parserController" class="ru.el59.office.parser.ParserController">
+		<property name="listParser">
+			<list>
+				<ref bean="parserE96"/>
+				<ref bean="parserEKatalog"/>
+				<ref bean="parserMerlion"/>
+				<ref bean="parserYandex"/>
+				<ref bean="parserSoftMarket"/>
+				<ref bean="parserIMarket"/>
+				<ref bean="parserTeplov"/>
+				<ref bean="parserMailRu"/>
+				<ref bean="parserLogoRu"/>
+				<ref bean="parserEl"/>
+				<ref bean="parserMediaMarkt"/>
+				<ref bean="parserRbt"/>
+				<ref bean="parserTehnosila"/>
+			</list>
+		</property>
+  	</bean>
+	
+</beans>	  

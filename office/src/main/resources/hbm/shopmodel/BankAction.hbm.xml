@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.shopmodel.BankAction" table="BankAction">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+   		<many-to-one 
+			name="bank" 
+			class="ru.el59.office.db.CreditBank"
+			column="bank_n"
+			not-null="true"
+			
+			lazy="false"
+			fetch="join"
+		/>
+		<set name="typeprices" table="bankaction_typeprice" inverse="false" >
+            <key column="bankaction_n" />
+ 			<many-to-many class="ru.el59.office.shopmodel.TypePrice">
+ 				<column name="typeprices_n" not-null="true" />
+			</many-to-many>
+		</set>
+		<set name="discounts" table="bankaction_discount" inverse="false" >
+            <key column="bankaction_n" />
+ 			<many-to-many class="ru.el59.office.shopmodel.Discount">
+ 				<column name="discounts_n" not-null="true" />
+			</many-to-many>
+		</set>
+		<property name="worked" column="worked" type="java.lang.Boolean" />
+	</class>
+</hibernate-mapping>

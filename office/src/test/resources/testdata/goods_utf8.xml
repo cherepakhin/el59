@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<Goods>
+  <Good>
+    <GoodCode>71095471</GoodCode>
+    <Name>USB-флешка FD 16Gb TRANSCEND JetFlash 700</Name>
+    <Brand_Code>TRANSCEND</Brand_Code>
+    <G_Type_code>HAWA</G_Type_code>
+    <GA_Code>00</GA_Code>
+    <Category>02</Category>
+    <Name_Eng/>
+    <HSCode/>
+    <Mecat>603130201</Mecat>
+    <G_Status/>
+    <Units>
+      <Is_Base>Y</Is_Base>
+      <Unit_Code>ST</Unit_Code>
+      <Numerator>1</Numerator>
+      <Denominator>1</Denominator>
+      <Lenght>13</Lenght>
+      <Height>1</Height>
+      <Width>10</Width>
+      <LHW_Unit>CM</LHW_Unit>
+      <Weight>0,21</Weight>
+      <W_Unit>KG</W_Unit>
+      <Volume>130</Volume>
+      <V_Unit>CCM</V_Unit>
+      <Weight_Net>0,011</Weight_Net>
+      <BarCodes>
+        <GB_Code>2110025544873</GB_Code>
+        <BC_Format>Z8</BC_Format>
+        <Is_Base>N</Is_Base>
+      </BarCodes>
+      <BarCodes>
+        <GB_Code>760557819455</GB_Code>
+        <BC_Format>UC</BC_Format>
+        <Is_Base>Y</Is_Base>
+      </BarCodes>
+    </Units>
+    <Units>
+      <Is_Base>N</Is_Base>
+      <Unit_Code>KAR</Unit_Code>
+      <Numerator>500</Numerator>
+      <Denominator>1</Denominator>
+      <Lenght>39</Lenght>
+      <Height>32</Height>
+      <Width>49</Width>
+      <LHW_Unit>CM</LHW_Unit>
+      <Weight>10,8</Weight>
+      <W_Unit>KG</W_Unit>
+      <Volume>61152</Volume>
+      <V_Unit>CCM</V_Unit>
+      <Weight_Net>0,011</Weight_Net>
+    </Units>
+    <Features>
+      <Feature_Code>ZNAMEALL</Feature_Code>
+      <Name>ОБОБЩЕННОЕ НАИМЕНОВАНИЕ</Name>
+      <Value>USB-флешка</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>Pamiat</Feature_Code>
+      <Name>Объем памяти</Name>
+      <Value>16Гб</Value>
+      <Priority>1</Priority>
+    </Features>
+    <Features>
+      <Feature_Code>REGV</Feature_Code>
+      <Name>Признак постоянного поставщика</Name>
+      <Value/>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMG</Feature_Code>
+      <Name>Признак комиссионного товара</Name>
+      <Value/>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>BISM</Feature_Code>
+      <Name>Внешний код материала</Name>
+      <Value/>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>MAIN_GI_750</Feature_Code>
+      <Name>Страна происхождения товара</Name>
+      <Value>Тайвань</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_5227</Feature_Code>
+      <Name>Объем памяти, Гб</Name>
+      <Value>16</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_5208</Feature_Code>
+      <Name>Макс. скорость чтения, Мб/с</Name>
+      <Value>53</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_5207</Feature_Code>
+      <Name>Макс. скорость записи, Мб/с</Name>
+      <Value>15</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>ADD_5233</Feature_Code>
+      <Name>Выдвижной разъем</Name>
+      <Value>нет</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>ADD_5232</Feature_Code>
+      <Name>Защита от перезаписи</Name>
+      <Value>нет</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>ADD_5228</Feature_Code>
+      <Name>Защита паролем</Name>
+      <Value>нет</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_5226</Feature_Code>
+      <Name>Интерфейс USB носителя</Name>
+      <Value>USB 3.0</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_5225</Feature_Code>
+      <Name>Тип носителя информации</Name>
+      <Value>USB FD</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>MAIN_GI_869</Feature_Code>
+      <Name>Цвет поставляемого товара</Name>
+      <Value>черный</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_209</Feature_Code>
+      <Name>ВысТовУп</Name>
+      <Value>1,000</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>PACK_INDIV_106</Feature_Code>
+      <Name>Вес товара брутто, кг</Name>
+      <Value>0,210</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>PACK_INDIV_241</Feature_Code>
+      <Name>ГлТовУп</Name>
+      <Value>10,000</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>PACK_INDIV_917</Feature_Code>
+      <Name>ШирТовУп</Name>
+      <Value>13,000</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>PACK_TRANS_207</Feature_Code>
+      <Name>ВысМастер-кейса</Name>
+      <Value>32,000</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>PACK_TRANS_239</Feature_Code>
+      <Name>ГлМастер-кейса</Name>
+      <Value>49,000</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>PACK_TRANS_915</Feature_Code>
+      <Name>ШирМастер-кейса</Name>
+      <Value>39,000</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>MAIN_GI_105</Feature_Code>
+      <Name>Вес, кг</Name>
+      <Value>0,011</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_11</Feature_Code>
+      <Name>Без имени от SAP</Name>
+      <Value>:)</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>ZBRAND</Feature_Code>
+      <Name>НАЗВАНИЕ ФИРМЫ НА АНГЛИЙСКОМ</Name>
+      <Value>TRANSCEND</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>ZCOUNTRY</Feature_Code>
+      <Name>СТРАНА ПРОИЗВОДИТЕЛЬ</Name>
+      <Value>Тайвань</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>ZKODMOD</Feature_Code>
+      <Name>КОД МОДЕЛИ</Name>
+      <Value>TS16GJF700</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_01</Feature_Code>
+      <Name>Краткое наименование товара</Name>
+      <Value>USB накопитель</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>COMM_432</Feature_Code>
+      <Name>Материал корпуса</Name>
+      <Value>пластик</Value>
+      <Priority/>
+    </Features>
+    <Features>
+      <Feature_Code>BODY_1799</Feature_Code>
+      <Name>Водонепроницаемый корпус</Name>
+      <Value>нет</Value>
+      <Priority/>
+    </Features>
+  </Good>
+</Goods>

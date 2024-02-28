@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.Move" table="move">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">move_n_seq</param>
+			</generator>
+		</id>
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+		<many-to-one name="tovar" class="ru.el59.office.db.Tovar"
+			column="tovar_nnum" 
+			not-null="true" 
+			lazy="false" 
+			fetch="join" 
+		/>
+		<property name="numdoc" column="numdoc" type="java.lang.String" />
+		<property name="qty" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="qty" default="0.00" />
+		</property>
+		<property name="summain" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="summain" default="0.00" />
+		</property>
+		<property name="summaout" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="summaout" default="0.00" />
+		</property>
+		<property name="agent" type="java.lang.String">
+			<column name="agent" default="" />
+		</property>
+		<property name="seller" type="java.lang.String">
+			<column name="seller" default="" />
+		</property>
+		<many-to-one name="agentcode" class="ru.el59.office.db.Agent"
+			column="agentcode" 
+			not-null="false" 
+			lazy="false" 
+			fetch="join" 
+		/>
+		<property name="subtype" column="subtype" type="java.lang.String" />
+		<many-to-one name="operation" class="ru.el59.office.db.Operation" 
+			column="operation_chr" 
+			not-null="true" 
+			lazy="false" 
+			fetch="join" 
+		/>
+		<property name="vid" type="java.lang.String">
+			<column name="vid" default="" />
+		</property>
+		<property name="codeoper" type="java.lang.String">
+			<column name="codeoper" default="" />
+		</property>
+		<property name="typeoper" type="java.lang.String">
+			<column name="typeoper" default="" />
+		</property>
+		<many-to-one name="parent" class="ru.el59.office.db.Move"
+			column="parent_n" 
+			not-null="false" 
+		/>
+		<many-to-one name="shop" class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="false"
+			lazy="false"
+			fetch="join" 
+		/>
+		<property name="tostock" type="java.lang.String">
+			<column name="tostock" default="" />
+		</property>
+		<many-to-one name="fromstock" class="ru.el59.office.db.TypeStock"
+			column="fromstock_n" 
+			not-null="true" 
+			lazy="false" 
+			fetch="join" 
+		/>
+		<property name="price" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="price" default="0.00" />
+		</property>
+		<property name="label" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="label" default="0.00" />
+		</property>
+		<property name="cenaInOnDate" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="cenaInOnDate" default="0.00" />
+		</property>
+		<property name="category" type="java.lang.Integer">
+			<column name="category" default="0" />
+		</property>
+		<property name="priceName" type="java.lang.String">
+			<column name="priceName" default="" />
+		</property>
+		<property name="comment" type="java.lang.String">
+			<column name="comment" default="" />
+		</property>
+		<property name="zpKBT" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="zpKBT" default="0.00" />
+		</property>
+		<property name="zpMBT" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="zpMBT" default="0.00" />
+		</property>
+		<property name="zpAcc" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="zpAcc" default="0.00" />
+		</property>
+		<property name="zpPDS" type="java.math.BigDecimal" precision="19" scale="2">
+			<column name="zpPDS" default="0.00" />
+		</property>
+		<property name="abc" column="abc" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

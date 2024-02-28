@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.PriceType" table="pricetype">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+
+		<property name="isBase" column="isBase" type="java.lang.Boolean" />
+		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+			/>
+		<property name="qtyDays" column="qtyDays" type="java.lang.Integer" />
+		<bag name="owners" table="pricetype_manager" inverse="false" >
+            <key column="pricetype_n" />
+ 			<many-to-many class="ru.el59.office.db.Manager">
+ 				<column name="owners_n" not-null="true" />
+			</many-to-many>
+		</bag>
+		<many-to-one 
+			name="mainPriceType" 
+			class="ru.el59.office.db.PriceType"
+			column="mainPricetype_n"
+			lazy="proxy"
+			fetch="join"
+			not-null="false"
+			/>
+		<property name="priority" column="priority" type="java.lang.Integer" />
+	</class>
+</hibernate-mapping>

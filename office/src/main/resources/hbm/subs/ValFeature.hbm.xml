@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.subs.ValFeature" table="ftr_valfeature">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="forTag" column="forTag" type="java.lang.String" />
+		<set name="listCorrectionVal" table="ftr_correctionval" inverse="true"
+			lazy="true" fetch="select" >
+			<key>
+				<column name="valfeature_n" not-null="true" />
+			</key>
+			<one-to-many entity-name="ru.el59.office.db.subs.CorrectionVal"/>
+		</set>
+
+		<many-to-one name="mainFeature" class="ru.el59.office.db.subs.MainFeature"
+			column="mainfeature_n"
+			not-null="true" 
+			 
+			lazy="false"
+			fetch="join"
+			/>
+	</class>
+</hibernate-mapping>

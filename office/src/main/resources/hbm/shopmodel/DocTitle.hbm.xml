@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.shopmodel.DocTitle" table="DocTitle">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">doctitle_n_seq</param>
+			</generator>
+		</id>
+		<property name="nn" column="nn" type="java.lang.Long" />
+		<many-to-one 
+			name="shop" 
+			class="ru.el59.office.db.Shop"
+			column="shop_cod"
+			not-null="true"
+			 
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="numdoc" column="numdoc" type="java.lang.String" />
+		<property name="ddatecreate" column="ddatecreate" type="java.sql.Date" />
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+		<property name="summain" column="summain" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="summainold" column="summainold" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="summaout" column="summaout" type="java.math.BigDecimal" precision="19" scale="2" />
+		<many-to-one 
+			name="typeDocShop" 
+			class="ru.el59.office.shopmodel.TypeDocShop"
+			column="typedoc_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+<!-- 		<many-to-one 
+			name="typeOperation" 
+			class="ru.el59.office.shopmodel.TypeOperation"
+			column="typeOperation_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+ -->		
+ 		<many-to-one 
+			name="userShop" 
+			class="ru.el59.office.db.UserShop"
+			column="userShop_n"
+			lazy="false"
+			not-null="true"
+		/>
+		<many-to-one 
+			name="contragent" 
+			class="ru.el59.office.db.Contragent"
+			column="contragent_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="parent" 
+			class="ru.el59.office.shopmodel.DocTitle"
+			column="parent_n"
+			not-null="true"
+		/>
+		<many-to-one 
+			name="typeStock" 
+			class="ru.el59.office.db.TypeStock"
+			column="typeStock_n"
+			fetch="join"
+		/>
+		<property name="comment" column="comment" type="java.lang.String" />
+		<property name="deleted" column="deleted" type="java.lang.Boolean" />
+		<many-to-one 
+			name="typePrice" 
+			class="ru.el59.office.shopmodel.TypePrice"
+			column="typePrice_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="k1" column="k1" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="k2" column="k2" type="java.math.BigDecimal" precision="19" scale="2" />
+	</class>
+</hibernate-mapping>

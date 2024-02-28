@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.GroupTovar" table="grouptovar">
+		<id name="cod" column="cod" type="java.lang.String"/>
+		<property name="name" column="name" type="java.lang.String" />
+  		<many-to-one 
+			name="parent" 
+			class="ru.el59.office.db.GroupTovar"
+			column="parent_cod"
+		/>
+		<property name="bestcod" column="bestcod" type="java.lang.Integer" />
+		<property name="trade" column="trade" type="java.lang.String" />
+  		<many-to-one 
+			name="bonusk" 
+			class="ru.el59.office.db.BonusK"
+			column="bonusk_n"
+			not-null="false"
+			lazy="false"
+			fetch="join"
+		/>
+  		<many-to-one 
+			name="groupT" 
+			class="ru.el59.office.db.GroupT"
+			column="groupt_cod"
+		/>
+		<property name="factor" column="factor" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="volume" column="volume" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="minNacenka" column="minNacenka" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="nacenkaForSite" column="nacenkaForSite" type="java.math.BigDecimal" precision="19" scale="2"/>
+<!-- lazy="true" fetch="select" -->
+		<list name="childs" table="grouptovar_grouptovar" inverse="false"  >
+            <key column="grouptovar_cod" />
+ 			 <list-index column="position" base="1"/>
+ 			<many-to-many class="ru.el59.office.db.GroupTovar">
+ 				<column name="childs_cod" />
+			</many-to-many>
+		</list>
+		<property name="pathImage" column="pathImage" type="java.lang.String" />
+
+<!-- 		<list name="relationTovar" table="grouptovar_tovar" inverse="false" >
+            <key column="grouptovar_cod" />
+ 			 <list-index column="position" />
+ 			<many-to-many class="ru.el59.office.db.Tovar">
+ 				<column name="tovar_nnum" not-null="true" />
+			</many-to-many>
+		</list>
+ -->	</class>
+</hibernate-mapping>

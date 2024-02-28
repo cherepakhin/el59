@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.Shop" table="shop">
+		<id name="cod" column="cod" type="java.lang.String" length="5"/>
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="email" column="email" type="java.lang.String" />
+		<property name="system" column="system" type="java.lang.String" />
+		<property name="podrazdelenie" column="podrazdelenie" type="java.lang.String" />
+		<property name="worked" column="worked" type="java.lang.Boolean" />
+		<property name="space" column="space" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="prefix" column="prefix" type="java.lang.String" />
+		<property name="address" column="address" type="java.lang.String" />
+		<property name="phone" column="phone" type="java.lang.String" />
+		<property name="fullname" column="fullname" type="java.lang.String" />
+		<property name="director" column="director" type="java.lang.String" />
+		<property name="buh" column="buh" type="java.lang.String" />
+		<property name="workfrom" column="workfrom" type="java.lang.Integer" />
+		<property name="workto" column="workto" type="java.lang.Integer" />
+		<property name="inn" column="inn" type="java.lang.String" />
+		<property name="kpp" column="kpp" type="java.lang.String" />
+		<property name="bank" column="bank" type="java.lang.String" />
+		<property name="bik" column="bik" type="java.lang.String" />
+		<property name="okpo" column="okpo" type="java.lang.String" />
+		<property name="okdp" column="okdp" type="java.lang.String" />
+		<property name="ogrn" column="ogrn" type="java.lang.String" />
+		<property name="rorder" column="rorder" type="java.lang.String" />
+		<property name="korder" column="korder" type="java.lang.String" />
+		<property name="partnerShops" column="partnerShops" type="java.lang.String" />
+		<property name="sinonim" column="sinonim" type="java.lang.String" />
+	</class>
+</hibernate-mapping>
+

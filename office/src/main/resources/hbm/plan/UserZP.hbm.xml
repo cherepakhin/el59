@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.plan.UserZP" table="userzp">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="increment"/>
+		</id>		<property name="name" column="name" type="java.lang.String" />
+		<property name="namebest" type="java.lang.String" >
+			<column name="namebest" default="" />
+		</property>
+   		<many-to-one 
+			name="plan" 
+			class="ru.el59.office.db.plan.Plan"
+			column="plan_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="dolgnost" 
+			class="ru.el59.office.db.Dolgnost"
+			column="dolgnost_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="summaIn" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaIn" default="0.00" />
+		</property>
+		<property name="summaOut" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaOut" default="0.00" />
+		</property>
+<!-- 		<property name="summaMainTovarIn" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaMainTovarIn" default="0.00" />
+		</property> -->
+		<property name="summaMainTovar" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaMainTovar" default="0.00" />
+		</property>
+		<property name="summaMainTovarBonus" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaMainTovarBonus" default="0.00" />
+		</property>
+		<property name="summaBonusForAccPDS" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaBonusForAccPDS" default="0.00" />
+		</property>
+<!-- 		<property name="summaPDSin" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaPDSin" default="0.00" />
+		</property> -->
+		<property name="summaPDS" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaPDS" default="0.00" />
+		</property>
+		<property name="summaPDSBonus" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaPDSBonus" default="0.00" />
+		</property>
+<!-- 		<property name="summaAccin" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaAccin" default="0.00" />
+		</property> -->
+		<property name="summaAcc" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaAcc" default="0.00" />
+		</property>
+		<property name="summaAccBonus" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaAccBonus" default="0.00" />
+		</property>
+		<property name="summaAccBonusAll" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="summaAccBonusAll" default="0.00" />
+		</property>
+		<property name="qtysmen" type="java.math.BigDecimal" precision="19" scale="2" >
+			<column name="qtysmen" default="0.00" />
+		</property>
+ 		<bag name="tabel" table="tabel" inverse="false"
+			lazy="false" fetch="select" >
+			<key>
+				<column name="userzp_n" not-null="true" />
+			</key>
+			<one-to-many entity-name="ru.el59.office.db.plan.Tabel" />
+		</bag>
+	</class>
+</hibernate-mapping>
+

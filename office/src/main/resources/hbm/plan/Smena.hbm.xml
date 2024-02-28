@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.plan.Smena" table="Smena">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+   		<many-to-one 
+			name="tabel" 
+			class="ru.el59.office.db.plan.Tabel"
+			column="tabel_n"
+			lazy="false"
+			fetch="join"
+		/>
+ 		<property name="ddate" column="ddate" type="java.sql.Date" />
+ 		<bag name="tdoctabel" table="tdoctabel" inverse="false"
+			lazy="false" fetch="select">
+			<key>
+				<column name="smena_n" not-null="true" />
+			</key>
+			<one-to-many entity-name="ru.el59.office.db.plan.TDocTabel" />
+		</bag>
+	</class>
+</hibernate-mapping>

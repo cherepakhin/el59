@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.DocFile" table="DocFile">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="ddate" column="ddate" type="java.sql.Date" />
+		<property name="comment" column="comment" type="java.lang.String" />
+		<property name="summa" column="summa" type="java.math.BigDecimal" precision="19" scale="2" />
+		<many-to-one 
+			name="manager" 
+			class="ru.el59.office.db.Manager"
+			column="manager_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="agreed" column="agreed" type="java.lang.Boolean" />
+		<property name="dateAgreed" column="dateAgreed" type="java.sql.Date" />
+		<many-to-one 
+			name="managerAgreed" 
+			class="ru.el59.office.db.Manager"
+			column="managerAgreed_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<many-to-one 
+			name="doc" 
+			class="ru.el59.office.db.Doc"
+			column="doc_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="bu" column="bu" type="java.lang.Boolean" />
+		<property name="dateSending" column="dateSending" type="java.sql.Date" />
+		<many-to-one 
+			name="typeFile" 
+			class="ru.el59.office.db.TypeFile"
+			column="typeFile_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="numdoc" column="numdoc" type="java.lang.String" />
+	</class>
+</hibernate-mapping>

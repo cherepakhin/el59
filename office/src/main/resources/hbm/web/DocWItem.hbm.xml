@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.web.DocWItem" table="DocWItem">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+   		<many-to-one 
+			name="docw" 
+			class="ru.el59.office.db.web.DocW"
+			column="docw_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="tovar" 
+			class="ru.el59.office.db.Tovar"
+			column="tovar_nnum"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="qty" column="qty" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="cena" column="cena" type="java.math.BigDecimal" precision="19" scale="2" />
+		<property name="ddatePlanOut" column="ddatePlanOut" type="java.sql.Date" />
+   		<many-to-one 
+			name="docItem" 
+			class="ru.el59.office.db.DocItem"
+			column="docItem_n"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="docDetailInput" 
+			class="ru.el59.office.shopmodel.DocDetail"
+			column="docDetailInput_n"
+			lazy="false"
+			fetch="join"
+		/>
+   		<many-to-one 
+			name="docDetailOut" 
+			class="ru.el59.office.shopmodel.DocDetail"
+			column="docDetailOut_n"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="deleted" column="deleted" type="java.lang.Boolean" />
+	</class>
+</hibernate-mapping>

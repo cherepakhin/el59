@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="ru.el59.office.db.web">
+	<class name="SubsFeature" table="SubsFeature">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="seekPhrase" column="seekPhrase" type="java.lang.String" />
+		<property name="newValue" column="newValue" type="java.lang.String" />
+		<property name="typeProp" column="typeProp">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">ru.el59.office.db.web.TypeProperty</param>
+			</type>
+		</property>
+	</class>
+</hibernate-mapping>

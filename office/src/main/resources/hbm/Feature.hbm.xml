@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.Feature" table="tovarinfo_listfeature">
+		<id name="n" column="n" type="java.lang.Long">
+			<generator class="sequence">
+				<param name="sequence">feature_n_seq</param>
+			</generator>
+		</id>
+   		<many-to-one 
+			name="tovarInfo" 
+			class="ru.el59.office.db.TovarInfo"
+			column="tovarInfo_nnum"
+			not-null="true"
+			lazy="false"
+			fetch="join"
+		/>
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="oldname" column="oldname" type="java.lang.String" />
+		<property name="val" column="val" type="java.lang.String" length="4096"/>
+		<property name="oldval" column="oldval" type="java.lang.String" length="4096"/>
+		<property name="grp" column="grp" type="java.lang.String" length="4096"/>
+		<property name="prmry" column="prmry" type="java.lang.Boolean" />
+		<property name="positionPrmry" column="positionprmry" type="java.lang.Integer" />
+	</class>
+</hibernate-mapping>
+
+<!-- 	private TovarInfo tovarInfo; -->
+

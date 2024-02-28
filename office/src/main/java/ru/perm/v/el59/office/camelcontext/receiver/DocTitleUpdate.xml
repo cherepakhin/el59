@@ -1,0 +1,54 @@
+<message>
+  <command>UPDATE</command>
+  <className>DocTitle</className>
+  <shopCod>07275</shopCod>
+  <entity type="DocTitle">
+    <n>25273</n>
+    <name></name>
+    <numdoc>016480</numdoc>
+    <ddate>2012-07-28</ddate>
+    <summain>15635.78</summain>
+    <summainold>15635.78</summainold>
+    <summaout>18979.4</summaout>
+    <typedoc>
+      <n>4</n>
+      <name>Реализация</name>
+      <znak>-1</znak>
+    </typedoc>
+    <typeOperation>
+      <n>0</n>
+      <name>Реализация</name>
+    </typeOperation>
+    <usershop>
+      <n>0</n>
+      <name>-</name>
+      <worked>false</worked>
+      <namebest>-</namebest>
+      <password></password>
+    </usershop>
+    <contragent>
+      <n>1</n>
+      <name>Розничный покупатель</name>
+      <address></address>
+      <info></info>
+      <phone></phone>
+    </contragent>
+    <typeStock>
+      <n>101</n>
+      <name>Основной</name>
+    </typeStock>
+    <sumpayment>0.0</sumpayment>
+    <diff>0.0</diff>
+    <sumprepay>0.0</sumprepay>
+    <comment></comment>
+    <deleted>false</deleted>
+    <sumOutOrder>0.0</sumOutOrder>
+    <typePrice>
+      <n>1</n>
+      <name>Розничный</name>
+    </typePrice>
+    <k1>18976.4</k1>
+    <k2>3.0</k2>
+    <parentn>25223</parentn>
+  </entity>
+</message>

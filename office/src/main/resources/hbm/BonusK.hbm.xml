@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ru.el59.office.db.BonusK" table="bonusk">
+		<id name="n" column="n" type="java.lang.Long" />
+		<property name="name" column="name" type="java.lang.String" />
+		<property name="minK" column="mink" type="java.math.BigDecimal" precision="19" scale="2"/>
+		<property name="maxK" column="maxk" type="java.math.BigDecimal" precision="19" scale="2"/>
+	</class>
+</hibernate-mapping>
