@@ -7,16 +7,16 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import ru.el59.dao.CommonCritery;
+import ru.el59.office.critery.ContragentCritery;
+import ru.el59.office.db.Contragent;
+import ru.el59.office.db.GroupContragent;
+import ru.el59.office.db.Shop;
+import ru.el59.office.iproviders.IContragentProvider;
+import ru.el59.office.iproviders.IGroupContragentProvider;
+import ru.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.dto.ContragentDTO;
 
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.critery.ContragentCritery;
-import ru.perm.v.el59.office.db.Contragent;
-import ru.perm.v.el59.office.db.GroupContragent;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.dto.ContragentDTO;
-import ru.perm.v.el59.office.iproviders.IContragentProvider;
-import ru.perm.v.el59.office.iproviders.IGroupContragentProvider;
-import ru.perm.v.el59.office.iproviders.IShopProvider;
 
 public class ContragentProvider extends
 		GenericDaoHibernateImpl<Contragent, Long> implements
