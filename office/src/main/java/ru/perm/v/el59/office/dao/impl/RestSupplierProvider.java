@@ -12,9 +12,9 @@ import ru.el59.office.db.*;
 import ru.el59.office.db.web.RestWeb;
 import ru.el59.office.db.web.SummarySite;
 import ru.perm.v.el59.dto.office.exception.MessageException;
-import ru.perm.v.el59.dto.office.iproviders.IPriceProvider;
-import ru.perm.v.el59.dto.office.iproviders.*;
-import ru.perm.v.el59.dto.office.iproviders.web.IRestWebProvider;
+import ru.perm.v.el59..office.iproviders.IPriceProvider;
+import ru.perm.v.el59..office.iproviders.*;
+import ru.perm.v.el59..office.iproviders.web.IRestWebProvider;
 import ru.perm.v.el59.office.util.Helper;
 
 import java.io.IOException;

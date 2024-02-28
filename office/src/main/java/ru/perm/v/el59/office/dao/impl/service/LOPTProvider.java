@@ -11,11 +11,11 @@ import ru.el59.office.db.Manager;
 import ru.el59.office.db.TypeDoc;
 import ru.el59.office.db.service.LOPT;
 import ru.el59.office.db.service.TDoc;
-import ru.perm.v.el59.dto.office.iproviders.IContragentProvider;
-import ru.perm.v.el59.dto.office.iproviders.IManagerProvider;
-import ru.perm.v.el59.dto.office.iproviders.ITypeDocProvider;
-import ru.perm.v.el59.dto.office.iproviders.service.ILOPTDao;
-import ru.perm.v.el59.dto.office.iproviders.service.ITDocProvider;
+import ru.perm.v.el59..office.iproviders.IContragentProvider;
+import ru.perm.v.el59..office.iproviders.IManagerProvider;
+import ru.perm.v.el59..office.iproviders.ITypeDocProvider;
+import ru.perm.v.el59..office.iproviders.service.ILOPTDao;
+import ru.perm.v.el59..office.iproviders.service.ITDocProvider;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 
 import java.io.Serializable;

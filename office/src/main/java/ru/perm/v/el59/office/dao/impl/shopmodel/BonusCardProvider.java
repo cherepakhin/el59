@@ -12,7 +12,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import ru.perm.v.el59.dto.office.critery.BonusCardCritery;
 import ru.el59.office.db.Shop;
-import ru.perm.v.el59.dto.office.iproviders.shopmodel.IBonusCardProvider;
+import ru.perm.v.el59..office.iproviders.shopmodel.IBonusCardProvider;
 import ru.el59.office.shopmodel.BonusCard;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 

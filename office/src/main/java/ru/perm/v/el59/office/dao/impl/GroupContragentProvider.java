@@ -5,7 +5,7 @@ import java.util.List;
 
 import ru.perm.v.el59.dto.dao.CommonCritery;
 import ru.el59.office.db.GroupContragent;
-import ru.perm.v.el59.dto.office.iproviders.IGroupContragentProvider;
+import ru.perm.v.el59..office.iproviders.IGroupContragentProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 public class GroupContragentProvider extends GenericDaoMessageImpl<GroupContragent,Long> implements

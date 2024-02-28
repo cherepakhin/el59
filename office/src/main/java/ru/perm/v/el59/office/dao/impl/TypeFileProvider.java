@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.dao.impl;
 
 import ru.perm.v.el59.dto.dao.CommonCritery;
 import ru.el59.office.db.TypeFile;
-import ru.perm.v.el59.dto.office.iproviders.ITypeFileProvider;
+import ru.perm.v.el59..office.iproviders.ITypeFileProvider;
 
 import java.util.List;
 

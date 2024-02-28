@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ru.el59.dao.AEntity;
-import ru.perm.v.el59.dto.dao.CommonCritery;
 import ru.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 @Transactional(propagation = Propagation.REQUIRED)
 public class GenericDaoHibernateImpl<T, PK extends Serializable> implements IGenericDao<T, PK> {

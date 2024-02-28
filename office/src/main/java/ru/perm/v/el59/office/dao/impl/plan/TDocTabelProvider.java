@@ -6,8 +6,8 @@ import ru.el59.office.db.Manager;
 import ru.el59.office.db.TypeDoc;
 import ru.el59.office.db.plan.*;
 import ru.el59.office.db.service.TDoc;
-import ru.perm.v.el59.dto.office.iproviders.plan.ITDocTabelProvider;
-import ru.perm.v.el59.dto.office.iproviders.plan.IUserZPProvider;
+import ru.perm.v.el59..office.iproviders.plan.ITDocTabelProvider;
+import ru.perm.v.el59..office.iproviders.plan.IUserZPProvider;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 
 import java.util.ArrayList;

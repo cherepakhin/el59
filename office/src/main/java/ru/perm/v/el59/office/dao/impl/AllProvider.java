@@ -1,21 +1,21 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.perm.v.el59.dto.office.iproviders.IPriceProvider;
-import ru.perm.v.el59.dto.office.iproviders.*;
-import ru.perm.v.el59.dto.office.iproviders.plan.IControllerZP;
-import ru.perm.v.el59.dto.office.iproviders.plan.IPlanProvider;
-import ru.perm.v.el59.dto.office.iproviders.service.IClientProvider;
-import ru.perm.v.el59.dto.office.iproviders.service.ILOPTDao;
-import ru.perm.v.el59.dto.office.iproviders.service.ITDocProvider;
-import ru.perm.v.el59.dto.office.iproviders.shopmodel.IDiscountProvider;
-import ru.perm.v.el59.dto.office.iproviders.web.IDocWItemProvider;
-import ru.perm.v.el59.dto.office.iproviders.web.IDocWProvider;
-import ru.perm.v.el59.dto.office.iproviders.web.IRestWebProvider;
+import ru.perm.v.el59..office.iproviders.IPriceProvider;
+import ru.perm.v.el59..office.iproviders.*;
+import ru.perm.v.el59..office.iproviders.plan.IControllerZP;
+import ru.perm.v.el59..office.iproviders.plan.IPlanProvider;
+import ru.perm.v.el59..office.iproviders.service.IClientProvider;
+import ru.perm.v.el59..office.iproviders.service.ILOPTDao;
+import ru.perm.v.el59..office.iproviders.service.ITDocProvider;
+import ru.perm.v.el59..office.iproviders.shopmodel.IDiscountProvider;
+import ru.perm.v.el59..office.iproviders.web.IDocWItemProvider;
+import ru.perm.v.el59..office.iproviders.web.IDocWProvider;
+import ru.perm.v.el59..office.iproviders.web.IRestWebProvider;
 import ru.perm.v.el59.dto.office.wscommand.ICommander;
-import ru.perm.v.el59.dto.office.iproviders.shopmodel.IBankActionProvider;
-import ru.perm.v.el59.dto.office.iproviders.shopmodel.IBonusCardMoveProvider;
-import ru.perm.v.el59.dto.office.iproviders.shopmodel.IBonusCardProvider;
-import ru.perm.v.el59.dto.office.iproviders.shopmodel.IDocTitleProvider;
+import ru.perm.v.el59..office.iproviders.shopmodel.IBankActionProvider;
+import ru.perm.v.el59..office.iproviders.shopmodel.IBonusCardMoveProvider;
+import ru.perm.v.el59..office.iproviders.shopmodel.IBonusCardProvider;
+import ru.perm.v.el59..office.iproviders.shopmodel.IDocTitleProvider;
 
 public class AllProvider {
 	private IAnalogProvider analogProvider;

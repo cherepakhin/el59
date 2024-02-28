@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import ru.perm.v.el59.dto.office.iproviders.shopmodel.ITypeSertProvider;
+import ru.perm.v.el59..office.iproviders.shopmodel.ITypeSertProvider;
 import ru.el59.office.shopmodel.TypeSert;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 

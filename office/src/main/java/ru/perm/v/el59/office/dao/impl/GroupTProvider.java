@@ -25,9 +25,9 @@ import ru.perm.v.el59.dto.office.critery.GroupTCritery;
 import ru.el59.office.db.GroupT;
 import ru.el59.office.db.Tovar;
 import ru.el59.office.db.Var;
-import ru.perm.v.el59.dto.office.iproviders.IGroupTProvider;
-import ru.perm.v.el59.dto.office.iproviders.ITovarProvider;
-import ru.perm.v.el59.dto.office.iproviders.IVarProvider;
+import ru.perm.v.el59..office.iproviders.IGroupTProvider;
+import ru.perm.v.el59..office.iproviders.ITovarProvider;
+import ru.perm.v.el59..office.iproviders.IVarProvider;
 import ru.perm.v.el59.office.util.Helper;
 
 public class GroupTProvider extends GenericDaoHibernateImpl<GroupT, String>
