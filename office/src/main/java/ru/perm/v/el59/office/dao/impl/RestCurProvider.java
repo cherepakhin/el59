@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Disjunction;
@@ -15,31 +15,21 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.critery.PriceCritery;
-import ru.perm.v.el59.office.critery.RestCritery;
-import ru.perm.v.el59.office.db.GroupTovar;
-import ru.perm.v.el59.office.db.MasterLevel;
-import ru.perm.v.el59.office.db.Price;
-import ru.perm.v.el59.office.db.PriceType;
-import ru.perm.v.el59.office.db.RestCur;
-import ru.perm.v.el59.office.db.SetTypeStock;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.db.ShopSqRest;
-import ru.perm.v.el59.office.db.SummaInOut;
-import ru.perm.v.el59.office.db.Tovar;
-import ru.perm.v.el59.office.db.TypeStock;
+import ru.el59.office.db.*;
 import ru.perm.v.el59.office.iproviders.IPriceProvider;
 import ru.perm.v.el59.office.iproviders.IRestCurProvider;
 import ru.perm.v.el59.office.iproviders.ISetTypeStockProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.iproviders.ITypeStockProvider;
+import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
+import ru.perm.v.el59.office.iproviders.critery.RestCritery;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import ru.perm.v.el59.office.util.Helper;
 
 public class RestCurProvider extends GenericDaoHibernateImpl<RestCur, Long>
 		implements IRestCurProvider {
-	private final static Logger LOG = Logger.getLogger(RestProvider.class);
+	private final static Logger LOG = Logger.getLogger(RestProvider.class.getName());
 	private IShopProvider shopProvider;
 	private ITypeStockProvider typeStockProvider;
 	private ITovarProvider tovarProvider;
