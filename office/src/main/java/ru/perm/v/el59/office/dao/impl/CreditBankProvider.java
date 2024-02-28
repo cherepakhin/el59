@@ -1,11 +1,12 @@
 package ru.perm.v.el59.office.dao.impl;
 
+import ru.el59.dao.CommonCritery;
+import ru.el59.office.db.CreditBank;
+import ru.el59.office.iproviders.ICreditBankProvider;
+import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
 import java.util.List;
 
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.db.CreditBank;
-import ru.perm.v.el59.office.iproviders.ICreditBankProvider;
-import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 public class CreditBankProvider extends GenericDaoMessageImpl<CreditBank, Long>
 		implements ICreditBankProvider {
