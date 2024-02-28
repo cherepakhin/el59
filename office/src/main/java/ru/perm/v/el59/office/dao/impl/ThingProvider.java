@@ -1,12 +1,13 @@
 package ru.perm.v.el59.office.dao.impl;
 
+import ru.el59.office.db.Thing;
+import ru.perm.v.el59.office.iproviders.IThingProvider;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+
 import java.util.HashMap;
 import java.util.List;
 
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.db.Thing;
-import ru.perm.v.el59.office.iproviders.IThingProvider;
-
+//TODO: fix methods
 public class ThingProvider extends GenericDaoHibernateImpl<Thing, Long>
 		implements IThingProvider {
 
