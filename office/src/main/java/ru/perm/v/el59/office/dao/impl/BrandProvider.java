@@ -1,8 +1,7 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.el59.dao.CommonCritery;
 import ru.el59.office.db.Brand;
-import ru.perm.v.el59.dto.office.iproviders.IBrandProvider;
 
 import java.util.List;
 
