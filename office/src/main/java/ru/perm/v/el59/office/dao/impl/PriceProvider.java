@@ -24,11 +24,10 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import org.jboss.logging.Logger;
-import ru.perm.v.el59.dto.office.critery.PriceCritery;
 import ru.el59.office.db.*;
 import ru.el59.office.db.dto.PriceDbf;
-import ru.perm.v.el59..office.iproviders.IPriceProvider;
-import ru.perm.v.el59..office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
 import ru.perm.v.el59.office.util.Helper;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 import bsh.EvalError;
@@ -518,7 +517,7 @@ public class PriceProvider extends GenericDaoMessageImpl<Price, Long> implements
 
 	@Override
 	public List<PriceDbf> getPriceDbf(PriceType priceType, Shop shop,
-			Date fromDate, Date toDate, Formula formula) throws EvalError {
+									  Date fromDate, Date toDate, Formula formula) throws EvalError {
 		if (formula != null) {
 			formula = getFormulaProvider().initialize(formula.getN());
 		}
