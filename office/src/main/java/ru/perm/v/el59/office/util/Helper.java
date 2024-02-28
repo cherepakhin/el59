@@ -6,12 +6,12 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 
 public class Helper {
-	private final static Logger LOG = Logger.getLogger(Helper.class); 
+	private final static Logger LOG = Logger.getLogger(Helper.class.getName());
 	private static SimpleDateFormat sdf;
 
 	public static Date getNullHour(Date ddate) {
@@ -26,8 +26,8 @@ public class Helper {
 
 	public static byte[] getImageData(String pathImage, String basePath)
 			throws IOException {
-		if (!org.apache.commons.lang.StringUtils.isEmpty(pathImage)
-				&& !org.apache.commons.lang.StringUtils.isEmpty(basePath)) {
+		if (!org.apache.commons.lang3.StringUtils.isEmpty(pathImage)
+				&& !org.apache.commons.lang3.StringUtils.isEmpty(basePath)) {
 			if (!basePath.endsWith(File.separator)) {
 				basePath = basePath + File.separator;
 			}
@@ -73,8 +73,8 @@ public class Helper {
 		try {
 			newValue = new BigDecimal(normalizeStringForNumber((String) value));
 		} catch (Exception e) {
-			LOG.error("Failed convert to BigDecimal"+value);
-			LOG.error(e);
+			LOG.severe("Failed convert to BigDecimal"+value);
+			LOG.severe(e.getMessage());
 			e.printStackTrace();
 		}
 		return newValue;

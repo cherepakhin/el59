@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.iproviders.web;
 
 import java.util.Date;
-import ru.perm.v.el59.office.critery.ADocCritery;
+import ru.perm.v.el59.office.iproviders.critery.ADocCritery;
 import ru.el59.office.db.Contragent;
 
 public class DocWCritery extends ADocCritery {

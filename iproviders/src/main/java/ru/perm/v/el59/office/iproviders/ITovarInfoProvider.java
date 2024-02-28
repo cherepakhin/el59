@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.iproviders;
 import java.io.IOException;
 import java.util.List;
 import ru.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.FeatureCritery;
+import ru.perm.v.el59.office.iproviders.critery.FeatureCritery;
 import ru.el59.office.db.Feature;
 import ru.el59.office.db.Manager;
 import ru.el59.office.db.Photo;

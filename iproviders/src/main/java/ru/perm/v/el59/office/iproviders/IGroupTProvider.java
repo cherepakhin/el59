@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.iproviders;
 import java.io.IOException;
 import java.util.List;
 import ru.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.GroupTCritery;
+import ru.perm.v.el59.office.iproviders.critery.GroupTCritery;
 import ru.el59.office.db.GroupT;
 
 public interface IGroupTProvider extends IGenericDao<GroupT, String> {

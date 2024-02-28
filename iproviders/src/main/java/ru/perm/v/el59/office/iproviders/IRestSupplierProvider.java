@@ -7,7 +7,7 @@ import ru.el59.office.db.Price;
 import ru.el59.office.db.RestSupplier;
 import ru.el59.office.db.RestXls;
 import ru.el59.office.db.web.SummarySite;
-import ru.perm.v.el59.office.exception.MessageException;
+import ru.perm.v.el59.office.iproviders.exception.MessageException;
 
 public interface IRestSupplierProvider extends IGenericDao<RestSupplier, Long> {
    List<Integer> getDistinctListNnum();

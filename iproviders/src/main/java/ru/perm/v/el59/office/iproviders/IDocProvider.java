@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import ru.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.DocCritery;
+import ru.perm.v.el59.office.iproviders.critery.DocCritery;
 import ru.el59.office.db.Doc;
 import ru.el59.office.db.DocFile;
 import ru.el59.office.db.Manager;

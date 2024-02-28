@@ -4,11 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-import net.sf.jxls.exception.ParsePropertyException;
-import net.sf.jxls.transformer.XLSTransformer;
-
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import org.apache.commons.io.FileUtils;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 public class ExcelReport {
 
@@ -19,8 +16,6 @@ public class ExcelReport {
 	 * @param beans
 	 * @return
 	 * @throws IOException
-	 * @throws InvalidFormatException
-	 * @throws ParsePropertyException
 	 */
 	public byte[] build(String inputFile, Map<String, Object> beans)
 			throws IOException, ParsePropertyException, InvalidFormatException {

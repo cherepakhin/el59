@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+
 import ru.el59.ui.AUIBean;
 import ru.el59.ui.Justify;
 import ru.el59.ui.UI;
@@ -228,11 +229,9 @@ public class TovarInfo extends AUIBean implements Serializable, Cloneable, ITova
    }
 
    public void addPhoto(Photo photo) {
-      photo.setTovarInfo(this);
       if (!this.listPhoto.contains(photo)) {
-         this.listPhoto.add(photo);
+         photo.setTovarInfo(this);
       }
-
    }
 
    public void removePhoto(Photo photo) {

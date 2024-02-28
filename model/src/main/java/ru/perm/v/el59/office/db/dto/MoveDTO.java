@@ -3,11 +3,8 @@ package ru.perm.v.el59.office.db.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import ru.perm.v.el59.office.db.Agent;
-import ru.perm.v.el59.office.db.Move;
-import ru.perm.v.el59.office.db.Operation;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.db.TypeStock;
+
+import ru.perm.v.el59.office.db.*;
 import ru.el59.ui.AUIBean;
 import ru.el59.ui.Justify;
 import ru.el59.ui.UI;
@@ -124,7 +121,6 @@ public class MoveDTO extends AUIBean implements Serializable {
       this();
       this.n = m.getN();
       this.agent = m.getAgent();
-      this.agentcode = m.getAgentcode();
       this.codeoper = m.getCodeoper();
       this.ddate = m.getDdate();
       this.fromstock = m.getFromstock();

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import ru.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.PlanDownloadCritery;
+import ru.perm.v.el59.office.iproviders.critery.PlanDownloadCritery;
 import ru.el59.office.db.Contragent;
 import ru.el59.office.db.Doc;
 import ru.el59.office.db.DocFile;

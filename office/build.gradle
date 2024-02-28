@@ -39,6 +39,9 @@ dependencies {
 	implementation 'org.apache.camel:camel-core:4.0.0'
 	// https://mvnrepository.com/artifact/commons-io/commons-io
 	implementation  'commons-io:commons-io:2.15.1'
+	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+	implementation 'org.apache.commons:commons-lang3:3.14.0'
+
 
 // https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream
 	implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.20'

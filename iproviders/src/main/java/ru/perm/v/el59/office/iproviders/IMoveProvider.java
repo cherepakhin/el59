@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import ru.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.MoveCritery;
+import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
 import ru.el59.office.db.Move;
 import ru.el59.office.db.MoveSummary;
 import ru.el59.office.db.PriceType;

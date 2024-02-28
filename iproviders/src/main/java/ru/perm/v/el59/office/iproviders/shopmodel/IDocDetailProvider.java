@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.iproviders.shopmodel;
 
 import java.util.List;
 import ru.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.DocDetailCritery;
+import ru.perm.v.el59.office.iproviders.critery.DocDetailCritery;
 import ru.el59.office.db.Shop;
 import ru.el59.office.shopmodel.DocDetail;
 import ru.el59.office.shopmodel.DocTitle;

@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.iproviders.web;
 
 import java.util.ArrayList;
 import java.util.List;
-import ru.perm.v.el59.office.critery.ADocItemCritery;
+import ru.perm.v.el59.office.iproviders.critery.ADocItemCritery;
 import ru.el59.office.db.DocItem;
 import ru.el59.office.db.web.DocW;
 
