@@ -7,12 +7,11 @@ import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.dto.office.critery.RestCritery;
-import ru.perm.v.el59.dto.office.critery.TovarCritery;
 import ru.el59.office.db.*;
 import ru.el59.office.db.dto.TovarDTO;
-import ru.perm.v.el59..office.iproviders.IRestCurProvider;
-import ru.perm.v.el59..office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.critery.RestCritery;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.util.Helper;
 import ru.perm.v.el59.office.util.ILuceneSearcher;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
@@ -154,6 +153,8 @@ public class TovarProvider extends GenericDaoMessageImpl<Tovar, Integer>
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
+        } catch (org.apache.el.parser.ParseException e) {
+            throw new RuntimeException(e);
         }
         ArrayList<Tovar> list = new ArrayList<Tovar>();
         if (nnums != null) {
