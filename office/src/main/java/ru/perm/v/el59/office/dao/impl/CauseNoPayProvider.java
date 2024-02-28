@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.perm.v.el59.dto.dao.CommonCritery;
 import ru.el59.office.db.CauseNoPay;
-import ru.perm.v.el59.dto.office.iproviders.ICauseNoPayProvider;
+import ru.perm.v.el59.office.iproviders.ICauseNoPayProvider;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 import java.util.List;
 
