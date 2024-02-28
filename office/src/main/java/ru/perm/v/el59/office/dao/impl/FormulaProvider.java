@@ -6,10 +6,9 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.db.Formula;
-import ru.perm.v.el59.office.iproviders.IFormulaProvider;
+import ru.el59.dao.CommonCritery;
+import ru.el59.office.db.Formula;
+import ru.el59.office.iproviders.IFormulaProvider;
 
 public class FormulaProvider extends GenericDaoHibernateImpl<Formula, Long>
 		implements IFormulaProvider {
