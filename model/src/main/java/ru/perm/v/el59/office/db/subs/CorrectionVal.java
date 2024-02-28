@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.db.subs;
 
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 
 public class CorrectionVal extends AEntity {
    private static final long serialVersionUID = 4631143418951787275L;

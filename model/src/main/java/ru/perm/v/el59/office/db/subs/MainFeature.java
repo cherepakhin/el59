@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.db.subs;
 
 import java.util.HashSet;
 import java.util.Set;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.UI;
 
 public class MainFeature extends AEntity {

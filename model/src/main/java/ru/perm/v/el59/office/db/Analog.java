@@ -1,8 +1,9 @@
 package ru.perm.v.el59.office.db;
 
-import java.util.Date;
-import ru.el59.dao.AEntity;
 import ru.el59.ui.UI;
+import ru.perm.v.el59.dao.AEntity;
+
+import java.util.Date;
 
 public class Analog extends AEntity implements ITovar {
    private static final long serialVersionUID = -2605221743907918446L;

@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.db;
 
 import java.math.BigDecimal;
 
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.Justify;
 import ru.el59.ui.UI;
 

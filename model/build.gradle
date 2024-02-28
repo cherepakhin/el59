@@ -32,9 +32,9 @@ repositories {
 }
 
 dependencies {
+	implementation 'ru.perm.v.el59_office:ui:0.0.3'
 	implementation 'ru.perm.v.el59_office:dto:0.0.2'
-	implementation 'ru.perm.v.el59_office:dao:0.0.1'
-	implementation 'ru.perm.v.el59_office:ui:0.0.1'
+	implementation 'ru.perm.v.el59_office:dao:0.0.2'
 
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'

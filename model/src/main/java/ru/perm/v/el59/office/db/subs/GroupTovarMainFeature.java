@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.db.subs;
 
 import java.util.ArrayList;
 import java.util.List;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.GroupTovar;
 
 public class GroupTovarMainFeature extends AEntity {

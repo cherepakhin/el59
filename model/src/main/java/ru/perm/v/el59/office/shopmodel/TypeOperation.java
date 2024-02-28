@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.shopmodel;
 
-import ru.el59.dao.AEntity;
 import ru.el59.ui.UI;
+import ru.perm.v.el59.dao.AEntity;
 
 public class TypeOperation extends AEntity {
    private static final long serialVersionUID = -7243177653987130864L;

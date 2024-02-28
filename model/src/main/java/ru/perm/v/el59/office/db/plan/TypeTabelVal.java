@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.db.plan;
 
 import java.io.Serializable;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.Justify;
 import ru.el59.ui.UI;
 

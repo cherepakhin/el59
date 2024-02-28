@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.db;
 
 import java.util.Collection;
 import java.util.HashSet;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 
 public class SetTypeStock extends AEntity {
    private static final long serialVersionUID = -8794945334153327044L;

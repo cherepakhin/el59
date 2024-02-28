@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.db;
 
 import java.util.ArrayList;
 import java.util.List;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.UI;
 
 public class PriceType extends AEntity {

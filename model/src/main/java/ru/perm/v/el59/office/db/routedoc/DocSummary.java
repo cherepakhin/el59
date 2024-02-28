@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.db.routedoc;
 
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
 import ru.el59.ui.UI;

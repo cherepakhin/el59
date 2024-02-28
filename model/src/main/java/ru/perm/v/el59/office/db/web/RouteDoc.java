@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db.web;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Manager;
 import ru.perm.v.el59.office.db.Shop;

@@ -1,10 +1,11 @@
 package ru.perm.v.el59.office.db.plan;
 
+import ru.perm.v.el59.dao.AEntity;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import ru.el59.dao.AEntity;
 
 public class Smena extends AEntity implements Serializable {
    private static final long serialVersionUID = 4292289514946604156L;

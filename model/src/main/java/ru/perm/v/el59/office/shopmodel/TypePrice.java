@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.shopmodel;
 
-import ru.el59.dao.AEntity;
 import ru.el59.ui.UI;
+import ru.perm.v.el59.dao.AEntity;
 
 public class TypePrice extends AEntity {
    private static final long serialVersionUID = -2442715849239224408L;

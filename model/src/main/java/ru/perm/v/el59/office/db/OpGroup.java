@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 
 public class OpGroup extends AEntity implements Serializable {
    private static final long serialVersionUID = 3021824537062909058L;

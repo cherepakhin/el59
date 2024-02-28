@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.db;
 
 import java.util.Collection;
 import java.util.HashSet;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.UI;
 
 public class Manager extends AEntity {

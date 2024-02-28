@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db.web;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.DocItem;
 import ru.perm.v.el59.office.db.ITovar;
 import ru.perm.v.el59.office.db.Tovar;

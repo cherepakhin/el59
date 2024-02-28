@@ -3,7 +3,9 @@ package ru.perm.v.el59.office.db;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
-import ru.el59.dao.AEntity;
+
+import ru.el59.office.db.TypeDoc;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.Justify;
 import ru.el59.ui.UI;
 

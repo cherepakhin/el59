@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 
 public class Tabel extends AEntity implements Serializable {
    private static final long serialVersionUID = 789870848211025478L;

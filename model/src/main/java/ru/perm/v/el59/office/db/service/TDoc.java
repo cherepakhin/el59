@@ -4,8 +4,9 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
+
+import ru.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.db.Manager;
-import ru.perm.v.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.db.Vars;
 import ru.el59.ui.AUIBean;
 import ru.el59.ui.UI;
@@ -168,7 +169,7 @@ public class TDoc extends AUIBean implements Serializable {
    }
 
    public String toString() {
-      return this.typeDoc.getName() + " №" + this.n.toString() + " от " + Vars.format(this.ddate);
+      return " №" + this.n.toString() + " от " + Vars.format(this.ddate);
    }
 
    public TDoc getLastTDoc() {
@@ -184,8 +185,7 @@ public class TDoc extends AUIBean implements Serializable {
    }
 
    public Long getRestDay() {
-      Long days = getDiffDate(this.getDdate(), new Date());
-      return this.getTypeDoc() != null ? (long)this.getTypeDoc().getPeriod() - days : 0L;
+      return getDiffDate(this.getDdate(), new Date());
    }
 
    public void setRestday(Integer restday) {

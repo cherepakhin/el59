@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db.routedoc;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Doc;
 import ru.perm.v.el59.office.db.Manager;

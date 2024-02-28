@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.db;
 
 import java.util.Date;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.UI;
 
 public class Err extends AEntity {

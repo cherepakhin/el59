@@ -1,6 +1,5 @@
 package ru.perm.v.el59.office.db;
 
-
 import ru.perm.v.el59.dao.AEntity;
 
 public class TypeFile extends AEntity implements Comparable<TypeFile> {

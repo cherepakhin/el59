@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.db.service;
 
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.el59.ui.UI;
 
 public class Client extends AEntity {

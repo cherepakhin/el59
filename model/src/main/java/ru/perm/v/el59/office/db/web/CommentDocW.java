@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.db.web;
 
 import java.util.Date;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Manager;
 import ru.el59.ui.UI;
 

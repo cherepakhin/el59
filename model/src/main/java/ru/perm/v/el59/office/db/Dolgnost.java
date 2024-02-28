@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashSet;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.shopmodel.ShopRight;
 import ru.el59.ui.UI;
 
