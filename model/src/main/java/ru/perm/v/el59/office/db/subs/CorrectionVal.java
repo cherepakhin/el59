@@ -2,6 +2,8 @@ package ru.perm.v.el59.office.db.subs;
 
 import ru.perm.v.el59.dao.AEntity;
 
+import java.util.Objects;
+
 public class CorrectionVal extends AEntity {
    private static final long serialVersionUID = 4631143418951787275L;
    private ValFeature valFeature;
@@ -18,35 +20,17 @@ public class CorrectionVal extends AEntity {
       this.valFeature = valFeature;
    }
 
-   public int hashCode() {
-      int result = 31 + (this.valFeature == null ? 0 : this.valFeature.hashCode()) + (this.name == null ? 0 : this.name.hashCode());
-      return result;
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof CorrectionVal)) return false;
+      if (!super.equals(o)) return false;
+      CorrectionVal that = (CorrectionVal) o;
+      return Objects.equals(valFeature, that.valFeature);
    }
 
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         CorrectionVal other = (CorrectionVal)obj;
-         if (this.valFeature == null) {
-            if (other.valFeature != null) {
-               return false;
-            }
-         } else if (!this.valFeature.equals(other.valFeature)) {
-            return false;
-         }
-
-         if (this.name == null) {
-            if (other.name != null) {
-               return false;
-            }
-         } else if (!this.name.equals(other.name)) {
-            return false;
-         }
-
-         return true;
-      }
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), valFeature);
    }
 }

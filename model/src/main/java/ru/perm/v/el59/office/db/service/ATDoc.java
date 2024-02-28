@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.db.service;
 
 import java.io.Serializable;
-import ru.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.AUIBean;
 
 public abstract class ATDoc extends AUIBean implements ITDoc, Serializable {
    private static final long serialVersionUID = -4163829288390981457L;

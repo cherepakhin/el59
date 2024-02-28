@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.shopmodel;
 
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class PaySert extends Payment {
    private static final long serialVersionUID = -7978458045066350339L;

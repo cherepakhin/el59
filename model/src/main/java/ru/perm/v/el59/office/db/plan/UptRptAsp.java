@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class UptRptAsp extends AUIBean implements Serializable {
    private static final long serialVersionUID = 8903678251659177923L;

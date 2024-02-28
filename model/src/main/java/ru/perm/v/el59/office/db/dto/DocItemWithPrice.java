@@ -7,9 +7,9 @@ import ru.perm.v.el59.office.db.DocItem;
 import ru.perm.v.el59.office.db.ITovar;
 import ru.perm.v.el59.office.db.Price;
 import ru.perm.v.el59.office.db.Tovar;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class DocItemWithPrice extends AUIBean implements Serializable, ITovar {
    private static final long serialVersionUID = -8892041480647159115L;

@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.db;
 
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class Var extends AEntity {
    private static final long serialVersionUID = 8258005915750592417L;

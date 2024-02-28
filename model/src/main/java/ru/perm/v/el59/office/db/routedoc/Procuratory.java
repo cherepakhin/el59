@@ -5,8 +5,8 @@ import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Manager;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class Procuratory extends AEntity {
    private static final long serialVersionUID = 3950854592945245878L;

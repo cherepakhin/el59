@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.IUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.IUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class GroupTovar extends AUIBean implements Serializable, IUIBean {
    private static final long serialVersionUID = -655763264219858206L;

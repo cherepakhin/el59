@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class Price extends AEntity implements Serializable, ITovar {
    private static final long serialVersionUID = 1033907143400661202L;

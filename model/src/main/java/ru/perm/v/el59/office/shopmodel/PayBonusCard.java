@@ -10,10 +10,6 @@ public class PayBonusCard extends Payment implements Cloneable {
       return "Бонусы";
    }
 
-   public Object clone() throws CloneNotSupportedException {
-      return super.clone();
-   }
-
    public BonusCardMove getBonusCardMove() {
       return this.bonusCardMove;
    }

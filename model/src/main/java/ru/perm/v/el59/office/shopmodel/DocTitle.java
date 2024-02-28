@@ -7,9 +7,9 @@ import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.TypeStock;
 import ru.perm.v.el59.office.db.UserShop;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class DocTitle extends AUIBean implements Serializable, Comparable<DocTitle> {
    private static final long serialVersionUID = -7996914983135883652L;

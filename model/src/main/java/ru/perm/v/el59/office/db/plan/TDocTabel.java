@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db.plan;
 import java.io.Serializable;
 import ru.perm.v.el59.office.db.service.ATDoc;
 import ru.perm.v.el59.office.db.service.ITDoc;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class TDocTabel extends ATDoc implements Serializable, ITDoc {
    private static final long serialVersionUID = 1928872940659947222L;

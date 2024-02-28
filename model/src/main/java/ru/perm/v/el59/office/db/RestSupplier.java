@@ -3,9 +3,9 @@ package ru.perm.v.el59.office.db;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class RestSupplier extends AUIBean implements Serializable, ITovar {
    private static final long serialVersionUID = -4597225167702278755L;

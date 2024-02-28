@@ -1,9 +1,10 @@
 package ru.perm.v.el59.office.shopmodel;
 
 import java.math.BigDecimal;
-import ru.el59.dao.AEntity;
+
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Tovar;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class TovarBonus extends AEntity {
    private static final long serialVersionUID = 6848587900270680395L;

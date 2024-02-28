@@ -7,8 +7,8 @@ import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.GroupContragent;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.TypeFile;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class PlanDownload extends AEntity {
    private static final long serialVersionUID = -822856937137555888L;

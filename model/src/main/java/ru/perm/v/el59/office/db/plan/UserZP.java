@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import ru.perm.v.el59.office.db.Dolgnost;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class UserZP extends AUIBean implements Serializable {
    private static final long serialVersionUID = 7393773205556669984L;

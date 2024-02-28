@@ -2,9 +2,9 @@ package ru.perm.v.el59.office.db.plan;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class RestForPlan extends AUIBean implements Serializable {
    private static final long serialVersionUID = 8237305085095738146L;

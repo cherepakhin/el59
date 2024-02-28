@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'ru.perm.v.el59_office'
-version = '0.0.2'
+version = '0.0.3'
 
 java {
 	sourceCompatibility = '11'
@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'ru.perm.v.el59_office:ui:0.0.3'
+	implementation 'ru.perm.v.el59_office:ui:0.0.4'
 	implementation 'ru.perm.v.el59_office:dto:0.0.2'
 	implementation 'ru.perm.v.el59_office:dao:0.0.2'
 

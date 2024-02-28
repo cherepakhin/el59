@@ -6,9 +6,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class TovarInfo extends AUIBean implements Serializable, Cloneable, ITovar {
    private static final long serialVersionUID = -6645553389191433565L;

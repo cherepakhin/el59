@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import ru.perm.v.el59.office.db.dto.TovarDTO;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class Tovar extends AUIBean implements Serializable, Cloneable, ITovar {
    private static final long serialVersionUID = 1155758415709756386L;

@@ -5,7 +5,7 @@ import java.util.List;
 import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class TemplatePathPage extends AEntity {
    private static final long serialVersionUID = 4808468032935361968L;

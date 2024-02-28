@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db;
 import java.util.ArrayList;
 import java.util.List;
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class PriceType extends AEntity {
    private static final long serialVersionUID = 7835614868504404786L;

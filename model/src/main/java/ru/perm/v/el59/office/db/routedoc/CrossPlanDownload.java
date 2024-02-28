@@ -2,9 +2,11 @@ package ru.perm.v.el59.office.db.routedoc;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Objects;
+
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class CrossPlanDownload extends AEntity implements Comparable<CrossPlanDownload> {
    private static final long serialVersionUID = 6710126031827478746L;
@@ -140,42 +142,6 @@ public class CrossPlanDownload extends AEntity implements Comparable<CrossPlanDo
       return ret == 0 ? this.getShop().compareTo(o.getShop()) : ret;
    }
 
-   public int hashCode() {
-      int result = super.hashCode();
-      result = 31 * result + (this.ddate == null ? 0 : this.ddate.hashCode());
-      result = 31 * result + (this.shop == null ? 0 : this.shop.hashCode());
-      return result;
-   }
-
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (!super.equals(obj)) {
-         return false;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         CrossPlanDownload other = (CrossPlanDownload)obj;
-         if (this.ddate == null) {
-            if (other.ddate != null) {
-               return false;
-            }
-         } else if (!this.ddate.equals(other.ddate)) {
-            return false;
-         }
-
-         if (this.shop == null) {
-            if (other.shop != null) {
-               return false;
-            }
-         } else if (!this.shop.equals(other.shop)) {
-            return false;
-         }
-
-         return true;
-      }
-   }
-
    public BigDecimal getSum1Fact() {
       return this.sum1Fact;
    }
@@ -200,5 +166,19 @@ public class CrossPlanDownload extends AEntity implements Comparable<CrossPlanDo
 
    public void setSumAllFact(BigDecimal sumAllFact) {
       this.sumAllFact = sumAllFact;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof CrossPlanDownload)) return false;
+      if (!super.equals(o)) return false;
+      CrossPlanDownload that = (CrossPlanDownload) o;
+      return Objects.equals(ddate, that.ddate) && Objects.equals(shop, that.shop) && Objects.equals(sum1, that.sum1) && Objects.equals(sum1Fact, that.sum1Fact) && Objects.equals(PlanDownload1, that.PlanDownload1) && Objects.equals(sum2, that.sum2) && Objects.equals(sum2Fact, that.sum2Fact) && Objects.equals(PlanDownload2, that.PlanDownload2) && Objects.equals(sumAll, that.sumAll) && Objects.equals(sumAllFact, that.sumAllFact);
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), ddate, shop, sum1, sum1Fact, PlanDownload1, sum2, sum2Fact, PlanDownload2, sumAll, sumAllFact);
    }
 }

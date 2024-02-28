@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.iproviders.dao;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.UI;
 
 import java.io.Serializable;
 

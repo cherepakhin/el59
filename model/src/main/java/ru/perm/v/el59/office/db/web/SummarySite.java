@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.db.web;
 
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class SummarySite extends AEntity implements Comparable<SummarySite> {
    private static final long serialVersionUID = 547903211211377037L;

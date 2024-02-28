@@ -8,8 +8,8 @@ import ru.perm.v.el59.office.db.DocItem;
 import ru.perm.v.el59.office.db.ITovar;
 import ru.perm.v.el59.office.db.Tovar;
 import ru.perm.v.el59.office.shopmodel.DocDetail;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class DocWItem extends AEntity implements ITovar {
    private static final long serialVersionUID = 500391308094779654L;

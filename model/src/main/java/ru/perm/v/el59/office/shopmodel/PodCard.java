@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.shopmodel;
 
 import java.util.Date;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class PodCard extends AEntity {
    private static final long serialVersionUID = 5902354570428632986L;

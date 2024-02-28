@@ -1,9 +1,10 @@
 package ru.perm.v.el59.office.db.subs;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class ValFeature extends AEntity {
    private static final long serialVersionUID = 2705901007703964502L;
@@ -37,43 +38,25 @@ public class ValFeature extends AEntity {
       this.listCorrectionVal = listCorrectionVal;
    }
 
-   public int hashCode() {
-      int result = 31 + (this.mainFeature == null ? 0 : this.mainFeature.hashCode()) + (this.name == null ? 0 : this.name.hashCode());
-      return result;
-   }
-
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         ValFeature other = (ValFeature)obj;
-         if (this.mainFeature == null) {
-            if (other.mainFeature != null) {
-               return false;
-            }
-         } else if (!this.mainFeature.equals(other.mainFeature)) {
-            return false;
-         }
-
-         if (this.name == null) {
-            if (other.name != null) {
-               return false;
-            }
-         } else if (!this.name.equals(other.name)) {
-            return false;
-         }
-
-         return true;
-      }
-   }
-
    public String getForTag() {
       return this.forTag;
    }
 
    public void setForTag(String forTag) {
       this.forTag = forTag;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof ValFeature)) return false;
+      if (!super.equals(o)) return false;
+      ValFeature that = (ValFeature) o;
+      return Objects.equals(mainFeature, that.mainFeature) && Objects.equals(listCorrectionVal, that.listCorrectionVal) && Objects.equals(forTag, that.forTag);
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), mainFeature, listCorrectionVal, forTag);
    }
 }

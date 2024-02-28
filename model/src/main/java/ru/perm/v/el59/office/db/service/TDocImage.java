@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.db.service;
 
 import java.io.Serializable;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.UI;
 
 public class TDocImage extends AUIBean implements Serializable {
    private static final long serialVersionUID = -4568232219843618776L;

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import ru.perm.v.el59.office.db.DocFile;
 import ru.perm.v.el59.office.db.TypeFile;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class TypeFileSum extends AUIBean implements Serializable {
    private static final long serialVersionUID = -778579189589328231L;

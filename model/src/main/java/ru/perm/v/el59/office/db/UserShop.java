@@ -1,8 +1,10 @@
 package ru.perm.v.el59.office.db;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class UserShop extends AEntity implements Serializable {
    private static final long serialVersionUID = -6999178609272233998L;
@@ -85,27 +87,6 @@ public class UserShop extends AEntity implements Serializable {
       return result;
    }
 
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (obj == null) {
-         return false;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         UserShop other = (UserShop)obj;
-         if (this.n == null) {
-            if (other.n != null) {
-               return false;
-            }
-         } else if (!this.n.equals(other.n)) {
-            return false;
-         }
-
-         return true;
-      }
-   }
-
    public Shop getShop() {
       return this.shop;
    }
@@ -140,5 +121,14 @@ public class UserShop extends AEntity implements Serializable {
 
    public static String getDescriptionClass() {
       return "Сотрудник";
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof UserShop)) return false;
+      if (!super.equals(o)) return false;
+      UserShop userShop = (UserShop) o;
+      return Objects.equals(dolgnost, userShop.dolgnost) && Objects.equals(shop, userShop.shop) && Objects.equals(worked, userShop.worked) && Objects.equals(namebest, userShop.namebest) && Objects.equals(password, userShop.password);
    }
 }

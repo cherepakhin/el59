@@ -1,7 +1,9 @@
 package ru.perm.v.el59.office.shopmodel;
 
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 import ru.perm.v.el59.dao.AEntity;
+
+import java.util.Objects;
 
 public class TypePrice extends AEntity {
    private static final long serialVersionUID = -2442715849239224408L;
@@ -25,30 +27,17 @@ public class TypePrice extends AEntity {
       this.best = best;
    }
 
-   public int hashCode() {
-      int result = super.hashCode();
-      result = 31 * result + (this.n == null ? 0 : this.n.hashCode());
-      return result;
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof TypePrice)) return false;
+      if (!super.equals(o)) return false;
+      TypePrice typePrice = (TypePrice) o;
+      return Objects.equals(best, typePrice.best);
    }
 
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (!super.equals(obj)) {
-         return false;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         TypePrice other = (TypePrice)obj;
-         if (this.n == null) {
-            if (other.n != null) {
-               return false;
-            }
-         } else if (!this.n.equals(other.n)) {
-            return false;
-         }
-
-         return true;
-      }
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), best);
    }
 }

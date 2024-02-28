@@ -6,8 +6,8 @@ import java.util.Date;
 import java.util.List;
 import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Manager;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class PathPage extends AEntity {
    private static final long serialVersionUID = 4908548474708722445L;

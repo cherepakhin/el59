@@ -2,8 +2,10 @@ package ru.perm.v.el59.office.db;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
+
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class Manager extends AEntity {
    private static final long serialVersionUID = 1L;
@@ -97,29 +99,17 @@ public class Manager extends AEntity {
       this.worked = worked;
    }
 
-   public int hashCode() {
-      int result = 31 + (this.n == null ? 0 : this.n.hashCode());
-      return result;
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof Manager)) return false;
+      if (!super.equals(o)) return false;
+      Manager manager = (Manager) o;
+      return Objects.equals(password, manager.password) && Objects.equals(roles, manager.roles) && Objects.equals(shop, manager.shop) && Objects.equals(email, manager.email) && Objects.equals(worked, manager.worked);
    }
 
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (obj == null) {
-         return false;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         Manager other = (Manager)obj;
-         if (this.n == null) {
-            if (other.n != null) {
-               return false;
-            }
-         } else if (!this.n.equals(other.n)) {
-            return false;
-         }
-
-         return true;
-      }
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), password, roles, shop, email, worked);
    }
 }

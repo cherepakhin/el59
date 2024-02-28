@@ -2,8 +2,8 @@ package ru.perm.v.el59.office.db;
 
 import java.io.Serializable;
 import java.util.Date;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.UI;
 
 public class FeatureOld extends AUIBean implements Serializable {
    private static final long serialVersionUID = -257835430201974349L;

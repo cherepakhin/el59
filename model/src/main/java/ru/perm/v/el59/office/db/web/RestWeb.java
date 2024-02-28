@@ -6,9 +6,9 @@ import java.util.Date;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.Tovar;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class RestWeb extends AUIBean implements Serializable {
    private static final long serialVersionUID = 9063643879106537306L;

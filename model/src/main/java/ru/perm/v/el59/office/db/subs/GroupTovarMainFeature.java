@@ -2,6 +2,8 @@ package ru.perm.v.el59.office.db.subs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.GroupTovar;
 
@@ -41,27 +43,17 @@ public class GroupTovarMainFeature extends AEntity {
       this.groupTovar = groupTovar;
    }
 
-   public int hashCode() {
-      int result = 31 + (this.groupTovar == null ? 0 : this.groupTovar.hashCode());
-      return result;
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof GroupTovarMainFeature)) return false;
+      if (!super.equals(o)) return false;
+      GroupTovarMainFeature that = (GroupTovarMainFeature) o;
+      return Objects.equals(groupTovar, that.groupTovar) && Objects.equals(mainFeatures, that.mainFeatures);
    }
 
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         GroupTovarMainFeature other = (GroupTovarMainFeature)obj;
-         if (this.groupTovar == null) {
-            if (other.groupTovar != null) {
-               return false;
-            }
-         } else if (!this.groupTovar.equals(other.groupTovar)) {
-            return false;
-         }
-
-         return true;
-      }
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), groupTovar, mainFeatures);
    }
 }

@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.shopmodel;
 
-import ru.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.dao.AEntity;
+import ru.perm.v.el59.ui.UI;
 
 public class Expense extends AEntity {
    private static final long serialVersionUID = 6618435810416581353L;

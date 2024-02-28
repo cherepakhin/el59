@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.db;
 
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class Formula extends AEntity {
    private static final long serialVersionUID = 7341491902891498300L;

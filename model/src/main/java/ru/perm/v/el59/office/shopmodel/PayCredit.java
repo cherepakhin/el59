@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.shopmodel;
 
 import java.math.BigDecimal;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class PayCredit extends Payment {
    private static final long serialVersionUID = 7817518445013601680L;

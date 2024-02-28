@@ -2,9 +2,9 @@ package ru.perm.v.el59.office.shopmodel;
 
 import java.util.Collection;
 import java.util.HashSet;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.CreditBank;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class BankAction extends AEntity {
    private static final long serialVersionUID = -5613064403045102973L;

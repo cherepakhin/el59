@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.db;
 
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

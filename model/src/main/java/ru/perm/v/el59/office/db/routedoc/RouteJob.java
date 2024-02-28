@@ -4,7 +4,7 @@ import java.util.Date;
 import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Doc;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class RouteJob extends AEntity {
    private static final long serialVersionUID = -7217444065628510066L;

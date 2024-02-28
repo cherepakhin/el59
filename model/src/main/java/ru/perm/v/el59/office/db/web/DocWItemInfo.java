@@ -2,9 +2,9 @@ package ru.perm.v.el59.office.db.web;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class DocWItemInfo extends AUIBean implements Serializable {
    private static final long serialVersionUID = 7018949657606835838L;

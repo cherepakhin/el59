@@ -3,8 +3,8 @@ package ru.perm.v.el59.office.shopmodel;
 import java.io.Serializable;
 import java.util.Date;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.UI;
 
 public class SMS extends AUIBean implements Serializable {
    private static final long serialVersionUID = -7996914983135883652L;

@@ -1,13 +1,13 @@
 package ru.perm.v.el59.office.shopmodel;
 
 import java.math.BigDecimal;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.ITovar;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.Tovar;
 import ru.perm.v.el59.office.db.TypeStock;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class DocDetail extends AEntity implements ITovar {
    private static final long serialVersionUID = 7388794386157897084L;

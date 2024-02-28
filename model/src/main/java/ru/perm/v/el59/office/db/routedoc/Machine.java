@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.db.routedoc;
 
 import java.math.BigDecimal;
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class Machine extends AEntity {
    private static final long serialVersionUID = -6190415052578720896L;

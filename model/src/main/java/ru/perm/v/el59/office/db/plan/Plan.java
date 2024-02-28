@@ -8,9 +8,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class Plan extends AUIBean implements Serializable {
    private static final long serialVersionUID = 1021167189739642524L;

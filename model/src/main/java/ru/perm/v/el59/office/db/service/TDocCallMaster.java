@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db.service;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class TDocCallMaster extends ATDoc implements Serializable, ITDoc {
    private static final long serialVersionUID = -3908276948791370917L;

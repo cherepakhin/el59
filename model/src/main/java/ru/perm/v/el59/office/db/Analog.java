@@ -1,8 +1,7 @@
 package ru.perm.v.el59.office.db;
 
-import ru.el59.ui.UI;
 import ru.perm.v.el59.dao.AEntity;
-
+import ru.perm.v.el59.ui.UI;
 import java.util.Date;
 
 public class Analog extends AEntity implements ITovar {

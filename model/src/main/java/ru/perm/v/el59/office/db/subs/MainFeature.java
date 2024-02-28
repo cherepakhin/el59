@@ -1,9 +1,10 @@
 package ru.perm.v.el59.office.db.subs;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class MainFeature extends AEntity {
    private static final long serialVersionUID = 6385417357474840730L;
@@ -46,43 +47,25 @@ public class MainFeature extends AEntity {
       this.listValFeature = listValFeature;
    }
 
-   public int hashCode() {
-      int result = 31 + (this.groupTovarMainFeature == null ? 0 : this.groupTovarMainFeature.hashCode()) + (this.name == null ? 0 : this.name.hashCode());
-      return result;
-   }
-
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         MainFeature other = (MainFeature)obj;
-         if (this.groupTovarMainFeature == null) {
-            if (other.groupTovarMainFeature != null) {
-               return false;
-            }
-         } else if (!this.groupTovarMainFeature.equals(other.groupTovarMainFeature)) {
-            return false;
-         }
-
-         if (this.name == null) {
-            if (other.name != null) {
-               return false;
-            }
-         } else if (!this.name.equals(other.name)) {
-            return false;
-         }
-
-         return true;
-      }
-   }
-
    public String getNameForTag() {
       return this.nameForTag;
    }
 
    public void setNameForTag(String nameForTag) {
       this.nameForTag = nameForTag;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof MainFeature)) return false;
+      if (!super.equals(o)) return false;
+      MainFeature that = (MainFeature) o;
+      return Objects.equals(groupTovarMainFeature, that.groupTovarMainFeature) && Objects.equals(listCorrectionName, that.listCorrectionName) && Objects.equals(listValFeature, that.listValFeature) && Objects.equals(nameForTag, that.nameForTag);
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), groupTovarMainFeature, listCorrectionName, listValFeature, nameForTag);
    }
 }

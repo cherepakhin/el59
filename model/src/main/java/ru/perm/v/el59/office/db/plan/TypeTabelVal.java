@@ -2,8 +2,8 @@ package ru.perm.v.el59.office.db.plan;
 
 import java.io.Serializable;
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class TypeTabelVal extends AEntity implements Serializable {
    private static final long serialVersionUID = -4811956108575450017L;

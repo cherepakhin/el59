@@ -4,10 +4,9 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
-import ru.el59.office.db.TypeDoc;
 import ru.perm.v.el59.dao.AEntity;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class Doc extends AEntity implements Comparable<Doc> {
    private static final long serialVersionUID = 4734702208826830838L;

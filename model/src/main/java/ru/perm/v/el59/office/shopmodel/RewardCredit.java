@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.CreditBank;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.UserShop;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class RewardCredit extends AEntity {
    private static final long serialVersionUID = 1073602138641527368L;

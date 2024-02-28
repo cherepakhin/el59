@@ -1,11 +1,13 @@
 package ru.perm.v.el59.office.shopmodel;
 
-import ru.el59.dao.AEntity;
+import ru.perm.v.el59.ui.AUIBean;
 
-public class TypePayment extends AEntity {
-   private static final long serialVersionUID = -1314288902563753760L;
+import java.io.Serializable;
 
-   public static String getDescriptionClass() {
-      return "Тип платежа";
-   }
+public class TypePayment extends AUIBean implements Serializable {
+    private static final long serialVersionUID = -1314288902563753760L;
+
+    public static String getDescriptionClass() {
+        return "Тип платежа";
+    }
 }

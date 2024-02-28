@@ -2,6 +2,8 @@ package ru.perm.v.el59.office.db.subs;
 
 import ru.perm.v.el59.dao.AEntity;
 
+import java.util.Objects;
+
 public class CorrectionName extends AEntity {
    private static final long serialVersionUID = 1302409012467507703L;
    private MainFeature mainFeature;
@@ -18,35 +20,17 @@ public class CorrectionName extends AEntity {
       return "Имя характеристики";
    }
 
-   public int hashCode() {
-      int result = 31 + (this.mainFeature == null ? 0 : this.mainFeature.hashCode()) + (this.name == null ? 0 : this.name.hashCode());
-      return result;
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (!(o instanceof CorrectionName)) return false;
+      if (!super.equals(o)) return false;
+      CorrectionName that = (CorrectionName) o;
+      return Objects.equals(mainFeature, that.mainFeature);
    }
 
-   public boolean equals(Object obj) {
-      if (this == obj) {
-         return true;
-      } else if (this.getClass() != obj.getClass()) {
-         return false;
-      } else {
-         CorrectionName other = (CorrectionName)obj;
-         if (this.mainFeature == null) {
-            if (other.mainFeature != null) {
-               return false;
-            }
-         } else if (!this.mainFeature.equals(other.mainFeature)) {
-            return false;
-         }
-
-         if (this.name == null) {
-            if (other.name != null) {
-               return false;
-            }
-         } else if (!this.name.equals(other.name)) {
-            return false;
-         }
-
-         return true;
-      }
+   @Override
+   public int hashCode() {
+      return Objects.hash(super.hashCode(), mainFeature);
    }
 }

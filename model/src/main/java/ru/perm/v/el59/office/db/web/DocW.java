@@ -3,13 +3,13 @@ package ru.perm.v.el59.office.db.web;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import ru.el59.office.db.TypeDoc;
 import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.PriceType;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
+import ru.perm.v.el59.office.db.TypeDoc;
 
 public class DocW extends AEntity {
    private static final long serialVersionUID = -7385192877080726957L;

@@ -2,8 +2,8 @@ package ru.perm.v.el59.office.shopmodel;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 import ru.perm.v.el59.dao.AEntity;
 
 public class TypePDS extends AEntity implements Serializable {

@@ -8,8 +8,8 @@ import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Doc;
 import ru.perm.v.el59.office.db.Manager;
 import ru.perm.v.el59.office.db.Shop;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class PlanDownloadSum extends AEntity implements Comparable<PlanDownloadSum> {
    private static final long serialVersionUID = 8102674760388429190L;

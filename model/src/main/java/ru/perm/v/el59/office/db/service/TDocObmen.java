@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.db.service;
 
 import java.io.Serializable;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class TDocObmen extends ATDoc implements Serializable, ITDoc {
    private static final long serialVersionUID = 5820863881000416763L;

@@ -7,8 +7,8 @@ import java.util.List;
 import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.db.DocFile;
 import ru.perm.v.el59.office.db.Manager;
-import ru.el59.ui.Justify;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.Justify;
+import ru.perm.v.el59.ui.UI;
 
 public class ReestrDoc extends AEntity {
    private static final long serialVersionUID = 950583606385671735L;

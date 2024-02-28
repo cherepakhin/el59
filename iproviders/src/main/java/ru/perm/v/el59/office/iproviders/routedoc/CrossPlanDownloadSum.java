@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.routedoc.PlanDownloadSum;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.UI;
 
 public class CrossPlanDownloadSum extends AUIBean implements Serializable, Comparable<CrossPlanDownloadSum> {
    private static final long serialVersionUID = -5104792862009592169L;

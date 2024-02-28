@@ -3,8 +3,8 @@ package ru.perm.v.el59.office.db;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.UI;
 
 public class GroupT extends AUIBean implements Serializable {
    private static final long serialVersionUID = 8342478468281404248L;

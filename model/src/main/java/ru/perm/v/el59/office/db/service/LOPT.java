@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.db.service;
 import java.io.Serializable;
 
 import ru.perm.v.el59.office.db.Contragent;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 import ru.perm.v.el59.office.db.Move;
 
 public class LOPT extends ATDoc implements Serializable {

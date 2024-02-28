@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import ru.perm.v.el59.office.db.Tovar;
-import ru.el59.ui.AUIBean;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.AUIBean;
+import ru.perm.v.el59.ui.UI;
 
 public class TovarDTO extends AUIBean implements Serializable {
    private static final long serialVersionUID = 3512735629287570241L;

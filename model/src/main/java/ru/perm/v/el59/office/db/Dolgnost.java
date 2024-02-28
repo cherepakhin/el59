@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import ru.perm.v.el59.dao.AEntity;
 import ru.perm.v.el59.office.shopmodel.ShopRight;
-import ru.el59.ui.UI;
+import ru.perm.v.el59.ui.UI;
 
 public class Dolgnost extends AEntity {
    private static final long serialVersionUID = -560929258515874765L;
