@@ -1,18 +1,18 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.MoveCritery;
-import ru.perm.v.el59.office.critery.RestCritery;
-import ru.perm.v.el59.office.critery.ShopCritery;
-import ru.perm.v.el59.office.db.MoveSummary;
-import ru.perm.v.el59.office.db.OpGroup;
-import ru.perm.v.el59.office.db.Rest;
-import ru.perm.v.el59.office.db.Shop;
+import ru.el59.dao.IGenericDao;
+import ru.el59.office.db.MoveSummary;
+import ru.el59.office.db.OpGroup;
+import ru.el59.office.db.Rest;
+import ru.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.ILowSaleProvider;
 import ru.perm.v.el59.office.iproviders.IMoveProvider;
 import ru.perm.v.el59.office.iproviders.IRestProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
+import ru.perm.v.el59.office.iproviders.critery.RestCritery;
+import ru.perm.v.el59.office.iproviders.critery.ShopCritery;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import ru.perm.v.el59.office.report.LowSale;
 
 import java.math.BigDecimal;
