@@ -6,8 +6,8 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
-import ru.perm.v.el59.office.critery.TypedocCritery;
 import ru.perm.v.el59.office.db.TypeDoc;
+import ru.perm.v.el59.office.iproviders.critery.TypedocCritery;
 
 public class TypedocDao extends GenericDaoHibernateImpl<TypeDoc, Long> {
 
