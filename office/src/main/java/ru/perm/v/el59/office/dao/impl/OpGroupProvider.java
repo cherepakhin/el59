@@ -1,10 +1,10 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.List;
-
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.db.OpGroup;
+import ru.el59.office.db.OpGroup;
 import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+
+import java.util.List;
 
 public class OpGroupProvider extends GenericDaoHibernateImpl<OpGroup, Long>
 		implements IOpGroupProvider {
