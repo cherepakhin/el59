@@ -61,7 +61,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-core
 	implementation 'org.apache.lucene:lucene-core:9.10.0'
 	implementation 'org.apache.lucene:lucene-core:9.10.0'
-
+	implementation 'net.sf.jxls:jxls-core:1.0.5'
 }
 
 test {
