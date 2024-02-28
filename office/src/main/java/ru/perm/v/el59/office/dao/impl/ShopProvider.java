@@ -1,21 +1,16 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
-import ru.perm.v.el59.office.critery.ShopCritery;
-import ru.perm.v.el59.office.db.Manager;
-import ru.perm.v.el59.office.db.Shop;
+import ru.el59.office.db.Manager;
+import ru.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.critery.ShopCritery;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.util.*;
 
 public class ShopProvider extends GenericDaoMessageImpl<Shop, String> implements
 		IShopProvider {
