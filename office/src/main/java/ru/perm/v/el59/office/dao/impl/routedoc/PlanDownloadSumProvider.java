@@ -4,17 +4,17 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.PlanDownloadCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.db.dto.FileAttach;
 import ru.perm.v.el59.office.db.routedoc.PlanDownload;
 import ru.perm.v.el59.office.db.routedoc.PlanDownloadSum;
 import ru.perm.v.el59.office.db.routedoc.TypeFileSum;
-import ru.perm.v.el59.office.emailer.IEmailer;
 import ru.perm.v.el59.office.iproviders.IDocProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.ITypeFileProvider;
+import ru.perm.v.el59.office.iproviders.critery.PlanDownloadCritery;
+import ru.perm.v.el59.office.iproviders.emailer.IEmailer;
 import ru.perm.v.el59.office.iproviders.routedoc.CrossPlanDownloadSum;
 import ru.perm.v.el59.office.iproviders.routedoc.IPathPageProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadProvider;
@@ -151,7 +151,6 @@ public class PlanDownloadSumProvider extends
 	/**
 	 * Проверка что суммы не раны нулю
 	 * 
-	 * @param PlanDownloadSum
 	 * @return
 	 */
 	private boolean isZero(PlanDownloadSum planDownloadSum) {
@@ -486,12 +485,13 @@ public class PlanDownloadSumProvider extends
 					+ contragent.getName();
 			String messageToContragent = "Это письмо создано программой-роботом.\nДля ответа используйте адрес "
 					+ shop.getName() + " <" + autor.getEmail() + ">\n";
-			String ansSendContragent = emailer.send(autor, emailContragent,
-					messageToContragent, subj, list,true);
-			if (!ansSendContragent.equals("")) {
-				throw new Exception(ansSendContragent);
-			}
-			getDocProvider().setDateSending(docFile);
+//	TODO: emailer
+//			String ansSendContragent = emailer.send(autor, emailContragent,
+//					messageToContragent, subj, list,true);
+//			if (!ansSendContragent.equals("")) {
+//				throw new Exception(ansSendContragent);
+//			}
+//			getDocProvider().setDateSending(docFile);
 		}
 		// Отправка уведомлений
 		if (!recipients.equals("")) {
@@ -500,10 +500,11 @@ public class PlanDownloadSumProvider extends
 					+ doc.getContragent().getName() + " к документу "
 					+ doc.getN() + " от "
 					+ Helper.getDateFornmatter().format(doc.getDdate());
-			String ans = getEmailer().send(autor, recipients, "", mes, null,true);
-			if (!ans.equals("")) {
-				throw new Exception(ans);
-			}
+// emailer
+//			String ans = getEmailer().send(autor, recipients, "", mes, null,true);
+//			if (!ans.equals("")) {
+//				throw new Exception(ans);
+//			}
 		}
 
 		return docFile;
