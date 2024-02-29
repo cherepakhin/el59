@@ -36,51 +36,51 @@ public class CalculatorZPAcc extends ACalculatorZPFofBonusK implements ICalculat
 
 	@Override
 	public UserZP calcZP(UserZP userZP, Move move) throws Exception {
-		BigDecimal saleAll = userZP.getSummaOut();
-		BigDecimal saleAcc = userZP.getSummaAcc();
-		
-		// Вычисление процента от плана
-		BigDecimal planSale = saleAll.multiply(userZP.getPlan().getPlanPercentAcc()).setScale(2, RoundingMode.HALF_UP);
-		BigDecimal resultK = smallK;
-		if(planSale.compareTo(BigDecimal.ZERO)!=0) {
-			BigDecimal kExecution = saleAcc.divide(planSale,RoundingMode.HALF_UP).setScale(2, RoundingMode.HALF_UP);
-			if(kExecution.compareTo(percentSaleFofBigK)>=0) {
-				resultK=bigK;
-			} else {
-				if(kExecution.compareTo(percentSaleFofMiddleK)>=0) {
-					resultK=middleK;
-				} 
-			}
-		}
+//		BigDecimal saleAll = userZP.getSummaOut();
+//		BigDecimal saleAcc = userZP.getSummaAcc();
+//
+//		// Вычисление процента от плана
+//		BigDecimal planSale = saleAll.multiply(userZP.getPlan().getPlanPercentAcc()).setScale(2, RoundingMode.HALF_UP);
+//		BigDecimal resultK = smallK;
+//		if(planSale.compareTo(BigDecimal.ZERO)!=0) {
+//			BigDecimal kExecution = saleAcc.divide(planSale,RoundingMode.HALF_UP).setScale(2, RoundingMode.HALF_UP);
+//			if(kExecution.compareTo(percentSaleFofBigK)>=0) {
+//				resultK=bigK;
+//			} else {
+//				if(kExecution.compareTo(percentSaleFofMiddleK)>=0) {
+//					resultK=middleK;
+//				}
+//			}
+//		}
 		
 		// Корректировка процента от маржи
-		BigDecimal summain = move.getSummain();
-		if(move.getCenaInOnDate().compareTo(BigDecimal.ZERO)!=0) {
-			summain=move.getCenaInOnDate().multiply(move.getQty()).setScale(2,RoundingMode.HALF_UP);
-		}
-		
-		// Внимание!!! Считается МАРЖА.
-		BigDecimal marga = new BigDecimal("1.00");
-		if(summain.compareTo(BigDecimal.ZERO)!=0) {
-			if(move.getSummaout().compareTo(BigDecimal.ZERO)==0) {
-				marga=BigDecimal.ZERO;
-			} else {
-				marga=move.getSummaout().subtract(summain).divide(move.getSummaout(),RoundingMode.HALF_UP).setScale(2, RoundingMode.HALF_UP);
-			}
-		}
-		
-		if(marga.compareTo(minMarga)<0) {
-			resultK=resultK.multiply(decreaseK);
-		}
-
-		BigDecimal zp=move.getSummaout().multiply(resultK).setScale(2, RoundingMode.HALF_UP);
-		if(move.getOperation().getZnak()<0) {
-			userZP.setSummaAccBonus(userZP.getSummaAccBonus().add(zp));
-			move.setZpAcc(zp);
-		} else {
-			userZP.setSummaAccBonus(userZP.getSummaAccBonus().subtract(zp));
-			move.setZpAcc(zp.negate());
-		}
+//		BigDecimal summain = move.getSummain();
+//		if(move.getCenaInOnDate().compareTo(BigDecimal.ZERO)!=0) {
+//			summain=move.getCenaInOnDate().multiply(move.getQty()).setScale(2,RoundingMode.HALF_UP);
+//		}
+//
+//		// Внимание!!! Считается МАРЖА.
+//		BigDecimal marga = new BigDecimal("1.00");
+//		if(summain.compareTo(BigDecimal.ZERO)!=0) {
+//			if(move.getSummaout().compareTo(BigDecimal.ZERO)==0) {
+//				marga=BigDecimal.ZERO;
+//			} else {
+//				marga=move.getSummaout().subtract(summain).divide(move.getSummaout(),RoundingMode.HALF_UP).setScale(2, RoundingMode.HALF_UP);
+//			}
+//		}
+//
+//		if(marga.compareTo(minMarga)<0) {
+//			resultK=resultK.multiply(decreaseK);
+//		}
+//
+//		BigDecimal zp=move.getSummaout().multiply(resultK).setScale(2, RoundingMode.HALF_UP);
+//		if(move.getOperation().getZnak()<0) {
+//			userZP.setSummaAccBonus(userZP.getSummaAccBonus().add(zp));
+//			move.setZpAcc(zp);
+//		} else {
+//			userZP.setSummaAccBonus(userZP.getSummaAccBonus().subtract(zp));
+//			move.setZpAcc(zp.negate());
+//		}
 		return userZP;
 	}
 
