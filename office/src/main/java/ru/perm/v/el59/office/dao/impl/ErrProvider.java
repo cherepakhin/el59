@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.el59.office.db.Err;
+import ru.perm.v.el59.office.db.Err;
 import ru.perm.v.el59.office.iproviders.IErrProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 
