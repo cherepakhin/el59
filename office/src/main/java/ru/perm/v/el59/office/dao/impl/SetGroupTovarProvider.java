@@ -3,8 +3,8 @@ package ru.perm.v.el59.office.dao.impl;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.SetGroupTovar;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.SetGroupTovar;
 import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
 import ru.perm.v.el59.office.iproviders.ISetGroupTovarProvider;
 
