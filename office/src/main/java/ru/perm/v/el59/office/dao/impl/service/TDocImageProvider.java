@@ -3,9 +3,9 @@ package ru.perm.v.el59.office.dao.impl.service;
 import org.apache.commons.io.FileUtils;
 //import org.apache.log4j.Logger;
 import org.jboss.logging.Logger;
-import ru.el59.office.db.service.TDocImage;
-import ru.el59.office.iproviders.service.ITDocImageProvider;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.db.service.TDocImage;
+import ru.perm.v.el59.office.iproviders.service.ITDocImageProvider;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
