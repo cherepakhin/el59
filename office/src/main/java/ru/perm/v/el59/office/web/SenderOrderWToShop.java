@@ -4,8 +4,8 @@ import com.sun.istack.logging.Logger;
 import org.apache.camel.Body;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.dto.FileAttach;
-import ru.perm.v.el59.office.emailer.IEmailer;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.emailer.IEmailer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class SenderOrderWToShop {
 
 	public void send(@Body Object body) throws Error {
 		OrderDTO orderDTO = (OrderDTO) body;
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Отправка по почте выписки сайта №" + orderDTO.getNumber()
 						+ ".Начало");
 		List<Shop> listShop = getShopProvider().getWorkedShop();
@@ -35,12 +35,12 @@ public class SenderOrderWToShop {
 				fa.name = "Выписка " + orderDTO.getNumber() + ".xml";
 				fa.body = orderDTO.getXml().getBytes();
 				listFileAttach.add(fa);
-				getEmailer().send(null, shop.getEmail(), orderDTO.getXml(),
-						"Выписка с сайта " + orderDTO.getNumber(),
-						listFileAttach,true);
+//				getEmailer().send(null, shop.getEmail(), orderDTO.getXml(),
+//						"Выписка с сайта " + orderDTO.getNumber(),
+//						listFileAttach,true);
 			}
 		}
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Отправка по почте выписки сайта №" + orderDTO.getNumber()
 						+ ".Конец");
 	}
