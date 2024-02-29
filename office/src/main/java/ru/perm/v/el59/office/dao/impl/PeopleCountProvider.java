@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.dao.impl;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.PeopleCount;
+import ru.perm.v.el59.office.db.PeopleCount;
 import ru.perm.v.el59.office.iproviders.IPeopleCountProvider;
 import ru.perm.v.el59.office.iproviders.critery.PeopleCountCritery;
 
