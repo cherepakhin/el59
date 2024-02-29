@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.util;
 
-import ru.el59.dao.IEntitySimple;
+import ru.perm.v.el59.dao.IEntitySimple;
 
 import java.util.Comparator;
 
