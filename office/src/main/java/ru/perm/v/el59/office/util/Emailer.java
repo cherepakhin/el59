@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.util;
 
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.dto.FileAttach;
-import ru.el59.office.emailer.IEmailer;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.dto.FileAttach;
+import ru.perm.v.el59.office.iproviders.emailer.IEmailer;
 
 import java.util.List;
 //import java.util.List;
