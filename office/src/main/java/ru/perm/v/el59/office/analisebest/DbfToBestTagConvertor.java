@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.analisebest;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.BestTag;
+import org.jboss.logging.Logger;
+import ru.perm.v.el59.dto.BestTag;
 import ru.perm.v.el59.office.util.UnZip;
 
 import java.io.File;

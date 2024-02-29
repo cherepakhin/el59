@@ -2,7 +2,6 @@ package ru.perm.v.el59.office.loaders;
 
 import org.apache.camel.Exchange;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 
 /**
@@ -21,26 +20,26 @@ public class LoaderElXmlProcessor {
 	public void process(Exchange exchange) throws Exception {
 		if (!busy) {
 			busy = true;
-			Logger.getLogger(this.getClass()).info("Загрузка XML.Начало.");
+			Logger.getLogger(this.getClass().getName()).info("Загрузка XML.Начало.");
 			LoaderElXml loader = new LoaderElXml();
 			loader.load(path, onlyNew, tovarInfoProvider);
-			Logger.getLogger(this.getClass()).info("Загрузка XML.Конец.");
+			Logger.getLogger(this.getClass().getName()).info("Загрузка XML.Конец.");
 			busy = false;
 		} else {
-			Logger.getLogger(this.getClass()).info("Загрузка XML.Занято");
+			Logger.getLogger(this.getClass().getName()).info("Загрузка XML.Занято");
 		}
 	}
 
 	public void processByListFile(Exchange exchange) throws Exception {
 		if (!busy) {
 			busy = true;
-			Logger.getLogger(this.getClass()).info("Загрузка XML.Начало.");
+			Logger.getLogger(this.getClass().getName()).info("Загрузка XML.Начало.");
 			LoaderElXml loader = new LoaderElXml();
 			loader.load(path, onlyNew, tovarInfoProvider, filename);
-			Logger.getLogger(this.getClass()).info("Загрузка XML.Конец.");
+			Logger.getLogger(this.getClass().getName()).info("Загрузка XML.Конец.");
 			busy = false;
 		} else {
-			Logger.getLogger(this.getClass()).info("Загрузка XML.Занято");
+			Logger.getLogger(this.getClass().getName()).info("Загрузка XML.Занято");
 		}
 	}
 

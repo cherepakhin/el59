@@ -1,16 +1,15 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.web.CommentDocW;
 import ru.perm.v.el59.office.db.web.DocW;
 import ru.perm.v.el59.office.iproviders.web.ICommentDocWProvider;
+
+import java.util.List;
 
 public class CommentDocWProvider extends
 		GenericDaoHibernateImpl<CommentDocW, Long> implements

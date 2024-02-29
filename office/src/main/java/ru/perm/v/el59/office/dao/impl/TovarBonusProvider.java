@@ -1,18 +1,17 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-
 import ru.el59.office.db.Tovar;
 import ru.el59.office.shopmodel.TovarBonus;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.iproviders.critery.TovarBonusCritery;
 import ru.perm.v.el59.office.iproviders.shopmodel.ITovarBonusProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 public class TovarBonusProvider extends GenericDaoMessageImpl<TovarBonus, Long>
 		implements ITovarBonusProvider {

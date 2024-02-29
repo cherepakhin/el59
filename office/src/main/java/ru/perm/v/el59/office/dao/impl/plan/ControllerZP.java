@@ -1,41 +1,19 @@
 package ru.perm.v.el59.office.dao.impl.plan;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.dao.CommonCritery;
 import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.critery.MoveCritery;
 import ru.perm.v.el59.office.critery.PlanCritery;
 import ru.perm.v.el59.office.critery.UserShopCritery;
-import ru.perm.v.el59.office.db.BonusK;
-import ru.perm.v.el59.office.db.Dolgnost;
-import ru.perm.v.el59.office.db.Move;
-import ru.perm.v.el59.office.db.OpGroup;
-import ru.perm.v.el59.office.db.UserShop;
-import ru.perm.v.el59.office.db.plan.Plan;
-import ru.perm.v.el59.office.db.plan.Smena;
-import ru.perm.v.el59.office.db.plan.Tabel;
-import ru.perm.v.el59.office.db.plan.TypeTabel;
-import ru.perm.v.el59.office.db.plan.UserZP;
-import ru.perm.v.el59.office.iproviders.IDolgnostProvider;
-import ru.perm.v.el59.office.iproviders.IMoveProvider;
-import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
-import ru.perm.v.el59.office.iproviders.ISetTypeStockProvider;
-import ru.perm.v.el59.office.iproviders.IUserShopProvider;
-import ru.perm.v.el59.office.iproviders.plan.IControllerZP;
-import ru.perm.v.el59.office.iproviders.plan.IPlanProvider;
-import ru.perm.v.el59.office.iproviders.plan.ISmenaProvider;
-import ru.perm.v.el59.office.iproviders.plan.ITypeTabelProvider;
-import ru.perm.v.el59.office.iproviders.plan.IUserZPProvider;
+import ru.perm.v.el59.office.db.*;
+import ru.perm.v.el59.office.db.plan.*;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.plan.*;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.*;
 
 public class ControllerZP implements Serializable, IControllerZP {
 

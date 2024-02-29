@@ -1,42 +1,33 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.logging.Logger;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
-import ru.perm.v.el59.dto.dao.CommonCritery;
-import ru.perm.v.el59.dto.office.critery.DocTitleCritery;
 import ru.el59.office.db.Doc;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.TypeDoc;
 import ru.el59.office.db.web.DocW;
 import ru.el59.office.db.web.DocWInfo;
 import ru.el59.office.db.web.DocWItem;
-import ru.perm.v.el59..office.iproviders.IDocItemProvider;
-import ru.perm.v.el59..office.iproviders.IShopProvider;
-import ru.perm.v.el59..office.iproviders.ITovarProvider;
-import ru.perm.v.el59..office.iproviders.ITypeDocProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.IDocTitleProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.IPaymentProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.ITypeDocShopProvider;
 import ru.el59.office.shopmodel.DocTitle;
 import ru.el59.office.shopmodel.TypeDocShop;
-import ru.perm.v.el59..office.iproviders.web.DocWItemCritery;
-import ru.perm.v.el59..office.iproviders.web.DocWCritery;
-import ru.perm.v.el59..office.iproviders.web.ICommentDocWProvider;
-import ru.perm.v.el59..office.iproviders.web.IDocWItemProvider;
-import ru.perm.v.el59..office.iproviders.web.IDocWProvider;
+import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.dto.office.critery.DocTitleCritery;
+import ru.perm.v.el59.office.iproviders.IDocItemProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.ITypeDocProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.IDocTitleProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.IPaymentProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.ITypeDocShopProvider;
+import ru.perm.v.el59.office.iproviders.web.*;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 		IDocWProvider {
@@ -178,7 +169,7 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 */
 		for (DocW docW : listDocW) {
 			DocWInfo d = new DocWInfo();
-//			Logger.getLogger(this.getClass()).info("W-выписка "+docW.getNumdoc());
+//			Logger.getLogger(this.getClass().getName()).info("W-выписка "+docW.getNumdoc());
 			d.setDocw(docW);
 			// d.setSumPay(getPay(docW));
 			d.setSumPay(new BigDecimal("0.00"));
@@ -187,19 +178,19 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 				_listDocWItem = hash.get(docW);
 			}
 */
-//			Logger.getLogger(this.getClass()).info("К-во в выписке");
+//			Logger.getLogger(this.getClass().getName()).info("К-во в выписке");
 			if(hashQty.containsKey(docW.getN())) {
 				d.setQtyOrder(hashQty.get(docW.getN()));
 			}
 //			d.setQtyOrder(getQtyOrder(_listDocWItem));
 			
-//			Logger.getLogger(this.getClass()).info("Доставлено покупателю");
+//			Logger.getLogger(this.getClass().getName()).info("Доставлено покупателю");
 			if(hashQtyToCustomer.containsKey(docW.getN())) {
 				d.setQtyToCustomer(hashQtyToCustomer.get(docW.getN()));
 			}
 //			d.setQtyToCustomer(getDelivered(docW, _listDocWItem));
 			
-//			Logger.getLogger(this.getClass()).info("Зарезервировано");
+//			Logger.getLogger(this.getClass().getName()).info("Зарезервировано");
 			if(hashQtyOrderSupplier.containsKey(docW.getN())) {
 				d.setQtyOrderSupplier(hashQtyOrderSupplier.get(docW.getN()));
 			}
@@ -208,13 +199,13 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 //			}
 //			d.setQtyOrderSupplier(getQtySuppLier(_listDocWItem));
 			
-//			Logger.getLogger(this.getClass()).info("Приход в магазин");
+//			Logger.getLogger(this.getClass().getName()).info("Приход в магазин");
 			if(hashQtyInputShop.containsKey(docW.getN())) {
 				d.setQtyInputShop(hashQtyInputShop.get(docW.getN()));
 			}
 //			d.setQtyInputShop(getQtyInvoice(_listDocWItem));
 			
-//			Logger.getLogger(this.getClass()).info("Счета загружены?");
+//			Logger.getLogger(this.getClass().getName()).info("Счета загружены?");
 			if(listIsLoadDocFile.contains(docW.getN())) {
 				d.setIsLoadDocFile(true);
 			}

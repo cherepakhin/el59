@@ -7,9 +7,9 @@ import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.GroupT;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.Var;
+import ru.perm.v.el59.office.db.GroupT;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.Var;
 import ru.perm.v.el59.office.iproviders.IGroupTProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.iproviders.IVarProvider;
@@ -114,7 +114,7 @@ public class GroupTProvider extends GenericDaoHibernateImpl<GroupT, String>
 
     @Override
     public GroupT initChilds(GroupT parent) {
-//		Logger.getLogger(this.getClass()).info("parent-"+parent.getCod());
+//		Logger.getLogger(this.getClass().getName()).info("parent-"+parent.getCod());
 //		System.out.println("parent-"+parent.getCod());
         Hibernate.initialize(parent.getChilds());
         // Hibernate.initialize(parent.getRelationTovar());

@@ -1,25 +1,19 @@
 package ru.perm.v.el59.office.parser;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
-import ru.perm.v.el59.office.db.Feature;
-import ru.perm.v.el59.office.db.Manager;
-import ru.perm.v.el59.office.db.Photo;
-import ru.perm.v.el59.office.db.Tovar;
-import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.iproviders.web.IParserEl;
 import ru.perm.v.el59.office.iproviders.web.IParserSite;
+
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 	private static String CHARSET_SITE = "Windows-1251";
@@ -74,7 +68,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 	protected TovarInfo fillInfo() throws Exception {
 		XPath xpath = getXPath();
 		XPathExpression expr = xpath.compile(XPATH_HEAD);
-		Logger.getLogger(this.getClass()).info(getUrl());
+		Logger.getLogger(this.getClass().getName()).info(getUrl());
 		Document doc = getDoc(getUrl() + '/');
 		Object result = expr.evaluate(doc, XPathConstants.NODESET);
 		NodeList nodes = (NodeList) result;
@@ -89,7 +83,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 			}
 		}
 		info = clearHTML(info);
-		Logger.getLogger(this.getClass()).info(info);
+		Logger.getLogger(this.getClass().getName()).info(info);
 		// Нет Ошибки 404. Удаляю старые характеристики
 		tovarInfo = getTovarInfoProvider().clearFeaturesWeb(tovarInfo);
 		// tovarInfo.setInfo(info);
@@ -130,7 +124,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 				f.setGrp(nameGroup.trim());
 				f.setName(nameFeature.trim());
 				f.setVal(valFeature.trim());
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						String.format("Хар-ка: %s:%s:%s", nameGroup,
 								nameFeature, valFeature));
 				if (f != null) {
@@ -260,7 +254,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 					filename = loadPhoto(imgpath, getNnum(),
 							DELIMETER_NAMEFILE, null, num_img);
 					if (filename != null) {
-						Logger.getLogger(this.getClass()).info(
+						Logger.getLogger(this.getClass().getName()).info(
 								String.format("Photo %d %s", getNnum(),
 										filename));
 						photo.setPath(filename

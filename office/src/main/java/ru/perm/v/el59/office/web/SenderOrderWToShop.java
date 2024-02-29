@@ -1,16 +1,14 @@
 package ru.perm.v.el59.office.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.sun.istack.logging.Logger;
 import org.apache.camel.Body;
-
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.dto.FileAttach;
 import ru.perm.v.el59.office.emailer.IEmailer;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 
-import com.sun.istack.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Отправка выписок сайта по почте в магазины
@@ -25,7 +23,7 @@ public class SenderOrderWToShop {
 
 	public void send(@Body Object body) throws Error {
 		OrderDTO orderDTO = (OrderDTO) body;
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Отправка по почте выписки сайта №" + orderDTO.getNumber()
 						+ ".Начало");
 		List<Shop> listShop = getShopProvider().getWorkedShop();
@@ -42,7 +40,7 @@ public class SenderOrderWToShop {
 						listFileAttach,true);
 			}
 		}
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Отправка по почте выписки сайта №" + orderDTO.getNumber()
 						+ ".Конец");
 	}

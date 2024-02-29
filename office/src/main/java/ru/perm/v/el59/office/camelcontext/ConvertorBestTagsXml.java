@@ -1,14 +1,12 @@
 package ru.perm.v.el59.office.camelcontext;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.camel.Body;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.dto.BestTag;
 import ru.perm.v.el59.office.dto.BestTags;
 import ru.perm.v.el59.office.dto.message.MessageBestTags;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorBestTagsXml implements IConvertorXML<BestTags> {
 
@@ -32,7 +30,7 @@ public class ConvertorBestTagsXml implements IConvertorXML<BestTags> {
 			ret = getXML((MessageEntity<BestTags>) body);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Logger.getLogger(this.getClass()).error(e);
+			Logger.getLogger(this.getClass().getName()).error(e);
 		}
 		return ret;
 	}

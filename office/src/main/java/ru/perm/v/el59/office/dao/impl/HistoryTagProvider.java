@@ -1,22 +1,21 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Logger;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.el59.office.db.HistoryTag;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.Tovar;
 import ru.perm.v.el59.office.iproviders.IHistoryTagProvider;
 import ru.perm.v.el59.office.iproviders.critery.HistoryTagCritery;
 import ru.perm.v.el59.office.util.Helper;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Logger;
 
 import static java.lang.String.format;
 

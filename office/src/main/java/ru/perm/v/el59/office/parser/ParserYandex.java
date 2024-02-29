@@ -1,27 +1,25 @@
 package ru.perm.v.el59.office.parser;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import ru.perm.v.el59.office.db.Feature;
 import ru.perm.v.el59.office.db.Photo;
 import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.iproviders.web.IParserSite;
+
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParserYandex extends AParserSite implements IParserSite {
 	// Кодировка сайта
@@ -161,7 +159,7 @@ public class ParserYandex extends AParserSite implements IParserSite {
 			}
 		}
 		for (Feature feature : tovarInfo.getListFeature()) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Хар-ка: %s:%s:%s", feature.getGrp(),
 							feature.getName(), feature.getVal()));
 		}
@@ -280,7 +278,7 @@ public class ParserYandex extends AParserSite implements IParserSite {
 		String ext = ".jpg";
 		ret = getFullFileName(getDirForPhoto(nnum), nnum + "_" + i + ext);
 		if (link.length() < 40) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("%s %d %s", link, i, ret));
 		}
 		FileUtils.copyURLToFile(new URL(link), new File(ret));

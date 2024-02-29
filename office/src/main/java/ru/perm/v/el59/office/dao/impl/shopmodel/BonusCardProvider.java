@@ -1,20 +1,20 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
+import ru.el59.office.db.Shop;
+import ru.el59.office.shopmodel.BonusCard;
+import ru.perm.v.el59.dto.office.critery.BonusCardCritery;
+import ru.perm.v.el59.office.iproviders.shopmodel.IBonusCardProvider;
+import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.dto.office.critery.BonusCardCritery;
-import ru.el59.office.db.Shop;
-import ru.perm.v.el59..office.iproviders.shopmodel.IBonusCardProvider;
-import ru.el59.office.shopmodel.BonusCard;
-import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 public class BonusCardProvider extends GenericDaoMessageImpl<BonusCard, Long>
 		implements IBonusCardProvider {

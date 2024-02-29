@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.dao.impl.analise;
 
-import ru.perm.v.el59..office.iproviders.analise.Lines;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.iproviders.analise.Lines;
 
 import java.util.List;
 

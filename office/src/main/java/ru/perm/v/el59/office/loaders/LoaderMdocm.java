@@ -1,43 +1,20 @@
 package ru.perm.v.el59.office.loaders;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+import ru.perm.v.el59.office.critery.TovarCritery;
+import ru.perm.v.el59.office.db.*;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.util.Helper;
+import ru.perm.v.el59.office.util.UnZip;
+
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.sql.*;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-
-import ru.perm.v.el59.office.critery.TovarCritery;
-import ru.perm.v.el59.office.db.HistoryPrice;
-import ru.perm.v.el59.office.db.HistoryTag;
-import ru.perm.v.el59.office.db.Move;
-import ru.perm.v.el59.office.db.Operation;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.db.TagInfo;
-import ru.perm.v.el59.office.db.Tovar;
-import ru.perm.v.el59.office.db.TypeStock;
-import ru.perm.v.el59.office.iproviders.IHistoryPriceProvider;
-import ru.perm.v.el59.office.iproviders.IHistoryTagProvider;
-import ru.perm.v.el59.office.iproviders.ILoaderMdocm;
-import ru.perm.v.el59.office.iproviders.IMoveProvider;
-import ru.perm.v.el59.office.iproviders.IOperationProvider;
-import ru.perm.v.el59.office.iproviders.IShopProvider;
-import ru.perm.v.el59.office.iproviders.ITovarProvider;
-import ru.perm.v.el59.office.iproviders.ITypeStockProvider;
-import ru.perm.v.el59.office.util.Helper;
-import ru.perm.v.el59.office.util.UnZip;
+import java.util.*;
 
 /**
  * Загрузчик движений из mdocm.dbf
@@ -65,7 +42,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 
 		Shop shop = (Shop) getShopProvider().read(shopcod);
 		if (shop == null) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Нет магазина с кодом " + shopcod);
 			return "Нет магазина с кодом " + shopcod;
 		}
@@ -108,7 +85,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 			deleteMove(shop, fromdate, todate);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Ошибка при удалении " + e.getMessage());
 			throw e;
 		}
@@ -117,27 +94,27 @@ public class LoaderMdocm implements ILoaderMdocm {
 			listMove = getMoveFromFile(shop, filedata, fromdate, todate);
 			createMovies(listMove);
 		} catch (IOException e) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Ошибка чтения dbf ввода-вывода " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (SQLException e) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Ошибка sql-запроса dbf  " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (InstantiationException e) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Ошибка обработки dbf  " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (IllegalAccessException e) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Ошибка обработки dbf  " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (ClassNotFoundException e) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					"Ошибка обработки dbf. Класс не найден. " + e.getMessage());
 			e.printStackTrace();
 			throw e;
@@ -279,14 +256,14 @@ public class LoaderMdocm implements ILoaderMdocm {
 					operation = hashBestChr.get(move.getVid()
 							+ move.getTypeoper() + move.getCodeoper());
 				} catch (Exception e) {
-					Logger.getLogger(this.getClass()).info(
+					Logger.getLogger(this.getClass().getName()).info(
 							"Не найдена операция " + move.getVid()
 									+ move.getTypeoper() + move.getCodeoper(),
 							e);
 					operation = hashBestChr.get("-");
 				}
 				if (operation == null) {
-					Logger.getLogger(this.getClass()).info(
+					Logger.getLogger(this.getClass().getName()).info(
 							"Не найдена операция " + move.getVid()
 									+ move.getTypeoper() + move.getCodeoper(),
 							null);
@@ -296,7 +273,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 				ret.add(move);
 
 			} else {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Не найден товар nnum " + nnum, null);
 			}
 		}

@@ -1,21 +1,20 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.el59.office.db.BonusK;
 import ru.el59.office.db.GroupTovar;
 import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
 import ru.perm.v.el59.office.iproviders.critery.GroupTovarCritery;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class GroupTovarProvider extends
 		GenericDaoMessageImpl<GroupTovar, String> implements
@@ -29,7 +28,7 @@ public class GroupTovarProvider extends
 
 	@Override
 	public GroupTovar initialize(String id) {
-//		Logger.getLogger(this.getClass()).info("Initialize group_cod:" + id);
+//		Logger.getLogger(this.getClass().getName()).info("Initialize group_cod:" + id);
 		GroupTovar o = (GroupTovar) getSession().get(GroupTovar.class, id);
 		if (id.equals("0000000000")) {
 			return o;

@@ -1,16 +1,15 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.db.CreditBank;
 import ru.perm.v.el59.office.iproviders.shopmodel.IBankActionProvider;
 import ru.perm.v.el59.office.shopmodel.BankAction;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BankActionProvider extends GenericDaoMessageImpl<BankAction, Long>
 		implements IBankActionProvider {

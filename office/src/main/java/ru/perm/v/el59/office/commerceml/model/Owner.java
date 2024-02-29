@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.commerceml.model;
 
-import java.util.List;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+import java.util.List;
 
 @XStreamAlias("Владелец")
 public class Owner extends AEntityCommerce {

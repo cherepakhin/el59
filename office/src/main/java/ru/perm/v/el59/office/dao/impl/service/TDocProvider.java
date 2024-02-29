@@ -1,16 +1,15 @@
 package ru.perm.v.el59.office.dao.impl.service;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.critery.TDocCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.service.TDoc;
 import ru.perm.v.el59.office.iproviders.service.ITDocProvider;
+
+import java.util.List;
 
 public class TDocProvider extends GenericDaoHibernateImpl<TDoc, Long> implements ITDocProvider {
 

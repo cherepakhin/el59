@@ -1,16 +1,14 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
-import java.util.Date;
-
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.dto.SMSDTO;
 import ru.perm.v.el59.office.dto.message.MessageSMSDTO;
 import ru.perm.v.el59.office.iproviders.shopmodel.ISMSProvider;
 import ru.perm.v.el59.office.shopmodel.SMS;
 import ru.perm.v.el59.office.util.ISMSSender;
 
-import com.thoughtworks.xstream.XStream;
+import java.util.Date;
 
 public class ConvertorXmlSMS extends ConvertorFromXML<SMSDTO, SMS> {
 
@@ -26,29 +24,29 @@ public class ConvertorXmlSMS extends ConvertorFromXML<SMSDTO, SMS> {
 		try {
 			message = getMessageFromXml(xml);
 			SMSDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass()).info(dto.toString());
+			Logger.getLogger(this.getClass().getName()).info(dto.toString());
 			SMS sms = fillFromDTO(dto, message.getShopCod());
 			if (message.getShopCod() == null) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"ShopCod in message is null");
 			}
 			if (message.getTypeCommand() == null) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"TypeCommand in message is null");
 			}
 			if (message.getTypeCommand() == null) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"TypeCommand in message is null");
 			}
 			if(sms.getPhone()==null || sms.getPhone().isEmpty()) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Phone is empty in SMS");
 			}
 			if(sms.getMessage()==null || sms.getMessage().isEmpty()) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Message is empty in SMS");
 			}
-			Logger.getLogger(this.getClass())
+			Logger.getLogger(this.getClass().getName())
 					.info(String
 							.format("Shop: %s;Command %s;Nn: %s,phone: %s, message: %s  ",
 									message.getShopCod(),

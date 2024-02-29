@@ -1,11 +1,10 @@
 package ru.perm.v.el59.office.camelcontext;
 
+import com.thoughtworks.xstream.XStream;
 import ru.perm.v.el59.office.db.SetTovar;
 import ru.perm.v.el59.office.dto.SetTovarDTO;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
 import ru.perm.v.el59.office.iproviders.ISetTovarProvider;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorSetTovarXml extends ConvertorXML<SetTovar, SetTovarDTO> {
 	private ISetTovarProvider setTovarProvider;

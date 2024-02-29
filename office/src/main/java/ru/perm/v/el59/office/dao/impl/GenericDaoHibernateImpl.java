@@ -1,9 +1,5 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.logging.Logger;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -17,6 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.el59.dao.AEntity;
 import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.logging.Logger;
 
 @Transactional(propagation = Propagation.REQUIRED)
 public class GenericDaoHibernateImpl<T, PK extends Serializable> implements IGenericDao<T, PK> {

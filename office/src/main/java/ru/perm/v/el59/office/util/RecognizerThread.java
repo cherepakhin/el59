@@ -1,13 +1,12 @@
 package ru.perm.v.el59.office.util;
 
+import org.apache.log4j.Logger;
+import ru.perm.v.el59.office.db.dto.TTovar;
+import ru.perm.v.el59.office.iproviders.IAnalogProvider;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
-
-import org.apache.log4j.Logger;
-
-import ru.perm.v.el59.office.db.dto.TTovar;
-import ru.perm.v.el59.office.iproviders.IAnalogProvider;
 
 public class RecognizerThread implements Callable<List<TTovar>> {
 

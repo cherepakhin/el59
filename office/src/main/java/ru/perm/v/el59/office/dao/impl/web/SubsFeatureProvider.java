@@ -1,13 +1,9 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.critery.FeatureCritery;
 import ru.perm.v.el59.office.critery.SubsFeatureCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
@@ -17,6 +13,9 @@ import ru.perm.v.el59.office.db.web.SubsFeature;
 import ru.perm.v.el59.office.db.web.TypeProperty;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 import ru.perm.v.el59.office.iproviders.web.ISubsFeatureProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SubsFeatureProvider extends
 		GenericDaoHibernateImpl<SubsFeature, Long> implements

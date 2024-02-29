@@ -1,15 +1,10 @@
 package ru.perm.v.el59.office.commerceml;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.commerceml.model.CommerceInfo;
 import ru.perm.v.el59.office.commerceml.model.Good;
 import ru.perm.v.el59.office.commerceml.model.Property;
@@ -23,8 +18,11 @@ import ru.perm.v.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.iproviders.IVarProvider;
 import ru.perm.v.el59.office.iproviders.web.ISubsFeatureProvider;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class CommerceMLCatalog implements ICommerceMLCatalog {
 	/**
@@ -114,14 +112,14 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 			if (tovar != null) {
 				tovarInfo.setTovar(tovar);
 			} else {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Товар не найден " + nnum);
 				return false;
 			}
 		}
 		Good good = getGood(goodName);
 		if (good == null) {
-			Logger.getLogger(this.getClass()).error(
+			Logger.getLogger(this.getClass().getName()).error(
 					"Товар в каталоге не найден " + goodName);
 			return false;
 		}
@@ -130,7 +128,7 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 			tovarInfo = getFillerFeatures().fillPhoto(getRootDirName(),
 					tovarInfo, good);
 		} catch (IOException e) {
-			Logger.getLogger(this.getClass()).error(
+			Logger.getLogger(this.getClass().getName()).error(
 					"Ошибка при подключения картинки " + goodName);
 			e.printStackTrace();
 		}
@@ -195,7 +193,7 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 								property.getId()).getName();
 						property.setName(nameProperty);
 					} else {
-						Logger.getLogger(this.getClass()).error(
+						Logger.getLogger(this.getClass().getName()).error(
 								String.format(
 										"Для товара %s не найдена хар-ка %s",
 										good.getName(), property.getId()));
@@ -203,8 +201,8 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 				}
 			}
 		} catch (IOException e) {
-			Logger.getLogger(this.getClass()).error("Каталог не загружен.");
-			Logger.getLogger(this.getClass()).error(e);
+			Logger.getLogger(this.getClass().getName()).error("Каталог не загружен.");
+			Logger.getLogger(this.getClass().getName()).error(e);
 			e.printStackTrace();
 		}
 	}

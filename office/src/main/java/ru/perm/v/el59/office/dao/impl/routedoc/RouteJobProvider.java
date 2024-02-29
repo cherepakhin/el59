@@ -1,15 +1,14 @@
 package ru.perm.v.el59.office.dao.impl.routedoc;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Doc;
 import ru.perm.v.el59.office.db.routedoc.RouteJob;
 import ru.perm.v.el59.office.iproviders.routedoc.IRouteJobProvider;
+
+import java.util.List;
 
 public class RouteJobProvider extends GenericDaoHibernateImpl<RouteJob, Long>
 		implements IRouteJobProvider {

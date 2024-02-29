@@ -1,20 +1,20 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import ru.perm.v.el59.dto.office.critery.DocTitleCritery;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.TypeStock;
 import ru.el59.office.db.UserShop;
-import ru.perm.v.el59..office.iproviders.IContragentProvider;
-import ru.perm.v.el59..office.iproviders.IShopProvider;
-import ru.perm.v.el59..office.iproviders.ITypeStockProvider;
-import ru.perm.v.el59..office.iproviders.IUserShopProvider;
 import ru.el59.office.shopmodel.DocDetail;
 import ru.el59.office.shopmodel.DocTitle;
 import ru.el59.office.shopmodel.TypeDocShop;
 import ru.el59.office.shopmodel.TypePrice;
 import ru.perm.v.el59.dto.DocTitleDTO;
-import ru.perm.v.el59..office.iproviders.shopmodel.ITypeOperationProvider;
+import ru.perm.v.el59.dto.office.critery.DocTitleCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.iproviders.IContragentProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.ITypeStockProvider;
+import ru.perm.v.el59.office.iproviders.IUserShopProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.ITypeOperationProvider;
 
 import java.util.Collections;
 import java.util.Date;
@@ -117,7 +117,7 @@ public class DocTitleProvider extends GenericDaoHibernateImpl<DocTitle, Long>
         if (list.size() > 0) {
             dt = list.get(0);
         } else {
-            Logger.getLogger(String.valueOf(this.getClass())).info(
+            Logger.getLogger(String.valueOf(this.getClass().getName())).info(
                     String.format("Будет создан документ %d shop=%s",
                             dto.getN(), shop.getCod()));
         }

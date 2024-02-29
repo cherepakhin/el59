@@ -12,7 +12,6 @@ import ru.perm.v.el59.office.db.Feature;
 import ru.perm.v.el59.office.db.FeatureOld;
 import ru.perm.v.el59.office.db.GroupTovar;
 import ru.perm.v.el59.office.db.TovarInfo;
-import ru.perm.v.el59.office.db.subs.*;
 import ru.perm.v.el59.office.iproviders.IFeatureOldProvider;
 import ru.perm.v.el59.office.iproviders.IGroupTProvider;
 import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
@@ -663,7 +662,7 @@ public class MainFeatureProvider extends
 			try {
 				getTovarInfoProvider().calcMainFeature(ti);
 			} catch (Exception e) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Ошибка при расчете к-ва осн.хар-к.", e);
 				e.printStackTrace();
 			}

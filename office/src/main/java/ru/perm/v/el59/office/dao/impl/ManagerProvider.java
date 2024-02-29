@@ -1,8 +1,5 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
@@ -11,6 +8,9 @@ import ru.el59.office.db.Manager;
 import ru.el59.office.iproviders.IManagerProvider;
 import ru.perm.v.el59.office.iproviders.critery.ManagerCritery;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ManagerProvider extends GenericDaoHibernateImpl<Manager, Long>
 		implements IManagerProvider {

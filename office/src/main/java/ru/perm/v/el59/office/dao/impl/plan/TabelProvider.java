@@ -1,7 +1,6 @@
 package ru.perm.v.el59.office.dao.impl.plan;
 
 import org.hibernate.Hibernate;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.plan.Tabel;
 import ru.perm.v.el59.office.iproviders.plan.ITabelProvider;

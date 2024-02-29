@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.commerceml.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("Группа")
 public class Group extends AEntityCommerce {

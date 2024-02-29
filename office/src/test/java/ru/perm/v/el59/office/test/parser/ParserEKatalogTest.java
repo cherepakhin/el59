@@ -89,7 +89,7 @@ public class ParserEKatalogTest {
 		assertTrue(tovar.getNnum().equals(NNUM));
 		assertTrue(parser.getTovarInfo().getListFeature().size()>0);
 		for (Feature f : parser.getTovarInfo().getListFeature()) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("%s:%s:%s", f.getGrp(),
 							f.getName(), f.getVal()));
 		}

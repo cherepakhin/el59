@@ -1,14 +1,12 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.dto.PayCreditDTO;
 import ru.perm.v.el59.office.dto.message.MessagePayCreditDTO;
 import ru.perm.v.el59.office.iproviders.shopmodel.IBankActionProvider;
 import ru.perm.v.el59.office.shopmodel.BankAction;
 import ru.perm.v.el59.office.shopmodel.PayCredit;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorXmlPayCredit extends
 		ConvertorXmlPayment<PayCreditDTO, PayCredit> {
@@ -29,7 +27,7 @@ public class ConvertorXmlPayCredit extends
 		try {
 			message = getMessageFromXml(xml);
 			PayCreditDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

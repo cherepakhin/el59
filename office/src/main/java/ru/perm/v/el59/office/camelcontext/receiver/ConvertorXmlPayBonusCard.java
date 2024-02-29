@@ -1,15 +1,13 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.dto.BonusCardMoveDTO;
 import ru.perm.v.el59.office.dto.PayBonusCardDTO;
 import ru.perm.v.el59.office.dto.message.MessagePayBonusCardDTO;
 import ru.perm.v.el59.office.iproviders.shopmodel.IBonusCardMoveProvider;
 import ru.perm.v.el59.office.shopmodel.BonusCardMove;
 import ru.perm.v.el59.office.shopmodel.PayBonusCard;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorXmlPayBonusCard extends
 		ConvertorXmlPayment<PayBonusCardDTO, PayBonusCard> {
@@ -31,7 +29,7 @@ public class ConvertorXmlPayBonusCard extends
 		try {
 			message = getMessageFromXml(xml);
 			PayBonusCardDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

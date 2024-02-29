@@ -1,10 +1,9 @@
 package ru.perm.v.el59.office.camelcontext;
 
+import com.thoughtworks.xstream.XStream;
 import ru.perm.v.el59.office.db.Tovar;
 import ru.perm.v.el59.office.dto.TovarDTO;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorTovarXml extends ConvertorXML<Tovar, TovarDTO> {
 	@Override

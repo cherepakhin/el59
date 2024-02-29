@@ -1,13 +1,10 @@
 package ru.perm.v.el59.office.dao.impl.subs;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.GroupTovar;
 import ru.perm.v.el59.office.db.subs.GroupTovarMainFeature;
@@ -15,6 +12,8 @@ import ru.perm.v.el59.office.db.subs.MainFeature;
 import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
 import ru.perm.v.el59.office.iproviders.subs.IGroupTovarMainFeatureProvider;
 import ru.perm.v.el59.office.iproviders.subs.IMainFeatureProvider;
+
+import java.util.List;
 
 public class GroupTovarMainFeatureProvider extends GenericDaoHibernateImpl<GroupTovarMainFeature, Long>
 		implements IGroupTovarMainFeatureProvider {

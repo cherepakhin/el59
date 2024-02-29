@@ -1,19 +1,9 @@
 package ru.perm.v.el59.office.dao.impl.routedoc;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
-import ru.perm.v.el59.dto.office.critery.PlanDownloadCritery;
 import ru.el59.office.db.Contragent;
 import ru.el59.office.db.GroupContragent;
 import ru.el59.office.db.Manager;
@@ -21,15 +11,20 @@ import ru.el59.office.db.Shop;
 import ru.el59.office.db.routedoc.CrossPlanDownload;
 import ru.el59.office.db.routedoc.PlanDownload;
 import ru.el59.office.db.routedoc.PlanDownloadSum;
-import ru.perm.v.el59..office.iproviders.IGroupContragentProvider;
-import ru.perm.v.el59..office.iproviders.IShopProvider;
-import ru.perm.v.el59..office.iproviders.ITypeFileProvider;
-import ru.perm.v.el59..office.iproviders.routedoc.CrossPlanDownloadSum;
-import ru.perm.v.el59..office.iproviders.routedoc.IPathPageProvider;
-import ru.perm.v.el59..office.iproviders.routedoc.IPlanDownloadProvider;
-import ru.perm.v.el59..office.iproviders.routedoc.IPlanDownloadSumProvider;
+import ru.perm.v.el59.dto.office.critery.PlanDownloadCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.iproviders.IGroupContragentProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.ITypeFileProvider;
+import ru.perm.v.el59.office.iproviders.routedoc.CrossPlanDownloadSum;
+import ru.perm.v.el59.office.iproviders.routedoc.IPathPageProvider;
+import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadProvider;
+import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadSumProvider;
 import ru.perm.v.el59.office.util.Helper;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.*;
 
 public class PlanDownloadProvider extends
 		GenericDaoHibernateImpl<PlanDownload, Long> implements

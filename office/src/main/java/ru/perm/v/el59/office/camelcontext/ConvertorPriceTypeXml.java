@@ -1,12 +1,11 @@
 package ru.perm.v.el59.office.camelcontext;
 
+import com.thoughtworks.xstream.XStream;
 import ru.perm.v.el59.office.db.PriceType;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.dto.PriceTypeDTO;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorPriceTypeXml extends
 		ConvertorXML<PriceType, PriceTypeDTO> {

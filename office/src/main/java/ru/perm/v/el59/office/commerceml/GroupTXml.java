@@ -1,13 +1,11 @@
 package ru.perm.v.el59.office.commerceml;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.db.GroupT;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.util.ArrayList;
+import java.util.List;
 
 @XStreamAlias("Группа")
 public class GroupTXml {
@@ -32,7 +30,7 @@ public class GroupTXml {
 
 	public GroupTXml(GroupT g) {
 		super();
-		Logger.getLogger(this.getClass()).info("Create GroupTXml:"+g.getCod());
+		Logger.getLogger(this.getClass().getName()).info("Create GroupTXml:"+g.getCod());
 		cod = g.getCod();
 		relationTovarNnum = new ListNnum();
 /*		for (Tovar t : g.getRelationTovar()) {

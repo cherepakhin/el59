@@ -1,12 +1,12 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
-import java.util.List;
-
 import ru.perm.v.el59.office.critery.TovarCritery;
 import ru.perm.v.el59.office.db.Tovar;
 import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
+
+import java.util.List;
 
 public class ConvertorXmlTovar extends ConvertorFromXmlDefault {
 	

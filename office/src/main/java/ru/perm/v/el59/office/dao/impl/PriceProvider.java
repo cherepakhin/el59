@@ -1,20 +1,7 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.io.File;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import bsh.EvalError;
+import bsh.Interpreter;
 import org.apache.commons.io.FileUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -22,16 +9,21 @@ import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import org.jboss.logging.Logger;
-import ru.el59.office.db.*;
-import ru.el59.office.db.dto.PriceDbf;
+import ru.perm.v.el59.office.db.*;
+import ru.perm.v.el59.office.db.dto.PriceDbf;
 import ru.perm.v.el59.office.iproviders.*;
 import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
 import ru.perm.v.el59.office.util.Helper;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
-import bsh.EvalError;
-import bsh.Interpreter;
+
+import java.io.File;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class PriceProvider extends GenericDaoMessageImpl<Price, Long> implements
 		IPriceProvider {

@@ -1,14 +1,13 @@
 package ru.perm.v.el59.office.analisebest;
 
-
-import ru.el59.office.db.Formula;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.dto.PriceDbf;
-import ru.el59.office.iproviders.IFormulaProvider;
-import ru.el59.office.iproviders.IPriceProvider;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.ITovarInfoProvider;
 import ru.perm.v.el59.dto.BestTag;
+import ru.perm.v.el59.office.db.Formula;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.dto.PriceDbf;
+import ru.perm.v.el59.office.iproviders.IFormulaProvider;
+import ru.perm.v.el59.office.iproviders.IPriceProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 
 import java.util.HashMap;
 import java.util.List;

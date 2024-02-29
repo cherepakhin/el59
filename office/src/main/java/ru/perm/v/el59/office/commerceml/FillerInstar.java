@@ -1,17 +1,16 @@
 package ru.perm.v.el59.office.commerceml;
 
-import java.io.File;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.commerceml.model.Good;
 import ru.perm.v.el59.office.commerceml.model.Property;
 import ru.perm.v.el59.office.db.Feature;
 import ru.perm.v.el59.office.db.Photo;
 import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+
+import java.io.File;
 
 public class FillerInstar implements IFillerFeatures {
 
@@ -39,7 +38,7 @@ public class FillerInstar implements IFillerFeatures {
 			f.setName(nameFeature);
 			f.setVal(valNode);
 			tovarInfo.addFeature(f);
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Для товара добавлена %s хар-ка  %s:%s:%s",
 							good.getName(), f.getGrp(), nameFeature, valNode));
 		}
@@ -70,7 +69,7 @@ public class FillerInstar implements IFillerFeatures {
 		String ext = pathPicture.substring(pos);
 		ret = getFullFileName(getDirForPhoto(tovarInfo.getNnum()),
 				tovarInfo.getNnum() + ext);
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				String.format("%s %s", pathPicture, ret));
 		FileUtils.copyFile(
 				new File(getFullFileName(pathRootDirCommerceML, pathPicture)),

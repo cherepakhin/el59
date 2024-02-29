@@ -1,16 +1,15 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+import ru.perm.v.el59.office.db.web.RestWeb;
+import ru.perm.v.el59.office.db.web.TypeSite;
+import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
+
 import java.io.File;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.concurrent.Callable;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-
-import ru.perm.v.el59.office.db.web.RestWeb;
-import ru.perm.v.el59.office.db.web.TypeSite;
-import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
 
 public class RestLoadThread implements Callable<Integer>{
 
@@ -29,12 +28,12 @@ public class RestLoadThread implements Callable<Integer>{
 	}
 	@Override
 	public Integer call() throws Exception {
-		Logger.getLogger(this.getClass()).info("Выгрузка остатков. Начало");
+		Logger.getLogger(this.getClass().getName()).info("Выгрузка остатков. Начало");
 		List<RestWeb> _listRest = restWebProvider.getListForSite(
 				typeSite);
 
 		String ret = "";
-		Logger.getLogger(this.getClass()).info("Начало формирования содержимого файла "+file);
+		Logger.getLogger(this.getClass().getName()).info("Начало формирования содержимого файла "+file);
 		StringBuilder builder = new StringBuilder();
 		for (RestWeb r : _listRest) {
 			String rest = df.format(r.getQty());
@@ -55,9 +54,9 @@ public class RestLoadThread implements Callable<Integer>{
 				builder.append("\n");
 			}
 		}
-		Logger.getLogger(this.getClass()).info("Конец формирования содержимого файла "+file);
+		Logger.getLogger(this.getClass().getName()).info("Конец формирования содержимого файла "+file);
 		FileUtils.writeStringToFile(new File(file), builder.toString());
-		Logger.getLogger(this.getClass()).info("Выгрузка остатков. Конец");
+		Logger.getLogger(this.getClass().getName()).info("Выгрузка остатков. Конец");
 		return 1;
 	}
 

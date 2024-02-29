@@ -1,10 +1,10 @@
 package ru.perm.v.el59.office.parser;
 
-import java.util.List;
-
 import ru.perm.v.el59.office.db.Manager;
 import ru.perm.v.el59.office.iproviders.web.IParserController;
 import ru.perm.v.el59.office.iproviders.web.IParserSite;
+
+import java.util.List;
 
 public class ParserController implements IParserController {
 	private List<IParserSite> listParser;

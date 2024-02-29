@@ -1,11 +1,11 @@
 package ru.perm.v.el59.office.wscommand.impl;
 
-import java.io.Serializable;
-
+import ru.el59.office.db.Shop;
+import ru.el59.office.wscommand.ICommander;
+import ru.perm.v.el59.dto.AEntityDTO;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.dto.AEntityDTO;
-import ru.perm.v.el59.office.wscommand.ICommander;
+
+import java.io.Serializable;
 
 public class GenericDaoMessageImpl<T, PK extends Serializable> extends
 		GenericDaoHibernateImpl<T, PK> {

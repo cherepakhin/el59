@@ -1,5 +1,7 @@
 package ru.perm.v.el59.office.util;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -7,8 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Logger;
-
-import org.apache.commons.io.FileUtils;
 
 public class Helper {
 	private final static Logger LOG = Logger.getLogger(Helper.class.getName());

@@ -1,8 +1,7 @@
 package ru.perm.v.el59.office.commerceml;
 
-import ru.perm.v.el59.office.db.GroupT;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import ru.perm.v.el59.office.db.GroupT;
 
 public class GroupTovarXml {
 	@XStreamAlias("Код")

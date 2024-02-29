@@ -1,11 +1,8 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.critery.BonusCardCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Shop;
@@ -17,6 +14,8 @@ import ru.perm.v.el59.office.iproviders.shopmodel.IDocTitleProvider;
 import ru.perm.v.el59.office.shopmodel.BonusCard;
 import ru.perm.v.el59.office.shopmodel.BonusCardMove;
 import ru.perm.v.el59.office.shopmodel.DocTitle;
+
+import java.util.List;
 
 public class BonusCardMoveProvider extends
 		GenericDaoHibernateImpl<BonusCardMove, Long> implements

@@ -1,11 +1,10 @@
 package ru.perm.v.el59.office.camelcontext;
 
+import com.thoughtworks.xstream.XStream;
 import ru.perm.v.el59.office.db.Dolgnost;
 import ru.perm.v.el59.office.dto.DolgnostDTO;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
 import ru.perm.v.el59.office.iproviders.IDolgnostProvider;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorDolgnostXml extends ConvertorXML<Dolgnost, DolgnostDTO> {
 	private IDolgnostProvider dolgnostProvider;

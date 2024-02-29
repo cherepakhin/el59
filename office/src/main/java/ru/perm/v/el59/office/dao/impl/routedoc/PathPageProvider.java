@@ -1,17 +1,9 @@
 package ru.perm.v.el59.office.dao.impl.routedoc;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.critery.DocCritery;
 import ru.perm.v.el59.office.critery.PathPageCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
@@ -24,13 +16,10 @@ import ru.perm.v.el59.office.db.routedoc.RouteJob;
 import ru.perm.v.el59.office.db.routedoc.TemplatePathPage;
 import ru.perm.v.el59.office.iproviders.IContragentProvider;
 import ru.perm.v.el59.office.iproviders.IDocProvider;
-import ru.perm.v.el59.office.iproviders.routedoc.IDispatcherProvider;
-import ru.perm.v.el59.office.iproviders.routedoc.IDriverProvider;
-import ru.perm.v.el59.office.iproviders.routedoc.IMachineProvider;
-import ru.perm.v.el59.office.iproviders.routedoc.IPathPageProvider;
-import ru.perm.v.el59.office.iproviders.routedoc.IRouteJobProvider;
-import ru.perm.v.el59.office.iproviders.routedoc.ITemplatePathPageProvider;
+import ru.perm.v.el59.office.iproviders.routedoc.*;
 import ru.perm.v.el59.office.util.Helper;
+
+import java.util.*;
 
 public class PathPageProvider extends GenericDaoHibernateImpl<PathPage, Long>
 		implements IPathPageProvider {

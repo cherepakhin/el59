@@ -1,12 +1,10 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
- import org.apache.log4j.Logger;
-
+import com.thoughtworks.xstream.XStream;
+import org.apache.log4j.Logger;
 import ru.perm.v.el59.office.dto.PayPodCardDTO;
 import ru.perm.v.el59.office.dto.message.MessagePayPodCardDTO;
 import ru.perm.v.el59.office.shopmodel.PayPodCard;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorXmlPayPodCard extends
 		ConvertorXmlPayment<PayPodCardDTO, PayPodCard> {
@@ -26,7 +24,7 @@ public class ConvertorXmlPayPodCard extends
 		try {
 			message = getMessageFromXml(xml);
 			PayPodCardDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

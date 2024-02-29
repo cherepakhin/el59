@@ -1,8 +1,7 @@
 package ru.perm.v.el59.office.commerceml;
 
-import ru.perm.v.el59.office.db.Feature;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import ru.perm.v.el59.office.db.Feature;
 
 @XStreamAlias("ХарактеристикаТовара")
 public class FeatureXml {

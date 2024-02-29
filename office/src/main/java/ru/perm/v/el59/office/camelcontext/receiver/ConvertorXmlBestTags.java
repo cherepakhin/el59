@@ -1,11 +1,7 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
-import java.util.List;
-
-import org.apache.camel.Exchange;
-import org.apache.camel.Message;
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.analisebest.ProtocolForTag;
 import ru.perm.v.el59.office.dto.BestTag;
 import ru.perm.v.el59.office.dto.BestTags;
@@ -13,7 +9,7 @@ import ru.perm.v.el59.office.dto.message.MessageBestTags;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
 import ru.perm.v.el59.office.dto.message.TypeCommand;
 
-import com.thoughtworks.xstream.XStream;
+import java.util.List;
 
 public class ConvertorXmlBestTags extends ConvertorFromXML<BestTags, BestTags> {
 
@@ -44,12 +40,12 @@ public class ConvertorXmlBestTags extends ConvertorFromXML<BestTags, BestTags> {
 			if (protocolBestTags.size() > 0) {
 				messageSend.getEntity().setTags(protocolBestTags);
 			} else {
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						String.format("Нет изменений цен для магазина %s",
 								message.getShopCod()));
 			}
 			
-			// Logger.getLogger(this.getClass()).info(dto.toString());
+			// Logger.getLogger(this.getClass().getName()).info(dto.toString());
 			// in.setBody(message);
 			if(protocolBestTags.size()>0) {
 				String xmlOut=xstream.toXML(messageSend);

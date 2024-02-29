@@ -1,11 +1,10 @@
 package ru.perm.v.el59.office.camelcontext;
 
+import com.thoughtworks.xstream.XStream;
 import ru.perm.v.el59.office.dto.BankActionDTO;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
 import ru.perm.v.el59.office.iproviders.shopmodel.IBankActionProvider;
 import ru.perm.v.el59.office.shopmodel.BankAction;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorBankActionXml extends
 		ConvertorXML<BankAction, BankActionDTO> {

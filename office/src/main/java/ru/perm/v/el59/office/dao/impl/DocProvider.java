@@ -10,8 +10,6 @@ import ru.el59.office.critery.TovarCritery;
 import ru.el59.office.db.*;
 import ru.el59.office.db.dto.DocItemDTO;
 import ru.el59.office.iproviders.*;
-import ru.perm.v.el59.office.iproviders.ITovarProvider;
-import ru.perm.v.el59.office.iproviders.ITypeDocProvider;
 import ru.perm.v.el59.office.iproviders.critery.DocCritery;
 import ru.perm.v.el59.office.iproviders.critery.ShopCritery;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;

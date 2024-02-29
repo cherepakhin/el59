@@ -1,13 +1,12 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.iproviders.critery.TypedocCritery;
+
+import java.util.List;
 
 public class TypedocDao extends GenericDaoHibernateImpl<TypeDoc, Long> {
 

@@ -1,19 +1,18 @@
 package ru.perm.v.el59.office.dao.impl.routedoc;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.routedoc.SupplierPriority;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.ISupplierPriorityProvider;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SupplierPriorityProvider extends
 		GenericDaoHibernateImpl<SupplierPriority, Long> implements

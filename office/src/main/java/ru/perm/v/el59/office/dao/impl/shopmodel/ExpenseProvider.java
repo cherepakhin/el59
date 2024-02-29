@@ -1,13 +1,13 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.dto.dao.CommonCritery;
-import ru.perm.v.el59..office.iproviders.shopmodel.IExpenseProvider;
 import ru.el59.office.shopmodel.Expense;
+import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.iproviders.shopmodel.IExpenseProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.util.List;
 
 
 public class ExpenseProvider extends GenericDaoMessageImpl<Expense, Long>

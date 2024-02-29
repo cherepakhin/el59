@@ -1,14 +1,15 @@
 package ru.perm.v.el59.office.wscommand.impl;
 
-import javax.jms.Destination;
-
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.stereotype.Service;
+import ru.el59.office.wscommand.ICommander;
+import ru.perm.v.el59.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.message.TypeCommand;
 
-import ru.perm.v.el59.office.dto.message.MessageEntity;
-import ru.perm.v.el59.office.dto.message.TypeCommand;
-import ru.perm.v.el59.office.wscommand.ICommander;
+import javax.print.attribute.standard.Destination;
 
+@Service
 public class CommanderImpl implements ICommander {
 	private Destination destination;
 	private JmsTemplate jmsTemplate;
@@ -30,6 +31,7 @@ public class CommanderImpl implements ICommander {
 	}
 
 	private void sendMessage(Object o, TypeCommand command, String shopcod) {
+		//TODO: NOT WORKED
 		MessageEntity m = new MessageEntity();
 		m.setTypeCommand(command);
 		m.setClassName(o.getClass().getSimpleName());
@@ -38,7 +40,7 @@ public class CommanderImpl implements ICommander {
 			shopcod = "*";
 		}
 		m.setShopCod(shopcod);
-		getJmsTemplate().convertAndSend(destination, m);
+		getJmsTemplate().convertAndSend(m);
 	}
 
 	@Override

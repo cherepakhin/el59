@@ -1,16 +1,14 @@
 package ru.perm.v.el59.office.web;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import org.apache.camel.Body;
-
-
 import com.sun.istack.logging.Logger;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import org.apache.camel.Body;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class CreatorFromXmlToDocW {
 	private XStream xstream;
@@ -36,7 +34,7 @@ public class CreatorFromXmlToDocW {
 
 	public void buildDocW(@Body Object body) throws Error, Exception {
 		OrderDTO orderDTO = (OrderDTO) body;
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Создание выниски сайта №" + orderDTO.getNumber() + ".Начало");
 		DocW docw = new DocW();
 		TypeDoc typedoc = getTypeDocProvider()
@@ -84,7 +82,7 @@ public class CreatorFromXmlToDocW {
     try {
       TimeUnit.SECONDS.sleep(2);
     } catch (Exception e) {
-      Logger.getLogger(this.getClass()).info(e.getLocalizedMessage());
+      Logger.getLogger(this.getClass().getName()).info(e.getLocalizedMessage());
     }
 
 		for (TovarDTO t : orderDTO.getListTovarDTO()) {
@@ -106,7 +104,7 @@ public class CreatorFromXmlToDocW {
 		 * item.setDocw(docw); item.setQty(new BigDecimal(1));
 		 * item.setCena(getPriceDostavka()); item.setSumma(getPriceDostavka());
 		 * getDocWItemProvider().create(item); }
-		 */Logger.getLogger(this.getClass()).info(
+		 */Logger.getLogger(this.getClass().getName()).info(
 				"Создание выниски сайта №" + orderDTO.getNumber() + ".Конец");
 	}
 
@@ -128,8 +126,8 @@ public class CreatorFromXmlToDocW {
 	}
 
 	private OrderDTO getDTO(String xml) {
-		Logger.getLogger(this.getClass()).info("Подгрузка xml выписки");
-		Logger.getLogger(this.getClass()).info("xml:" + xml);
+		Logger.getLogger(this.getClass().getName()).info("Подгрузка xml выписки");
+		Logger.getLogger(this.getClass().getName()).info("xml:" + xml);
 		XStream xstream = getXStream();
 		xstream.alias("Заявка", OrderDTO.class);
 		xstream.aliasField("Номер", OrderDTO.class, "number");
@@ -162,7 +160,7 @@ public class CreatorFromXmlToDocW {
 		xstream.omitField(OrderDTO.class, "Сумма");
 		OrderDTO o = (OrderDTO) xstream.fromXML(xml);
 		o.setXml(xml);
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Подгрузка xml выписки " + o.getNumber() + ".Конец");
 		return o;
 	}

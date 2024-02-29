@@ -1,8 +1,9 @@
 package ru.perm.v.el59.office.analisebest;
 
 import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.BestTag;
+//import org.apache.log4j.Logger;
+import org.jboss.logging.Logger;
+import ru.perm.v.el59.dto.BestTag;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class ProtocolForTag {
                 officeTag = getCreatorBestTag().getBestTag(shopTag.nnum, shopCod);
                 // Такое возможно, когда нет цены на товар
                 if (officeTag == null) {
-                    Logger.getLogger(this.getClass()).error(String.format("Ценник для nnum=%d null", shopTag.nnum));
+                    Logger.getLogger(this.getClass().getName()).error(String.format("Ценник для nnum=%d null", shopTag.nnum));
                     continue;
                 }
                 // КОСТЫЛЬ. Поле grup(группа) в бесте кривая.

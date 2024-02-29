@@ -1,11 +1,5 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Hibernate;
@@ -13,23 +7,28 @@ import org.hibernate.Query;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.el59.office.db.DocItem;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.web.DocW;
 import ru.el59.office.db.web.DocWItem;
 import ru.el59.office.db.web.DocWItemInfo;
-import ru.perm.v.el59..office.iproviders.IDocItemProvider;
-import ru.perm.v.el59..office.iproviders.IShopProvider;
-import ru.perm.v.el59..office.iproviders.ITovarProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.IDocTitleProvider;
-import ru.perm.v.el59..office.iproviders.web.DocWCritery;
-import ru.perm.v.el59..office.iproviders.web.DocWItemCritery;
-import ru.perm.v.el59..office.iproviders.web.IDocWItemProvider;
-import ru.perm.v.el59..office.iproviders.web.IDocWProvider;
 import ru.el59.office.shopmodel.DocDetail;
 import ru.el59.office.shopmodel.DocTitle;
+import ru.perm.v.el59.office.iproviders.IDocItemProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.IDocTitleProvider;
+import ru.perm.v.el59.office.iproviders.web.DocWCritery;
+import ru.perm.v.el59.office.iproviders.web.DocWItemCritery;
+import ru.perm.v.el59.office.iproviders.web.IDocWItemProvider;
+import ru.perm.v.el59.office.iproviders.web.IDocWProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 public class DocWItemProvider extends GenericDaoMessageImpl<DocWItem, Long>
 		implements IDocWItemProvider {

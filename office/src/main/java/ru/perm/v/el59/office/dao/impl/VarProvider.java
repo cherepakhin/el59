@@ -1,15 +1,15 @@
 package ru.perm.v.el59.office.dao.impl;
 
+import ru.perm.v.el59.dao.CommonCritery;
+import ru.perm.v.el59.office.db.TypeVar;
+import ru.perm.v.el59.office.db.Var;
+import ru.perm.v.el59.office.iproviders.IVarProvider;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-
-import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.db.TypeVar;
-import ru.perm.v.el59.office.db.Var;
-import ru.perm.v.el59.office.iproviders.IVarProvider;
 
 public class VarProvider extends GenericDaoHibernateImpl<Var, Long> implements
 		IVarProvider {

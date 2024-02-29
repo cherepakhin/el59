@@ -1,25 +1,23 @@
 package ru.perm.v.el59.office.parser;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-
-import org.apache.log4j.Logger;
-import org.w3c.dom.Document;
+//import org.apache.log4j.Logger;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import ru.perm.v.el59.office.db.Feature;
 import ru.perm.v.el59.office.db.Manager;
 import ru.perm.v.el59.office.db.Photo;
 import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.iproviders.web.IParserSite;
+
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 
 public class ParserSoftMarket extends AParserSite implements IParserSite {
 	// Кодировка сайта
@@ -88,7 +86,7 @@ public class ParserSoftMarket extends AParserSite implements IParserSite {
 			}
 		}
 		
-		Logger.getLogger(this.getClass()).info(info);
+		Logger.getLogger(this.getClass().getName()).info(info);
 		tovarInfo.setInfo(info);
 		// Полные характеристики
 		expr = xpath.compile(XPATH_FULL_FEATURES);
@@ -146,7 +144,7 @@ public class ParserSoftMarket extends AParserSite implements IParserSite {
 						}
 					}
 				}
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						String.format("%s:%s:%s", f.getGrp(), f.getName(),
 								f.getVal()));
 				flagNameFeature = false;

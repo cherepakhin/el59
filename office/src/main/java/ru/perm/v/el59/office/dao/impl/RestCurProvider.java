@@ -1,5 +1,18 @@
 package ru.perm.v.el59.office.dao.impl;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+import ru.el59.office.db.*;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
+import ru.perm.v.el59.office.iproviders.critery.RestCritery;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+import ru.perm.v.el59.office.util.Helper;
+
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,25 +20,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
-
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.criterion.Disjunction;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-
-import ru.el59.office.db.*;
-import ru.perm.v.el59.office.iproviders.IPriceProvider;
-import ru.perm.v.el59.office.iproviders.IRestCurProvider;
-import ru.perm.v.el59.office.iproviders.ISetTypeStockProvider;
-import ru.perm.v.el59.office.iproviders.IShopProvider;
-import ru.perm.v.el59.office.iproviders.ITovarProvider;
-import ru.perm.v.el59.office.iproviders.ITypeStockProvider;
-import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
-import ru.perm.v.el59.office.iproviders.critery.RestCritery;
-import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
-import ru.perm.v.el59.office.util.Helper;
 
 public class RestCurProvider extends GenericDaoHibernateImpl<RestCur, Long>
 		implements IRestCurProvider {

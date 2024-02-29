@@ -1,8 +1,5 @@
 package ru.perm.v.el59.office.dao.impl.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.db.service.ATDoc;
 import ru.perm.v.el59.office.db.service.ITDoc;
@@ -10,6 +7,9 @@ import ru.perm.v.el59.office.db.service.LOPT;
 import ru.perm.v.el59.office.db.service.TDoc;
 import ru.perm.v.el59.office.iproviders.RequestItem;
 import ru.perm.v.el59.office.iproviders.RequestMessage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public interface IHandlerTDoc {
 

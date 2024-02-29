@@ -1,15 +1,13 @@
 package ru.perm.v.el59.office.commerceml;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.db.FeaturePrice;
 import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.util.Helper;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.util.ArrayList;
+import java.util.List;
 
 @XStreamAlias("Товар")
 public class TovarInfoXml {
@@ -81,7 +79,7 @@ public class TovarInfoXml {
 			if (tovarInfo.getListPhoto().get(i) != null) {
 				listPhoto.add(new PhotoXml(tovarInfo.getListPhoto().get(i), i));
 			} else {
-				Logger.getLogger(this.getClass()).error(String.format("Null Photo for nnum=%d", tovarInfo.getNnum()));
+				Logger.getLogger(this.getClass().getName()).error(String.format("Null Photo for nnum=%d", tovarInfo.getNnum()));
 			}
 		}
 		groupTovarXml = new GroupTovarXml(tovarInfo.getTovar().getGroup()

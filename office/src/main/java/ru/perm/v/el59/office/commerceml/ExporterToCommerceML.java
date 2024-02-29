@@ -1,14 +1,9 @@
 package ru.perm.v.el59.office.commerceml;
 
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.db.FeaturePrice;
 import ru.perm.v.el59.office.db.GroupT;
 import ru.perm.v.el59.office.db.TovarInfo;
@@ -17,9 +12,13 @@ import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
 import ru.perm.v.el59.office.iproviders.IThingProvider;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 import ru.perm.v.el59.office.util.Helper;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Экспортер в форме E-Commerce

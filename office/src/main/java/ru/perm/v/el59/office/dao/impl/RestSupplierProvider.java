@@ -9,7 +9,6 @@ import org.hibernate.criterion.Restrictions;
 import ru.el59.office.db.*;
 import ru.el59.office.db.web.RestWeb;
 import ru.el59.office.db.web.SummarySite;
-import ru.perm.v.el59.office.iproviders.*;
 import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
 import ru.perm.v.el59.office.iproviders.critery.RestSupplierCritery;
 import ru.perm.v.el59.office.iproviders.exception.MessageException;
@@ -234,7 +233,7 @@ public class RestSupplierProvider extends
                     listRestSupplier.add(rest);
                     // Если нет цены в прайсе, то создаем =0
                     if (!listTovarPrice.contains(tovar)) {
-                        // Logger.getLogger(this.getClass()).info("Прайс для сайта:"+tovar.getNnum());
+                        // Logger.getLogger(this.getClass().getName()).info("Прайс для сайта:"+tovar.getNnum());
                         getPriceProvider().update(
                                 getPriceProvider().getNamePriceW(),
                                 tovar.getNnum(), new BigDecimal("0.00"));

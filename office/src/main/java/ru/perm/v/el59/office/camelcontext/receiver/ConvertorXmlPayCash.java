@@ -1,12 +1,10 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.dto.PayCashDTO;
 import ru.perm.v.el59.office.dto.message.MessagePayCashDTO;
 import ru.perm.v.el59.office.shopmodel.PayCash;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorXmlPayCash extends
 		ConvertorXmlPayment<PayCashDTO, PayCash> {
@@ -25,7 +23,7 @@ public class ConvertorXmlPayCash extends
 		try {
 			message = getMessageFromXml(xml);
 			PayCashDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

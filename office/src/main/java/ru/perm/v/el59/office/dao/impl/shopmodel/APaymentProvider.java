@@ -1,29 +1,20 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
-
-import ru.perm.v.el59.dto.office.critery.PaymentCritery;
 import ru.el59.office.db.Shop;
 import ru.el59.office.db.web.DocW;
-import ru.perm.v.el59..office.iproviders.IShopProvider;
 import ru.el59.office.shopmodel.Payment;
-import ru.perm.v.el59..office.iproviders.shopmodel.ITypeDocShopProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.IDocTitleProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.IPaymentProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.IReasonProvider;
-import ru.perm.v.el59..office.iproviders.shopmodel.ITypePaymentProvider;
+import ru.perm.v.el59.dto.office.critery.PaymentCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.*;
 import ru.perm.v.el59.office.util.Helper;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.*;
 
 public abstract class APaymentProvider<T extends Payment, PK extends Serializable>
 		extends GenericDaoHibernateImpl implements IPaymentProvider {

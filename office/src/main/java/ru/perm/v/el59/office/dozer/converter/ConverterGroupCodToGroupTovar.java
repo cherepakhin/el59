@@ -1,9 +1,7 @@
 package ru.perm.v.el59.office.dozer.converter;
 
-
 import org.dozer.CustomConverter;
-
-import ru.perm.v.el59.office.db.GroupTovar;
+import ru.el59.office.db.GroupTovar;
 
 public class ConverterGroupCodToGroupTovar implements CustomConverter {
 	public Object convert(Object destination, Object source, Class destClass,

@@ -1,24 +1,21 @@
 package ru.perm.v.el59.office.web;
 
 import org.apache.camel.Exchange;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dao.impl.web.CatalogThread;
-import ru.perm.v.el59.office.dao.impl.web.RestLoadThread;
-import ru.perm.v.el59.office.db.web.RestWeb;
-import ru.perm.v.el59.office.db.web.TypeSite;
-import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
-import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
-import ru.perm.v.el59.office.iproviders.web.IUploaderForSite;
+import ru.el59.office.db.web.RestWeb;
+import ru.el59.office.db.web.TypeSite;
+import ru.el59.office.iproviders.ITovarInfoProvider;
+import ru.el59.office.iproviders.web.IRestWebProvider;
+import ru.el59.office.iproviders.web.IUploaderForSite;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.logging.Logger;
 
 /**
  * Загрузчик сайтов
@@ -26,7 +23,7 @@ import java.util.concurrent.Future;
  *
  */
 
-public class UploaderForSite implements IUploaderForSite{
+public class UploaderForSite implements IUploaderForSite {
 	private ITovarInfoProvider tovarInfoProvider;
 	private IRestWebProvider restWebProvider;
 	private String codesetXml;
@@ -38,7 +35,7 @@ public class UploaderForSite implements IUploaderForSite{
 	private String script;
 
 	private Logger getLogger() {
-		return Logger.getLogger(this.getClass());
+		return Logger.getLogger(this.getClass().getName());
 	}
 
 	public byte[] getCatalog(Exchange exchange) throws Exception {
@@ -118,43 +115,43 @@ public class UploaderForSite implements IUploaderForSite{
 	public void upload() throws IOException {
 		ExecutorService exec = Executors.newFixedThreadPool(3);
 		ArrayList<Future<Integer>> results = new ArrayList<Future<Integer>>();
-		results.add(exec.submit(new CatalogThread(getTovarInfoProvider(),getXmlFile(),getCodesetXml())));
-		results.add(exec.submit(new RestLoadThread(getRestWebProvider(),TypeSite.INNER ,getRest0File(),getDelimCsv())));
-		results.add(exec.submit(new RestLoadThread(getRestWebProvider(),TypeSite.EL59,getRest1File(),getDelimCsv())));
-		Integer ret=0;
-		for (Future<Integer> future : results) {
-			try {
-				Logger.getLogger(this.getClass()).error("ret="+ret);
-				ret=ret+future.get();
-			} catch (InterruptedException e) {
-				Logger.getLogger(this.getClass()).error(e);
-				e.printStackTrace();
-			} catch (ExecutionException e) {
-				Logger.getLogger(this.getClass()).error(e);
-				e.printStackTrace();
-			} finally {
-				exec.shutdown();
-			}
-		}
-		if(ret!=3) {
-			// Не все задачи выполнились
-			Logger.getLogger(this.getClass()).error("Не все задачи выполнились");
-		} else {
-			runScript();
-		}
+//		results.add(exec.submit(new CatalogThread(getTovarInfoProvider(),getXmlFile(),getCodesetXml())));
+//		results.add(exec.submit(new RestLoadThread(getRestWebProvider(),TypeSite.INNER ,getRest0File(),getDelimCsv())));
+//		results.add(exec.submit(new RestLoadThread(getRestWebProvider(),TypeSite.EL59,getRest1File(),getDelimCsv())));
+//		Integer ret=0;
+//		for (Future<Integer> future : results) {
+//			try {
+//				Logger.getLogger(this.getClass().getName()).severe("ret="+ret);
+//				ret=ret+future.get();
+//			} catch (InterruptedException e) {
+//				Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
+//				e.printStackTrace();
+//			} catch (ExecutionException e) {
+//				Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
+//				e.printStackTrace();
+//			} finally {
+//				exec.shutdown();
+//			}
+//		}
+//		if(ret!=3) {
+//			// Не все задачи выполнились
+//			Logger.getLogger(this.getClass().getName()).severe("Не все задачи выполнились");
+//		} else {
+//			runScript();
+//		}
 	}
 
 	@Override
 	public void runScript() throws IOException {
-		Logger.getLogger(this.getClass()).info("Запуск скрипта загрузки сайта.");
+		Logger.getLogger(this.getClass().getName()).info("Запуск скрипта загрузки сайта.");
 		Process proc = Runtime.getRuntime().exec(getScript());
 /*		try {
 			proc.waitFor();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-			Logger.getLogger(this.getClass()).error(e);
+			Logger.getLogger(this.getClass().getName()).severe(e);
 		}
-*/		Logger.getLogger(this.getClass()).info("Cкрипт загрузки сайта отработал.");
+*/		Logger.getLogger(this.getClass().getName()).info("Cкрипт загрузки сайта отработал.");
 	}
 	public String getXmlFile() {
 		return xmlFile;

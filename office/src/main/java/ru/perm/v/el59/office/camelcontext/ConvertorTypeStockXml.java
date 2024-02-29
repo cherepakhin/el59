@@ -1,10 +1,9 @@
 package ru.perm.v.el59.office.camelcontext;
 
+import com.thoughtworks.xstream.XStream;
 import ru.perm.v.el59.office.db.TypeStock;
 import ru.perm.v.el59.office.dto.TypeStockDTO;
 import ru.perm.v.el59.office.dto.message.MessageEntity;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorTypeStockXml extends
 		ConvertorXML<TypeStock, TypeStockDTO> {

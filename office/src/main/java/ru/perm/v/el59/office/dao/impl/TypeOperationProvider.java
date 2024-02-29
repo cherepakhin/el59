@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.List;
-
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.util.List;
 
 public class TypeOperationProvider extends
 		GenericDaoMessageImpl<TypeOperation, Long> implements

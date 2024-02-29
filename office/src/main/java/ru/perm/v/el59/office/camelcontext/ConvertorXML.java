@@ -1,14 +1,12 @@
 package ru.perm.v.el59.office.camelcontext;
 
-import java.io.StringWriter;
-
-import org.dozer.Mapper;
-
-import ru.perm.v.el59.office.dto.message.MessageEntity;
-
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
+import org.dozer.Mapper;
+import ru.perm.v.el59.office.dto.message.MessageEntity;
+
+import java.io.StringWriter;
 
 public class ConvertorXML<T, DTO> implements IConvertorXML<T> {
 	private static XStream xstream;

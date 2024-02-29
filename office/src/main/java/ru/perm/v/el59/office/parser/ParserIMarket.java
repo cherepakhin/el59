@@ -1,23 +1,21 @@
 package ru.perm.v.el59.office.parser;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-
 import org.apache.log4j.Logger;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-
 import ru.perm.v.el59.office.db.Feature;
 import ru.perm.v.el59.office.db.Manager;
 import ru.perm.v.el59.office.db.Photo;
 import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.iproviders.web.IParserSite;
+
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class ParserIMarket extends AParserSite implements IParserSite {
 	private static final String MAINPROPERTIES = "Основные характеристики";
@@ -158,7 +156,7 @@ public class ParserIMarket extends AParserSite implements IParserSite {
 				nameFeature = "";
 				System.out.println(String.format("%s|%s|%s", f.getGrp(),
 						f.getName(), f.getVal()));
-				// Logger.getLogger(this.getClass()).info(String.format("%s:%s:%s",
+				// Logger.getLogger(this.getClass().getName()).info(String.format("%s:%s:%s",
 				// nameGroup,nameFeature,valFeature));
 			}
 		}
@@ -234,7 +232,7 @@ public class ParserIMarket extends AParserSite implements IParserSite {
 				String imgpath = imgnode.getNodeValue();
 				filename = loadPhoto(imgpath, getNnum(), DELIMETER_NAMEFILE,null,
 						num_img);
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						String.format("Photo %d %s", getNnum(), filename));
 				photo.setPath(filename.replace(getBaseDirForPhoto(), ""));
 				String info = "";

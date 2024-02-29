@@ -1,19 +1,10 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.apache.el.parser.ParseException;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.el59.office.critery.AnalogCritery;
 import ru.el59.office.critery.TovarCritery;
 import ru.el59.office.db.Analog;
@@ -24,6 +15,14 @@ import ru.el59.office.iproviders.IAnalogProvider;
 import ru.el59.office.iproviders.IManagerProvider;
 import ru.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.util.ILuceneSearcher;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 		implements IAnalogProvider {

@@ -9,7 +9,6 @@ import org.hibernate.criterion.Restrictions;
 import ru.el59.dao.IGenericDao;
 import ru.el59.office.db.*;
 import ru.el59.office.db.dto.MoveOperationSum;
-import ru.perm.v.el59.office.iproviders.*;
 import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
 import ru.perm.v.el59.office.iproviders.critery.RestCritery;
 import ru.perm.v.el59.office.iproviders.critery.TovarCritery;

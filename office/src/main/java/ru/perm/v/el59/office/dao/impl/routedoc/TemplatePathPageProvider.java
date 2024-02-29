@@ -1,11 +1,8 @@
 package ru.perm.v.el59.office.dao.impl.routedoc;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
@@ -15,6 +12,8 @@ import ru.perm.v.el59.office.iproviders.routedoc.IDispatcherProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.IDriverProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.IMachineProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.ITemplatePathPageProvider;
+
+import java.util.List;
 
 public class TemplatePathPageProvider extends
 		GenericDaoHibernateImpl<TemplatePathPage, Long> implements

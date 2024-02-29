@@ -1,19 +1,18 @@
 package ru.perm.v.el59.office.util;
 
+import org.apache.log4j.Logger;
+import ru.perm.v.el59.dto.office.util.IRecognizerInvoice;
+import ru.perm.v.el59.office.db.Doc;
+import ru.perm.v.el59.office.db.dto.TTovar;
+import ru.perm.v.el59.office.iproviders.IAnalogProvider;
+import ru.perm.v.el59.office.iproviders.IDocItemProvider;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import org.apache.log4j.Logger;
-
-import ru.perm.v.el59.dto.office.util.IRecognizerInvoice;
-import ru.perm.v.el59.office.db.Doc;
-import ru.perm.v.el59.office.db.dto.TTovar;
-import ru.perm.v.el59.office.iproviders.IAnalogProvider;
-import ru.perm.v.el59.office.iproviders.IDocItemProvider;
 
 /**
  * Распознать товары в накладной поставщика и заполнить накладную

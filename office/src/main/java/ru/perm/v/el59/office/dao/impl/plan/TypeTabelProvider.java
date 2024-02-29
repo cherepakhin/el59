@@ -1,15 +1,14 @@
 package ru.perm.v.el59.office.dao.impl.plan;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.Hibernate;
-
 import ru.perm.v.el59.dao.CommonCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.plan.TypeTabel;
 import ru.perm.v.el59.office.db.plan.TypeTabelVal;
 import ru.perm.v.el59.office.iproviders.plan.ITypeTabelProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TypeTabelProvider extends GenericDaoHibernateImpl<TypeTabel, Long>
 		implements ITypeTabelProvider {

@@ -1,26 +1,12 @@
 package ru.perm.v.el59.office.dao.impl.routedoc;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.critery.PlanDownloadCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
-import ru.perm.v.el59.office.db.Contragent;
-import ru.perm.v.el59.office.db.Doc;
-import ru.perm.v.el59.office.db.DocFile;
-import ru.perm.v.el59.office.db.Manager;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.db.TypeFile;
+import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.db.dto.FileAttach;
 import ru.perm.v.el59.office.db.routedoc.PlanDownload;
 import ru.perm.v.el59.office.db.routedoc.PlanDownloadSum;
@@ -34,6 +20,10 @@ import ru.perm.v.el59.office.iproviders.routedoc.IPathPageProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadSumProvider;
 import ru.perm.v.el59.office.util.Helper;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.*;
 
 public class PlanDownloadSumProvider extends
 		GenericDaoHibernateImpl<PlanDownloadSum, Long> implements

@@ -1,14 +1,13 @@
 package ru.perm.v.el59.office.dao.impl.subs;
 
-import java.util.Iterator;
-
 import org.hibernate.Hibernate;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.subs.CorrectionVal;
 import ru.perm.v.el59.office.db.subs.ValFeature;
 import ru.perm.v.el59.office.iproviders.subs.ICorrectionValProvider;
 import ru.perm.v.el59.office.iproviders.subs.IValFeatureProvider;
+
+import java.util.Iterator;
 
 public class ValFeatureProvider extends
 		GenericDaoHibernateImpl<ValFeature, Long> implements

@@ -72,7 +72,7 @@ public class DbfToBestTagConvertorTest {
 			e.printStackTrace();
 			assertTrue(false);
 		}
-		Logger.getLogger(this.getClass()).info("Temp directory for zip "+tmpDir);
+		Logger.getLogger(this.getClass().getName()).info("Temp directory for zip "+tmpDir);
 		assertTrue(true);
 	}
 

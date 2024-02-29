@@ -1,11 +1,11 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.Collections;
-import java.util.List;
-
 import ru.perm.v.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.iproviders.ITypeDocProvider;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+
+import java.util.Collections;
+import java.util.List;
 
 public class TypeDocProvider extends GenericDaoHibernateImpl<TypeDoc, Long>
 		implements ITypeDocProvider {

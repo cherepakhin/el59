@@ -9,7 +9,6 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import ru.el59.office.db.*;
 import ru.el59.office.db.dto.TovarDTO;
-import ru.perm.v.el59.office.iproviders.*;
 import ru.perm.v.el59.office.iproviders.critery.RestCritery;
 import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.util.Helper;
@@ -370,7 +369,7 @@ public class TovarProvider extends GenericDaoMessageImpl<Tovar, Integer>
 
     @Override
     public Tovar initialize(Integer id) {
-        // Logger.getLogger(this.getClass()).info("Init tovar nnum="+id);
+        // Logger.getLogger(this.getClass().getName()).info("Init tovar nnum="+id);
         Tovar t = super.initialize(id);
         if (t == null) {
             Logger.getLogger(this.getClass().getName()).info("Tovar null nnum=" + id);

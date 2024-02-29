@@ -1,14 +1,12 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
+import com.thoughtworks.xstream.XStream;
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.dto.PaySertDTO;
 import ru.perm.v.el59.office.dto.message.MessagePaySertDTO;
 import ru.perm.v.el59.office.iproviders.shopmodel.ITypeSertProvider;
 import ru.perm.v.el59.office.shopmodel.PaySert;
 import ru.perm.v.el59.office.shopmodel.TypeSert;
-
-import com.thoughtworks.xstream.XStream;
 
 public class ConvertorXmlPaySert extends
 		ConvertorXmlPayment<PaySertDTO, PaySert> {
@@ -29,7 +27,7 @@ public class ConvertorXmlPaySert extends
 		try {
 			message = getMessageFromXml(xml);
 			PaySertDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

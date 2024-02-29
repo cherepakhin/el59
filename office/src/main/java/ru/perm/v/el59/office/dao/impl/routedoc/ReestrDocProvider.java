@@ -1,16 +1,10 @@
 package ru.perm.v.el59.office.dao.impl.routedoc;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.DocFile;
 import ru.perm.v.el59.office.db.Manager;
@@ -20,6 +14,11 @@ import ru.perm.v.el59.office.iproviders.IManagerProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.IReestrDocProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.ReestrDocCritery;
 import ru.perm.v.el59.office.util.Helper;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class ReestrDocProvider extends GenericDaoHibernateImpl<ReestrDoc, Long>
 		implements IReestrDocProvider {

@@ -1,21 +1,19 @@
 package ru.perm.v.el59.office.report;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
 import net.sf.jxls.exception.ParsePropertyException;
-
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.dto.FileAttach;
 import ru.perm.v.el59.office.emailer.IEmailer;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.util.Helper;
 import ru.perm.v.el59.office.util.Period;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 /**
  * Формирование отчета реализации и отправка по почте

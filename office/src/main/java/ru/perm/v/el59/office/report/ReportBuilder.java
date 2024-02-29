@@ -1,15 +1,7 @@
 package ru.perm.v.el59.office.report;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
 import net.sf.jxls.exception.ParsePropertyException;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-
 import ru.perm.v.el59.office.critery.MoveCritery;
 import ru.perm.v.el59.office.db.Move;
 import ru.perm.v.el59.office.db.OpGroup;
@@ -17,6 +9,12 @@ import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.IMoveProvider;
 import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
 import ru.perm.v.el59.office.util.ExcelReport;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Конструктор отчетов

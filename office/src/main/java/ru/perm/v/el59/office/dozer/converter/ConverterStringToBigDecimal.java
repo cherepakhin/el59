@@ -1,11 +1,10 @@
 package ru.perm.v.el59.office.dozer.converter;
 
+import org.dozer.CustomConverter;
+import ru.perm.v.el59.office.util.Helper;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-
-import org.dozer.CustomConverter;
-
-import ru.perm.v.el59.office.util.Helper;
 
 public class ConverterStringToBigDecimal implements CustomConverter {
 	DecimalFormat df = new DecimalFormat("0.00");

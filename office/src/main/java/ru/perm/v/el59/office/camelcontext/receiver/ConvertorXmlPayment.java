@@ -1,9 +1,6 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
-
 import ru.perm.v.el59.office.critery.PaymentCritery;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
@@ -13,18 +10,10 @@ import ru.perm.v.el59.office.dto.message.TypeCommand;
 import ru.perm.v.el59.office.iproviders.IContragentProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.IUserShopProvider;
-import ru.perm.v.el59.office.iproviders.shopmodel.IDocTitleProvider;
-import ru.perm.v.el59.office.iproviders.shopmodel.IExpenseProvider;
-import ru.perm.v.el59.office.iproviders.shopmodel.IPaymentProvider;
-import ru.perm.v.el59.office.iproviders.shopmodel.IReasonProvider;
-import ru.perm.v.el59.office.iproviders.shopmodel.ITypeCashProvider;
-import ru.perm.v.el59.office.iproviders.shopmodel.ITypePaymentProvider;
-import ru.perm.v.el59.office.shopmodel.DocTitle;
-import ru.perm.v.el59.office.shopmodel.Expense;
-import ru.perm.v.el59.office.shopmodel.Payment;
-import ru.perm.v.el59.office.shopmodel.Reason;
-import ru.perm.v.el59.office.shopmodel.TypeCash;
-import ru.perm.v.el59.office.shopmodel.TypePayment;
+import ru.perm.v.el59.office.iproviders.shopmodel.*;
+import ru.perm.v.el59.office.shopmodel.*;
+
+import java.util.List;
 
 public abstract class ConvertorXmlPayment<DTO, VO> extends
 		ConvertorFromXML<DTO, VO> {
@@ -46,7 +35,7 @@ public abstract class ConvertorXmlPayment<DTO, VO> extends
 
 	private void log(String string, VO o) {
 		Payment p = (Payment) o;
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				String.format("Create %d", p.getN()));
 
 	}

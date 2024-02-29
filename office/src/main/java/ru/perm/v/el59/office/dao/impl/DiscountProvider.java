@@ -1,14 +1,13 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-
 import ru.el59.office.iproviders.shopmodel.IDiscountProvider;
 import ru.el59.office.shopmodel.Discount;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DiscountProvider extends GenericDaoMessageImpl<Discount, Long>
 		implements IDiscountProvider {

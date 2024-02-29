@@ -1,11 +1,18 @@
 package ru.perm.v.el59.office.analisebest;
 
 import org.apache.camel.Body;
+import ru.perm.v.el59.dto.BestTag;
+import ru.perm.v.el59.dto.message.MessageBestTags;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.dto.FileAttach;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.emailer.IEmailer;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Отправка изменений ценников в магазин
@@ -40,24 +47,25 @@ public class SenderBestTags {
 /*					emailer.send(null, "bob1970@yandex.ru", getMailMessage(),
 							getMailSubject()+"("+shop.getName()+")", attachFiles);*/
                     // Отсылка директору
-                    emailer.send(null, shop.getEmail() + ";bob1970@yandex.ru", getMailMessage(),
-                            getMailSubject() + "(" + shop.getName() + ")", attachFiles, true);
+                    //TODO : send email
+//                    emailer.send(shop.getEmail() + ";bob1970@yandex.ru", getMailMessage(),
+//                            getMailSubject() + "(" + shop.getName() + ")", attachFiles, true);
                 }
             } catch (InstantiationException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).error(e);
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).error(e);
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).error(e);
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (IOException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).error(e);
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (SQLException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).error(e);
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             }
         }
         return body;

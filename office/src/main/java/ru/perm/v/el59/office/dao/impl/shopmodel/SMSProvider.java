@@ -1,12 +1,9 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.critery.SMSCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Shop;
@@ -14,6 +11,8 @@ import ru.perm.v.el59.office.dto.SMSDTO;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.shopmodel.ISMSProvider;
 import ru.perm.v.el59.office.shopmodel.SMS;
+
+import java.util.List;
 
 public class SMSProvider extends GenericDaoHibernateImpl<SMS, Long>
 		implements ISMSProvider {

@@ -1,31 +1,17 @@
 package ru.perm.v.el59.office.loaders;
 
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.Reader;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.Dom4JDriver;
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+import ru.perm.v.el59.office.db.dto.elxml.*;
+import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-
-import ru.perm.v.el59.office.db.dto.elxml.BarCodes;
-import ru.perm.v.el59.office.db.dto.elxml.FeaturePrice;
-import ru.perm.v.el59.office.db.dto.elxml.Good;
-import ru.perm.v.el59.office.db.dto.elxml.Goods;
-import ru.perm.v.el59.office.db.dto.elxml.Units;
-import ru.perm.v.el59.office.db.dto.elxml.Werks;
-import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
-
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.Dom4JDriver;
 
 public class LoaderElXml {
 
@@ -59,16 +45,16 @@ public class LoaderElXml {
 
 	public void loadFile(String dir, String filename,
 			ITovarInfoProvider tovarInfoProvider) throws Exception {
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Сервер.Загрузка XML Эльдорадо. Каталог " + dir + ";Файл "
 						+ filename);
 		List<Good> listGood = getGoods(dir + File.separator + filename);
 		tovarInfoProvider.createByListGood(listGood, filename);
-		Logger.getLogger(this.getClass()).info("End");
+		Logger.getLogger(this.getClass().getName()).info("End");
 	}
 
 	public List<Good> getGoods(String filename) {
-		Logger.getLogger(this.getClass()).info("Start receive "+filename);
+		Logger.getLogger(this.getClass().getName()).info("Start receive "+filename);
 		XStream xstream = new XStream(new Dom4JDriver());
 
 		xstream.alias(Goods.class.getSimpleName(), Goods.class);
@@ -104,9 +90,9 @@ public class LoaderElXml {
 					listGood.add(good);
 				}
 			} catch (EOFException e) {
-				Logger.getLogger(this.getClass()).info("Everythings readed!");
+				Logger.getLogger(this.getClass().getName()).info("Everythings readed!");
 			}
-			Logger.getLogger(this.getClass()).info("End receive "+filename);
+			Logger.getLogger(this.getClass().getName()).info("End receive "+filename);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,23 +1,21 @@
 package ru.perm.v.el59.office.parser;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import ru.perm.v.el59.office.db.Feature;
+import ru.perm.v.el59.office.db.Photo;
+import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.iproviders.web.IParserSite;
 
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import ru.perm.v.el59.office.db.Feature;
-import ru.perm.v.el59.office.db.Photo;
-import ru.perm.v.el59.office.db.TovarInfo;
-import ru.perm.v.el59.office.iproviders.web.IParserSite;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ParserTehnosila extends AParserSite implements IParserSite {
 	// Кодировка сайта

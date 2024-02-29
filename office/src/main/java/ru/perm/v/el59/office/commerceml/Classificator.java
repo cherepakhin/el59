@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.commerceml;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("Классификатор")
 public class Classificator {

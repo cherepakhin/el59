@@ -35,6 +35,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-test-autoconfigure:2.7.8'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.8'
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.8'
+	implementation 'org.springframework:spring-jms:4.3.3.RELEASE'
 
 	implementation 'org.apache.camel:camel-core:4.0.0'
 	// https://mvnrepository.com/artifact/commons-io/commons-io
@@ -47,10 +48,11 @@ dependencies {
 	implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.20'
 
 //	Import module from THIS multi modules project
-	implementation 'ru.perm.v.el59_office:dao:0.0.1'
-	implementation 'ru.perm.v.el59_office:ui:0.0.1'
-	implementation 'ru.perm.v.el59_office:model:0.0.1'
-	implementation 'ru.perm.v.el59_office:iproviders:0.0.1'
+	implementation 'ru.perm.v.el59_office:dao:0.0.3'
+	implementation 'ru.perm.v.el59_office:ui:0.0.4'
+	implementation 'ru.perm.v.el59_office:dto:0.0.2'
+	implementation 'ru.perm.v.el59_office:model:0.0.4'
+	implementation 'ru.perm.v.el59_office:iproviders:0.0.3'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit:4.12'
 //	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
@@ -68,6 +70,7 @@ dependencies {
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
 	// https://mvnrepository.com/artifact/org.freemarker/freemarker
 	implementation 'org.freemarker:freemarker:2.3.32'
+	implementation 'net.sf.dozer:dozer:5.5.1'
 
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
 }

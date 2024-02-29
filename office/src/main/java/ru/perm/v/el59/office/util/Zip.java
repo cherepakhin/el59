@@ -1,15 +1,11 @@
 package ru.perm.v.el59.office.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import org.apache.camel.util.FileUtil;
+
+import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-
-import org.apache.camel.util.FileUtil;
 
 public class Zip {
 

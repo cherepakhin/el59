@@ -1,8 +1,7 @@
 package ru.perm.v.el59.office.commerceml;
 
-import ru.perm.v.el59.office.db.Photo;
-
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import ru.perm.v.el59.office.db.Photo;
 
 @XStreamAlias("Картинка")
 public class PhotoXml {

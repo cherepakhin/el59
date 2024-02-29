@@ -1,10 +1,10 @@
 package ru.perm.v.el59.office.dao.impl.plan;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 import ru.perm.v.el59.office.db.Move;
 import ru.perm.v.el59.office.db.plan.UserZP;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class CalculatorZPMainTovar extends ACalculatorZPFofBonusK implements
 		ICalculatorForBonusK {

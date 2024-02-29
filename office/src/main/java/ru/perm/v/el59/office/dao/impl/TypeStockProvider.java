@@ -1,12 +1,12 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import ru.perm.v.el59.office.db.TypeStock;
 import ru.perm.v.el59.office.iproviders.ITypeStockProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TypeStockProvider extends GenericDaoMessageImpl<TypeStock, Long>
 		implements ITypeStockProvider {

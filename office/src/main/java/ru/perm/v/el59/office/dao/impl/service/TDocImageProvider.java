@@ -1,15 +1,15 @@
 package ru.perm.v.el59.office.dao.impl.service;
 
+import org.apache.commons.io.FileUtils;
+//import org.apache.log4j.Logger;
+import org.jboss.logging.Logger;
+import ru.el59.office.db.service.TDocImage;
+import ru.el59.office.iproviders.service.ITDocImageProvider;
+import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.util.Calendar;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-
-import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
-import ru.perm.v.el59.office.db.service.TDocImage;
-import ru.perm.v.el59.office.iproviders.service.ITDocImageProvider;
 
 public class TDocImageProvider extends GenericDaoHibernateImpl<TDocImage, Long>
 		implements ITDocImageProvider {
@@ -41,10 +41,10 @@ public class TDocImageProvider extends GenericDaoHibernateImpl<TDocImage, Long>
 					tdocImage.getBody());
 			try {
 				FileUtils.copyInputStreamToFile(input, getFile(tdocImage));
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						"Сохранение файла " + tdocImage.getFilename());
 			} catch (Exception e) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Сохранение файла " + tdocImage.getFilename(), e);
 			}
 		}

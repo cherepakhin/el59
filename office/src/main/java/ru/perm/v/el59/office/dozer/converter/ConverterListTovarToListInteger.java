@@ -1,13 +1,12 @@
 package ru.perm.v.el59.office.dozer.converter;
 
+import org.dozer.CustomConverter;
+import ru.el59.office.db.Tovar;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
-import org.dozer.CustomConverter;
-
-import ru.perm.v.el59.office.db.Tovar;
 
 public class ConverterListTovarToListInteger implements CustomConverter {
 	public Object convert(Object destination, Object source, Class destClass,

@@ -1,8 +1,5 @@
 package ru.perm.v.el59.office.dao.impl.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.db.service.ATDoc;
@@ -14,6 +11,9 @@ import ru.perm.v.el59.office.iproviders.RequestItem;
 import ru.perm.v.el59.office.iproviders.RequestMessage;
 import ru.perm.v.el59.office.iproviders.service.ITDocProvider;
 import ru.perm.v.el59.ui.AUIBean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HandlerTDoc<T extends AUIBean> implements IHandlerTDoc {
 	private ArrayList<RequestItem> listRequestItem;

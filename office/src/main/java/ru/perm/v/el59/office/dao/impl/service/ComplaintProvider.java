@@ -1,11 +1,11 @@
 package ru.perm.v.el59.office.dao.impl.service;
 
-import java.util.List;
-
 import ru.perm.v.el59.dao.CommonCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.service.Complaint;
 import ru.perm.v.el59.office.iproviders.service.IComplaintProvider;
+
+import java.util.List;
 
 public class ComplaintProvider extends GenericDaoHibernateImpl<Complaint, Long>
 		implements IComplaintProvider {

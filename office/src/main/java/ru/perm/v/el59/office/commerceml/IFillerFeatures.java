@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.commerceml;
 
-import java.io.IOException;
-
 import ru.perm.v.el59.office.commerceml.model.Good;
 import ru.perm.v.el59.office.db.TovarInfo;
+
+import java.io.IOException;
 
 public interface IFillerFeatures {
 	public TovarInfo fillInfo(TovarInfo tovarInfo, Good good);

@@ -1,18 +1,13 @@
 package ru.perm.v.el59.office.util;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import org.apache.log4j.Logger;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-
-import org.apache.log4j.Logger;
 
 public class UnZip {
 	private static Logger LOGGER = Logger.getLogger(UnZip.class);

@@ -1,26 +1,14 @@
 package ru.perm.v.el59.office.dao.impl.plan;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-
 import ru.perm.v.el59.office.critery.MoveCritery;
 import ru.perm.v.el59.office.critery.PlanCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
-import ru.perm.v.el59.office.db.Move;
-import ru.perm.v.el59.office.db.OpGroup;
-import ru.perm.v.el59.office.db.SetTypeStock;
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.db.SummaInOut;
+import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.db.plan.Plan;
 import ru.perm.v.el59.office.db.plan.UptRptAsp;
 import ru.perm.v.el59.office.iproviders.IMoveProvider;
@@ -28,6 +16,9 @@ import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
 import ru.perm.v.el59.office.iproviders.ISetTypeStockProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.plan.IPlanProvider;
+
+import java.math.BigDecimal;
+import java.util.*;
 
 public class PlanProvider extends GenericDaoHibernateImpl<Plan, Long> implements
 		IPlanProvider {

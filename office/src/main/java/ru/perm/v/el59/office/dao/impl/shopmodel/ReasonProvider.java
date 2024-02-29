@@ -1,14 +1,14 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.hibernate.Query;
-import ru.perm.v.el59.dto.dao.CommonCritery;
-import ru.perm.v.el59..office.iproviders.shopmodel.IReasonProvider;
 import ru.el59.office.shopmodel.Reason;
 import ru.el59.office.shopmodel.TypePayment;
+import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.iproviders.shopmodel.IReasonProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ReasonProvider extends GenericDaoMessageImpl<Reason, Long>

@@ -1,12 +1,12 @@
 package ru.perm.v.el59.office.dao.impl.service;
 
-import java.util.List;
-
 import ru.perm.v.el59.office.db.service.ATDoc;
 import ru.perm.v.el59.office.db.service.LOPT;
 import ru.perm.v.el59.office.db.service.TDocCallMaster;
 import ru.perm.v.el59.office.iproviders.RequestItem;
 import ru.perm.v.el59.office.iproviders.RequestMessage;
+
+import java.util.List;
 
 public class HandlerTDocCallMaster extends HandlerTDoc<TDocCallMaster> {
 
