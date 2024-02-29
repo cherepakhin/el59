@@ -1,15 +1,11 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.PriceCritery;
-import ru.perm.v.el59.office.critery.RestCritery;
-import ru.perm.v.el59.office.critery.TovarCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Price;
 import ru.perm.v.el59.office.db.SetTovar;
@@ -17,6 +13,10 @@ import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.Tovar;
 import ru.perm.v.el59.office.db.web.RestWeb;
 import ru.perm.v.el59.office.db.web.TypeSite;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
+import ru.perm.v.el59.office.iproviders.critery.RestCritery;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
 import ru.perm.v.el59.office.util.Helper;
 
@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
         implements IRestWebProvider {
@@ -115,7 +116,7 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
         try {
             shop = getShopProvider().getNullShop();
         } catch (Exception e) {
-            Logger.getLogger(this.getClass().getName()).error(e);
+            Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
         }
         Logger.getLogger(this.getClass().getName()).info(String.format("Старт для сайта %s", typeSite.toString()));
         HashMap<Integer, RestWeb> nnums = new HashMap<Integer, RestWeb>();
@@ -243,16 +244,16 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
             }
             if (typeSite == TypeSite.EL59) {
                 if (r == null) {
-                    Logger.getLogger(this.getClass().getName()).error("r = null");
+                    Logger.getLogger(this.getClass().getName()).severe("r = null");
                     return BigDecimal.ZERO;
                 }
                 if (r.getTovar() == null) {
-                    Logger.getLogger(this.getClass().getName()).error("r.getTovar() = null");
+                    Logger.getLogger(this.getClass().getName()).severe("r.getTovar() = null");
                     return BigDecimal.ZERO;
                 }
 				/*	УБРАЛ. Никто не следит за W-прайсом
 				 				if(hashTovarPriceWeb.get(r.getTovar())==null) {
-					Logger.getLogger(this.getClass().getName()).error("hashTovarPriceWeb.get(r.getTovar()) = null");
+					Logger.getLogger(this.getClass().getName()).severe("hashTovarPriceWeb.get(r.getTovar()) = null");
 					return BigDecimal.ZERO;
 				}
 			if (hashTovarPriceWeb.containsKey(r.getTovar())
@@ -337,7 +338,7 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
             setTovar = getSetTovarProvider().initialize(setTovar.getN());
         }
         if (setTovar == null) {
-            Logger.getLogger(this.getClass().getName()).error(
+            Logger.getLogger(this.getClass().getName()).severe(
                     "Не назначена группа товаров. Имя группы "
                             + getNameSetForDeleteFromSite());
         }

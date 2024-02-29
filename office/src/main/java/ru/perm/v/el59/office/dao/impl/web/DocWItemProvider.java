@@ -7,13 +7,11 @@ import org.hibernate.Query;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.DocItem;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.web.DocW;
-import ru.el59.office.db.web.DocWItem;
-import ru.el59.office.db.web.DocWItemInfo;
-import ru.el59.office.shopmodel.DocDetail;
-import ru.el59.office.shopmodel.DocTitle;
+import ru.perm.v.el59.office.db.DocItem;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.web.DocW;
+import ru.perm.v.el59.office.db.web.DocWItem;
+import ru.perm.v.el59.office.db.web.DocWItemInfo;
 import ru.perm.v.el59.office.iproviders.IDocItemProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
@@ -22,6 +20,8 @@ import ru.perm.v.el59.office.iproviders.web.DocWCritery;
 import ru.perm.v.el59.office.iproviders.web.DocWItemCritery;
 import ru.perm.v.el59.office.iproviders.web.IDocWItemProvider;
 import ru.perm.v.el59.office.iproviders.web.IDocWProvider;
+import ru.perm.v.el59.office.shopmodel.DocDetail;
+import ru.perm.v.el59.office.shopmodel.DocTitle;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.math.BigDecimal;
@@ -389,11 +389,11 @@ public class DocWItemProvider extends GenericDaoMessageImpl<DocWItem, Long>
 		cal.set(Calendar.DAY_OF_MONTH, 1);
 		critery.fromdate = cal.getTime();
 		critery.todate = new Date();
-		if (shop != null) {
-			critery.shops.add(shop);
-		} else {
-			critery.shops=getShopProvider().getWorkedShop();
-		}
+//		if (shop != null) {
+//			critery.shops.add(shop);
+//		} else {
+//			critery.shops=getShopProvider().getWorkedShop();
+//		}
 		List<DocWItemInfo> list = getDocWItemInfo(critery);
 		ArrayList<DocWItemInfo> ret = new ArrayList<DocWItemInfo>();
 		for (DocWItemInfo docWItemInfo : list) {
