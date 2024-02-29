@@ -5,13 +5,13 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
-import ru.el59.office.critery.DocItemCritery;
-import ru.el59.office.critery.TovarCritery;
-import ru.el59.office.db.*;
-import ru.el59.office.db.dto.DocItemDTO;
-import ru.el59.office.iproviders.*;
+import ru.perm.v.el59.office.db.*;
+import ru.perm.v.el59.office.db.dto.DocItemDTO;
+import ru.perm.v.el59.office.iproviders.*;
 import ru.perm.v.el59.office.iproviders.critery.DocCritery;
+import ru.perm.v.el59.office.iproviders.critery.DocItemCritery;
 import ru.perm.v.el59.office.iproviders.critery.ShopCritery;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import ru.perm.v.el59.office.iproviders.routedoc.IPathPageProvider;
 import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadSumProvider;
@@ -220,11 +220,6 @@ public class DocProvider extends GenericDaoHibernateImpl<Doc, Long> implements
 	}
 
 	@Override
-	public List<Doc> getFreeForPathPage(ru.el59.office.critery.DocCritery var1) {
-		return null;
-	}
-
-	@Override
 	public byte[] getBody(DocFile docFile) throws IOException {
 		return getDocFileProvider().getBody(docFile);
 	}
@@ -255,7 +250,7 @@ public class DocProvider extends GenericDaoHibernateImpl<Doc, Long> implements
 				Shop shop = (Shop) listShop.get(0);
 				// Проверка на существование документа
 				DocCritery docCritery = new DocCritery();
-				docCritery.shops.add(shop);
+//				docCritery.shops.add(shop);
 				docCritery.numdoc = docItemDTO.getNumdoc();
 				docCritery.fromdate = docItemDTO.getDdate();
 				docCritery.todate = docItemDTO.getDdate();
