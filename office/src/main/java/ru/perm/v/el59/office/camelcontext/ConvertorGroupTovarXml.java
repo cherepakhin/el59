@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import com.thoughtworks.xstream.XStream;
+import ru.perm.v.el59.dto.GroupTovarDTO;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.db.GroupTovar;
-import ru.perm.v.el59.office.dto.GroupTovarDTO;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
 
 public class ConvertorGroupTovarXml extends
 		ConvertorXML<GroupTovar, GroupTovarDTO> {
