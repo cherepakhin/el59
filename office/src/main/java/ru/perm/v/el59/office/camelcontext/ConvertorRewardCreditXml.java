@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import com.thoughtworks.xstream.XStream;
-import ru.perm.v.el59.office.dto.RewardCreditDTO;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.RewardCreditDTO;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.shopmodel.RewardCredit;
 
