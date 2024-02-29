@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.util;
 
-import java.util.logging.Logger; 
+import java.util.logging.Logger;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -10,7 +10,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class UnZip {
-	private static Logger LOGGER = Logger.getLogger(UnZip.class);
 
 	public static final void writeFile(InputStream in, OutputStream out)
 			throws IOException {
@@ -48,7 +47,7 @@ public class UnZip {
 				 * If not, create a new one.
 				 */
 				new File(directoryToExtractTo).mkdir();
-				LOGGER.info("...Directory Created -" + directoryToExtractTo);
+//				.info("...Directory Created -" + directoryToExtractTo);
 			}
 			while (entriesEnum.hasMoreElements()) {
 				try {
@@ -61,7 +60,7 @@ public class UnZip {
 						 * 
 						 **/
 					} else {
-						LOGGER.info("Extracting file: " + entry.getName());
+//						LOGGER.info("Extracting file: " + entry.getName());
 						/**
 						 * The following logic will just extract the file name
 						 * and discard the directory
@@ -72,9 +71,9 @@ public class UnZip {
 						if (index > 0 && index != name.length())
 							name = entry.getName().substring(index + 1);
 
-						LOGGER.info(name);
-						LOGGER.info("Extracting " + directoryToExtractTo
-								+ File.separator + name);
+//						LOGGER.info(name);
+//						LOGGER.info("Extracting " + directoryToExtractTo
+//								+ File.separator + name);
 						ret.add(directoryToExtractTo + File.separator + name);
 						writeFile(zipFile.getInputStream(entry),
 								new BufferedOutputStream(new FileOutputStream(
@@ -89,7 +88,7 @@ public class UnZip {
 
 			zipFile.close();
 		} catch (IOException ioe) {
-			LOGGER.error("Some Exception Occurred:",ioe);
+//			LOGGER.error("Some Exception Occurred:",ioe);
 			ioe.printStackTrace();
 			return null;
 		}
