@@ -15,6 +15,7 @@ import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.db.dto.Annotation;
 import ru.perm.v.el59.office.db.dto.elxml.Good;
 import ru.perm.v.el59.office.db.subs.GroupTovarMainFeature;
+import ru.perm.v.el59.office.db.subs.MainFeature;
 import ru.perm.v.el59.office.db.subs.ValFeature;
 import ru.perm.v.el59.office.iproviders.IManagerProvider;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
@@ -634,13 +635,14 @@ public class TovarInfoProvider extends
         // Вычисление установленных основных хар-к
         ArrayList<Feature> listPrimaryFeature = new ArrayList<Feature>();
         HashMap<Feature, ValFeature> hashPrimaryFeature = new HashMap<>();
-        List<ru.el59.office.db.subs.MainFeature> mainFeatures = getMainFeatureProvider().getMainFeatureForGroupTovar(tovarInfo.getTovar().getGroup());
+        // <MainFeature>
+        List<MainFeature> mainFeatures = getMainFeatureProvider().getMainFeatureForGroupTovar(tovarInfo.getTovar().getGroup());
         for (Feature feature : tovarInfo.getListFeature()) {
             if (feature.getPrmry()) {
-                for (ru.el59.office.db.subs.MainFeature mainFeature : mainFeatures) {
+                for (MainFeature mainFeature : mainFeatures) {
                     if (feature.getName().equals(mainFeature.getName())) {
                         MainFeature m = getMainFeatureProvider().init(mainFeature);
-                        for (ru.el59.office.db.subs.ValFeature v : m.getListValFeature()) {
+                        for (ValFeature v : m.getListValFeature()) {
                             if (feature.getVal().equals(v.getName())) {
 //TODO: Проверить, что это правильно
 //                                hashPrimaryFeature.put(feature, );

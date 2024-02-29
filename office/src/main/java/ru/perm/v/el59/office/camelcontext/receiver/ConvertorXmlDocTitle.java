@@ -26,7 +26,7 @@ public class ConvertorXmlDocTitle extends
 //							.getTypedoc().getName(), dto.getNumdoc()));
 //			doMessage(docTitle);
 //		} catch (Exception e) {
-//			Logger.getLogger(this.getClass().getName()).error("Ошибка при создании doctitle ", e);
+//			Logger.getLogger(this.getClass().getName()).severe("Ошибка при создании doctitle ", e);
 //			e.printStackTrace();
 //		}
         return xml;

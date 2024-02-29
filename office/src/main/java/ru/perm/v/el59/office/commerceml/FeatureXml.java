@@ -25,7 +25,7 @@ public class FeatureXml {
 		idx = position;
 		prmr = f.getPrmry();
 		val = f.getVal();
-		this.positionPrmry=f.getPositionPrmry();
+//		this.positionPrmry=f.getPositionPrmry();
 	}
 
 	public String getName() {

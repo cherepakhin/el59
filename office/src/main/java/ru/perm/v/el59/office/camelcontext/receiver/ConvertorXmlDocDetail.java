@@ -33,32 +33,32 @@ public class ConvertorXmlDocDetail extends
 //			DocDetail docDetail = new DocDetail();
 //			docDetail = fillFromDTO(dto, docDetail, message.getShopCod());
 //			if (message.getShopCod() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass().getName()).severe(
 //						"ShopCod in message is null");
 //			}
 //			if (message.getTypeCommand() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass().getName()).severe(
 //						"TypeCommand in message is null");
 //			}
 //			if (message.getTypeCommand() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass().getName()).severe(
 //						"TypeCommand in message is null");
 //			}
 //			if (docDetail == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass().getName()).severe(
 //						"DocDetail in message is null");
 //			}
 //			if (docDetail != null && docDetail.getNn() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass().getName()).severe(
 //						"docDetail.getNn() message is null");
 //			}
 //			if (docDetail != null && docDetail.getTovar() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass().getName()).severe(
 //						"docDetail.getTovar() in message is null");
 //			}
 //			if (docDetail != null && docDetail.getTovar() != null
 //					&& docDetail.getTovar().getNnum() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass().getName()).severe(
 //						"docDetail.getTovar().getNnum() in message is null");
 //			}
 //
