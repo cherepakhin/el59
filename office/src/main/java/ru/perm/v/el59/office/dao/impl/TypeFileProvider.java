@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.el59.office.db.TypeFile;
-import ru.el59.office.iproviders.ITypeFileProvider;
+import ru.perm.v.el59.office.db.TypeFile;
+import ru.perm.v.el59.office.iproviders.ITypeFileProvider;
 
 import java.util.List;
 
@@ -39,17 +39,17 @@ public class TypeFileProvider extends GenericDaoHibernateImpl<TypeFile, Long>
 	}
 
 	@Override
-	public Long create(ru.el59.office.db.TypeFile typeFile) throws Exception {
+	public Long create(TypeFile typeFile) throws Exception {
 		return null;
 	}
 
 	@Override
-	public void update(ru.el59.office.db.TypeFile typeFile) throws Exception {
+	public void update(TypeFile typeFile) throws Exception {
 
 	}
 
 	@Override
-	public void delete(ru.el59.office.db.TypeFile typeFile) throws Exception {
+	public void delete(TypeFile typeFile) throws Exception {
 
 	}
 }
