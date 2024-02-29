@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.el59.office.shopmodel.ShopRight;
+import ru.perm.v.el59.office.shopmodel.ShopRight;
 import ru.perm.v.el59.office.iproviders.shopmodel.IShopRightProvider;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 

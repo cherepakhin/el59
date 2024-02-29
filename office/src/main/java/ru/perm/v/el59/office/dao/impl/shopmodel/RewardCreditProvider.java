@@ -5,7 +5,7 @@ import net.sf.jxls.reader.XLSReader;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.shopmodel.RewardCredit;
+import ru.perm.v.el59.office.shopmodel.RewardCredit;
 import ru.perm.v.el59.office.iproviders.ICreditBankProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.IUserShopProvider;

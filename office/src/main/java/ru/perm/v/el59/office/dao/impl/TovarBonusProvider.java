@@ -4,7 +4,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import ru.el59.office.db.Tovar;
-import ru.el59.office.shopmodel.TovarBonus;
+import ru.perm.v.el59.office.shopmodel.TovarBonus;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.iproviders.critery.TovarBonusCritery;
 import ru.perm.v.el59.office.iproviders.shopmodel.ITovarBonusProvider;
