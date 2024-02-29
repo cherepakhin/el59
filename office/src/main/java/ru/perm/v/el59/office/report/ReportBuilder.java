@@ -1,13 +1,12 @@
 package ru.perm.v.el59.office.report;
 
-import net.sf.jxls.exception.ParsePropertyException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import ru.perm.v.el59.office.critery.MoveCritery;
 import ru.perm.v.el59.office.db.Move;
 import ru.perm.v.el59.office.db.OpGroup;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.IMoveProvider;
 import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
+import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
 import ru.perm.v.el59.office.util.ExcelReport;
 
 import java.io.IOException;
@@ -37,10 +36,9 @@ public class ReportBuilder {
 	 *            - магазин
 	 * @throws IOException
 	 * @throws InvalidFormatException
-	 * @throws ParsePropertyException
 	 */
 	public byte[] createXlsRealWeek(Shop shop, Date fromDate, Date toDate)
-			throws ParsePropertyException, InvalidFormatException, IOException {
+			throws InvalidFormatException, IOException {
 		// Загрузка движений
 		List<Move> moves = getMoves(shop, getNameReal(), fromDate, toDate);
 		HashMap<String, Object> beans = new HashMap<String, Object>();
