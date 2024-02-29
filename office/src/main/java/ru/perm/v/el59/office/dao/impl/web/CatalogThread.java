@@ -1,12 +1,12 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 import ru.perm.v.el59.office.util.Zip;
 
 import java.io.File;
 import java.util.concurrent.Callable;
+import java.util.logging.Logger;
 
 public class CatalogThread implements Callable<Integer>{
 
