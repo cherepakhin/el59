@@ -1,12 +1,13 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
 import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.PayCreditDTO;
-import ru.perm.v.el59.office.dto.message.MessagePayCreditDTO;
+import ru.perm.v.el59.dto.PayCreditDTO;
+import ru.perm.v.el59.dto.message.MessagePayCreditDTO;
 import ru.perm.v.el59.office.iproviders.shopmodel.IBankActionProvider;
 import ru.perm.v.el59.office.shopmodel.BankAction;
 import ru.perm.v.el59.office.shopmodel.PayCredit;
+
+import java.util.logging.Logger;
 
 public class ConvertorXmlPayCredit extends
 		ConvertorXmlPayment<PayCreditDTO, PayCredit> {
