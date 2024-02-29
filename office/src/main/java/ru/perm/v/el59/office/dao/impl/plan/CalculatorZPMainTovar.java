@@ -49,32 +49,32 @@ public class CalculatorZPMainTovar extends ACalculatorZPFofBonusK implements
 							"Не расчитан процент начисления ЗП для move.n=%d tovar.nnum=%d",
 							m.getN(), m.getTovar().getNnum()));
 		}
-		if (percent != null) {
-			BigDecimal zp = m.getSummaout().multiply(percent)
-					.setScale(2, RoundingMode.HALF_UP);
-			if (m.getOperation().getZnak() < 0) {
-				u.setSummaMainTovarBonus(u.getSummaMainTovarBonus().add(zp));
-				m.setZpKBT(zp);
-			} else {
-				u.setSummaMainTovarBonus(u.getSummaMainTovarBonus()
-						.subtract(zp));
-				m.setZpKBT(zp.negate());
-			}
-		}
+//		if (percent != null) {
+//			BigDecimal zp = m.getSummaout().multiply(percent)
+//					.setScale(2, RoundingMode.HALF_UP);
+//			if (m.getOperation().getZnak() < 0) {
+//				u.setSummaMainTovarBonus(u.getSummaMainTovarBonus().add(zp));
+//				m.setZpKBT(zp);
+//			} else {
+//				u.setSummaMainTovarBonus(u.getSummaMainTovarBonus()
+//						.subtract(zp));
+//				m.setZpKBT(zp.negate());
+//			}
+//		}
 		return u;
 	}
 
 	@Override
 	protected UserZP changeSumInOut(UserZP u, Move m, BigDecimal summaIn) {
-		try {
-			if (m.getOperation().getZnak() < 0) {
-				u.setSummaMainTovar(u.getSummaMainTovar().add(m.getSummaout()));
-			} else {
-				u.setSummaMainTovar(u.getSummaMainTovar().subtract(m.getSummaout()));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			if (m.getOperation().getZnak() < 0) {
+//				u.setSummaMainTovar(u.getSummaMainTovar().add(m.getSummaout()));
+//			} else {
+//				u.setSummaMainTovar(u.getSummaMainTovar().subtract(m.getSummaout()));
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		return u;
 	}
 
