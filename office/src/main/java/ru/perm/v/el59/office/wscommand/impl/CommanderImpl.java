@@ -3,9 +3,9 @@ package ru.perm.v.el59.office.wscommand.impl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
-import ru.el59.office.wscommand.ICommander;
 import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.dto.message.TypeCommand;
+import ru.perm.v.el59.office.wscommand.ICommander;
 
 import javax.print.attribute.standard.Destination;
 
