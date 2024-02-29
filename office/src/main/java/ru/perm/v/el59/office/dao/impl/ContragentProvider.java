@@ -114,7 +114,7 @@ public class ContragentProvider extends
 //            contragent.setName(dto.getName());
             contragent.setShop(shop);
             Long n = (Long) create(contragent);
-            contragent.setNn(n);
+            contragent.setN(n);
             return contragent;
         }
     }
