@@ -1,6 +1,5 @@
 package ru.perm.v.el59.office.web;
 
-import com.sun.istack.logging.Logger;
 import org.apache.camel.Body;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.dto.FileAttach;
@@ -9,6 +8,7 @@ import ru.perm.v.el59.office.iproviders.emailer.IEmailer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Отправка выписок сайта по почте в магазины
