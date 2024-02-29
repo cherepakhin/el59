@@ -12,7 +12,9 @@ import org.hibernate.criterion.Restrictions;
 import org.mapstruct.Mapper;
 import ru.perm.v.el59.office.commerceml.IExporterToCommerceML;
 import ru.perm.v.el59.office.db.*;
+import ru.perm.v.el59.office.db.dto.Annotation;
 import ru.perm.v.el59.office.db.dto.elxml.Good;
+import ru.perm.v.el59.office.db.subs.GroupTovarMainFeature;
 import ru.perm.v.el59.office.db.subs.ValFeature;
 import ru.perm.v.el59.office.iproviders.IManagerProvider;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
@@ -397,8 +399,9 @@ public class TovarInfoProvider extends
     @Override
     public String getXmlCommerceMLByListTovarInfo(List<TovarInfo> listTovarInfo)
             throws Exception {
-        return getExporterToCommerceML().getXmlCommerceML(listTovarInfo,
-                getRestWebProvider().getListLiderSaleForSite());
+        return "";
+//        return getExporterToCommerceML().getXmlCommerceML(listTovarInfo,
+//                getRestWebProvider().getListLiderSaleForSite());
     }
 
     public List<TovarInfo> getFromRestWeb() {
@@ -486,11 +489,6 @@ public class TovarInfoProvider extends
 		 */
         String s = a.getAnnotation(tovarInfo.getListFeaturePrice());
         return s;
-    }
-
-    @Override
-    public List<Feature> getFeatureByCritery(FeatureCritery var1) {
-        return null;
     }
 
     /**
