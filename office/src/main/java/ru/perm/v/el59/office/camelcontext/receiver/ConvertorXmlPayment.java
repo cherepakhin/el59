@@ -1,19 +1,19 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.critery.PaymentCritery;
+import ru.perm.v.el59.dto.PaymentDTO;
+import ru.perm.v.el59.dto.message.TypeCommand;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.UserShop;
-import ru.perm.v.el59.office.dto.PaymentDTO;
-import ru.perm.v.el59.office.dto.message.TypeCommand;
 import ru.perm.v.el59.office.iproviders.IContragentProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.IUserShopProvider;
+import ru.perm.v.el59.office.iproviders.critery.PaymentCritery;
 import ru.perm.v.el59.office.iproviders.shopmodel.*;
 import ru.perm.v.el59.office.shopmodel.*;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public abstract class ConvertorXmlPayment<DTO, VO> extends
 		ConvertorFromXML<DTO, VO> {
