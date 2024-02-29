@@ -1,109 +1,38 @@
 package ru.perm.v.el59.office.db;
 
-import ru.perm.v.el59.ui.AUIBean;
 import ru.perm.v.el59.ui.UI;
 
 import java.io.Serializable;
 
-public class Contragent extends AUIBean implements Serializable, Comparable<Contragent> {
+public class Contragent extends ru.perm.v.el59.ui.AUIBean implements Serializable, Comparable<Contragent> {
     private static final long serialVersionUID = -4021971704404347197L;
-    @UI(
-            readonly = true,
-            title = "Адрес",
-            visible = true,
-            width = 40
-    )
+    @UI(readonly = true, title = "Адрес", visible = true, width = 40)
     private String address = "";
-    @UI(
-            readonly = true,
-            title = "Дополнительно",
-            visible = true,
-            width = 40
-    )
+    @UI(readonly = true, title = "Дополнительно", visible = true, width = 40)
     private String info = "";
-    @UI(
-            readonly = false,
-            title = "Группа контрагента",
-            visible = true,
-            width = 10
-    )
+    @UI(readonly = false, title = "Группа контрагента", visible = true, width = 10)
     private GroupContragent groupContragent;
-    @UI(
-            readonly = false,
-            title = "ID в магазине",
-            visible = true,
-            width = 10
-    )
+    @UI(readonly = false, title = "ID в магазине", visible = true, width = 10)
     private Long nn;
-    @UI(
-            readonly = false,
-            title = "Магазин",
-            visible = true,
-            width = 10
-    )
+    @UI(readonly = false, title = "Магазин", visible = true, width = 10)
     private Shop shop;
-    @UI(
-            readonly = false,
-            title = "Краткое имя",
-            visible = true,
-            width = 20
-    )
+    @UI(readonly = false, title = "Краткое имя", visible = true, width = 20)
     private String shortname = "";
-    @UI(
-            readonly = false,
-            title = "ИНН",
-            visible = true,
-            width = 10
-    )
+    @UI(readonly = false, title = "ИНН", visible = true, width = 10)
     private String inn = "";
-    @UI(
-            readonly = false,
-            title = "КПП",
-            visible = true,
-            width = 6
-    )
+    @UI(readonly = false, title = "КПП", visible = true, width = 6)
     private String kpp = "";
-    @UI(
-            readonly = false,
-            title = "Банк",
-            visible = true,
-            width = 30
-    )
+    @UI(readonly = false, title = "Банк", visible = true, width = 30)
     private String bank = "";
-    @UI(
-            readonly = false,
-            title = "ОКПО",
-            visible = true,
-            width = 5
-    )
+    @UI(readonly = false, title = "ОКПО", visible = true, width = 5)
     private String okpo = "";
-    @UI(
-            readonly = false,
-            title = "ОКДП",
-            visible = true,
-            width = 5
-    )
+    @UI(readonly = false, title = "ОКДП", visible = true, width = 5)
     private String okdp = "";
-    @UI(
-            readonly = false,
-            title = "ОГРН",
-            visible = true,
-            width = 10
-    )
+    @UI(readonly = false, title = "ОГРН", visible = true, width = 10)
     private String ogrn = "";
-    @UI(
-            readonly = false,
-            title = "Телефон",
-            visible = true,
-            width = 15
-    )
+    @UI(readonly = false, title = "Телефон", visible = true, width = 15)
     private String phone = "";
-    @UI(
-            readonly = false,
-            title = "E-mail",
-            visible = true,
-            width = 15
-    )
+    @UI(readonly = false, title = "E-mail", visible = true, width = 15)
     private String email = "";
 
     public static String getDescriptionClass() {
@@ -187,14 +116,6 @@ public class Contragent extends AUIBean implements Serializable, Comparable<Cont
         this.ogrn = ogrn;
     }
 
-    public Long getNn() {
-        return this.nn;
-    }
-
-    public void setNn(Long nn) {
-        this.nn = nn;
-    }
-
     public Shop getShop() {
         return this.shop;
     }
@@ -227,9 +148,8 @@ public class Contragent extends AUIBean implements Serializable, Comparable<Cont
         this.email = email;
     }
 
+
     public int compareTo(Contragent o) {
-//        this.n = o.getN();
-//        return this.name.compareToIgnoreCase(o.getName());
-        return 0;
+        return this.compareTo(o);
     }
 }

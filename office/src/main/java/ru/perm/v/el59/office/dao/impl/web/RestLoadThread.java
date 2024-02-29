@@ -1,7 +1,6 @@
 package ru.perm.v.el59.office.dao.impl.web;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 import ru.perm.v.el59.office.db.web.RestWeb;
 import ru.perm.v.el59.office.db.web.TypeSite;
 import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
@@ -10,6 +9,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.logging.Logger;
 
 public class RestLoadThread implements Callable<Integer>{
 

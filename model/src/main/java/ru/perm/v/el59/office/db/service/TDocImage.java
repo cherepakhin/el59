@@ -45,15 +45,7 @@ public class TDocImage extends AUIBean implements Serializable {
       this.filename = filename;
    }
 
-   public TypeTDocImage getName() {
-      return this.name;
-   }
-
-   public void setName(TypeTDocImage name) {
-      this.name = name;
-   }
-
-   public TDoc getTdoc() {
+      public TDoc getTdoc() {
       return this.tdoc;
    }
 

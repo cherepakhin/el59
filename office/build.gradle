@@ -49,10 +49,10 @@ dependencies {
 
 //	Import module from THIS multi modules project
 	implementation 'ru.perm.v.el59_office:dao:0.0.3'
-	implementation 'ru.perm.v.el59_office:ui:0.0.4'
+	implementation 'ru.perm.v.el59_office:ui:0.0.5'
 	implementation 'ru.perm.v.el59_office:dto:0.0.2'
-	implementation 'ru.perm.v.el59_office:model:0.0.4'
-	implementation 'ru.perm.v.el59_office:iproviders:0.0.3'
+	implementation 'ru.perm.v.el59_office:model:0.0.5'
+	implementation 'ru.perm.v.el59_office:iproviders:0.0.5'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit:4.12'
 //	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'

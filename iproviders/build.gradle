@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'ru.perm.v.el59_office'
-version = '0.0.3'
+version = '0.0.5'
 
 java {
 	sourceCompatibility = '11'
@@ -43,10 +43,10 @@ dependencies {
 	implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.20'
 
 //	Import module from THIS multi modules project
-	implementation 'ru.perm.v.el59_office:ui:0.0.4'
+	implementation 'ru.perm.v.el59_office:ui:0.0.5'
 	implementation 'ru.perm.v.el59_office:dao:0.0.2'
 	implementation 'ru.perm.v.el59_office:dto:0.0.2'
-	implementation 'ru.perm.v.el59_office:model:0.0.4'
+	implementation 'ru.perm.v.el59_office:model:0.0.5'
 	implementation 'org.beanshell:bsh:2.0b5'
 
 //	testImplementation 'org.springframework.boot:spring-boot-starter-test'

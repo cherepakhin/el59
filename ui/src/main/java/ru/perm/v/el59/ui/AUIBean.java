@@ -4,9 +4,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import org.apache.commons.beanutils.PropertyUtils;
 
-public abstract class AUIBean implements IUIBean {
-   public Long n = -1L;
-   public  String name = "";
+public class AUIBean implements IUIBean {
+   protected Long n = -1L;
+   protected String name = "";
    private static Character delimeter = '.';
 
    public Long getN() {
@@ -90,4 +90,5 @@ public abstract class AUIBean implements IUIBean {
       field.setAccessible(true);
       return field;
    }
+
 }

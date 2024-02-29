@@ -4,9 +4,9 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.GroupContragent;
-import ru.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.GroupContragent;
+import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.IContragentProvider;
 import ru.perm.v.el59.office.iproviders.IGroupContragentProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
@@ -111,10 +111,10 @@ public class ContragentProvider extends
             Contragent contragent = new Contragent();
             contragent.setAddress(dto.getAddress());
             contragent.setInfo(dto.getInfo());
-            contragent.setName(dto.getName());
+//            contragent.setName(dto.getName());
             contragent.setShop(shop);
             Long n = (Long) create(contragent);
-            contragent.setN(n);
+            contragent.setNn(n);
             return contragent;
         }
     }
