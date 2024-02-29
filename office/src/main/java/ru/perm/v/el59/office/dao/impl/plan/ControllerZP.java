@@ -1,26 +1,26 @@
 package ru.perm.v.el59.office.dao.impl.plan;
 
-import org.apache.log4j.Logger;
 import ru.perm.v.el59.dao.CommonCritery;
 import ru.perm.v.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.critery.MoveCritery;
-import ru.perm.v.el59.office.critery.PlanCritery;
-import ru.perm.v.el59.office.critery.UserShopCritery;
 import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.db.plan.*;
 import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
+import ru.perm.v.el59.office.iproviders.critery.PlanCritery;
+import ru.perm.v.el59.office.iproviders.critery.UserShopCritery;
 import ru.perm.v.el59.office.iproviders.plan.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.logging.Logger;
 
 public class ControllerZP implements Serializable, IControllerZP {
 
 	private static final long serialVersionUID = -8892857483517333078L;
 
 	private static final String PRODAVEC = "Продавец";
-	private static Logger LOGGER = Logger.getLogger(ControllerZP.class);
+	private static Logger LOGGER = Logger.getLogger(ControllerZP.class.getName());
 	private Map<String, ICalculatorForBonusK> mapCalculators = new HashMap<String, ICalculatorForBonusK>();
 	private IMoveProvider moveProvider;
 	private IPlanProvider planProvider;
@@ -97,10 +97,6 @@ public class ControllerZP implements Serializable, IControllerZP {
 			userZP.setSummaAccBonus(new BigDecimal("0.00"));
 			userZP.setSummaAccBonusAll(new BigDecimal("0.00"));
 			userZP.setSummaBonusForAccPDS(new BigDecimal("0.00"));
-			userZP.setSummaIn(new BigDecimal("0.00"));
-			userZP.setSummaMainTovar(new BigDecimal("0.00"));
-			userZP.setSummaMainTovarBonus(new BigDecimal("0.00"));
-			userZP.setSummaOut(new BigDecimal("0.00"));
 			userZP.setSummaPDS(new BigDecimal("0.00"));
 			userZP.setSummaPDSBonus(new BigDecimal("0.00"));
 			mapUserZP.put(userZP.getNamebest(), userZP);
@@ -135,7 +131,7 @@ public class ControllerZP implements Serializable, IControllerZP {
 
 			BonusK bonusK = move.getTovar().getGroup().getBonusk();
 			if (!mapCalculators.containsKey(bonusK.getName())) {
-				LOGGER.error(String.format(
+				LOGGER.severe(String.format(
 						"Не найдена ЗП группа(BonusK)=%s, move.n=%d ", move
 								.getTovar().getGroup().getBonusk().getName(),
 						move.getN()));
@@ -150,7 +146,7 @@ public class ControllerZP implements Serializable, IControllerZP {
 			UserZP userZP = mapUserZP.get(move.getSeller());
 			BonusK bonusK = move.getTovar().getGroup().getBonusk();
 			if (!mapCalculators.containsKey(bonusK.getName())) {
-				LOGGER.error(String.format(
+				LOGGER.severe(String.format(
 						"Не найдена ЗП группа(BonusK)=%s, move.n=%d ", move
 								.getTovar().getGroup().getBonusk().getName(),
 						move.getN()));
