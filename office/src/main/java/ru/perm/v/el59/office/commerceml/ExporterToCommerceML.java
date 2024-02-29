@@ -3,7 +3,6 @@ package ru.perm.v.el59.office.commerceml;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.apache.log4j.Logger;
 import ru.perm.v.el59.office.db.FeaturePrice;
 import ru.perm.v.el59.office.db.GroupT;
 import ru.perm.v.el59.office.db.TovarInfo;
@@ -19,6 +18,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
+
+import static java.lang.String.format;
 
 /**
  * Экспортер в форме E-Commerce
@@ -28,7 +30,7 @@ import java.util.Map;
  */
 public class ExporterToCommerceML implements IExporterToCommerceML {
 
-	private static Logger LOGGER = Logger.getLogger(ExporterToCommerceML.class);
+	private static Logger LOGGER = Logger.getLogger(ExporterToCommerceML.class.getName());
 	private IGroupTovarProvider groupTovarProvider;
 	private IGroupTProvider groupTProvider;
 	private ITovarInfoProvider tovarInfoProvider;
@@ -92,7 +94,7 @@ public class ExporterToCommerceML implements IExporterToCommerceML {
 		Map<String, Object> map = new HashMap<String, Object>();
 		// Замена короткого классификатора в названии товара полным.
 		for (TovarInfo ti : listTovarInfo) {
-			ti.getTovar().setNameFull(
+			ti.getTovar().setName(
 					getThingProvider().createFullDescription(
 							ti.getTovar().getName()));
 			updateInfoIfEmpty(ti);
@@ -192,7 +194,7 @@ public class ExporterToCommerceML implements IExporterToCommerceML {
 			} catch (Exception e) {
 				System.out.println(tovarInfo.getNnum());
 				e.printStackTrace();
-				LOGGER.error("Ошибка", e);
+				LOGGER.severe(format("Ошибка %s", e.getMessage()));
 			}
 		}
 		Configuration configuration = new Configuration();
