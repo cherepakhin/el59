@@ -3,13 +3,13 @@ package ru.perm.v.el59.office.dao.impl.shopmodel;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.web.DocW;
-import ru.el59.office.shopmodel.Payment;
-import ru.perm.v.el59.dto.office.critery.PaymentCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.web.DocW;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.critery.PaymentCritery;
 import ru.perm.v.el59.office.iproviders.shopmodel.*;
+import ru.perm.v.el59.office.shopmodel.Payment;
 import ru.perm.v.el59.office.util.Helper;
 
 import java.io.Serializable;
