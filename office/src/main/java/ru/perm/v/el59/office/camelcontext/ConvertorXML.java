@@ -4,7 +4,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import org.dozer.Mapper;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.message.MessageEntity;
 
 import java.io.StringWriter;
 
