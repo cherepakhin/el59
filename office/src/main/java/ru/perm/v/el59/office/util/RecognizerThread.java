@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
 public class RecognizerThread implements Callable<List<TTovar>> {
 
 	// private IAnalogProvider analogProvider;
-	private static Logger LOGGER = Logger.getLogger(RecognizerThread.class.getName());
+//	private static Logger LOGGER = Logger.getLogger(RecognizerThread.class.getName());
 
 	private List<TTovar> listTTovar;
 	private IAnalogProvider analogProvider;
@@ -27,10 +27,10 @@ public class RecognizerThread implements Callable<List<TTovar>> {
 
 	@Override
 	public List<TTovar> call() throws Exception {
-		LOGGER.info(String.format("BEGIN.Thread: %s, Size list %d ",id, listTTovar.size()));
+		Logger.getLogger(this.getClass().getName()).info(String.format("BEGIN.Thread: %s, Size list %d ",id, listTTovar.size()));
 		List<TTovar> ret = new ArrayList<TTovar>();
 		ret = analogProvider.fillListTTovar(listTTovar);
-		LOGGER.info(String.format("END.Thread: %s, Size list %d ",id, listTTovar.size()));
+		Logger.getLogger(this.getClass().getName()).info(String.format("END.Thread: %s, Size list %d ",id, listTTovar.size()));
 		return ret;
 	}
 
