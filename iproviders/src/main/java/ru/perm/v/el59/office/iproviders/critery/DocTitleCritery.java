@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ru.el59.office.db.Shop;
-import ru.el59.office.shopmodel.DocTitle;
-import ru.el59.office.shopmodel.TypeDocShop;
-import ru.el59.office.shopmodel.TypeDocStatusShop;
+import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+import ru.perm.v.el59.office.shopmodel.DocTitle;
+import ru.perm.v.el59.office.shopmodel.TypeDocShop;
+import ru.perm.v.el59.office.shopmodel.TypeDocStatusShop;
 
 public class DocTitleCritery extends CommonCritery implements Serializable {
    private static final long serialVersionUID = 1699673651169954021L;

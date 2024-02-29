@@ -5,7 +5,33 @@ import java.lang.reflect.InvocationTargetException;
 import org.apache.commons.beanutils.PropertyUtils;
 
 public abstract class AUIBean implements IUIBean {
+   public Long n = -1L;
+   public  String name = "";
    private static Character delimeter = '.';
+
+   public Long getN() {
+      return n;
+   }
+
+   public void setN(Long n) {
+      this.n = n;
+   }
+
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public static Character getDelimeter() {
+      return delimeter;
+   }
+
+   public static void setDelimeter(Character delimeter) {
+      AUIBean.delimeter = delimeter;
+   }
 
    public Object getValByField(String fieldname) throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
       return this.getValByField(this, fieldname);

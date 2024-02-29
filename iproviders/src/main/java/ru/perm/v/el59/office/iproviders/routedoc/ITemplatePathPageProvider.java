@@ -1,10 +1,10 @@
 package ru.perm.v.el59.office.iproviders.routedoc;
 
 import java.util.List;
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.routedoc.TemplatePathPage;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.routedoc.TemplatePathPage;
 
 public interface ITemplatePathPageProvider extends IGenericDao<TemplatePathPage, Long> {
    List<TemplatePathPage> getAll();

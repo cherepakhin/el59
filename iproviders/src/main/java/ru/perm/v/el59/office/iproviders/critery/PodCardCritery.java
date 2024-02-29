@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.iproviders.critery;
 import java.io.Serializable;
 import java.util.Date;
 
-import ru.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 public class PodCardCritery extends CommonCritery implements Serializable {

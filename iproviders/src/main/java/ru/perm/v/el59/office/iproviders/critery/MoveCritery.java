@@ -1,11 +1,12 @@
 package ru.perm.v.el59.office.iproviders.critery;
 
+import ru.perm.v.el59.office.db.OpGroup;
+import ru.perm.v.el59.office.db.TypeStock;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import ru.el59.office.db.OpGroup;
-import ru.el59.office.db.TypeStock;
 
 public class MoveCritery extends TovarCritery {
    private static final long serialVersionUID = -6434279866207644627L;

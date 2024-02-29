@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.iproviders.emailer;
 
 import java.util.List;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.dto.FileAttach;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.dto.FileAttach;
 
 public interface IEmailer {
    String ORDER = "order";

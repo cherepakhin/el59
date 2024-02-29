@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.iproviders.service;
 
 import java.util.List;
-import ru.el59.office.db.service.ITDoc;
-import ru.el59.office.db.service.LOPT;
-import ru.el59.office.db.service.TDoc;
+import ru.perm.v.el59.office.db.service.ITDoc;
+import ru.perm.v.el59.office.db.service.LOPT;
+import ru.perm.v.el59.office.db.service.TDoc;
 import ru.perm.v.el59.office.iproviders.RequestMessage;
 
 public interface IControllerTDoc {

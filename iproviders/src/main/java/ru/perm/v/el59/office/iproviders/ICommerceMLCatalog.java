@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.iproviders;
 
 import java.io.IOException;
 import java.util.List;
-import ru.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.Tovar;
 
 public interface ICommerceMLCatalog {
    boolean uploadFile(byte[] var1, String var2) throws IOException;

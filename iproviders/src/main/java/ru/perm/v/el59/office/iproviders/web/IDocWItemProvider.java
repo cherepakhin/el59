@@ -1,13 +1,15 @@
 package ru.perm.v.el59.office.iproviders.web;
 
+
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.DocItem;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.web.DocW;
+import ru.perm.v.el59.office.db.web.DocWItem;
+import ru.perm.v.el59.office.db.web.DocWItemInfo;
+import ru.perm.v.el59.office.shopmodel.DocDetail;
+
 import java.util.List;
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.DocItem;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.web.DocW;
-import ru.el59.office.db.web.DocWItem;
-import ru.el59.office.db.web.DocWItemInfo;
-import ru.el59.office.shopmodel.DocDetail;
 
 public interface IDocWItemProvider extends IGenericDao<DocWItem, Long> {
    void deleteByDocW(DocW var1);

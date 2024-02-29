@@ -1,5 +1,7 @@
 package ru.perm.v.el59.office.iproviders.critery;
 
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import java.io.Serializable;
 import java.util.ArrayList;

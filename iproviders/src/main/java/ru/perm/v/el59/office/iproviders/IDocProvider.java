@@ -3,13 +3,13 @@ package ru.perm.v.el59.office.iproviders;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import ru.el59.dao.IGenericDao;
+import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.iproviders.critery.DocCritery;
-import ru.el59.office.db.Doc;
-import ru.el59.office.db.DocFile;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.TypeDoc;
-import ru.el59.office.db.dto.DocItemDTO;
+import ru.perm.v.el59.office.db.Doc;
+import ru.perm.v.el59.office.db.DocFile;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.TypeDoc;
+import ru.perm.v.el59.office.db.dto.DocItemDTO;
 
 public interface IDocProvider extends IGenericDao<Doc, Long> {
    void checkDocItem(DocItemDTO var1) throws Exception;

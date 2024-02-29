@@ -2,8 +2,8 @@ package ru.perm.v.el59.office.iproviders.routedoc;
 
 import java.io.Serializable;
 import java.util.Date;
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.Shop;
 
 public class ProcuratoryCritery implements Serializable {
    private static final long serialVersionUID = -8934247956225585805L;

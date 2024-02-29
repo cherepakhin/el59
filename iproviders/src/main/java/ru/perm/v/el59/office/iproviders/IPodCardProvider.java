@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.iproviders;
 
-import ru.el59.office.db.Shop;
-import ru.el59.office.shopmodel.PodCard;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.shopmodel.PodCard;
 
 import java.util.Date;
 import java.util.List;

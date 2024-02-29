@@ -1,9 +1,10 @@
 package ru.perm.v.el59.office.iproviders.critery;
 
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.plan.Plan;
+
 import java.io.Serializable;
 import java.util.Date;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.plan.Plan;
 
 public class PlanCritery implements Serializable {
    private static final long serialVersionUID = 4097024720395914108L;

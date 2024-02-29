@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 public class DocSummaryCritery extends CommonCritery implements Serializable {

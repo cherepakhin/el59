@@ -3,16 +3,16 @@ package ru.perm.v.el59.office.iproviders.routedoc;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import ru.el59.dao.IGenericDao;
+import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.iproviders.critery.PlanDownloadCritery;
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.Doc;
-import ru.el59.office.db.DocFile;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.TypeFile;
-import ru.el59.office.db.routedoc.PlanDownload;
-import ru.el59.office.db.routedoc.PlanDownloadSum;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.Doc;
+import ru.perm.v.el59.office.db.DocFile;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.TypeFile;
+import ru.perm.v.el59.office.db.routedoc.PlanDownload;
+import ru.perm.v.el59.office.db.routedoc.PlanDownloadSum;
 
 public interface IPlanDownloadSumProvider extends IGenericDao<PlanDownloadSum, Long> {
    PlanDownloadSum createPlanDownloadSum(Shop var1, Date var2, Contragent var3, Manager var4) throws Exception;

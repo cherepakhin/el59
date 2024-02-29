@@ -3,8 +3,8 @@ package ru.perm.v.el59.office.iproviders.routedoc;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.routedoc.PlanDownloadSum;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.routedoc.PlanDownloadSum;
 import ru.perm.v.el59.ui.AUIBean;
 import ru.perm.v.el59.ui.UI;
 

@@ -1,9 +1,11 @@
 package ru.perm.v.el59.office.iproviders;
 
+
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.SetTovar;
+import ru.perm.v.el59.office.db.Tovar;
+
 import java.util.List;
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.SetTovar;
-import ru.el59.office.db.Tovar;
 
 public interface ISetTovarProvider extends IGenericDao<SetTovar, Long> {
    List<Tovar> loadByName(String var1);

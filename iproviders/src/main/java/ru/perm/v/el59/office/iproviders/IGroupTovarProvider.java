@@ -3,10 +3,10 @@ package ru.perm.v.el59.office.iproviders;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import ru.el59.dao.IGenericDao;
+import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.iproviders.critery.GroupTovarCritery;
-import ru.el59.office.db.BonusK;
-import ru.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.BonusK;
+import ru.perm.v.el59.office.db.GroupTovar;
 
 public interface IGroupTovarProvider extends IGenericDao<GroupTovar, String> {
    ArrayList<GroupTovar> getByEnd(String var1);

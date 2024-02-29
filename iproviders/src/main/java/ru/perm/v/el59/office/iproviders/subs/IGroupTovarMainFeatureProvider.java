@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.iproviders.subs;
 
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.subs.GroupTovarMainFeature;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.subs.GroupTovarMainFeature;
 
 public interface IGroupTovarMainFeatureProvider extends IGenericDao<GroupTovarMainFeature, Long> {
    GroupTovarMainFeature getByNameGroupTovar(String var1);

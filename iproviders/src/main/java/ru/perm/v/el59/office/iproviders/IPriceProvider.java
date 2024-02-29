@@ -5,12 +5,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.Formula;
-import ru.el59.office.db.Price;
-import ru.el59.office.db.PriceType;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.dto.PriceDbf;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.Formula;
+import ru.perm.v.el59.office.db.Price;
+import ru.perm.v.el59.office.db.PriceType;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.dto.PriceDbf;
 
 public interface IPriceProvider extends Serializable, IGenericDao<Price, Long> {
    Price update(PriceType var1, Integer var2, BigDecimal var3) throws Exception;

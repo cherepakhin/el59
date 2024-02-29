@@ -3,14 +3,14 @@ package ru.perm.v.el59.office.iproviders.routedoc;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import ru.el59.dao.IGenericDao;
+import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.iproviders.critery.PlanDownloadCritery;
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.GroupContragent;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.routedoc.CrossPlanDownload;
-import ru.el59.office.db.routedoc.PlanDownload;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.GroupContragent;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.routedoc.CrossPlanDownload;
+import ru.perm.v.el59.office.db.routedoc.PlanDownload;
 
 public interface IPlanDownloadProvider extends IGenericDao<PlanDownload, Long> {
    List<PlanDownload> getInPeriod(Date var1, List<Shop> var2);

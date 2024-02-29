@@ -228,6 +228,8 @@ public class Contragent extends AUIBean implements Serializable, Comparable<Cont
     }
 
     public int compareTo(Contragent o) {
-        return this.name.compareToIgnoreCase(o.getName());
+//        this.n = o.getN();
+//        return this.name.compareToIgnoreCase(o.getName());
+        return 0;
     }
 }

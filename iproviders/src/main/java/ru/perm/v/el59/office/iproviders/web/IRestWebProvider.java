@@ -1,10 +1,10 @@
 package ru.perm.v.el59.office.iproviders.web;
 
 import java.util.List;
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.web.RestWeb;
-import ru.el59.office.db.web.TypeSite;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.web.RestWeb;
+import ru.perm.v.el59.office.db.web.TypeSite;
 
 public interface IRestWebProvider extends IGenericDao<RestWeb, Long> {
    List<Tovar> getListTovarForDelete();

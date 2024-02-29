@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.report;
 
 import java.io.Serializable;
-import ru.el59.office.db.MoveSummary;
-import ru.el59.office.db.Rest;
+import ru.perm.v.el59.office.db.MoveSummary;
+import ru.perm.v.el59.office.db.Rest;
 import ru.perm.v.el59.ui.AUIBean;
 import ru.perm.v.el59.ui.IUIBean;
 import ru.perm.v.el59.ui.UI;

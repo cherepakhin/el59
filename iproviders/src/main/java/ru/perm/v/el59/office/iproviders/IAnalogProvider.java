@@ -2,11 +2,11 @@ package ru.perm.v.el59.office.iproviders;
 
 import java.io.IOException;
 import java.util.List;
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.Analog;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.dto.TTovar;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.Analog;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.dto.TTovar;
 
 public interface IAnalogProvider extends IGenericDao<Analog, Long> {
    Tovar getByNameAnalog(String var1);

@@ -2,9 +2,9 @@ package ru.perm.v.el59.office.iproviders.plan;
 
 import java.util.List;
 import ru.perm.v.el59.office.iproviders.critery.PlanCritery;
-import ru.el59.office.db.Move;
-import ru.el59.office.db.plan.Plan;
-import ru.el59.office.db.plan.UserZP;
+import ru.perm.v.el59.office.db.Move;
+import ru.perm.v.el59.office.db.plan.Plan;
+import ru.perm.v.el59.office.db.plan.UserZP;
 
 public interface IControllerZP {
    void calc(PlanCritery var1) throws Exception;

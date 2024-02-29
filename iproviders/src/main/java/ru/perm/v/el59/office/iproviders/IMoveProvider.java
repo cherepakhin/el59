@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import ru.el59.dao.IGenericDao;
+import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
-import ru.el59.office.db.Move;
-import ru.el59.office.db.MoveSummary;
-import ru.el59.office.db.PriceType;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.StringSummaInOut;
-import ru.el59.office.db.dto.MoveOperationSum;
+import ru.perm.v.el59.office.db.Move;
+import ru.perm.v.el59.office.db.MoveSummary;
+import ru.perm.v.el59.office.db.PriceType;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.StringSummaInOut;
+import ru.perm.v.el59.office.db.dto.MoveOperationSum;
 
 public interface IMoveProvider extends IGenericDao<Move, Long> {
    ArrayList<MoveSummary> getSumByCritery(MoveCritery var1);

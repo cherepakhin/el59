@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.routedoc.Dispatcher;
-import ru.el59.office.db.routedoc.Driver;
-import ru.el59.office.db.routedoc.Machine;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.routedoc.Dispatcher;
+import ru.perm.v.el59.office.db.routedoc.Driver;
+import ru.perm.v.el59.office.db.routedoc.Machine;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 public class PathPageCritery extends CommonCritery implements Serializable {

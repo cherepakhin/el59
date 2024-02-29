@@ -1,15 +1,16 @@
 package ru.perm.v.el59.office.iproviders.plan;
 
-import java.util.Date;
-import java.util.List;
-import ru.el59.dao.IGenericDao;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.Move;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.SummaInOut;
+import ru.perm.v.el59.office.db.plan.Plan;
+import ru.perm.v.el59.office.db.plan.UptRptAsp;
 import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
 import ru.perm.v.el59.office.iproviders.critery.PlanCritery;
-import ru.el59.office.db.Move;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.SummaInOut;
-import ru.el59.office.db.plan.Plan;
-import ru.el59.office.db.plan.UptRptAsp;
+
+import java.util.Date;
+import java.util.List;
 
 public interface IPlanProvider extends IGenericDao<Plan, Long> {
    List<Plan> createForAllShop(int var1, int var2) throws Exception;

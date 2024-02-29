@@ -2,13 +2,13 @@ package ru.perm.v.el59.office.iproviders.subs;
 
 import java.util.List;
 import java.util.Set;
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.TovarInfo;
-import ru.el59.office.db.subs.CorrectionName;
-import ru.el59.office.db.subs.CorrectionVal;
-import ru.el59.office.db.subs.MainFeature;
-import ru.el59.office.db.subs.ValFeature;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.db.subs.CorrectionName;
+import ru.perm.v.el59.office.db.subs.CorrectionVal;
+import ru.perm.v.el59.office.db.subs.MainFeature;
+import ru.perm.v.el59.office.db.subs.ValFeature;
 
 public interface IMainFeatureProvider extends IGenericDao<MainFeature, Long> {
    MainFeature init(MainFeature var1);

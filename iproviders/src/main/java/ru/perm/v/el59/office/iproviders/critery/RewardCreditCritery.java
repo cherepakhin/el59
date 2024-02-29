@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ru.el59.office.db.CreditBank;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.UserShop;
+import ru.perm.v.el59.office.db.CreditBank;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.UserShop;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 public class RewardCreditCritery extends CommonCritery implements Serializable {

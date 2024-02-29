@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import ru.el59.office.db.GroupT;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.SetTovar;
-import ru.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.GroupT;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.SetTovar;
+import ru.perm.v.el59.office.db.Shop;
 
 public class TovarCritery implements Serializable {
    private static final long serialVersionUID = -8588536471720217323L;

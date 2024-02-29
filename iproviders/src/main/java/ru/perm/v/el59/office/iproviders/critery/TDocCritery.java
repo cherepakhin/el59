@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.iproviders.critery;
 
 import java.io.Serializable;
 import java.util.Date;
-import ru.el59.office.db.service.TDoc;
+import ru.perm.v.el59.office.db.service.TDoc;
 
 public class TDocCritery implements Serializable {
    private static final long serialVersionUID = 7834980040424007620L;

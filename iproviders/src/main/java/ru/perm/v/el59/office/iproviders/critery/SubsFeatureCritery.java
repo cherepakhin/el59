@@ -2,7 +2,7 @@ package ru.perm.v.el59.office.iproviders.critery;
 
 import java.io.Serializable;
 
-import ru.el59.office.db.web.TypeProperty;
+import ru.perm.v.el59.office.db.web.TypeProperty;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 public class SubsFeatureCritery extends CommonCritery implements Serializable {

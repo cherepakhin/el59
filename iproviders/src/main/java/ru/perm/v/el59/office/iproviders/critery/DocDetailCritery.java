@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.TypeStock;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.TypeStock;
 
 public class DocDetailCritery implements Serializable {
    private static final long serialVersionUID = 9172591513323844731L;
