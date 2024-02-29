@@ -1,7 +1,6 @@
 package ru.perm.v.el59.office.util;
 
 import java.util.logging.Logger; 
-import ru.perm.v.el59.dto.office.util.IRecognizerInvoice;
 import ru.perm.v.el59.office.db.Doc;
 import ru.perm.v.el59.office.db.dto.TTovar;
 import ru.perm.v.el59.office.iproviders.IAnalogProvider;
@@ -22,7 +21,7 @@ import java.util.concurrent.Future;
  */
 public class RecognizerInvoice implements IRecognizerInvoice {
 
-	private static Logger LOGGER = Logger.getLogger(RecognizerInvoice.class);
+	private static Logger LOGGER = Logger.getLogger(String.valueOf(RecognizerInvoice.class));
 	private IAnalogProvider analogProvider;
 	private IDocItemProvider docItemProvider;
 	private int maxQtyThread = 4;
@@ -69,10 +68,10 @@ public class RecognizerInvoice implements IRecognizerInvoice {
 			try {
 				ret.addAll(future.get());
 			} catch (InterruptedException e) {
-				LOGGER.error(e);
+				LOGGER.severe(e.getMessage());
 				e.printStackTrace();
 			} catch (ExecutionException e) {
-				LOGGER.error(e);
+				LOGGER.severe(e.getMessage());
 				e.printStackTrace();
 			} finally {
 				exec.shutdown();
