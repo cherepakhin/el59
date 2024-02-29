@@ -1,6 +1,5 @@
 package ru.perm.v.el59.office.parser;
 
-import org.apache.log4j.Logger;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -16,6 +15,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class ParserIMarket extends AParserSite implements IParserSite {
 	private static final String MAINPROPERTIES = "Основные характеристики";
