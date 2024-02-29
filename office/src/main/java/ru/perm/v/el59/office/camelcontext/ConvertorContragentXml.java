@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import com.thoughtworks.xstream.XStream;
+import ru.perm.v.el59.dto.ContragentDTO;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.db.Contragent;
-import ru.perm.v.el59.office.dto.ContragentDTO;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
 
 public class ConvertorContragentXml extends
 		ConvertorXML<Contragent, ContragentDTO> {
