@@ -28,25 +28,25 @@ public class CalculatorZPProtection extends ACalculatorZPFofBonusK implements
 
 	@Override
 	public UserZP calcZP(UserZP userZP, Move move) throws Exception {
-		BigDecimal saleAll = userZP.getSummaOut();
-		BigDecimal saleProtection = userZP.getSummaPDS();
-
-		// Вычисление процента от плана
-		BigDecimal planSale = saleAll.multiply(userZP.getPlan().getPlanPercentPDS()).setScale(2,
-				RoundingMode.HALF_UP);
-		BigDecimal resultK = smallK;
-		if (planSale.compareTo(saleProtection) <= 0) {
-			resultK = bigK;
-		}
-		BigDecimal zp = move.getSummaout().multiply(resultK)
-				.setScale(2, RoundingMode.HALF_UP);
-		if (move.getOperation().getZnak() < 0) {
-			userZP.setSummaPDSBonus(userZP.getSummaPDSBonus().add(zp));
-			move.setZpPDS(zp);
-		} else {
-			userZP.setSummaPDSBonus(userZP.getSummaPDSBonus().subtract(zp));
-			move.setZpPDS(zp.negate());
-		}
+//		BigDecimal saleAll = userZP.getSummaOut();
+//		BigDecimal saleProtection = userZP.getSummaPDS();
+//
+//		// Вычисление процента от плана
+//		BigDecimal planSale = saleAll.multiply(userZP.getPlan().getPlanPercentPDS()).setScale(2,
+//				RoundingMode.HALF_UP);
+//		BigDecimal resultK = smallK;
+//		if (planSale.compareTo(saleProtection) <= 0) {
+//			resultK = bigK;
+//		}
+//		BigDecimal zp = move.getSummaout().multiply(resultK)
+//				.setScale(2, RoundingMode.HALF_UP);
+//		if (move.getOperation().getZnak() < 0) {
+//			userZP.setSummaPDSBonus(userZP.getSummaPDSBonus().add(zp));
+//			move.setZpPDS(zp);
+//		} else {
+//			userZP.setSummaPDSBonus(userZP.getSummaPDSBonus().subtract(zp));
+//			move.setZpPDS(zp.negate());
+//		}
 		return userZP;
 	}
 
