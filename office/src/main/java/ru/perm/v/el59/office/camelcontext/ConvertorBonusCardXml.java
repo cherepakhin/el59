@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import com.thoughtworks.xstream.XStream;
-import ru.perm.v.el59.office.dto.BonusCardDTO;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.BonusCardDTO;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.shopmodel.BonusCard;
 
 public class ConvertorBonusCardXml extends
