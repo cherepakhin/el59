@@ -1,6 +1,5 @@
 package ru.perm.v.el59.office.web;
 
-import com.sun.istack.logging.Logger;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -18,6 +17,7 @@ import ru.perm.v.el59.office.iproviders.web.IDocWProvider;
 
 import java.math.BigDecimal;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class CreatorFromXmlToDocW {
 	private XStream xstream;
