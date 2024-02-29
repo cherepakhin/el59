@@ -2,9 +2,10 @@ package ru.perm.v.el59.office.camelcontext.receiver;
 
 import com.thoughtworks.xstream.XStream;
 import org.apache.camel.Body;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.wscommand.ICommander;
+
+import java.util.logging.Logger;
 
 public class ConvertorFromXmlDefault extends ConvertorFromXML {
 	
@@ -15,12 +16,13 @@ public class ConvertorFromXmlDefault extends ConvertorFromXML {
 		xstream.aliasField("command", MessageEntity.class, "typeCommand");
 		xstream.alias("entity", type);
 		xstream.alias(getEntity(), type);
-		message = (MessageEntity) xstream.fromXML(xml);
-		Object t = message.getEntity();
-		Logger.getLogger(this.getClass().getName()).info(
-				String.format("%s %s %s", message.getShopCod(),
-						message.getTypeCommand(), message.getClassName()));
-		doMessage(t);
+//TODO: xml
+//		message = (MessageEntity) xstream.fromXML(xml);
+//		Object t = message.getEntity();
+//		Logger.getLogger(this.getClass().getName()).info(
+//				String.format("%s %s %s", message.getShopCod(),
+//						message.getTypeCommand(), message.getClassName()));
+//		doMessage(t);
 		return xml;
 	}
 

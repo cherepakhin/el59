@@ -1,10 +1,10 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import org.apache.camel.Body;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.message.MessageEntity;
 
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class ConvertorFromOfficeDB {
 	private IConvertorXML defaultConvertor;
@@ -20,7 +20,7 @@ public class ConvertorFromOfficeDB {
 				String s = defaultConvertor.getXML(m);
 				return s;
 			} catch (Exception e) {
-				Logger.getLogger(this.getClass().getName()).error(e);
+				Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
 				return null;
 			}
 		}
