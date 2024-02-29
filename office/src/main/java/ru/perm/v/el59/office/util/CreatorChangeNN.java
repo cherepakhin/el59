@@ -2,8 +2,8 @@ package ru.perm.v.el59.office.util;
 
 import org.apache.camel.Body;
 import org.apache.commons.io.FileUtils;
-import ru.el59.office.db.dto.ChangeGroup;
-import ru.el59.office.iproviders.IHistoryTovarProvider;
+import ru.perm.v.el59.office.db.dto.ChangeGroup;
+import ru.perm.v.el59.office.iproviders.IHistoryTovarProvider;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,29 +29,29 @@ public class CreatorChangeNN {
 
     public byte[] process(@Body Object body) {
         try {
-            Logger.getLogger(this.getClass()).info("Выгрузка ChangeNN.Начало");
+            Logger.getLogger(this.getClass().getName()).info("Выгрузка ChangeNN.Начало");
             createDbf();
             byte[] data = FileUtils.readFileToByteArray(new File(filenameDst));
-            Logger.getLogger(this.getClass()).info("Выгрузка ChangeNN.Конец");
+            Logger.getLogger(this.getClass().getName()).info("Выгрузка ChangeNN.Конец");
             return data;
         } catch (InstantiationException e) {
-            Logger.getLogger(this.getClass()).severe(
+            Logger.getLogger(this.getClass().getName()).severe(
                     "Ошибка при выгрузке ChangeNN");
             e.printStackTrace();
         } catch (IllegalAccessException e) {
-            Logger.getLogger(this.getClass()).severe(
+            Logger.getLogger(this.getClass().getName()).severe(
                     "Ошибка при выгрузке ChangeNN");
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            Logger.getLogger(this.getClass()).severe(
+            Logger.getLogger(this.getClass().getName()).severe(
                     "Ошибка при выгрузке ChangeNN" + e.getMessage());
             e.printStackTrace();
         } catch (SQLException e) {
-            Logger.getLogger(this.getClass()).severe(
+            Logger.getLogger(this.getClass().getName()).severe(
                     "Ошибка при выгрузке ChangeNN" + e.getMessage());
             e.printStackTrace();
         } catch (IOException e) {
-            Logger.getLogger(this.getClass()).severe(
+            Logger.getLogger(this.getClass().getName()).severe(
                     "Ошибка при выгрузке ChangeNN" + e.getMessage());
             e.printStackTrace();
         }
