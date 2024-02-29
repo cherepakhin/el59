@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.util;
 
-import ru.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.Tovar;
 
 import java.io.IOException;
 import java.text.ParseException;
