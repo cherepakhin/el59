@@ -3,9 +3,9 @@ package ru.perm.v.el59.office.dao.impl;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.dao.CommonCritery;
-import ru.el59.office.db.Formula;
-import ru.el59.office.iproviders.IFormulaProvider;
+import ru.perm.v.el59.office.db.Formula;
+import ru.perm.v.el59.office.iproviders.IFormulaProvider;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
 import java.util.ArrayList;
 import java.util.List;
