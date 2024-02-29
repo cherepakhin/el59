@@ -1,12 +1,12 @@
 package ru.perm.v.el59.office.dao.impl.plan;
 
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.TypeDoc;
-import ru.el59.office.db.plan.*;
-import ru.el59.office.db.service.TDoc;
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.dao.IGenericDao;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.TypeDoc;
+import ru.perm.v.el59.office.db.plan.*;
+import ru.perm.v.el59.office.db.service.TDoc;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import ru.perm.v.el59.office.iproviders.plan.ITDocTabelProvider;
 import ru.perm.v.el59.office.iproviders.plan.IUserZPProvider;
 
