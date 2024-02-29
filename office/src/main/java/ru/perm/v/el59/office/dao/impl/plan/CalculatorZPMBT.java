@@ -45,25 +45,25 @@ public class CalculatorZPMBT extends ACalculatorZPFofBonusK implements
 		}
 		BigDecimal zp = move.getSummaout().multiply(percent)
 				.setScale(2, RoundingMode.HALF_UP);
-		if (move.getOperation().getZnak() < 0) {
-			userZP.setSummaMainTovarBonus(userZP.getSummaMainTovarBonus().add(
-					zp));
-			move.setZpMBT(zp);
-		} else {
-			userZP.setSummaMainTovarBonus(userZP.getSummaMainTovarBonus()
-					.subtract(zp));
-			move.setZpMBT(zp.negate());
-		}
+//		if (move.getOperation().getZnak() < 0) {
+//			userZP.setSummaMainTovarBonus(userZP.getSummaMainTovarBonus().add(
+//					zp));
+//			move.setZpMBT(zp);
+//		} else {
+//			userZP.setSummaMainTovarBonus(userZP.getSummaMainTovarBonus()
+//					.subtract(zp));
+//			move.setZpMBT(zp.negate());
+//		}
 		return userZP;
 	}
 
 	@Override
 	protected UserZP changeSumInOut(UserZP u, Move m, BigDecimal summaIn) {
-		if (m.getOperation().getZnak() < 0) {
-			u.setSummaMainTovar(u.getSummaMainTovar().add(m.getSummaout()));
-		} else {
-			u.setSummaMainTovar(u.getSummaMainTovar().subtract(m.getSummaout()));
-		}
+//		if (m.getOperation().getZnak() < 0) {
+//			u.setSummaMainTovar(u.getSummaMainTovar().add(m.getSummaout()));
+//		} else {
+//			u.setSummaMainTovar(u.getSummaMainTovar().subtract(m.getSummaout()));
+//		}
 		return u;
 	}
 
