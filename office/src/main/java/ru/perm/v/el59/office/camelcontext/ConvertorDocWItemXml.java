@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import com.thoughtworks.xstream.XStream;
+import ru.perm.v.el59.dto.DocWItemDTO;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.db.web.DocWItem;
-import ru.perm.v.el59.office.dto.DocWItemDTO;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
 import ru.perm.v.el59.office.iproviders.web.IDocWItemProvider;
 
 public class ConvertorDocWItemXml extends ConvertorXML<DocWItem, DocWItemDTO> {
