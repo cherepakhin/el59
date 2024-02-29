@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import ru.el59.dao.CommonCritery;
-import ru.el59.office.iproviders.shopmodel.ITypeDocShopProvider;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
+import ru.perm.v.el59.office.iproviders.shopmodel.ITypeDocShopProvider;
 import ru.perm.v.el59.office.shopmodel.TypeDocShop;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
