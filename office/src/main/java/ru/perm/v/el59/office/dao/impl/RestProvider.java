@@ -5,7 +5,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.*;
+import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.iproviders.IRestCurProvider;
 import ru.perm.v.el59.office.iproviders.IRestProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
