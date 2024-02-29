@@ -1,17 +1,16 @@
 package ru.perm.v.el59.office.dao.impl;
 
-
-import ru.el59.office.iproviders.*;
-import ru.el59.office.iproviders.plan.IControllerZP;
-import ru.el59.office.iproviders.plan.IPlanProvider;
-import ru.el59.office.iproviders.service.IClientProvider;
-import ru.el59.office.iproviders.service.ILOPTDao;
-import ru.el59.office.iproviders.service.ITDocProvider;
-import ru.el59.office.iproviders.shopmodel.*;
-import ru.el59.office.iproviders.web.IDocWItemProvider;
-import ru.el59.office.iproviders.web.IDocWProvider;
-import ru.el59.office.iproviders.web.IRestWebProvider;
-import ru.el59.office.wscommand.ICommander;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.plan.IControllerZP;
+import ru.perm.v.el59.office.iproviders.plan.IPlanProvider;
+import ru.perm.v.el59.office.iproviders.service.IClientProvider;
+import ru.perm.v.el59.office.iproviders.service.ILOPTDao;
+import ru.perm.v.el59.office.iproviders.service.ITDocProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.*;
+import ru.perm.v.el59.office.iproviders.web.IDocWItemProvider;
+import ru.perm.v.el59.office.iproviders.web.IDocWProvider;
+import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
+import ru.perm.v.el59.office.wscommand.ICommander;
 
 public class AllProvider {
     private IAnalogProvider analogProvider;
