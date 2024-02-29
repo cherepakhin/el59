@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import com.thoughtworks.xstream.XStream;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.dto.ShopDTO;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
+import ru.perm.v.el59.office.web.ShopDTO;
 
 public class ConvertorShopXml extends ConvertorXML<Shop, ShopDTO> {
 
