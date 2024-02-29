@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
-import ru.el59.office.shopmodel.TypeCash;
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import ru.perm.v.el59.office.iproviders.shopmodel.ITypeCashProvider;
+import ru.perm.v.el59.office.shopmodel.TypeCash;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.util.List;
