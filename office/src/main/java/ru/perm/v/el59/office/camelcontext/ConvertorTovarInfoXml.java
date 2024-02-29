@@ -1,13 +1,13 @@
 package ru.perm.v.el59.office.camelcontext;
 
 import com.thoughtworks.xstream.XStream;
+import ru.perm.v.el59.dto.FeatureDTO;
+import ru.perm.v.el59.dto.FeaturePriceDTO;
+import ru.perm.v.el59.dto.TovarInfoDTO;
+import ru.perm.v.el59.dto.message.MessageEntity;
 import ru.perm.v.el59.office.db.Feature;
 import ru.perm.v.el59.office.db.FeaturePrice;
 import ru.perm.v.el59.office.db.TovarInfo;
-import ru.perm.v.el59.office.dto.FeatureDTO;
-import ru.perm.v.el59.office.dto.FeaturePriceDTO;
-import ru.perm.v.el59.office.dto.TovarInfoDTO;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
 
 public class ConvertorTovarInfoXml extends
 		ConvertorXML<TovarInfo, TovarInfoDTO> {
