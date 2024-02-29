@@ -1,11 +1,11 @@
 package ru.perm.v.el59.office.web;
 
 import org.apache.camel.Exchange;
-import ru.el59.office.db.web.RestWeb;
-import ru.el59.office.db.web.TypeSite;
-import ru.el59.office.iproviders.ITovarInfoProvider;
-import ru.el59.office.iproviders.web.IRestWebProvider;
-import ru.el59.office.iproviders.web.IUploaderForSite;
+import ru.perm.v.el59.office.db.web.RestWeb;
+import ru.perm.v.el59.office.db.web.TypeSite;
+import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
+import ru.perm.v.el59.office.iproviders.web.IUploaderForSite;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
