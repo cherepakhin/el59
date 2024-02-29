@@ -4,8 +4,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.DocCritery;
-import ru.perm.v.el59.office.critery.PathPageCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Contragent;
 import ru.perm.v.el59.office.db.Doc;
@@ -16,6 +14,8 @@ import ru.perm.v.el59.office.db.routedoc.RouteJob;
 import ru.perm.v.el59.office.db.routedoc.TemplatePathPage;
 import ru.perm.v.el59.office.iproviders.IContragentProvider;
 import ru.perm.v.el59.office.iproviders.IDocProvider;
+import ru.perm.v.el59.office.iproviders.critery.DocCritery;
+import ru.perm.v.el59.office.iproviders.critery.PathPageCritery;
 import ru.perm.v.el59.office.iproviders.routedoc.*;
 import ru.perm.v.el59.office.util.Helper;
 
