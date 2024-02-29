@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.el59.office.db.OpGroup;
+import ru.perm.v.el59.office.db.OpGroup;
 import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
