@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.util;
 
-import java.util.logging.Logger; 
-import ru.perm.v.el59.office.db.Shop;
-import ru.perm.v.el59.office.emailer.IEmailer;
+import ru.perm.v.el59.office.iproviders.emailer.IEmailer;
+
+import java.util.logging.Logger;
 
 public class SMSSenderThrowEmail implements ISMSSender {
 	private IEmailer emailer;
@@ -11,22 +11,22 @@ public class SMSSenderThrowEmail implements ISMSSender {
 	private String pass = "";
 
 	@Override
-	public String send(String message, String phone, Shop shop) {
+	public String send(String message, String phone) {
 		String sender = "el59.ru";
 		// Для Лидера
-		if (shop != null && shop.getCod().compareTo("07443") == 0) {
-			sender = "Eldorado.";
-		}
+//		if (shop != null && shop.getCod().compareTo("07443") == 0) {
+//			sender = "Eldorado.";
+//		}
 		// Для реала раскоментировать
 		 String clearedPhone = clearPhone(phone);
 		// Для тестов
 //		String clearedPhone="79125831975";
 		if (clearedPhone.length() != 11) {
-			Logger.getLogger(this.getClass()).info(String.format("Ошибочный номер телефона.Длина % не 11 символов", phone));
+			Logger.getLogger(this.getClass().getName()).info(String.format("Ошибочный номер телефона.Длина % не 11 символов", phone));
 		} else {
 			String mesEmail = String.format("%s:%s:0:0:0,0,%s:%s:%s",
 					getLogin(), getPass(), sender, clearedPhone, message);
-			getEmailer().sendSimpleMail(getSmsEmailGate(), mesEmail, "");
+//			getEmailer().sendSimpleMail(getSmsEmailGate(), mesEmail, "");
 		}
 		return "";
 	}
@@ -77,5 +77,4 @@ public class SMSSenderThrowEmail implements ISMSSender {
 	public void setSmsEmailGate(String smsEmailGate) {
 		this.smsEmailGate = smsEmailGate;
 	}
-
 }
