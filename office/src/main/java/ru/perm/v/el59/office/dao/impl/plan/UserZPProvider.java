@@ -4,12 +4,12 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.PlanCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.plan.Plan;
 import ru.perm.v.el59.office.db.plan.Smena;
 import ru.perm.v.el59.office.db.plan.Tabel;
 import ru.perm.v.el59.office.db.plan.UserZP;
+import ru.perm.v.el59.office.iproviders.critery.PlanCritery;
 import ru.perm.v.el59.office.iproviders.plan.ITabelProvider;
 import ru.perm.v.el59.office.iproviders.plan.IUserZPProvider;
 
