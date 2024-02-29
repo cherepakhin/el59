@@ -44,7 +44,7 @@ public class CreatorFromXmlToDocW {
 
 	public void buildDocW(@Body Object body) throws Error, Exception {
 		OrderDTO orderDTO = (OrderDTO) body;
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Создание выниски сайта №" + orderDTO.getNumber() + ".Начало");
 		DocW docw = new DocW();
 //		TypeDoc typedoc = getTypeDocProvider()
@@ -94,7 +94,7 @@ public class CreatorFromXmlToDocW {
     try {
       TimeUnit.SECONDS.sleep(2);
     } catch (Exception e) {
-      Logger.getLogger(this.getClass()).info(e.getLocalizedMessage());
+      Logger.getLogger(this.getClass().getName()).info(e.getLocalizedMessage());
     }
 
 		for (TovarDTO t : orderDTO.getListTovarDTO()) {
@@ -116,7 +116,7 @@ public class CreatorFromXmlToDocW {
 		 * item.setDocw(docw); item.setQty(new BigDecimal(1));
 		 * item.setCena(getPriceDostavka()); item.setSumma(getPriceDostavka());
 		 * getDocWItemProvider().create(item); }
-		 */Logger.getLogger(this.getClass()).info(
+		 */Logger.getLogger(this.getClass().getName()).info(
 				"Создание выниски сайта №" + orderDTO.getNumber() + ".Конец");
 	}
 
@@ -137,7 +137,7 @@ public class CreatorFromXmlToDocW {
 	}
 
 	private OrderDTO getDTO(String xml) {
-		Logger.getLogger(this.getClass()).info("Подгрузка xml выписки");
+		Logger.getLogger(this.getClass().getName()).info("Подгрузка xml выписки");
 		XStream xstream = getXStream();
 		xstream.alias("Заявка", OrderDTO.class);
 		xstream.aliasField("Номер", OrderDTO.class, "number");
@@ -170,7 +170,7 @@ public class CreatorFromXmlToDocW {
 		xstream.omitField(OrderDTO.class, "Сумма");
 		OrderDTO o = (OrderDTO) xstream.fromXML(xml);
 		o.setXml(xml);
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Подгрузка xml выписки " + o.getNumber() + ".Конец");
 		return o;
 	}

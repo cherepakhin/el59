@@ -35,7 +35,7 @@ public abstract class ConvertorXmlPayment<DTO, VO> extends
 
 	private void log(String string, VO o) {
 		Payment p = (Payment) o;
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				String.format("Create %d", p.getN()));
 
 	}

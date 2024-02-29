@@ -210,7 +210,7 @@ public class ControllerTDoc implements Serializable, IControllerTDoc {
 	@Override
 	public ITDoc loadContent(TDoc tdoc) {
 		if(tdoc.getTypeDoc()==null) {
-			Logger.getLogger(this.getClass()).severe(String.format("tdoc=%d getTypeDoc()=null", tdoc.getN()));
+			Logger.getLogger(this.getClass().getName()).severe(String.format("tdoc=%d getTypeDoc()=null", tdoc.getN()));
 		}
 		IHandlerTDoc handler = hashTypedocHandler.get(tdoc.getTypeDoc()
 				.getName());

@@ -25,7 +25,7 @@ public class ConvertorXmlPayPodCard extends
 		try {
 			message = getMessageFromXml(xml);
 			PayPodCardDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

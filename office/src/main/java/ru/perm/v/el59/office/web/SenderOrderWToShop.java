@@ -23,7 +23,7 @@ public class SenderOrderWToShop {
 
 	public void send(@Body Object body) throws Error {
 		OrderDTO orderDTO = (OrderDTO) body;
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Отправка по почте выписки сайта №" + orderDTO.getNumber()
 						+ ".Начало");
 		List<Shop> listShop = getShopProvider().getWorkedShop();
@@ -40,7 +40,7 @@ public class SenderOrderWToShop {
 //						listFileAttach,true);
 			}
 		}
-		Logger.getLogger(this.getClass()).info(
+		Logger.getLogger(this.getClass().getName()).info(
 				"Отправка по почте выписки сайта №" + orderDTO.getNumber()
 						+ ".Конец");
 	}

@@ -41,10 +41,10 @@ public class TDocImageProvider extends GenericDaoHibernateImpl<TDocImage, Long>
 					tdocImage.getBody());
 			try {
 				FileUtils.copyInputStreamToFile(input, getFile(tdocImage));
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						"Сохранение файла " + tdocImage.getFilename());
 			} catch (Exception e) {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Сохранение файла " + tdocImage.getFilename(), e);
 			}
 		}

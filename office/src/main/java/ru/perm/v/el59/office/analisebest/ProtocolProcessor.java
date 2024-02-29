@@ -18,7 +18,7 @@ public class ProtocolProcessor implements Processor {
     private IHistoryTagProvider historyTagProvider;
     private IRestCurProvider restCurProvider;
     private ITovarProvider tovarProvider;
-    private java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(this.getClass());
+    private java.util.logging.Logger LOGGER = java.util.logging.Logger.getLogger(this.getClass().getName());
 
     @Override
     public void process(Exchange exch) throws Exception {

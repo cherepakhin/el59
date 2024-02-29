@@ -35,7 +35,7 @@ public class UploaderForSite implements IUploaderForSite {
 	private String script;
 
 	private Logger getLogger() {
-		return Logger.getLogger(this.getClass());
+		return Logger.getLogger(this.getClass().getName());
 	}
 
 	public byte[] getCatalog(Exchange exchange) throws Exception {
@@ -121,13 +121,13 @@ public class UploaderForSite implements IUploaderForSite {
 //		Integer ret=0;
 //		for (Future<Integer> future : results) {
 //			try {
-//				Logger.getLogger(this.getClass()).severe("ret="+ret);
+//				Logger.getLogger(this.getClass().getName()).severe("ret="+ret);
 //				ret=ret+future.get();
 //			} catch (InterruptedException e) {
-//				Logger.getLogger(this.getClass()).severe(e.getMessage());
+//				Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
 //				e.printStackTrace();
 //			} catch (ExecutionException e) {
-//				Logger.getLogger(this.getClass()).severe(e.getMessage());
+//				Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
 //				e.printStackTrace();
 //			} finally {
 //				exec.shutdown();
@@ -135,7 +135,7 @@ public class UploaderForSite implements IUploaderForSite {
 //		}
 //		if(ret!=3) {
 //			// Не все задачи выполнились
-//			Logger.getLogger(this.getClass()).severe("Не все задачи выполнились");
+//			Logger.getLogger(this.getClass().getName()).severe("Не все задачи выполнились");
 //		} else {
 //			runScript();
 //		}
@@ -143,15 +143,15 @@ public class UploaderForSite implements IUploaderForSite {
 
 	@Override
 	public void runScript() throws IOException {
-		Logger.getLogger(this.getClass()).info("Запуск скрипта загрузки сайта.");
+		Logger.getLogger(this.getClass().getName()).info("Запуск скрипта загрузки сайта.");
 		Process proc = Runtime.getRuntime().exec(getScript());
 /*		try {
 			proc.waitFor();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-			Logger.getLogger(this.getClass()).severe(e);
+			Logger.getLogger(this.getClass().getName()).severe(e);
 		}
-*/		Logger.getLogger(this.getClass()).info("Cкрипт загрузки сайта отработал.");
+*/		Logger.getLogger(this.getClass().getName()).info("Cкрипт загрузки сайта отработал.");
 	}
 	public String getXmlFile() {
 		return xmlFile;

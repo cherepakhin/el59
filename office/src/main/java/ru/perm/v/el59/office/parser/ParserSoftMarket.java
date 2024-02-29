@@ -86,7 +86,7 @@ public class ParserSoftMarket extends AParserSite implements IParserSite {
 			}
 		}
 		
-		Logger.getLogger(this.getClass()).info(info);
+		Logger.getLogger(this.getClass().getName()).info(info);
 		tovarInfo.setInfo(info);
 		// Полные характеристики
 		expr = xpath.compile(XPATH_FULL_FEATURES);
@@ -144,7 +144,7 @@ public class ParserSoftMarket extends AParserSite implements IParserSite {
 						}
 					}
 				}
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						String.format("%s:%s:%s", f.getGrp(), f.getName(),
 								f.getVal()));
 				flagNameFeature = false;

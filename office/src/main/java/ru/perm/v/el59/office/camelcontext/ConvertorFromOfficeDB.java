@@ -20,7 +20,7 @@ public class ConvertorFromOfficeDB {
 				String s = defaultConvertor.getXML(m);
 				return s;
 			} catch (Exception e) {
-				Logger.getLogger(this.getClass()).severe(e.getMessage());
+				Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
 				return null;
 			}
 		}

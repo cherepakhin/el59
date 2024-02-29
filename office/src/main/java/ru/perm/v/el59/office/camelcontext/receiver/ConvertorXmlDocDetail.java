@@ -29,40 +29,40 @@ public class ConvertorXmlDocDetail extends
         try {
             message = getMessageFromXml(xml);
 //			DocDetailDTO dto = message.getEntity();
-//			Logger.getLogger(this.getClass()).info(dto.toString());
+//			Logger.getLogger(this.getClass().getName()).info(dto.toString());
 //			DocDetail docDetail = new DocDetail();
 //			docDetail = fillFromDTO(dto, docDetail, message.getShopCod());
 //			if (message.getShopCod() == null) {
-//				Logger.getLogger(this.getClass()).error(
+//				Logger.getLogger(this.getClass().getName()).error(
 //						"ShopCod in message is null");
 //			}
 //			if (message.getTypeCommand() == null) {
-//				Logger.getLogger(this.getClass()).error(
+//				Logger.getLogger(this.getClass().getName()).error(
 //						"TypeCommand in message is null");
 //			}
 //			if (message.getTypeCommand() == null) {
-//				Logger.getLogger(this.getClass()).error(
+//				Logger.getLogger(this.getClass().getName()).error(
 //						"TypeCommand in message is null");
 //			}
 //			if (docDetail == null) {
-//				Logger.getLogger(this.getClass()).error(
+//				Logger.getLogger(this.getClass().getName()).error(
 //						"DocDetail in message is null");
 //			}
 //			if (docDetail != null && docDetail.getNn() == null) {
-//				Logger.getLogger(this.getClass()).error(
+//				Logger.getLogger(this.getClass().getName()).error(
 //						"docDetail.getNn() message is null");
 //			}
 //			if (docDetail != null && docDetail.getTovar() == null) {
-//				Logger.getLogger(this.getClass()).error(
+//				Logger.getLogger(this.getClass().getName()).error(
 //						"docDetail.getTovar() in message is null");
 //			}
 //			if (docDetail != null && docDetail.getTovar() != null
 //					&& docDetail.getTovar().getNnum() == null) {
-//				Logger.getLogger(this.getClass()).error(
+//				Logger.getLogger(this.getClass().getName()).error(
 //						"docDetail.getTovar().getNnum() in message is null");
 //			}
 //
-//			Logger.getLogger(this.getClass()).info(
+//			Logger.getLogger(this.getClass().getName()).info(
 //					String.format("Shop %s;Command %s;Nn %s,nnum %d ",
 //							message.getShopCod(), message.getTypeCommand(),
 //							docDetail.getNn(), docDetail.getTovar().getNnum()));

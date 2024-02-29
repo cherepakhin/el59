@@ -64,7 +64,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 	protected TovarInfo fillInfo() throws Exception {
 		XPath xpath = getXPath();
 		XPathExpression expr = xpath.compile(XPATH_HEAD);
-		Logger.getLogger(this.getClass()).info(getUrl());
+		Logger.getLogger(this.getClass().getName()).info(getUrl());
 		Document doc = getDoc(getUrl() + '/');
 		Object result = expr.evaluate(doc, XPathConstants.NODESET);
 		NodeList nodes = (NodeList) result;
@@ -79,7 +79,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 			}
 		}
 		info = clearHTML(info);
-		Logger.getLogger(this.getClass()).info(info);
+		Logger.getLogger(this.getClass().getName()).info(info);
 		// Нет Ошибки 404. Удаляю старые характеристики
 		tovarInfo = getTovarInfoProvider().clearFeaturesWeb(tovarInfo);
 		// tovarInfo.setInfo(info);
@@ -120,7 +120,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 				f.setGrp(nameGroup.trim());
 				f.setName(nameFeature.trim());
 				f.setVal(valFeature.trim());
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						String.format("Хар-ка: %s:%s:%s", nameGroup,
 								nameFeature, valFeature));
 				if (f != null) {
@@ -246,7 +246,7 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 					filename = loadPhoto(imgpath, getNnum(),
 							DELIMETER_NAMEFILE, null, num_img);
 					if (filename != null) {
-						Logger.getLogger(this.getClass()).info(
+						Logger.getLogger(this.getClass().getName()).info(
 								String.format("Photo %d %s", getNnum(),
 										filename));
 						photo.setPath(filename

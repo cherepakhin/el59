@@ -112,14 +112,14 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 			if (tovar != null) {
 				tovarInfo.setTovar(tovar);
 			} else {
-				Logger.getLogger(this.getClass()).error(
+				Logger.getLogger(this.getClass().getName()).error(
 						"Товар не найден " + nnum);
 				return false;
 			}
 		}
 		Good good = getGood(goodName);
 		if (good == null) {
-			Logger.getLogger(this.getClass()).error(
+			Logger.getLogger(this.getClass().getName()).error(
 					"Товар в каталоге не найден " + goodName);
 			return false;
 		}
@@ -128,7 +128,7 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 			tovarInfo = getFillerFeatures().fillPhoto(getRootDirName(),
 					tovarInfo, good);
 		} catch (IOException e) {
-			Logger.getLogger(this.getClass()).error(
+			Logger.getLogger(this.getClass().getName()).error(
 					"Ошибка при подключения картинки " + goodName);
 			e.printStackTrace();
 		}
@@ -193,7 +193,7 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 								property.getId()).getName();
 						property.setName(nameProperty);
 					} else {
-						Logger.getLogger(this.getClass()).error(
+						Logger.getLogger(this.getClass().getName()).error(
 								String.format(
 										"Для товара %s не найдена хар-ка %s",
 										good.getName(), property.getId()));
@@ -201,8 +201,8 @@ public class CommerceMLCatalog implements ICommerceMLCatalog {
 				}
 			}
 		} catch (IOException e) {
-			Logger.getLogger(this.getClass()).error("Каталог не загружен.");
-			Logger.getLogger(this.getClass()).error(e);
+			Logger.getLogger(this.getClass().getName()).error("Каталог не загружен.");
+			Logger.getLogger(this.getClass().getName()).error(e);
 			e.printStackTrace();
 		}
 	}

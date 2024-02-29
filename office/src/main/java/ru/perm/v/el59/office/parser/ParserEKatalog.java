@@ -278,7 +278,7 @@ public class ParserEKatalog extends AParserSite implements IParserSite {
 					String imgpath = BASE_URL + _val;
 					filename = loadPhoto(imgpath, getNnum(),
 							DELIMETER_NAMEFILE, null, 1);
-					Logger.getLogger(this.getClass()).info(
+					Logger.getLogger(this.getClass().getName()).info(
 							String.format("Photo %d %s", getNnum(), filename));
 					photo.setPath(filename.replace(getBaseDirForPhoto(), ""));
 					String info = "Общий вид";

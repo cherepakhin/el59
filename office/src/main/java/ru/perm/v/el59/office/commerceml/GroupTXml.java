@@ -30,7 +30,7 @@ public class GroupTXml {
 
 	public GroupTXml(GroupT g) {
 		super();
-		Logger.getLogger(this.getClass()).info("Create GroupTXml:"+g.getCod());
+		Logger.getLogger(this.getClass().getName()).info("Create GroupTXml:"+g.getCod());
 		cod = g.getCod();
 		relationTovarNnum = new ListNnum();
 /*		for (Tovar t : g.getRelationTovar()) {

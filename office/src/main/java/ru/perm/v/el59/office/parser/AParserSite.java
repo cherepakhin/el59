@@ -74,10 +74,10 @@ public abstract class AParserSite implements IParserSite {
     protected Tovar setNnumUrl(Integer nnum, String _url,
                                Boolean parseProperty, Boolean parsePicture) throws Exception {
         if (_url.length() < 40) {
-            Logger.getLogger(this.getClass()).info(
+            Logger.getLogger(this.getClass().getName()).info(
                     "Парсинг " + nnum + " " + _url);
         } else {
-            Logger.getLogger(this.getClass()).info("Парсинг " + nnum);
+            Logger.getLogger(this.getClass().getName()).info("Парсинг " + nnum);
         }
         setUrl(_url);
         setNnum(nnum);
@@ -144,13 +144,13 @@ public abstract class AParserSite implements IParserSite {
         }
         ret = getFullFileName(getDirForPhoto(nnum), nnum + "_" + i + ext);
         if (link.length() < 40) {
-            Logger.getLogger(this.getClass()).info(
+            Logger.getLogger(this.getClass().getName()).info(
                     String.format("%s %d %s", link, i, ret));
         }
         try {
             FileUtils.copyURLToFile(new URL(link), new File(ret));
         } catch (Exception e) {
-            Logger.getLogger(this.getClass()).severe(e.getMessage());
+            Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             return null;
         }
         // FileUtils.copyURLToFile(new URL(link),new
@@ -312,7 +312,7 @@ public abstract class AParserSite implements IParserSite {
                 _tovarInfo.setTovar(tovar);
                 setTovarInfo(_tovarInfo);
             } else {
-                Logger.getLogger(this.getClass()).severe(
+                Logger.getLogger(this.getClass().getName()).severe(
                         "Товар не найден " + nnum);
             }
         } else {

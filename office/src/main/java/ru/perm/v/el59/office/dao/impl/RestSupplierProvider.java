@@ -179,8 +179,8 @@ public class RestSupplierProvider extends
     @Override
     public List<RestXls> loadFromXls(List<RestXls> listRestXls,
                                      Contragent supplier) throws Exception {
-
-        Logger.getLogger(this.getClass()).info(
+//Logger.getLogger(this.getClass().getName()) Logger.getLogger(this.getClass().getName())
+        Logger.getLogger(this.getClass().getName()).info(
                 "RestXls:" + new Date() + " size=" + listRestXls.size());
         // Формирование списка товаров у которых есть прайс w магазина
         PriceCritery priceCritery = new PriceCritery();
@@ -218,7 +218,7 @@ public class RestSupplierProvider extends
             if (i == step) {
                 i = 0;
                 cur_percent++;
-                Logger.getLogger(this.getClass()).info(
+                Logger.getLogger(this.getClass().getName()).info(
                         "Прайс для сайта:" + cur_percent * 10 + "%");
             }
             if (r.getQty().compareTo(BigDecimal.ZERO) > 0) {
@@ -234,7 +234,7 @@ public class RestSupplierProvider extends
                     listRestSupplier.add(rest);
                     // Если нет цены в прайсе, то создаем =0
                     if (!listTovarPrice.contains(tovar)) {
-                        // Logger.getLogger(this.getClass()).info("Прайс для сайта:"+tovar.getNnum());
+                        // Logger.getLogger(this.getClass().getName()).info("Прайс для сайта:"+tovar.getNnum());
                         getPriceProvider().update(
                                 getPriceProvider().getNamePriceW(),
                                 tovar.getNnum(), new BigDecimal("0.00"));
@@ -246,7 +246,7 @@ public class RestSupplierProvider extends
                 }
             }
         }
-        Logger.getLogger(this.getClass()).info(
+        Logger.getLogger(this.getClass().getName()).info(
                 "Обновление остатков для инетмагазина:" + new Date());
         // Обновление остатков для инетмагазина
         sql = "delete from RestWeb r where r.contragent=:supplier";
@@ -265,7 +265,7 @@ public class RestSupplierProvider extends
                 getRestWebProvider().create(rest);
             }
         }
-        Logger.getLogger(this.getClass()).info("End:" + new Date());
+        Logger.getLogger(this.getClass().getName()).info("End:" + new Date());
         // String proc = "select db.insertrestsupplier()";
         // Query qproc = getSession().createSQLQuery(proc);
         // qproc.list();

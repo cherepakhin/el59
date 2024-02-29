@@ -155,7 +155,7 @@ public class ParserYandex extends AParserSite implements IParserSite {
 			}
 		}
 		for (Feature feature : tovarInfo.getListFeature()) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("Хар-ка: %s:%s:%s", feature.getGrp(),
 							feature.getName(), feature.getVal()));
 		}
@@ -270,7 +270,7 @@ public class ParserYandex extends AParserSite implements IParserSite {
 		String ext = ".jpg";
 		ret = getFullFileName(getDirForPhoto(nnum), nnum + "_" + i + ext);
 		if (link.length() < 40) {
-			Logger.getLogger(this.getClass()).info(
+			Logger.getLogger(this.getClass().getName()).info(
 					String.format("%s %d %s", link, i, ret));
 		}
 		FileUtils.copyURLToFile(new URL(link), new File(ret));

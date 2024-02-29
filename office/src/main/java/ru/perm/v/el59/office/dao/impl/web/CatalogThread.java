@@ -21,13 +21,13 @@ public class CatalogThread implements Callable<Integer>{
 	}
 	@Override
 	public Integer call() throws Exception {
-		Logger.getLogger(this.getClass()).info("Выгрузка каталога. Начало");
+		Logger.getLogger(this.getClass().getName()).info("Выгрузка каталога. Начало");
 		String xml = tovarInfoProvider.getXmlCommerceByTovarCritery();
 		File f = new File(xmlFile);
 		FileUtils.writeStringToFile(f, xml, codesetXml);
 		String zipName = xmlFile.replace(".xml", ".zip");
 		Zip.zipFile(xmlFile, zipName);
-		Logger.getLogger(this.getClass()).info("Выгрузка каталога. Конец");
+		Logger.getLogger(this.getClass().getName()).info("Выгрузка каталога. Конец");
 		return 1;
 	}
 

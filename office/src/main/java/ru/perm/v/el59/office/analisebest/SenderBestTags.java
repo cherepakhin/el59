@@ -53,19 +53,19 @@ public class SenderBestTags {
                 }
             } catch (InstantiationException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).severe(e.getMessage());
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).severe(e.getMessage());
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).severe(e.getMessage());
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (IOException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).severe(e.getMessage());
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             } catch (SQLException e) {
                 e.printStackTrace();
-                Logger.getLogger(this.getClass()).severe(e.getMessage());
+                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
             }
         }
         return body;

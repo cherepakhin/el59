@@ -99,7 +99,7 @@ public class GenericDaoHibernateImpl<T, PK extends Serializable> implements IGen
 /*		q.add(Restrictions.eq("name", c.getName()).ignoreCase());*/
 		List<T> list = q.list();
 		if (list.size() == 0) {
-			Logger.getLogger(this.getClass()).info("Не найден объект с именем " + name);
+			Logger.getLogger(this.getClass().getName()).info("Не найден объект с именем " + name);
 			return null;
 		}
 		return (T) list.get(0);

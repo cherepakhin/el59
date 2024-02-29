@@ -57,7 +57,7 @@ public class ProtocolForTag {
                 officeTag = getCreatorBestTag().getBestTag(shopTag.nnum, shopCod);
                 // Такое возможно, когда нет цены на товар
                 if (officeTag == null) {
-                    Logger.getLogger(this.getClass()).error(String.format("Ценник для nnum=%d null", shopTag.nnum));
+                    Logger.getLogger(this.getClass().getName()).error(String.format("Ценник для nnum=%d null", shopTag.nnum));
                     continue;
                 }
                 // КОСТЫЛЬ. Поле grup(группа) в бесте кривая.

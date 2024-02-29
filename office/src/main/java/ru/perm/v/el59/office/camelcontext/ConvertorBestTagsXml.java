@@ -33,7 +33,7 @@ public class ConvertorBestTagsXml implements IConvertorXML<BestTags> {
 //			ret = getXML(body);
 //		} catch (Exception e) {
 //			e.printStackTrace();
-//			Logger.getLogger(this.getClass()).severe(e.getMessage());
+//			Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
 //		}
 		return ret;
 	}

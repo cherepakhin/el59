@@ -211,10 +211,10 @@ public class DocFileProvider extends GenericDaoHibernateImpl<DocFile, Long>
                     docFile.getBody());
             try {
                 FileUtils.copyInputStreamToFile(input, getFile(docFile));
-                Logger.getLogger(this.getClass()).info(
+                Logger.getLogger(this.getClass().getName()).info(
                         "Сохранение файла " + docFile.getName());
             } catch (Exception e) {
-                Logger.getLogger(this.getClass()).severe(
+                Logger.getLogger(this.getClass().getName()).severe(
                         "Сохранение файла " + docFile.getName());
             }
         } else {
@@ -419,7 +419,7 @@ public class DocFileProvider extends GenericDaoHibernateImpl<DocFile, Long>
             try {
                 body = getBody(docFile);
             } catch (IOException e) {
-                Logger.getLogger(this.getClass()).severe(
+                Logger.getLogger(this.getClass().getName()).severe(
                         "Ошибка:" + e.getMessage());
                 return e.getLocalizedMessage();
             }

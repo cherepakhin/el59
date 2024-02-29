@@ -40,12 +40,12 @@ public class ConvertorXmlBestTags extends ConvertorFromXML<BestTags, BestTags> {
 			if (protocolBestTags.size() > 0) {
 				messageSend.getEntity().setTags(protocolBestTags);
 			} else {
-				Logger.getLogger(this.getClass()).info(
+				Logger.getLogger(this.getClass().getName()).info(
 						String.format("Нет изменений цен для магазина %s",
 								message.getShopCod()));
 			}
 			
-			// Logger.getLogger(this.getClass()).info(dto.toString());
+			// Logger.getLogger(this.getClass().getName()).info(dto.toString());
 			// in.setBody(message);
 			if(protocolBestTags.size()>0) {
 				String xmlOut=xstream.toXML(messageSend);

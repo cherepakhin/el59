@@ -663,7 +663,7 @@ public class MainFeatureProvider extends
 			try {
 				getTovarInfoProvider().calcMainFeature(ti);
 			} catch (Exception e) {
-				Logger.getLogger(this.getClass()).severe("Ошибка при расчете к-ва осн.хар-к." + e.getMessage());
+				Logger.getLogger(this.getClass().getName()).severe("Ошибка при расчете к-ва осн.хар-к." + e.getMessage());
 				e.printStackTrace();
 			}
 		}
