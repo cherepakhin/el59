@@ -5,8 +5,6 @@ import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.MoveCritery;
-import ru.perm.v.el59.office.critery.PlanCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.db.plan.Plan;
@@ -15,6 +13,8 @@ import ru.perm.v.el59.office.iproviders.IMoveProvider;
 import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
 import ru.perm.v.el59.office.iproviders.ISetTypeStockProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
+import ru.perm.v.el59.office.iproviders.critery.PlanCritery;
 import ru.perm.v.el59.office.iproviders.plan.IPlanProvider;
 
 import java.math.BigDecimal;
@@ -171,10 +171,8 @@ public class PlanProvider extends GenericDaoHibernateImpl<Plan, Long> implements
 	/**
 	 * Расчет факта продаж
 	 * 
-	 * @param plan
-	 *            - в плане период продаж
-	 * @param groups
-	 *            - группы товаров(null если все)
+	 * @param plan - в плане период продаж
+	 * @param groups - группы товаров(null если все)
 	 * @return SummaInOut
 	 * @throws Exception
 	 */
@@ -415,14 +413,14 @@ public class PlanProvider extends GenericDaoHibernateImpl<Plan, Long> implements
 		List list = q1.list();
 		for (Object obj : list) {
 			Object[] row =(Object[]) obj;
-			ret.add(new UptRptAsp(getShopProvider().read((String) row[0]),
-					(Long) row[1],
-					(BigDecimal) row[2],
-					(BigDecimal) row[3],
-					(BigDecimal) row[4],
-					BigDecimal.ZERO,
-					BigDecimal.ZERO
-					));
+//			ret.add(new UptRptAsp(getShopProvider().read((String) row[0]),
+//					(Long) row[1],
+//					(BigDecimal) row[2],
+//					(BigDecimal) row[3],
+//					(BigDecimal) row[4],
+//					BigDecimal.ZERO,
+//					BigDecimal.ZERO
+//					));
 		}
 		HashMap<Shop,UptRptAsp> map = new HashMap<Shop,UptRptAsp>();
 		for (UptRptAsp uptRptAsp : ret) {
@@ -453,17 +451,17 @@ public class PlanProvider extends GenericDaoHibernateImpl<Plan, Long> implements
 		list = q1BonusTovar.list();
 		for (Object obj : list) {
 			Object[] row =(Object[]) obj;
-			accses.add(new UptRptAsp(getShopProvider().read((String) row[0]),
-					(Long) row[1],
-					(BigDecimal) row[2],
-					(BigDecimal) row[3],
-					(BigDecimal) row[4],
-					BigDecimal.ZERO,
-					BigDecimal.ZERO
-					));
+//			accses.add(new UptRptAsp(getShopProvider().read((String) row[0]),
+//					(Long) row[1],
+//					(BigDecimal) row[2],
+//					(BigDecimal) row[3],
+//					(BigDecimal) row[4],
+//					BigDecimal.ZERO,
+//					BigDecimal.ZERO
+//					));
 		}
 		for (UptRptAsp uptRptAsp : accses) {
-			map.get(uptRptAsp.getShop()).setSummaOutAcc(uptRptAsp.getSummaOut());
+//			map.get(uptRptAsp.getShop()).setSummaOutAcc(uptRptAsp.getSummaOut());
 		}
 		// Заполнение поля продаж защит
 		q1BonusTovar.setParameter("bonusK", PDS);
@@ -471,17 +469,17 @@ public class PlanProvider extends GenericDaoHibernateImpl<Plan, Long> implements
 		list = q1BonusTovar.list();
 		for (Object obj : list) {
 			Object[] row =(Object[]) obj;
-			protections.add(new UptRptAsp(getShopProvider().read((String) row[0]),
-					(Long) row[1],
-					(BigDecimal) row[2],
-					(BigDecimal) row[3],
-					(BigDecimal) row[4],
-					BigDecimal.ZERO,
-					BigDecimal.ZERO
-					));
+//			protections.add(new UptRptAsp(getShopProvider().read((String) row[0]),
+//					(Long) row[1],
+//					(BigDecimal) row[2],
+//					(BigDecimal) row[3],
+//					(BigDecimal) row[4],
+//					BigDecimal.ZERO,
+//					BigDecimal.ZERO
+//					));
 		}
 		for (UptRptAsp uptRptAsp : protections) {
-			map.get(uptRptAsp.getShop()).setSummaOutPDS(uptRptAsp.getSummaOut());
+//			map.get(uptRptAsp.getShop()).setSummaOutPDS(uptRptAsp.getSummaOut());
 		}
 		return ret;
 	}
