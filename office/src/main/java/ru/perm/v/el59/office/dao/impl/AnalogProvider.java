@@ -5,15 +5,15 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.critery.AnalogCritery;
-import ru.el59.office.critery.TovarCritery;
-import ru.el59.office.db.Analog;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.dto.TTovar;
-import ru.el59.office.iproviders.IAnalogProvider;
-import ru.el59.office.iproviders.IManagerProvider;
-import ru.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.db.Analog;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.dto.TTovar;
+import ru.perm.v.el59.office.iproviders.IAnalogProvider;
+import ru.perm.v.el59.office.iproviders.IManagerProvider;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.critery.AnalogCritery;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.util.ILuceneSearcher;
 
 import java.io.IOException;
@@ -44,7 +44,7 @@ public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 	public void recreateIndex() throws IOException {
 		TovarCritery tovarCritery = new TovarCritery();
 		List<Tovar> listTovar = getTovarProvider().getByCritery(tovarCritery);
-		getLuceneSearcher().addListTovar(listTovar);
+//		getLuceneSearcher().addListTovar(listTovar);
 	}
 
 	@Override

@@ -75,75 +75,77 @@ public class TovarInfoProvider extends
         return true;
     }
 
-//    /**
-//     * Создание товаров из xml Эльдорадо
-//     *
-//     * @return сообщение о результате
-//     * @throws Exception
-//     */
-//    public String createByListGood(List<Good> listGood, String filename)
-//            throws Exception {
-//        return "NOT IMPLEMENTED";
-//// TODO!!!!
-////        LOGGER.info(filename);
-////        for (Good good : listGood) {
-////            LOGGER.info(good.getGoodCode());
-////            if (checkString(good.getGoodCode())) {
-////                Tovar tovarGood = getMapper().builder().build(good);.map(good, Tovar.class);
-////                Tovar tovar = (Tovar) getTovarProvider().initialize(
-////                        tovarGood.getNnum());
-//                // Если двойник , то пропустить
-////                if (tovar != null && tovar.getParentnnum() != null) {
-////                    continue;
-////                }
-////                // Если он уже есть, то тоже пропустить.
-////                if (tovar != null) {
-////                    continue;
-////                } else {
-/////*                    tovar.setFile(filename);
-////                    tovar.setName(tovarGood.getName());
-////                    tovar.setGroup(tovarGood.getGroup());
-////                    tovar.setTypetovar(tovarGood.getTypetovar());
-////                    tovar.setBrand(tovarGood.getBrand());
-////                    tovar.setDateinsert(new Date());
-////*/
-////
-////                	GroupTovar g = getTovarProvider().getGroupByTrade(
-////                            good.getMecat());
-////
-////                	// ВОТ оно создание!
-////                    tovar = tovarGood;
-////                    tovar.setFile(filename);
-////                    tovar.setGroup(g);
-////                }
-////
-////                TovarInfo tovarInfoGood = getMapper()
-////                        .map(good, TovarInfo.class);
-////                TovarInfo tovarInfo = (TovarInfo) initialize(tovar.getNnum());
-////                if (tovarInfo != null) {
-////                    if (tovarInfoGood.getListFeaturePrice() != null) {
-////                        for (FeaturePrice f : tovarInfoGood
-////                                .getListFeaturePrice()) {
-////                            tovarInfo.addFeaturePrice(f);
-////                        }
-////                    }
-////                } else {
-////                    tovarInfo = tovarInfoGood;
-////                }
-////                tovarInfo.setTovar(tovar);
-////                try {
-////                    getSession().flush();
-////                    getSession().clear();
-////                    getTovarProvider().update(tovar);
-////                } catch (Exception e) {
-////                    LOGGER.error(e);
-////                }
-////                update(tovarInfo);
-////            }
+/*
+    /**
+     * Создание товаров из xml Эльдорадо
+     *
+     * @return сообщение о результате
+     * @throws Exception
+     * /
+    public String createByListGood(List<Good> listGood, String filename)
+            throws Exception {
+        return "NOT IMPLEMENTED";
+// TODO!!!!
+//        LOGGER.info(filename);
+//        for (Good good : listGood) {
+//            LOGGER.info(good.getGoodCode());
+//            if (checkString(good.getGoodCode())) {
+//                Tovar tovarGood = getMapper().builder().build(good);.map(good, Tovar.class);
+//                Tovar tovar = (Tovar) getTovarProvider().initialize(
+//                        tovarGood.getNnum());
+                // Если двойник , то пропустить
+//                if (tovar != null && tovar.getParentnnum() != null) {
+//                    continue;
+//                }
+//                // Если он уже есть, то тоже пропустить.
+//                if (tovar != null) {
+//                    continue;
+//                } else {
+///*                    tovar.setFile(filename);
+//                    tovar.setName(tovarGood.getName());
+//                    tovar.setGroup(tovarGood.getGroup());
+//                    tovar.setTypetovar(tovarGood.getTypetovar());
+//                    tovar.setBrand(tovarGood.getBrand());
+//                    tovar.setDateinsert(new Date());
+//* /
 //
-////        }
-////        return null;
-//    }
+//                	GroupTovar g = getTovarProvider().getGroupByTrade(
+//                            good.getMecat());
+//
+//                	// ВОТ оно создание!
+//                    tovar = tovarGood;
+//                    tovar.setFile(filename);
+//                    tovar.setGroup(g);
+//                }
+//
+//                TovarInfo tovarInfoGood = getMapper()
+//                        .map(good, TovarInfo.class);
+//                TovarInfo tovarInfo = (TovarInfo) initialize(tovar.getNnum());
+//                if (tovarInfo != null) {
+//                    if (tovarInfoGood.getListFeaturePrice() != null) {
+//                        for (FeaturePrice f : tovarInfoGood
+//                                .getListFeaturePrice()) {
+//                            tovarInfo.addFeaturePrice(f);
+//                        }
+//                    }
+//                } else {
+//                    tovarInfo = tovarInfoGood;
+//                }
+//                tovarInfo.setTovar(tovar);
+//                try {
+//                    getSession().flush();
+//                    getSession().clear();
+//                    getTovarProvider().update(tovar);
+//                } catch (Exception e) {
+//                    LOGGER.error(e);
+//                }
+//                update(tovarInfo);
+//            }
+
+//        }
+//        return null;
+    }
+*/
 
     @Override
     public String createByListGood(List<Good> var1, String var2) throws Exception {

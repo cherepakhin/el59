@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.commerceml;
 
 import freemarker.template.TemplateException;
-import ru.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.db.TovarInfo;
 
 import java.io.IOException;
 import java.util.List;
