@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.el59.office.db.Thing;
+import ru.perm.v.el59.office.db.Thing;
 import ru.perm.v.el59.office.iproviders.IThingProvider;
 import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 
