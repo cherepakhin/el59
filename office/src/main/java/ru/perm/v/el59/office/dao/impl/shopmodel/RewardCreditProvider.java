@@ -5,11 +5,13 @@ import net.sf.jxls.reader.XLSReader;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import ru.perm.v.el59.office.iproviders.critery.RewardCreditCritery;
 import ru.perm.v.el59.office.shopmodel.RewardCredit;
 import ru.perm.v.el59.office.iproviders.ICreditBankProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.IUserShopProvider;
 import ru.perm.v.el59.office.iproviders.shopmodel.IRewardCreditProvider;
+import ru.perm.v.el59.office.shopmodel.RewardCreditXLS;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.io.BufferedInputStream;
@@ -42,7 +44,9 @@ public class RewardCreditProvider extends GenericDaoMessageImpl<RewardCredit, Lo
 		Map<String, List<?>> beans = new HashMap<String, List<?>>();
 		List<RewardCreditXLS> listRewardContract = new ArrayList<RewardCreditXLS>();
 		beans.put("arr", listRewardContract);
-		BufferedInputStream inputXLS = new BufferedInputStream(new ByteInputStream(filedata, filedata.length));
+//		BufferedInputStream inputXLS = new BufferedInputStream(new ByteInputStream(filedata, filedata.length));
+		BufferedInputStream inputXLS = null;
+		
 		
 		mainReader.read(inputXLS, beans);
 

@@ -63,8 +63,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-core
 	implementation 'org.apache.lucene:lucene-core:9.10.0'
 	implementation 'org.apache.lucene:lucene-core:9.10.0'
-	implementation 'net.sf.jxls:jxls-core:1.0.5'
 	implementation 'org.apache.lucene:lucene-analyzers-common:5.3.1'
+	// https://mvnrepository.com/artifact/net.sf.jxls/jxls-reader
+	implementation 'net.sf.jxls:jxls-reader:1.0.6'
+
 	// https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser
 	implementation 'org.apache.lucene:lucene-queryparser:9.10.0'
 	implementation("org.mapstruct:mapstruct:1.5.5.Final")
