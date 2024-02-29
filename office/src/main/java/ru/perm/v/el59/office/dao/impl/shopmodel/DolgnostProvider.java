@@ -1,8 +1,9 @@
 package ru.perm.v.el59.office.dao.impl.shopmodel;
 
 import org.hibernate.Hibernate;
-import ru.el59.office.db.Dolgnost;
-import ru.perm.v.el59.dto.dao.CommonCritery;
+import ru.perm.v.el59.office.db.Dolgnost;
+import ru.perm.v.el59.office.iproviders.IDolgnostProvider;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.util.List;
