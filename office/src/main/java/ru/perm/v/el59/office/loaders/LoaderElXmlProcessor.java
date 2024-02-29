@@ -1,8 +1,9 @@
 package ru.perm.v.el59.office.loaders;
 
 import org.apache.camel.Exchange;
-import org.apache.log4j.Logger;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+
+import java.util.logging.Logger;
 
 /**
  * Подгузка ХЬД Эльдорадо
