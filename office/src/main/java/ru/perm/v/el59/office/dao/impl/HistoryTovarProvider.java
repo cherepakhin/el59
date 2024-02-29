@@ -3,10 +3,10 @@ package ru.perm.v.el59.office.dao.impl;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.HistoryTovar;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.dto.ChangeGroup;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.HistoryTovar;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.dto.ChangeGroup;
 import ru.perm.v.el59.office.iproviders.IHistoryTovarProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
 
