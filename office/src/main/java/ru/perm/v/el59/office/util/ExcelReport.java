@@ -18,11 +18,12 @@ public class ExcelReport {
 	 * @throws IOException
 	 */
 	public byte[] build(String inputFile, Map<String, Object> beans)
-			throws IOException, ParsePropertyException, InvalidFormatException {
-		XLSTransformer transformer = new XLSTransformer();
-		File tmpFile = getTempXlsFile();
-		transformer.transformXLS(inputFile, beans, tmpFile.getPath());
-		byte[] data = FileUtils.readFileToByteArray(tmpFile);
+			throws IOException, InvalidFormatException {
+//		XLSTransformer transformer = new XLSTransformer();
+//		File tmpFile = getTempXlsFile();
+//		transformer.transformXLS(inputFile, beans, tmpFile.getPath());
+//		byte[] data = FileUtils.readFileToByteArray(tmpFile);
+		byte[] data = "".getBytes();
 		return data;
 	}
 
