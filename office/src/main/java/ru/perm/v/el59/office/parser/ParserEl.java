@@ -1,6 +1,5 @@
 package ru.perm.v.el59.office.parser;
 
-import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -14,6 +13,7 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 	private static String CHARSET_SITE = "Windows-1251";
@@ -56,10 +56,6 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 	/**
 	 * Заполнение описания товара и характеристик
 	 * 
-	 * @param tovar
-	 *            - TovarInfo для заполнения
-	 * @param nnum
-	 *            - н.номер
 	 * @return
 	 * @return - заполненный характеристиками и описанием объект
 	 * @throws Exception
@@ -194,10 +190,6 @@ public class ParserEl extends AParserSite implements IParserEl, IParserSite {
 	/**
 	 * Загрузка фотографий
 	 * 
-	 * @param tovar
-	 *            - TovarInfj для заполнения
-	 * @param nnum
-	 *            - н.номер
 	 * @return - заполненный TovarInfo
 	 * @throws Exception
 	 */
