@@ -4,9 +4,9 @@ import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.TDocCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.service.TDoc;
+import ru.perm.v.el59.office.iproviders.critery.TDocCritery;
 import ru.perm.v.el59.office.iproviders.service.ITDocProvider;
 
 import java.util.List;
