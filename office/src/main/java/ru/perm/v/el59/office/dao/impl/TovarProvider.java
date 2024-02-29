@@ -7,8 +7,9 @@ import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.*;
-import ru.el59.office.db.dto.TovarDTO;
+import ru.perm.v.el59.office.db.*;
+import ru.perm.v.el59.office.db.dto.TovarDTO;
+import ru.perm.v.el59.office.iproviders.*;
 import ru.perm.v.el59.office.iproviders.critery.RestCritery;
 import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.util.Helper;
@@ -218,7 +219,7 @@ public class TovarProvider extends GenericDaoMessageImpl<Tovar, Integer>
         if (tovarInfo == null) {
             tovarInfo = new TovarInfo();
             tovarInfo.setNnum(nnum);
-            Tovar tovar = (Tovar) o;
+            Tovar tovar = o;
             tovarInfo.setTovar(tovar);
             /*
              * annotdel List<Feature> listFeature = tovar.getListFeature(); for
@@ -230,7 +231,8 @@ public class TovarProvider extends GenericDaoMessageImpl<Tovar, Integer>
             }
             getTovarInfoProvider().create(tovarInfo);
         }
-        getLuceneSearcher().addTovar(o);
+// TODO: lucene change tovar
+//        getLuceneSearcher().addTovar(o);
         return nnum;
     }
 

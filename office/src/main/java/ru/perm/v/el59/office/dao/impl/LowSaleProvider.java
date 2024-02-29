@@ -1,10 +1,10 @@
 package ru.perm.v.el59.office.dao.impl;
 
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.db.MoveSummary;
-import ru.el59.office.db.OpGroup;
-import ru.el59.office.db.Rest;
-import ru.el59.office.db.Shop;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.MoveSummary;
+import ru.perm.v.el59.office.db.OpGroup;
+import ru.perm.v.el59.office.db.Rest;
+import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.iproviders.ILowSaleProvider;
 import ru.perm.v.el59.office.iproviders.IMoveProvider;
 import ru.perm.v.el59.office.iproviders.IRestProvider;
