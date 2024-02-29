@@ -1,13 +1,14 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
 import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.BonusCardMoveDTO;
-import ru.perm.v.el59.office.dto.PayBonusCardDTO;
-import ru.perm.v.el59.office.dto.message.MessagePayBonusCardDTO;
+import ru.perm.v.el59.dto.BonusCardMoveDTO;
+import ru.perm.v.el59.dto.PayBonusCardDTO;
+import ru.perm.v.el59.dto.message.MessagePayBonusCardDTO;
 import ru.perm.v.el59.office.iproviders.shopmodel.IBonusCardMoveProvider;
 import ru.perm.v.el59.office.shopmodel.BonusCardMove;
 import ru.perm.v.el59.office.shopmodel.PayBonusCard;
+
+import java.util.logging.Logger;
 
 public class ConvertorXmlPayBonusCard extends
 		ConvertorXmlPayment<PayBonusCardDTO, PayBonusCard> {
