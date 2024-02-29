@@ -2,7 +2,6 @@ package ru.perm.v.el59.office.commerceml;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
 import ru.perm.v.el59.office.commerceml.model.Good;
 import ru.perm.v.el59.office.commerceml.model.Property;
 import ru.perm.v.el59.office.db.Feature;
@@ -11,6 +10,7 @@ import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 public class FillerInstar implements IFillerFeatures {
 
