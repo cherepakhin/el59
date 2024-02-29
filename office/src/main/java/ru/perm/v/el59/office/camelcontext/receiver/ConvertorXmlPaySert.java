@@ -1,12 +1,13 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
 import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.PaySertDTO;
-import ru.perm.v.el59.office.dto.message.MessagePaySertDTO;
+import ru.perm.v.el59.dto.PaySertDTO;
+import ru.perm.v.el59.dto.message.MessagePaySertDTO;
 import ru.perm.v.el59.office.iproviders.shopmodel.ITypeSertProvider;
 import ru.perm.v.el59.office.shopmodel.PaySert;
 import ru.perm.v.el59.office.shopmodel.TypeSert;
+
+import java.util.logging.Logger;
 
 public class ConvertorXmlPaySert extends
 		ConvertorXmlPayment<PaySertDTO, PaySert> {
