@@ -5,24 +5,24 @@ import org.hibernate.Query;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.db.Doc;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.TypeDoc;
-import ru.el59.office.db.web.DocW;
-import ru.el59.office.db.web.DocWInfo;
-import ru.el59.office.db.web.DocWItem;
-import ru.el59.office.shopmodel.DocTitle;
-import ru.el59.office.shopmodel.TypeDocShop;
-import ru.perm.v.el59.dto.dao.CommonCritery;
-import ru.perm.v.el59.dto.office.critery.DocTitleCritery;
+import ru.perm.v.el59.office.db.Doc;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.TypeDoc;
+import ru.perm.v.el59.office.db.web.DocW;
+import ru.perm.v.el59.office.db.web.DocWInfo;
+import ru.perm.v.el59.office.db.web.DocWItem;
 import ru.perm.v.el59.office.iproviders.IDocItemProvider;
 import ru.perm.v.el59.office.iproviders.IShopProvider;
 import ru.perm.v.el59.office.iproviders.ITovarProvider;
 import ru.perm.v.el59.office.iproviders.ITypeDocProvider;
+import ru.perm.v.el59.office.iproviders.critery.DocTitleCritery;
+import ru.perm.v.el59.office.iproviders.dao.CommonCritery;
 import ru.perm.v.el59.office.iproviders.shopmodel.IDocTitleProvider;
 import ru.perm.v.el59.office.iproviders.shopmodel.IPaymentProvider;
 import ru.perm.v.el59.office.iproviders.shopmodel.ITypeDocShopProvider;
 import ru.perm.v.el59.office.iproviders.web.*;
+import ru.perm.v.el59.office.shopmodel.DocTitle;
+import ru.perm.v.el59.office.shopmodel.TypeDocShop;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.math.BigDecimal;
@@ -451,9 +451,9 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 		cal.set(Calendar.DAY_OF_MONTH, 1);
 		critery.fromdate = cal.getTime();
 		critery.todate = new Date();
-		if (listShop.size() > 0) {
-			critery.shops.addAll(listShop);
-		}
+//		if (listShop.size() > 0) {
+//			critery.shops.addAll(listShop);
+//		}
 		List<DocWInfo> list = getDocWInfo(critery);
 		List<DocWInfo> ret = new ArrayList<DocWInfo>();
 		for (DocWInfo docWInfo : list) {
