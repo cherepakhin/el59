@@ -2,8 +2,8 @@ package ru.perm.v.el59.office.dao.impl;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
-import ru.el59.office.iproviders.shopmodel.IDiscountProvider;
-import ru.el59.office.shopmodel.Discount;
+import ru.perm.v.el59.office.iproviders.shopmodel.IDiscountProvider;
+import ru.perm.v.el59.office.shopmodel.Discount;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.util.ArrayList;
