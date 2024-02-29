@@ -16,23 +16,23 @@ public abstract class ACalculatorZPFofBonusK implements ICalculatorForBonusK {
 	 */
 	protected BigDecimal getSummaIn(Move move) {
 		BigDecimal summaIn = move.getSummain();
-		if (move.getCenaInOnDate() != null
-				&& move.getCenaInOnDate().compareTo(BigDecimal.ZERO) != 0) {
-			summaIn = move.getCenaInOnDate().multiply(move.getQty())
-					.setScale(2, RoundingMode.HALF_UP);
-		}
+//		if (move.getCenaInOnDate() != null
+//				&& move.getCenaInOnDate().compareTo(BigDecimal.ZERO) != 0) {
+//			summaIn = move.getCenaInOnDate().multiply(move.getQty())
+//					.setScale(2, RoundingMode.HALF_UP);
+//		}
 		return summaIn.setScale(2, RoundingMode.HALF_UP);
 	}
 
 	@Override
 	public UserZP addSumInOut(UserZP u,Move m) {
-		BigDecimal znak = new BigDecimal(-m.getOperation().getZnak());
-		// Изменение сумм по типу продаж
-		BigDecimal summaIn = getSummaIn(m);
-		u=changeSumInOut(u,m,summaIn);
-		// Изменение сумм "Всего продаж"
-		u.setSummaIn(u.getSummaIn().add(m.getSummain().multiply(znak)).setScale(2, RoundingMode.HALF_UP));
-		u.setSummaOut(u.getSummaOut().add(m.getSummaout().multiply(znak)).setScale(2, RoundingMode.HALF_UP));
+//		BigDecimal znak = new BigDecimal(-m.getOperation().getZnak());
+//		// Изменение сумм по типу продаж
+//		BigDecimal summaIn = getSummaIn(m);
+//		u=changeSumInOut(u,m,summaIn);
+//		// Изменение сумм "Всего продаж"
+//		u.setSummaIn(u.getSummaIn().add(m.getSummain().multiply(znak)).setScale(2, RoundingMode.HALF_UP));
+//		u.setSummaOut(u.getSummaOut().add(m.getSummaout().multiply(znak)).setScale(2, RoundingMode.HALF_UP));
 		return u;
 	}
 
