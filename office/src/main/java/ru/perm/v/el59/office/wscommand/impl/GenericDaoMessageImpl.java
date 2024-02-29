@@ -1,9 +1,9 @@
 package ru.perm.v.el59.office.wscommand.impl;
 
-import ru.el59.office.db.Shop;
-import ru.el59.office.wscommand.ICommander;
 import ru.perm.v.el59.dto.AEntityDTO;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.wscommand.ICommander;
 
 import java.io.Serializable;
 
