@@ -22,7 +22,7 @@ public class SMSSenderThrowEmail implements ISMSSender {
 		// Для тестов
 //		String clearedPhone="79125831975";
 		if (clearedPhone.length() != 11) {
-			Logger.getLogger(this.getClass().getName()).info(String.format("Ошибочный номер телефона.Длина % не 11 символов", phone));
+			Logger.getLogger(this.getClass()).info(String.format("Ошибочный номер телефона.Длина % не 11 символов", phone));
 		} else {
 			String mesEmail = String.format("%s:%s:0:0:0,0,%s:%s:%s",
 					getLogin(), getPass(), sender, clearedPhone, message);

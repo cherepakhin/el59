@@ -43,7 +43,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 
 		Shop shop = (Shop) getShopProvider().read(shopcod);
 		if (shop == null) {
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Нет магазина с кодом " + shopcod);
 			return "Нет магазина с кодом " + shopcod;
 		}
@@ -86,7 +86,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 			deleteMove(shop, fromdate, todate);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Ошибка при удалении " + e.getMessage());
 			throw e;
 		}
@@ -95,27 +95,27 @@ public class LoaderMdocm implements ILoaderMdocm {
 			listMove = getMoveFromFile(shop, filedata, fromdate, todate);
 			createMovies(listMove);
 		} catch (IOException e) {
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Ошибка чтения dbf ввода-вывода " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (SQLException e) {
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Ошибка sql-запроса dbf  " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (InstantiationException e) {
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Ошибка обработки dbf  " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (IllegalAccessException e) {
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Ошибка обработки dbf  " + e.getMessage());
 			e.printStackTrace();
 			throw e;
 		} catch (ClassNotFoundException e) {
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Ошибка обработки dbf. Класс не найден. " + e.getMessage());
 			e.printStackTrace();
 			throw e;
@@ -257,13 +257,13 @@ public class LoaderMdocm implements ILoaderMdocm {
 					operation = hashBestChr.get(move.getVid()
 							+ move.getTypeoper() + move.getCodeoper());
 				} catch (Exception e) {
-					Logger.getLogger(this.getClass().getName()).info(
+					Logger.getLogger(this.getClass()).info(
 							"Не найдена операция " + move.getVid()
 									+ move.getTypeoper() + move.getCodeoper());
 					operation = hashBestChr.get("-");
 				}
 				if (operation == null) {
-					Logger.getLogger(this.getClass().getName()).info(
+					Logger.getLogger(this.getClass()).info(
 							"Не найдена операция " + move.getVid()
 									+ move.getTypeoper() + move.getCodeoper());
 					operation = hashBestChr.get("-");
@@ -272,7 +272,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 				ret.add(move);
 
 			} else {
-				Logger.getLogger(this.getClass().getName()).severe(
+				Logger.getLogger(this.getClass()).severe(
 						"Не найден товар nnum " + nnum);
 			}
 		}

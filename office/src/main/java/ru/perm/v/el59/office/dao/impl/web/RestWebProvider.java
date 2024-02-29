@@ -99,9 +99,9 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
 		 */
         // Загрузка текущего розничного прайса hashTovarCena=new HashMap<Tovar,
         // BigDecimal>();
-        Logger.getLogger(this.getClass().getName()).info("Старт загрузки прайсов " + typeSite.toString());
+        Logger.getLogger(this.getClass()).info("Старт загрузки прайсов " + typeSite.toString());
         loadPrice();
-        Logger.getLogger(this.getClass().getName()).info("Конец загрузки прайсов " + typeSite.toString());
+        Logger.getLogger(this.getClass()).info("Конец загрузки прайсов " + typeSite.toString());
 
         List<RestWeb> ret = new ArrayList<RestWeb>();
 
@@ -116,9 +116,9 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
         try {
             shop = getShopProvider().getNullShop();
         } catch (Exception e) {
-            Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
+            Logger.getLogger(this.getClass()).severe(e.getMessage());
         }
-        Logger.getLogger(this.getClass().getName()).info(String.format("Старт для сайта %s", typeSite.toString()));
+        Logger.getLogger(this.getClass()).info(String.format("Старт для сайта %s", typeSite.toString()));
         HashMap<Integer, RestWeb> nnums = new HashMap<Integer, RestWeb>();
         ArrayList<RestWeb> listRestShop = getMinPriceForShop(shop);
         for (RestWeb r : listRestShop) {
@@ -131,7 +131,7 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
                 nnums.put(r.getTovar().getNnum(), r);
             }
         }
-        Logger.getLogger(this.getClass().getName()).info(String.format("Расценка %s для сайта %s", shop.getName(), typeSite.toString()));
+        Logger.getLogger(this.getClass()).info(String.format("Расценка %s для сайта %s", shop.getName(), typeSite.toString()));
         // Расценка
         for (RestWeb restWeb : nnums.values()) {
             RestWeb r = new RestWeb();
@@ -176,7 +176,7 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
 
         List<RestWeb> retWithPrice = new ArrayList<RestWeb>();
 
-        Logger.getLogger(this.getClass().getName()).info("Отбор " + typeSite.toString());
+        Logger.getLogger(this.getClass()).info("Отбор " + typeSite.toString());
         boolean checkOk = true;
         for (RestWeb r : ret) {
             checkOk = true;
@@ -185,14 +185,14 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
                 if (r.getTovar().getName().toLowerCase()
                         .startsWith(word.toLowerCase())) {
                     checkOk = false;
-                    Logger.getLogger(this.getClass().getName()).info(
+                    Logger.getLogger(this.getClass()).info(
                             "Товар " + r.getTovar().getNnum()
                                     + ". не будет загружен. Метка НЕ ИСПОЛЬЗОВАТЬ.");
                 }
             }
             if (r.getTovar().getGroup().getGroupT() == null || r.getTovar().getGroup().getGroupT().getCod().equals("0000000000")) {
                 checkOk = false;
-                Logger.getLogger(this.getClass().getName()).info(
+                Logger.getLogger(this.getClass()).info(
                         "Товар " + r.getTovar().getNnum()
                                 + " не предназначен для сайта. Не назначена группа для сайта.");
             }
@@ -209,18 +209,18 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
                 if (r.getCenaOut().compareTo(BigDecimal.ZERO) > 0) {
                     retWithPrice.add(r);
                 } else {
-                    Logger.getLogger(this.getClass().getName()).info(
+                    Logger.getLogger(this.getClass()).info(
                             "Цена товара " + r.getTovar().getNnum() + " "
                                     + r.getTovar().getName() + " =0");
                 }
             } else {
-                Logger.getLogger(this.getClass().getName()).info(
+                Logger.getLogger(this.getClass()).info(
                         "Цена товара " + r.getTovar().getNnum()
                                 + " null или не грузить на сайт");
             }
 
         }
-        Logger.getLogger(this.getClass().getName()).info("Конец выгрузки остатков " + typeSite.toString());
+        Logger.getLogger(this.getClass()).info("Конец выгрузки остатков " + typeSite.toString());
         return retWithPrice;
     }
 
@@ -244,16 +244,16 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
             }
             if (typeSite == TypeSite.EL59) {
                 if (r == null) {
-                    Logger.getLogger(this.getClass().getName()).severe("r = null");
+                    Logger.getLogger(this.getClass()).severe("r = null");
                     return BigDecimal.ZERO;
                 }
                 if (r.getTovar() == null) {
-                    Logger.getLogger(this.getClass().getName()).severe("r.getTovar() = null");
+                    Logger.getLogger(this.getClass()).severe("r.getTovar() = null");
                     return BigDecimal.ZERO;
                 }
 				/*	УБРАЛ. Никто не следит за W-прайсом
 				 				if(hashTovarPriceWeb.get(r.getTovar())==null) {
-					Logger.getLogger(this.getClass().getName()).severe("hashTovarPriceWeb.get(r.getTovar()) = null");
+					Logger.getLogger(this.getClass()).severe("hashTovarPriceWeb.get(r.getTovar()) = null");
 					return BigDecimal.ZERO;
 				}
 			if (hashTovarPriceWeb.containsKey(r.getTovar())
@@ -338,7 +338,7 @@ public class RestWebProvider extends GenericDaoHibernateImpl<RestWeb, Long>
             setTovar = getSetTovarProvider().initialize(setTovar.getN());
         }
         if (setTovar == null) {
-            Logger.getLogger(this.getClass().getName()).severe(
+            Logger.getLogger(this.getClass()).severe(
                     "Не назначена группа товаров. Имя группы "
                             + getNameSetForDeleteFromSite());
         }

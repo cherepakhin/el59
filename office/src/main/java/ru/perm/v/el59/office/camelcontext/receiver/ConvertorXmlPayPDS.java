@@ -23,7 +23,7 @@ public class ConvertorXmlPayPDS extends ConvertorXmlPayment<PayPDSDTO, PayPDS> {
 		try {
 			message = getMessageFromXml(xml);
 			PayPDSDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

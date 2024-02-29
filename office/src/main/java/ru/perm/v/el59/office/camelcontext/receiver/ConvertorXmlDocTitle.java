@@ -20,13 +20,13 @@ public class ConvertorXmlDocTitle extends
 //			DocTitleDTO dto = message.getEntity();
 //			DocTitle docTitle = new DocTitle();
 //			docTitle = fillFromDTO(dto, docTitle, message.getShopCod());
-//			Logger.getLogger(this.getClass().getName()).info(
+//			Logger.getLogger(this.getClass()).info(
 //					String.format("Shop %s;Command %s;%s %s ", message
 //							.getShopCod(), message.getTypeCommand(), dto
 //							.getTypedoc().getName(), dto.getNumdoc()));
 //			doMessage(docTitle);
 //		} catch (Exception e) {
-//			Logger.getLogger(this.getClass().getName()).error("Ошибка при создании doctitle ", e);
+//			Logger.getLogger(this.getClass()).error("Ошибка при создании doctitle ", e);
 //			e.printStackTrace();
 //		}
         return xml;

@@ -45,16 +45,16 @@ public class LoaderElXml {
 
 	public void loadFile(String dir, String filename,
 			ITovarInfoProvider tovarInfoProvider) throws Exception {
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Сервер.Загрузка XML Эльдорадо. Каталог " + dir + ";Файл "
 						+ filename);
 		List<Good> listGood = getGoods(dir + File.separator + filename);
 		tovarInfoProvider.createByListGood(listGood, filename);
-		Logger.getLogger(this.getClass().getName()).info("End");
+		Logger.getLogger(this.getClass()).info("End");
 	}
 
 	public List<Good> getGoods(String filename) {
-		Logger.getLogger(this.getClass().getName()).info("Start receive "+filename);
+		Logger.getLogger(this.getClass()).info("Start receive "+filename);
 		XStream xstream = new XStream(new Dom4JDriver());
 
 		xstream.alias(Goods.class.getSimpleName(), Goods.class);
@@ -90,9 +90,9 @@ public class LoaderElXml {
 					listGood.add(good);
 				}
 			} catch (EOFException e) {
-				Logger.getLogger(this.getClass().getName()).info("Everythings readed!");
+				Logger.getLogger(this.getClass()).info("Everythings readed!");
 			}
-			Logger.getLogger(this.getClass().getName()).info("End receive "+filename);
+			Logger.getLogger(this.getClass()).info("End receive "+filename);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

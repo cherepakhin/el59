@@ -156,7 +156,7 @@ public class ParserIMarket extends AParserSite implements IParserSite {
 				nameFeature = "";
 				System.out.println(String.format("%s|%s|%s", f.getGrp(),
 						f.getName(), f.getVal()));
-				// Logger.getLogger(this.getClass().getName()).info(String.format("%s:%s:%s",
+				// Logger.getLogger(this.getClass()).info(String.format("%s:%s:%s",
 				// nameGroup,nameFeature,valFeature));
 			}
 		}
@@ -232,7 +232,7 @@ public class ParserIMarket extends AParserSite implements IParserSite {
 				String imgpath = imgnode.getNodeValue();
 				filename = loadPhoto(imgpath, getNnum(), DELIMETER_NAMEFILE,null,
 						num_img);
-				Logger.getLogger(this.getClass().getName()).info(
+				Logger.getLogger(this.getClass()).info(
 						String.format("Photo %d %s", getNnum(), filename));
 				photo.setPath(filename.replace(getBaseDirForPhoto(), ""));
 				String info = "";

@@ -29,29 +29,29 @@ public class CreatorChangeNN {
 
     public byte[] process(@Body Object body) {
         try {
-            Logger.getLogger(this.getClass().getName()).info("Выгрузка ChangeNN.Начало");
+            Logger.getLogger(this.getClass()).info("Выгрузка ChangeNN.Начало");
             createDbf();
             byte[] data = FileUtils.readFileToByteArray(new File(filenameDst));
-            Logger.getLogger(this.getClass().getName()).info("Выгрузка ChangeNN.Конец");
+            Logger.getLogger(this.getClass()).info("Выгрузка ChangeNN.Конец");
             return data;
         } catch (InstantiationException e) {
-            Logger.getLogger(this.getClass().getName()).severe(
+            Logger.getLogger(this.getClass()).severe(
                     "Ошибка при выгрузке ChangeNN");
             e.printStackTrace();
         } catch (IllegalAccessException e) {
-            Logger.getLogger(this.getClass().getName()).severe(
+            Logger.getLogger(this.getClass()).severe(
                     "Ошибка при выгрузке ChangeNN");
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            Logger.getLogger(this.getClass().getName()).severe(
+            Logger.getLogger(this.getClass()).severe(
                     "Ошибка при выгрузке ChangeNN" + e.getMessage());
             e.printStackTrace();
         } catch (SQLException e) {
-            Logger.getLogger(this.getClass().getName()).severe(
+            Logger.getLogger(this.getClass()).severe(
                     "Ошибка при выгрузке ChangeNN" + e.getMessage());
             e.printStackTrace();
         } catch (IOException e) {
-            Logger.getLogger(this.getClass().getName()).severe(
+            Logger.getLogger(this.getClass()).severe(
                     "Ошибка при выгрузке ChangeNN" + e.getMessage());
             e.printStackTrace();
         }

@@ -94,19 +94,19 @@ public class AnalogProvider extends GenericDaoHibernateImpl<Analog, Long>
 	public void change(String name, Tovar newTovar, Manager manager)
 			throws Exception {
 		// CommonCritery critery = new CommonCritery(name);
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Поиск в аналогах:" + name + " nnum:" + newTovar.getNnum());
 //		Analog a = getByEqName(name);
 		Analog analog = getByEqName(name);
 //		Analog a = null;
 		if (analog != null) {
-			Logger.getLogger(this.getClass().getName()).info("Обновление:" + name);
+			Logger.getLogger(this.getClass()).info("Обновление:" + name);
 			analog.setTovar(newTovar);
 			analog.setManager(manager);
 			analog.setDdate(new Date());
 			update(analog);
 		} else {
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					"Создание аналога:" + name + " nnum:" + newTovar.getNnum());
 			analog = new Analog();
 			analog.setName(name);

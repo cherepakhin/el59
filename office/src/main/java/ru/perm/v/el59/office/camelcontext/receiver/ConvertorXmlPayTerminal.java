@@ -25,7 +25,7 @@ public class ConvertorXmlPayTerminal extends
 		try {
 			message = getMessageFromXml(xml);
 			PayTerminalDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

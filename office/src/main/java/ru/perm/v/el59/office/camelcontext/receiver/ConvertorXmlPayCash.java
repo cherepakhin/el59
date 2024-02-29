@@ -24,7 +24,7 @@ public class ConvertorXmlPayCash extends
 		try {
 			message = getMessageFromXml(xml);
 			PayCashDTO dto = message.getEntity();
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					String.format("Shop %s;Command %s;N %d ",
 							message.getShopCod(), message.getTypeCommand(),
 							dto.getN()));

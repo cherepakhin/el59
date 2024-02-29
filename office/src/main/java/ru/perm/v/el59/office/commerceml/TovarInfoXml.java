@@ -79,7 +79,7 @@ public class TovarInfoXml {
 			if (tovarInfo.getListPhoto().get(i) != null) {
 				listPhoto.add(new PhotoXml(tovarInfo.getListPhoto().get(i), i));
 			} else {
-				Logger.getLogger(this.getClass().getName()).error(String.format("Null Photo for nnum=%d", tovarInfo.getNnum()));
+				Logger.getLogger(this.getClass()).error(String.format("Null Photo for nnum=%d", tovarInfo.getNnum()));
 			}
 		}
 		groupTovarXml = new GroupTovarXml(tovarInfo.getTovar().getGroup()

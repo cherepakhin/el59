@@ -5,13 +5,28 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.camel.Body;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.TypeDoc;
+import ru.perm.v.el59.office.db.web.DocW;
+import ru.perm.v.el59.office.db.web.DocWItem;
+import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
+import ru.perm.v.el59.office.iproviders.critery.ShopCritery;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
+import ru.perm.v.el59.office.iproviders.web.IDocWItemProvider;
+import ru.perm.v.el59.office.iproviders.web.IDocWProvider;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CreatorFromXmlToDocW {
 	private XStream xstream;
+
+	private String nameTypeDocDocw;
+	private Integer nnumDostavka;
+	private String nameDostavka;
+	private BigDecimal priceDostavka;
+
 	private IDocWProvider docWProvider;
 	private ITovarProvider tovarProvider;
 	private IDocWItemProvider docWItemProvider;
@@ -21,11 +36,6 @@ public class CreatorFromXmlToDocW {
 	private IPriceProvider priceProvider;
 	private IDocItemProvider docItemProvider;
 
-	private String nameTypeDocDocw;
-	private Integer nnumDostavka;
-	private String nameDostavka;
-	private BigDecimal priceDostavka;
-
 	public OrderDTO toOrderDTO(@Body Object body) {
 		String xml = (String) body;
 		OrderDTO orderDTO = getDTO(xml);
@@ -34,11 +44,12 @@ public class CreatorFromXmlToDocW {
 
 	public void buildDocW(@Body Object body) throws Error, Exception {
 		OrderDTO orderDTO = (OrderDTO) body;
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Создание выниски сайта №" + orderDTO.getNumber() + ".Начало");
 		DocW docw = new DocW();
-		TypeDoc typedoc = getTypeDocProvider()
-				.getByEqName(getNameTypeDocDocw());
+//		TypeDoc typedoc = getTypeDocProvider()
+//				.getByName(getNameTypeDocDocw());
+		TypeDoc typedoc = new TypeDoc();
 		if (typedoc == null) {
 			throw new Error("Не найден тип документа " + getNameTypeDocDocw());
 		}
@@ -53,48 +64,49 @@ public class CreatorFromXmlToDocW {
 
 		ShopCritery shopCritery = new ShopCritery();
 		shopCritery.setCod(orderDTO.getShopDTO().getCod());
-		List<Shop> listShop = getShopProvider().getByCritery(shopCritery);
-		if (listShop.size() == 0) {
-			throw new Error("Не найден магазин с кодом "
-					+ orderDTO.getShopDTO().getCod());
-		}
-		docw.setShop(listShop.get(0));
+//		List<Shop> listShop = getShopProvider().getByCritery(shopCritery);
+//		if (listShop.size() == 0) {
+//			throw new Error("Не найден магазин с кодом "
+//					+ orderDTO.getShopDTO().getCod());
+//		}
+//		docw.setShop(listShop.get(0));
 
 		/*
 		 * Contragent contragent =
 		 * getContragentProvider().getByEqName(orderDTO.getContragentDTO
 		 * ().getName()); if(contragent==null) {
-		 */Contragent c = new Contragent();
+		 */
+		Contragent c = new Contragent();
 		ContragentDTO contragentDTO = orderDTO.getContragentDTO();
 		c.setName(contragentDTO.getName());
 		c.setAddress(contragentDTO.getAddress());
 		c.setPhone(contragentDTO.getPhone());
 		c.setEmail(contragentDTO.getEmail());
-		c.setShop(listShop.get(0));
-		Long contragent_n = getContragentProvider().create(c);
-		c.setN(contragent_n);
+//		c.setShop(listShop.get(0));
+//		Long contragent_n = getContragentProvider().create(c);
+//		c.setN(contragent_n);
 		docw.setContragent(c);
 		/*
 		 * } else { docw.setContragent(contragent); }
 		 */
-		Long n = (Long) getDocWProvider().create(docw);
-		docw.setN(n);
+//		Long n = (Long) getDocWProvider().create(docw);
+//		docw.setN(n);
     try {
       TimeUnit.SECONDS.sleep(2);
     } catch (Exception e) {
-      Logger.getLogger(this.getClass().getName()).info(e.getLocalizedMessage());
+      Logger.getLogger(this.getClass()).info(e.getLocalizedMessage());
     }
 
 		for (TovarDTO t : orderDTO.getListTovarDTO()) {
 			DocWItem item = new DocWItem();
-			Tovar tovar = getTovarProvider().read(t.getNnum());
-			item.setTovar(tovar);
+//			Tovar tovar = getTovarProvider().(t.getNnum());
+//			item.setTovar(tovar);
 			item.setDocw(docw);
 			item.setQty(t.getQty());
 			item.setCena(t.getPrice());
-			item.setDocItem(getDocItemProvider().getNullDocItem());
+//			item.setDocItem(getDocItemProvider().getNullDocItem());
 			item.setSumma(t.getPrice().multiply(t.getQty()));
-			getDocWItemProvider().create(item);
+//			getDocWItemProvider().create(item);
 		}
 		// Оформление доставки
 		/*
@@ -104,30 +116,28 @@ public class CreatorFromXmlToDocW {
 		 * item.setDocw(docw); item.setQty(new BigDecimal(1));
 		 * item.setCena(getPriceDostavka()); item.setSumma(getPriceDostavka());
 		 * getDocWItemProvider().create(item); }
-		 */Logger.getLogger(this.getClass().getName()).info(
+		 */Logger.getLogger(this.getClass()).info(
 				"Создание выниски сайта №" + orderDTO.getNumber() + ".Конец");
 	}
 
 	private BigDecimal getPriceDostavka() {
 		if (priceDostavka == null) {
 			PriceCritery priceCritery = new PriceCritery();
-			priceCritery.namePriceType = getPriceProvider()
-					.getNameDefaultPrice();
+//			priceCritery.namePriceType = getPriceProvider().getNameDefaultPrice();
 			priceCritery.tovarCritery = new TovarCritery();
 			priceCritery.tovarCritery.nnum.add(getNnumDostavka());
-			List<Price> list = getPriceProvider().getByCritery(priceCritery);
-			if (list.size() > 0) {
-				priceDostavka = list.get(0).getCena();
-			} else {
-				return new BigDecimal("0.00");
-			}
+//			List<Price> list = getPriceProvider().getByCritery(priceCritery);
+//			if (list.size() > 0) {
+//				priceDostavka = list.get(0).getCena();
+//			} else {
+//				return new BigDecimal("0.00");
+//			}
 		}
 		return priceDostavka;
 	}
 
 	private OrderDTO getDTO(String xml) {
-		Logger.getLogger(this.getClass().getName()).info("Подгрузка xml выписки");
-		Logger.getLogger(this.getClass().getName()).info("xml:" + xml);
+		Logger.getLogger(this.getClass()).info("Подгрузка xml выписки");
 		XStream xstream = getXStream();
 		xstream.alias("Заявка", OrderDTO.class);
 		xstream.aliasField("Номер", OrderDTO.class, "number");
@@ -160,7 +170,7 @@ public class CreatorFromXmlToDocW {
 		xstream.omitField(OrderDTO.class, "Сумма");
 		OrderDTO o = (OrderDTO) xstream.fromXML(xml);
 		o.setXml(xml);
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Подгрузка xml выписки " + o.getNumber() + ".Конец");
 		return o;
 	}

@@ -19,7 +19,7 @@ public class ConvertorFromXmlDefault extends ConvertorFromXML {
 //TODO: xml
 //		message = (MessageEntity) xstream.fromXML(xml);
 //		Object t = message.getEntity();
-//		Logger.getLogger(this.getClass().getName()).info(
+//		Logger.getLogger(this.getClass()).info(
 //				String.format("%s %s %s", message.getShopCod(),
 //						message.getTypeCommand(), message.getClassName()));
 //		doMessage(t);

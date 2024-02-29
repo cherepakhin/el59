@@ -26,7 +26,7 @@ public class DocItemProvider extends GenericDaoHibernateImpl<DocItem, Long>
 	private IPriceProvider priceProvider;
 	private ITovarProvider tovarProvider;
 	private DocItem nullDocItem;
-	private Logger LOGGER = Logger.getLogger(this.getClass().getName());
+	private Logger LOGGER = Logger.getLogger(this.getClass());
 
 	public DocItemProvider(Class<DocItem> type) {
 		super(type);

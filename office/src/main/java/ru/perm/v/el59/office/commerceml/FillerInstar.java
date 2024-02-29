@@ -38,7 +38,7 @@ public class FillerInstar implements IFillerFeatures {
 			f.setName(nameFeature);
 			f.setVal(valNode);
 			tovarInfo.addFeature(f);
-			Logger.getLogger(this.getClass().getName()).info(
+			Logger.getLogger(this.getClass()).info(
 					String.format("Для товара добавлена %s хар-ка  %s:%s:%s",
 							good.getName(), f.getGrp(), nameFeature, valNode));
 		}
@@ -69,7 +69,7 @@ public class FillerInstar implements IFillerFeatures {
 		String ext = pathPicture.substring(pos);
 		ret = getFullFileName(getDirForPhoto(tovarInfo.getNnum()),
 				tovarInfo.getNnum() + ext);
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				String.format("%s %s", pathPicture, ret));
 		FileUtils.copyFile(
 				new File(getFullFileName(pathRootDirCommerceML, pathPicture)),

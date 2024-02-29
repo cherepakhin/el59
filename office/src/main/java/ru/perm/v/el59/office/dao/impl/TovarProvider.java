@@ -371,14 +371,14 @@ public class TovarProvider extends GenericDaoMessageImpl<Tovar, Integer>
 
     @Override
     public Tovar initialize(Integer id) {
-        // Logger.getLogger(this.getClass().getName()).info("Init tovar nnum="+id);
+        // Logger.getLogger(this.getClass()).info("Init tovar nnum="+id);
         Tovar t = super.initialize(id);
         if (t == null) {
-            Logger.getLogger(this.getClass().getName()).info("Tovar null nnum=" + id);
+            Logger.getLogger(this.getClass()).info("Tovar null nnum=" + id);
             return null;
         }
         if (t.getGroup() == null) {
-            Logger.getLogger(this.getClass().getName())
+            Logger.getLogger(this.getClass())
                     .info("GroupTovar null nnum=" + id);
             return null;
         }

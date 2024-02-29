@@ -87,14 +87,14 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 
 	@Override
 	public List<DocWInfo> getDocWInfo(DocWCritery critery) {
-		Logger.getLogger(this.getClass().getName()).info("Получение выписок. Начало.");
+		Logger.getLogger(this.getClass()).info("Получение выписок. Начало.");
 		List<DocW> listDocW = getByCritery(critery);
 		ArrayList<DocWInfo> ret = new ArrayList<DocWInfo>();
-		Logger.getLogger(this.getClass().getName()).info("Получение содержимого выписок.");
+		Logger.getLogger(this.getClass()).info("Получение содержимого выписок.");
 		DocWItemCritery docWItemCritery = new DocWItemCritery();
 		docWItemCritery.listDocW.addAll(listDocW);
 		List<DocWItem> listDocWItem = getDocWItemProvider().getByCritery(docWItemCritery);
-		Logger.getLogger(this.getClass().getName()).info("Построение кэша выписок.");
+		Logger.getLogger(this.getClass()).info("Построение кэша выписок.");
 		HashMap<DocW, ArrayList<DocWItem>> hash = new HashMap<DocW, ArrayList<DocWItem>>();
 		for (DocWItem docWItem : listDocWItem) {
 			if (!hash.containsKey(docWItem.getDocw())) {
@@ -169,7 +169,7 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 */
 		for (DocW docW : listDocW) {
 			DocWInfo d = new DocWInfo();
-//			Logger.getLogger(this.getClass().getName()).info("W-выписка "+docW.getNumdoc());
+//			Logger.getLogger(this.getClass()).info("W-выписка "+docW.getNumdoc());
 			d.setDocw(docW);
 			// d.setSumPay(getPay(docW));
 			d.setSumPay(new BigDecimal("0.00"));
@@ -178,19 +178,19 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 				_listDocWItem = hash.get(docW);
 			}
 */
-//			Logger.getLogger(this.getClass().getName()).info("К-во в выписке");
+//			Logger.getLogger(this.getClass()).info("К-во в выписке");
 			if(hashQty.containsKey(docW.getN())) {
 				d.setQtyOrder(hashQty.get(docW.getN()));
 			}
 //			d.setQtyOrder(getQtyOrder(_listDocWItem));
 			
-//			Logger.getLogger(this.getClass().getName()).info("Доставлено покупателю");
+//			Logger.getLogger(this.getClass()).info("Доставлено покупателю");
 			if(hashQtyToCustomer.containsKey(docW.getN())) {
 				d.setQtyToCustomer(hashQtyToCustomer.get(docW.getN()));
 			}
 //			d.setQtyToCustomer(getDelivered(docW, _listDocWItem));
 			
-//			Logger.getLogger(this.getClass().getName()).info("Зарезервировано");
+//			Logger.getLogger(this.getClass()).info("Зарезервировано");
 			if(hashQtyOrderSupplier.containsKey(docW.getN())) {
 				d.setQtyOrderSupplier(hashQtyOrderSupplier.get(docW.getN()));
 			}
@@ -199,20 +199,20 @@ public class DocWProvider extends GenericDaoMessageImpl<DocW, Long> implements
 //			}
 //			d.setQtyOrderSupplier(getQtySuppLier(_listDocWItem));
 			
-//			Logger.getLogger(this.getClass().getName()).info("Приход в магазин");
+//			Logger.getLogger(this.getClass()).info("Приход в магазин");
 			if(hashQtyInputShop.containsKey(docW.getN())) {
 				d.setQtyInputShop(hashQtyInputShop.get(docW.getN()));
 			}
 //			d.setQtyInputShop(getQtyInvoice(_listDocWItem));
 			
-//			Logger.getLogger(this.getClass().getName()).info("Счета загружены?");
+//			Logger.getLogger(this.getClass()).info("Счета загружены?");
 			if(listIsLoadDocFile.contains(docW.getN())) {
 				d.setIsLoadDocFile(true);
 			}
 //			d.setIsLoadDocFile(getLoadFile(_listDocWItem));
 			ret.add(d);
 		}
-		Logger.getLogger(this.getClass().getName()).info("Получение выписок. Конец.");
+		Logger.getLogger(this.getClass()).info("Получение выписок. Конец.");
 		return ret;
 	}
 

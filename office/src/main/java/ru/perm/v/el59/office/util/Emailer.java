@@ -50,7 +50,7 @@ public class Emailer implements IEmailer {
 //			m.setFrom(fromAddress);
 //			mailSender.send(m);
 //		} catch (Exception e) {
-//			Logger.getLogger(this.getClass().getName()).error(e);
+//			Logger.getLogger(this.getClass()).error(e);
 //			e.printStackTrace();
 //			return (e.getLocalizedMessage());
 //		}
@@ -78,7 +78,7 @@ public class Emailer implements IEmailer {
 //					j++;
 //				}
 //			}
-//			Logger.getLogger(this.getClass().getName()).info(
+//			Logger.getLogger(this.getClass()).info(
 //					"Отправка почты " + recipients);
 //			helper.setTo(addressesTo);
 //			helper.setSubject(subject);
@@ -117,32 +117,32 @@ public class Emailer implements IEmailer {
 //				}
 //			}
 //		} catch (MessagingException e) {
-//			Logger.getLogger(this.getClass().getName()).error(e);
+//			Logger.getLogger(this.getClass()).error(e);
 //			e.printStackTrace();
 //			return e.getLocalizedMessage();
 //		} catch (UnsupportedEncodingException e) {
-//			Logger.getLogger(this.getClass().getName()).error(e);
+//			Logger.getLogger(this.getClass()).error(e);
 //			e.printStackTrace();
 //			return e.getLocalizedMessage();
 //		} catch (IOException e) {
-//			Logger.getLogger(this.getClass().getName()).error(e);
+//			Logger.getLogger(this.getClass()).error(e);
 //			e.printStackTrace();
 //			return e.getLocalizedMessage();
 //		}
 //		try {
 //			mailSender.send(email);
 //		} catch (MailException e) {
-//			Logger.getLogger(this.getClass().getName()).error(e);
+//			Logger.getLogger(this.getClass()).error(e);
 //			e.printStackTrace();
 //			return e.getLocalizedMessage();
 //		}
-//		Logger.getLogger(this.getClass().getName()).info(
+//		Logger.getLogger(this.getClass()).info(
 //				"Отправка почты закончена " + recipients);
 //		return "";
 //	}
 
 	/*
-	 * Logger.getLogger(this.getClass().getName()).info("Подготовка сообщения. Отправитель:"
+	 * Logger.getLogger(this.getClass()).info("Подготовка сообщения. Отправитель:"
 	 * +manager.getName()+".Тема:"+subject+" Сообщение"+message); //
 	 * message="Для ответа используйте адрес <a href='mailto:"
 	 * +manager.getEmail()+"'>"+manager.getName()+"</a>\n"+message; //
@@ -187,16 +187,16 @@ public class Emailer implements IEmailer {
 	 * session.getTransport(); // transport.connect();
 	 * 
 	 * email.saveChanges();
-	 * Logger.getLogger(this.getClass().getName()).info("Отправка сообщения. Отправитель:"
+	 * Logger.getLogger(this.getClass()).info("Отправка сообщения. Отправитель:"
 	 * +manager.getName()+".Тема:"+subject+" Сообщение"+message);
-	 * Transport.send(email); Logger.getLogger(this.getClass().getName()).info(
+	 * Transport.send(email); Logger.getLogger(this.getClass()).info(
 	 * "Отправка сообщения закончена. Отправитель:"
 	 * +manager.getName()+".Тема:"+subject+" Сообщение"+message); //
-	 * transport.close(); Logger.getLogger(this.getClass().getName()).info("Отправлено");
+	 * transport.close(); Logger.getLogger(this.getClass()).info("Отправлено");
 	 * } catch (MessagingException e) {
-	 * Logger.getLogger(this.getClass().getName()).error("Ошибка", e);
+	 * Logger.getLogger(this.getClass()).error("Ошибка", e);
 	 * e.printStackTrace(); return e.getLocalizedMessage(); } catch (IOException
-	 * e) { Logger.getLogger(this.getClass().getName()).error("Ошибка", e);
+	 * e) { Logger.getLogger(this.getClass()).error("Ошибка", e);
 	 * e.printStackTrace(); return e.getLocalizedMessage(); } return "";
 	 */
 	/*
@@ -221,9 +221,9 @@ public class Emailer implements IEmailer {
 	 * attachment.setDescription(fileAttach.name);
 	 * attachment.setName(fileAttach.name); ((MultiPartEmail)
 	 * email).attach(attachment); } catch (IOException e) {
-	 * Logger.getLogger(this.getClass().getName()).error("Ошибка", e);
+	 * Logger.getLogger(this.getClass()).error("Ошибка", e);
 	 * e.printStackTrace(); return e.getLocalizedMessage(); } catch
-	 * (EmailException e) { Logger.getLogger(this.getClass().getName()).error("Ошибка",
+	 * (EmailException e) { Logger.getLogger(this.getClass()).error("Ошибка",
 	 * e); e.printStackTrace(); return e.getLocalizedMessage(); }
 	 * 
 	 * } } email.setHostName(getHost()); email.setSmtpPort(getPort());
@@ -232,7 +232,7 @@ public class Emailer implements IEmailer {
 	 * { email.setFrom(getFromUsername()); email.setSubject(subject);
 	 * email.setMsg(message); String[] r = recipients.split(";"); for (int i =
 	 * 0; i < r.length; i++) { email.addTo(r[i]); } email.send(); } catch
-	 * (EmailException e) { Logger.getLogger(this.getClass().getName()).error("Ошибка",
+	 * (EmailException e) { Logger.getLogger(this.getClass()).error("Ошибка",
 	 * e); e.printStackTrace(); return e.getLocalizedMessage(); } return "";
 	 */
 	/*
@@ -266,15 +266,15 @@ public class Emailer implements IEmailer {
 	 * mes.setRecipients(Message.RecipientType.TO, addressTo);
 	 * transport.connect(); transport.send(mes); transport.close(); } catch
 	 * (NoSuchProviderException e) {
-	 * Logger.getLogger(this.getClass().getName()).error("Ошибка", e);
+	 * Logger.getLogger(this.getClass()).error("Ошибка", e);
 	 * e.printStackTrace(); return e.getLocalizedMessage(); } catch
-	 * (AddressException e) { Logger.getLogger(this.getClass().getName()).error("Ошибка",
+	 * (AddressException e) { Logger.getLogger(this.getClass()).error("Ошибка",
 	 * e); e.printStackTrace(); return e.getLocalizedMessage(); } catch
 	 * (MessagingException e) {
-	 * Logger.getLogger(this.getClass().getName()).error("Ошибка", e);
+	 * Logger.getLogger(this.getClass()).error("Ошибка", e);
 	 * e.printStackTrace(); return e.getLocalizedMessage(); } catch
 	 * (UnsupportedEncodingException e) {
-	 * Logger.getLogger(this.getClass().getName()).error("Ошибка", e);
+	 * Logger.getLogger(this.getClass()).error("Ошибка", e);
 	 * e.printStackTrace(); return e.getLocalizedMessage(); } return "";
 	 */
 

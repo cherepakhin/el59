@@ -85,7 +85,7 @@ public class DocDetailProvider extends GenericDaoHibernateImpl<DocDetail, Long>
         if (listDoc.size() > 0) {
             docTitle = listDoc.get(0);
         } else {
-            Logger.getLogger(this.getClass().getName()).severe(
+            Logger.getLogger(this.getClass()).severe(
                     String.format("Не найден документ n=%d shop=%s",
                             dto.getDocn(), shop.getCod()));
             return null;
@@ -131,12 +131,12 @@ public class DocDetailProvider extends GenericDaoHibernateImpl<DocDetail, Long>
     public DocDetail getByDTO(DocDetailDTO dto, String shopCod) {
         if (dto == null || shopCod == null) {
             if (dto == null) {
-                Logger.getLogger(this.getClass().getName()).severe(
+                Logger.getLogger(this.getClass()).severe(
                         String.format("dto is null"));
 
             }
             if (shopCod == null) {
-                Logger.getLogger(this.getClass().getName()).severe(
+                Logger.getLogger(this.getClass()).severe(
                         String.format("shoCod is null"));
             }
             return null;
@@ -219,7 +219,7 @@ public class DocDetailProvider extends GenericDaoHibernateImpl<DocDetail, Long>
             try {
                 getMoveProvider().create(move);
             } catch (Exception e) {
-                Logger.getLogger(this.getClass().getName()).severe(e.getMessage());
+                Logger.getLogger(this.getClass()).severe(e.getMessage());
 
             }
         }

@@ -21,29 +21,29 @@ public class ConvertorXmlSMS extends ConvertorFromXML<SMSDTO, SMS> {
 		try {
 			message = getMessageFromXml(xml);
 //			SMSDTO dto = message.getEntity();
-//			Logger.getLogger(this.getClass().getName()).info(dto.toString());
+//			Logger.getLogger(this.getClass()).info(dto.toString());
 //			SMS sms = fillFromDTO(dto, message.getShopCod());
 //			if (message.getShopCod() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass()).error(
 //						"ShopCod in message is null");
 //			}
 //			if (message.getTypeCommand() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass()).error(
 //						"TypeCommand in message is null");
 //			}
 //			if (message.getTypeCommand() == null) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass()).error(
 //						"TypeCommand in message is null");
 //			}
 //			if(sms.getPhone()==null || sms.getPhone().isEmpty()) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass()).error(
 //						"Phone is empty in SMS");
 //			}
 //			if(sms.getMessage()==null || sms.getMessage().isEmpty()) {
-//				Logger.getLogger(this.getClass().getName()).error(
+//				Logger.getLogger(this.getClass()).error(
 //						"Message is empty in SMS");
 //			}
-//			Logger.getLogger(this.getClass().getName())
+//			Logger.getLogger(this.getClass())
 //					.info(String
 //							.format("Shop: %s;Command %s;Nn: %s,phone: %s, message: %s  ",
 //									message.getShopCod(),

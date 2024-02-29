@@ -21,10 +21,10 @@ public class UtilProcessor {
 	private String emailManager;
 
 	public void setToZeroOldLocalPrice(Exchange exchange) throws Exception {
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Обнуление устареших локальных прайсов.Начало.");
 		Integer c = getPriceProvider().setToZeroOldLocalPrice();
-		Logger.getLogger(this.getClass().getName()).info(
+		Logger.getLogger(this.getClass()).info(
 				"Обнуление устареших локальных прайсов.Конец.Обнулено:" + c);
 	}
 

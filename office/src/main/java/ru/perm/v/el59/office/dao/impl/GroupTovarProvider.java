@@ -28,7 +28,7 @@ public class GroupTovarProvider extends
 
 	@Override
 	public GroupTovar initialize(String id) {
-//		Logger.getLogger(this.getClass().getName()).info("Initialize group_cod:" + id);
+//		Logger.getLogger(this.getClass()).info("Initialize group_cod:" + id);
 		GroupTovar o = (GroupTovar) getSession().get(GroupTovar.class, id);
 		if (id.equals("0000000000")) {
 			return o;
