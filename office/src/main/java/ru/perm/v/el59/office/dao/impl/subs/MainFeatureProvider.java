@@ -1,33 +1,34 @@
 package ru.perm.v.el59.office.dao.impl.subs;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.FetchMode;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.MainFeatureCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.Feature;
 import ru.perm.v.el59.office.db.FeatureOld;
 import ru.perm.v.el59.office.db.GroupTovar;
 import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.db.subs.*;
 import ru.perm.v.el59.office.iproviders.IFeatureOldProvider;
 import ru.perm.v.el59.office.iproviders.IGroupTProvider;
 import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+import ru.perm.v.el59.office.iproviders.critery.MainFeatureCritery;
 import ru.perm.v.el59.office.iproviders.subs.ICorrectionNameProvider;
 import ru.perm.v.el59.office.iproviders.subs.IGroupTovarMainFeatureProvider;
 import ru.perm.v.el59.office.iproviders.subs.IMainFeatureProvider;
 import ru.perm.v.el59.office.iproviders.subs.IValFeatureProvider;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class MainFeatureProvider extends
 		GenericDaoHibernateImpl<MainFeature, Long> implements
 		IMainFeatureProvider {
 
-	private static Logger LOG = Logger.getLogger(MainFeatureProvider.class);
+	private Logger LOG = Logger.getLogger(this.getClass().toGenericString());
 
 	private static final String MAINGRP = "Основные характеристики";
 	private IValFeatureProvider valFeatureProvider;
@@ -91,7 +92,7 @@ public class MainFeatureProvider extends
 	}
 
 	public CorrectionName addCorrectionName(MainFeature mainFeature,
-			String correction) throws Exception {
+											String correction) throws Exception {
 		if (mainFeature == null) {
 			throw new Exception("mainfeature is null");
 		}
@@ -158,7 +159,7 @@ public class MainFeatureProvider extends
 	}
 
 	public CorrectionVal addCorrectionVal(ValFeature valFeature,
-			String correction) throws Exception {
+										  String correction) throws Exception {
 		CorrectionVal correctionVal = getValFeatureProvider().addCorrectionVal(
 				valFeature, correction.trim());
 		return correctionVal;
@@ -662,8 +663,7 @@ public class MainFeatureProvider extends
 			try {
 				getTovarInfoProvider().calcMainFeature(ti);
 			} catch (Exception e) {
-				Logger.getLogger(this.getClass().getName()).error(
-						"Ошибка при расчете к-ва осн.хар-к.", e);
+				Logger.getLogger(this.getClass().getName()).severe("Ошибка при расчете к-ва осн.хар-к." + e.getMessage());
 				e.printStackTrace();
 			}
 		}
