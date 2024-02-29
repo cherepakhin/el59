@@ -1,5 +1,8 @@
 package ru.perm.v.el59.office.dao.impl;
 
+import ru.perm.v.el59.dao.CommonCritery;
+import ru.perm.v.el59.office.iproviders.shopmodel.ITypeOperationProvider;
+import ru.perm.v.el59.office.shopmodel.TypeOperation;
 import ru.perm.v.el59.office.wscommand.impl.GenericDaoMessageImpl;
 
 import java.util.List;
