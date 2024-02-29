@@ -1,10 +1,11 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
 import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.PayTerminalDTO;
-import ru.perm.v.el59.office.dto.message.MessagePayTerminalDTO;
+import ru.perm.v.el59.dto.PayTerminalDTO;
+import ru.perm.v.el59.dto.message.MessagePayTerminalDTO;
 import ru.perm.v.el59.office.shopmodel.PayTerminal;
+
+import java.util.logging.Logger;
 
 public class ConvertorXmlPayTerminal extends
 		ConvertorXmlPayment<PayTerminalDTO, PayTerminal> {
