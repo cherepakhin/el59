@@ -5,8 +5,8 @@ import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.camel.Body;
 import ru.perm.v.el59.dao.IGenericDao;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
-import ru.perm.v.el59.office.dto.message.TypeCommand;
+import ru.perm.v.el59.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.message.TypeCommand;
 import ru.perm.v.el59.office.wscommand.ICommander;
 
 public abstract class ConvertorFromXML<DTO, VO> {
