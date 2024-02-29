@@ -1,15 +1,15 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
 import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
+import ru.perm.v.el59.dto.BestTag;
+import ru.perm.v.el59.dto.BestTags;
+import ru.perm.v.el59.dto.message.MessageBestTags;
+import ru.perm.v.el59.dto.message.MessageEntity;
+import ru.perm.v.el59.dto.message.TypeCommand;
 import ru.perm.v.el59.office.analisebest.ProtocolForTag;
-import ru.perm.v.el59.office.dto.BestTag;
-import ru.perm.v.el59.office.dto.BestTags;
-import ru.perm.v.el59.office.dto.message.MessageBestTags;
-import ru.perm.v.el59.office.dto.message.MessageEntity;
-import ru.perm.v.el59.office.dto.message.TypeCommand;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ConvertorXmlBestTags extends ConvertorFromXML<BestTags, BestTags> {
 
