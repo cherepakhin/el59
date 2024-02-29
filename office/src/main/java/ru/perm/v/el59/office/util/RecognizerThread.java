@@ -11,7 +11,7 @@ import java.util.concurrent.Callable;
 public class RecognizerThread implements Callable<List<TTovar>> {
 
 	// private IAnalogProvider analogProvider;
-	private static Logger LOGGER = Logger.getLogger(RecognizerThread.class);
+	private static Logger LOGGER = Logger.getLogger(RecognizerThread.class.getName());
 
 	private List<TTovar> listTTovar;
 	private IAnalogProvider analogProvider;
