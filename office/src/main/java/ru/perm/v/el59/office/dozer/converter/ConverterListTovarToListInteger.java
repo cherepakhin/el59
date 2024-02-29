@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.dozer.converter;
 
 import org.dozer.CustomConverter;
-import ru.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.Tovar;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,10 +22,7 @@ public class ConverterListTovarToListInteger implements CustomConverter {
 				Tovar tovar = (Tovar) iter.next();
 				ret.add(tovar.getNnum());
 			}
-/*			for (Tovar tovar : list.toArray()) {
-				ret.add(tovar.getNnum());
-			}
-*/			return ret;
+			return ret;
 		}
 		return null;
 	}
