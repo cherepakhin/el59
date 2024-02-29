@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.commerceml;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger; 
 import ru.perm.v.el59.office.db.GroupT;
 
 import java.util.ArrayList;

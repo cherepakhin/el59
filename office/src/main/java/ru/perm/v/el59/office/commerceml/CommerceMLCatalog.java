@@ -4,7 +4,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger; 
 import ru.perm.v.el59.office.commerceml.model.CommerceInfo;
 import ru.perm.v.el59.office.commerceml.model.Good;
 import ru.perm.v.el59.office.commerceml.model.Property;

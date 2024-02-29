@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.analisebest;
 
 import org.apache.commons.io.filefilter.SuffixFileFilter;
-//import org.apache.log4j.Logger;
+//import java.util.logging.Logger; 
 import org.jboss.logging.Logger;
 import ru.perm.v.el59.dto.BestTag;
 

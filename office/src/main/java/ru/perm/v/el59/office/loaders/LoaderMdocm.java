@@ -1,10 +1,11 @@
 package ru.perm.v.el59.office.loaders;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.critery.TovarCritery;
+import java.util.logging.Logger; 
+
 import ru.perm.v.el59.office.db.*;
 import ru.perm.v.el59.office.iproviders.*;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.util.Helper;
 import ru.perm.v.el59.office.util.UnZip;
 
@@ -23,7 +24,7 @@ import java.util.*;
  * 
  */
 public class LoaderMdocm implements ILoaderMdocm {
-	private static Logger LOGGER = Logger.getLogger(LoaderMdocm.class);
+	private static Logger LOGGER = Logger.getLogger(String.valueOf(LoaderMdocm.class));
 	private IMoveProvider moveProvider;
 	private IOperationProvider operationProvider;
 	private ITypeStockProvider typeStockProvider;
@@ -134,27 +135,27 @@ public class LoaderMdocm implements ILoaderMdocm {
 			if(move.getOperation().getOpgroup().getName().equals(getNameReal())) {
 				HistoryTag tag = getHistoryTagProvider().getByTovarShopDate(move.getTovar(),move.getShop(),move.getDdate());
 				if(tag!=null) {
-					move.setCategory(tag.getCategory());
-					move.setLabel(tag.getLabel());
-					move.setComment(TagInfo.getLabelInfo(tag.getLabel()));
+//					move.setCategory(tag.getCategory());
+//					move.setLabel(tag.getLabel());
+//					move.setComment(TagInfo.getLabelInfo(tag.getLabel()));
 				} else {
 					LOGGER.info(String.format("Не найден ценник для магазина=%s, товар=%d, дата=%tF", move.getShop().getCod(),move.getTovar().getNnum(),move.getDdate()));
 				}
 				// Поиск прайса
 				HistoryPrice historyPrice = getHistoryPriceProvider().getByTovarShopDate(move.getTovar().getNnum(), move.getShop().getCod(), move.getDdate());
 				if(historyPrice!=null) {
-					move.setPrice(historyPrice.getNewcena());
-					move.setPriceName(historyPrice.getPricetype().getName());
+//					move.setPrice(historyPrice.getNewcena());
+//					move.setPriceName(historyPrice.getPricetype().getName());
 				} else {
-					move.setPrice(BigDecimal.ZERO);
-					move.setPriceName("");
+//					move.setPrice(BigDecimal.ZERO);
+//					move.setPriceName("");
 				}
 				// Поиск цены последнего прихода
 				BigDecimal cenainOnDate = getMoveProvider().getCenaInOnDate(move.getTovar().getNnum(), move.getDdate());
 				if(cenainOnDate.compareTo(BigDecimal.ZERO)==0) {
 					cenainOnDate=move.getSummain().divide(move.getQty(),RoundingMode.HALF_DOWN).setScale(2,RoundingMode.HALF_UP);
 				}
-				move.setCenaInOnDate(cenainOnDate);
+//				move.setCenaInOnDate(cenainOnDate);
 			}
 			getMoveProvider().create(move);
 		}
@@ -182,21 +183,21 @@ public class LoaderMdocm implements ILoaderMdocm {
 				FileUtils.deleteDirectory(dir);
 			} catch (IOException e) {
 				e.printStackTrace();
-				LOGGER.error(e);
+				LOGGER.severe(e.getMessage());
 			}
 		}
 		File tmpFile = new File("");
 		try {
 			boolean isCreate = dir.mkdir();
 			if(!isCreate) {
-				LOGGER.error("Ошибка при создании каталога "+tmpDir);
+				LOGGER.severe("Ошибка при создании каталога "+tmpDir);
 				throw new Exception("Ошибка при создании каталога "+tmpDir);
 			}
 			tmpFile = File.createTempFile("out", ".zip",dir);
 			FileUtils.writeByteArrayToFile(tmpFile, filedata);
 		} catch (IOException e) {
 			e.printStackTrace();
-			LOGGER.error(e);
+			LOGGER.severe(e.getMessage());
 		}
 
 		System.out.println("tmpDid-" + tmpDir);
@@ -258,23 +259,21 @@ public class LoaderMdocm implements ILoaderMdocm {
 				} catch (Exception e) {
 					Logger.getLogger(this.getClass().getName()).info(
 							"Не найдена операция " + move.getVid()
-									+ move.getTypeoper() + move.getCodeoper(),
-							e);
+									+ move.getTypeoper() + move.getCodeoper());
 					operation = hashBestChr.get("-");
 				}
 				if (operation == null) {
 					Logger.getLogger(this.getClass().getName()).info(
 							"Не найдена операция " + move.getVid()
-									+ move.getTypeoper() + move.getCodeoper(),
-							null);
+									+ move.getTypeoper() + move.getCodeoper());
 					operation = hashBestChr.get("-");
 				}
 				move.setOperation(operation);
 				ret.add(move);
 
 			} else {
-				Logger.getLogger(this.getClass().getName()).error(
-						"Не найден товар nnum " + nnum, null);
+				Logger.getLogger(this.getClass().getName()).severe(
+						"Не найден товар nnum " + nnum);
 			}
 		}
 		rs.close();
@@ -287,7 +286,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 				try {
 					FileUtils.forceDelete(f);
 				} catch (Exception e) {
-					LOGGER.error(e);
+					LOGGER.severe(e.getMessage());
 				}
 			}
 		}
@@ -295,7 +294,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 		try {
 			FileUtils.forceDelete(tmpFile);
 		} catch (Exception e) {
-			LOGGER.error(e);
+			LOGGER.severe(e.getMessage());
 		}
 		return ret;
 	}
@@ -305,7 +304,7 @@ public class LoaderMdocm implements ILoaderMdocm {
 			connection.commit();
 			connection.close();
 			if (!connection.isClosed()) {
-				LOGGER.error("Соединение с dbf не закрылось");
+				LOGGER.severe("Соединение с dbf не закрылось");
 			}
 		}
 	}

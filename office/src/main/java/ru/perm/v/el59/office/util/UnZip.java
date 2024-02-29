@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.util;
 
-import org.apache.log4j.Logger;
+import java.util.logging.Logger; 
 
 import java.io.*;
 import java.util.ArrayList;

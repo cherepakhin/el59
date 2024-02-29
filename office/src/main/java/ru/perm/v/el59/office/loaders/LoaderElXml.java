@@ -3,7 +3,7 @@ package ru.perm.v.el59.office.loaders;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.Dom4JDriver;
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger; 
 import ru.perm.v.el59.office.db.dto.elxml.*;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 

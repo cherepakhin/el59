@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.dao.impl.service;
 
-import org.apache.log4j.Logger;
+import java.util.logging.Logger; 
 import ru.perm.v.el59.dao.CommonCritery;
 import ru.perm.v.el59.office.critery.TDocCritery;
 import ru.perm.v.el59.office.db.Manager;

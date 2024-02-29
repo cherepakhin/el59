@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.util;
 
-import org.apache.log4j.Logger;
+import java.util.logging.Logger; 
 import ru.perm.v.el59.dto.office.util.IRecognizerInvoice;
 import ru.perm.v.el59.office.db.Doc;
 import ru.perm.v.el59.office.db.dto.TTovar;
