@@ -3,9 +3,9 @@ package ru.perm.v.el59.office.dao.impl.service;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import ru.perm.v.el59.office.critery.ClientCritery;
 import ru.perm.v.el59.office.dao.impl.GenericDaoHibernateImpl;
 import ru.perm.v.el59.office.db.service.Client;
+import ru.perm.v.el59.office.iproviders.critery.ClientCritery;
 import ru.perm.v.el59.office.iproviders.service.IClientProvider;
 
 import java.util.ArrayList;
