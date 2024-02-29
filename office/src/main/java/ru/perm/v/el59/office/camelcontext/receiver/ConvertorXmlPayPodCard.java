@@ -1,10 +1,11 @@
 package ru.perm.v.el59.office.camelcontext.receiver;
 
 import com.thoughtworks.xstream.XStream;
-import org.apache.log4j.Logger;
-import ru.perm.v.el59.office.dto.PayPodCardDTO;
-import ru.perm.v.el59.office.dto.message.MessagePayPodCardDTO;
+import ru.perm.v.el59.dto.PayPodCardDTO;
+import ru.perm.v.el59.dto.message.MessagePayPodCardDTO;
 import ru.perm.v.el59.office.shopmodel.PayPodCard;
+
+import java.util.logging.Logger;
 
 public class ConvertorXmlPayPodCard extends
 		ConvertorXmlPayment<PayPodCardDTO, PayPodCard> {
