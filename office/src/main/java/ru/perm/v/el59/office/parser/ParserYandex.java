@@ -1,7 +1,6 @@
 package ru.perm.v.el59.office.parser;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -20,6 +19,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ParserYandex extends AParserSite implements IParserSite {
 	// Кодировка сайта
@@ -64,10 +64,6 @@ public class ParserYandex extends AParserSite implements IParserSite {
 	/**
 	 * Заполнение описания товара и характеристик
 	 * 
-	 * @param tovar
-	 *            - TovarInfo для заполнения
-	 * @param nnum
-	 *            - н.номер
 	 * @return - заполненный характеристиками и описанием объект
 	 * @throws IOException
 	 * @throws XPathExpressionException
@@ -169,10 +165,6 @@ public class ParserYandex extends AParserSite implements IParserSite {
 	/**
 	 * Загрузка фотографий
 	 * 
-	 * @param tovar
-	 *            - TovarInfo для заполнения
-	 * @param nnum
-	 *            - н.номер
 	 * @return - заполненный TovarInfo
 	 * @throws Exception
 	 */
