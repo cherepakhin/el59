@@ -2,7 +2,6 @@ package ru.perm.v.el59.office.dao.impl.service;
 
 import java.util.logging.Logger; 
 import ru.perm.v.el59.dao.CommonCritery;
-import ru.perm.v.el59.office.critery.TDocCritery;
 import ru.perm.v.el59.office.db.Manager;
 import ru.perm.v.el59.office.db.TypeDoc;
 import ru.perm.v.el59.office.db.service.ATDoc;
@@ -13,6 +12,7 @@ import ru.perm.v.el59.office.iproviders.IManagerProvider;
 import ru.perm.v.el59.office.iproviders.ITypeDocProvider;
 import ru.perm.v.el59.office.iproviders.RequestItem;
 import ru.perm.v.el59.office.iproviders.RequestMessage;
+import ru.perm.v.el59.office.iproviders.critery.TDocCritery;
 import ru.perm.v.el59.office.iproviders.service.IControllerTDoc;
 import ru.perm.v.el59.office.iproviders.service.ILOPTDao;
 import ru.perm.v.el59.office.iproviders.service.ITDocProvider;
@@ -210,7 +210,7 @@ public class ControllerTDoc implements Serializable, IControllerTDoc {
 	@Override
 	public ITDoc loadContent(TDoc tdoc) {
 		if(tdoc.getTypeDoc()==null) {
-			Logger.getLogger(this.getClass().getName()).error(String.format("tdoc=%d getTypeDoc()=null", tdoc.getN()));
+			Logger.getLogger(this.getClass().getName()).severe(String.format("tdoc=%d getTypeDoc()=null", tdoc.getN()));
 		}
 		IHandlerTDoc handler = hashTypedocHandler.get(tdoc.getTypeDoc()
 				.getName());
