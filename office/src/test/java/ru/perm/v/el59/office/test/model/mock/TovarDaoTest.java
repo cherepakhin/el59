@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model.mock;
 
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -10,8 +10,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import ru.perm.v.el59.office.dao.impl.TovarProvider;
 import ru.perm.v.el59.office.db.Tovar;
 
@@ -44,7 +43,7 @@ public class TovarDaoTest {
 //		tovar.setCenaSupplier(null);
 		Date date = new Date();
 		Tovar tovarRet = tovarProviderStub.setCenaSupplier(tovar, new BigDecimal("1.00"), date);
-//		assertTrue(tovarRet.getCenaSupplier().compareTo(new BigDecimal("1.00"))==0);
+		assertTrue(tovarRet.getCena0().compareTo(new BigDecimal("1.00"))==0);
 //		assertTrue(tovarRet.getDateCenaSupplier().compareTo(date)==0);
 		verify(tovarProviderStub, times(1)).update(tovar);
 	}
