@@ -81,7 +81,7 @@ public class DocItemProvider extends GenericDaoHibernateImpl<DocItem, Long>
 			super.update(o);
 			getDocProvider().recalc(o.getDoc());
 		} catch (Exception e) {
-			// TODO: handle exception
+			LOGGER.severe(e.getMessage());
 		}
 	}
 

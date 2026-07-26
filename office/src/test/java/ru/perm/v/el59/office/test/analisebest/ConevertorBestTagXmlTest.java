@@ -1,13 +1,13 @@
 package ru.perm.v.el59.office.test.analisebest;
 
-import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ru.perm.v.el59.dto.BestTag;
 import ru.perm.v.el59.dto.BestTags;

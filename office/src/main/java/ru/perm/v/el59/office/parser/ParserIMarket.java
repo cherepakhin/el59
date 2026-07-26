@@ -250,7 +250,6 @@ public class ParserIMarket extends AParserSite implements IParserSite {
 
 	@Override
 	public String getSampleLink() {
-		// TODO Auto-generated method stub
 		return "http://imarket59.ru/shop/";
 	}
 

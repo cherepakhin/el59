@@ -8,8 +8,9 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -19,6 +20,7 @@ import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 import ru.perm.v.el59.office.db.TovarInfo;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 
+// this is INTEGRATION test
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext-test.xml")
 public class ExporterToCommerceXmlTest {

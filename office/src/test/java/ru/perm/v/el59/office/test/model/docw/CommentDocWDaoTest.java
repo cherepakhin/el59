@@ -1,8 +1,9 @@
 package ru.perm.v.el59.office.test.model.docw;
 
-import static org.junit.Assert.assertTrue;
 import ru.perm.v.el59.office.db.web.CommentDocW;
 import ru.perm.v.el59.office.test.model.DaoTest;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CommentDocWDaoTest extends DaoTest<CommentDocW, Long> {
 

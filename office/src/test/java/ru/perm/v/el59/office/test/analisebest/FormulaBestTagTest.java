@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.analisebest;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import bsh.EvalError;
 import bsh.Interpreter;

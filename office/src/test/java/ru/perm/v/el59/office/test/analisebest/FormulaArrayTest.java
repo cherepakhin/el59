@@ -1,20 +1,13 @@
 package ru.perm.v.el59.office.test.analisebest;
 
-import static org.junit.Assert.*;
-
-import java.io.File;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.apache.commons.io.FileUtils;
-import org.junit.Test;
-
-import ru.perm.v.el59.office.db.Price;
-import ru.perm.v.el59.office.db.Tovar;
 import bsh.EvalError;
 import bsh.Interpreter;
+import ru.perm.v.el59.office.db.Price;
+import ru.perm.v.el59.office.db.Tovar;
+import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 /**
  * Тест формулы для расчета cena1 dbf-прайса для Бест

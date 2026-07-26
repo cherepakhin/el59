@@ -7,8 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Ignore;
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import ru.perm.v.el59.office.commerceml.Catalog;
 import ru.perm.v.el59.office.commerceml.Classificator;
 import ru.perm.v.el59.office.commerceml.TovarInfoXml;

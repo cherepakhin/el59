@@ -1,15 +1,11 @@
 package ru.perm.v.el59.office.test.loader;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -17,7 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ru.perm.v.el59.office.iproviders.ILoaderMdocm;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext.xml")
 public class LoaderMdocmTest {
 
@@ -27,8 +26,6 @@ public class LoaderMdocmTest {
 	@Test
 	public void test() {
 		String shopCod = "07220";
-		
-		
 		String tmpDir = FileUtils.getTempDirectoryPath();
 		System.out.println(tmpDir);
 		tmpDir = tmpDir + File.separator+ shopCod;

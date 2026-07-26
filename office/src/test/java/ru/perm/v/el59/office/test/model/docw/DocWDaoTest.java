@@ -1,11 +1,11 @@
 package ru.perm.v.el59.office.test.model.docw;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ru.perm.v.el59.office.db.Shop;
 import ru.perm.v.el59.office.db.web.DocW;
@@ -37,6 +37,5 @@ public class DocWDaoTest extends DaoTest<DocW, Long> {
 		List<Shop> workedShops = shopDao.getWorkedShop();
 		List<DocWInfo> listDocWInfo = docWProvider.getOnlyOpen(workedShops);
 		assertNotNull(listDocWInfo);
-		
 	}
 }

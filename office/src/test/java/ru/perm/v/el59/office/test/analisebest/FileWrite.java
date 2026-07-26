@@ -1,13 +1,13 @@
 package ru.perm.v.el59.office.test.analisebest;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.apache.commons.io.FileUtils;
-import org.junit.Test;
 
 public class FileWrite {
 

@@ -1,11 +1,10 @@
 package ru.perm.v.el59.office.test.loader;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ru.perm.v.el59.office.db.dto.elxml.Good;
 import ru.perm.v.el59.office.loaders.LoaderElXml;

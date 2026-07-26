@@ -1,15 +1,14 @@
 package ru.perm.v.el59.office.calc;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
-import org.junit.Test;
-
 import bsh.EvalError;
 import bsh.Interpreter;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class BshCalc {
 

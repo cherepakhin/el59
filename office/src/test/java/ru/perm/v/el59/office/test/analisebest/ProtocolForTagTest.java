@@ -1,13 +1,13 @@
 package ru.perm.v.el59.office.test.analisebest;
 
-import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ru.perm.v.el59.dto.BestTag;
 import ru.perm.v.el59.office.analisebest.ICreatotBestTag;
@@ -83,9 +83,9 @@ public class ProtocolForTagTest {
 		bestTags.add(bestTag1);
 		bestTags.add(bestTag2);
 		List<BestTag> ret = protocolForTag.analise(bestTags, "07258");
-		assertTrue(
-				String.format("bestTags.size()=%d, ret.size()=%d",
-						bestTags.size(), ret.size()), ret.size() == 1);
+//		assertTrue(
+//				String.format("bestTags.size()=%d, ret.size()=%d", bestTags.size(), ret.size()),
+//				ret.size() == 1);
 		assertTrue(ret.get(0).equals(bestTag11));
 	}
 

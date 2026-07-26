@@ -252,7 +252,6 @@ public class ParserE96 extends AParserSite implements IParserSite {
 
 	@Override
 	public String getSampleLink() {
-		// TODO Auto-generated method stub
 		return "http://e96.ru/";
 	}
 

@@ -1,12 +1,11 @@
 package ru.perm.v.el59.office.test.model.docw;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ru.perm.v.el59.office.db.web.DocW;
 import ru.perm.v.el59.office.db.web.DocWItem;

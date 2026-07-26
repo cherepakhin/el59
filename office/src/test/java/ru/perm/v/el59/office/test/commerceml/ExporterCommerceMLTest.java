@@ -1,14 +1,11 @@
 package ru.perm.v.el59.office.test.commerceml;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -17,6 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ru.perm.v.el59.office.commerceml.ExporterToCommerceML;
 import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext.xml")
