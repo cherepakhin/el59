@@ -9,11 +9,11 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.el59.office.critery.PlanCritery;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.plan.Plan;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.plan.IPlanProvider;
+import ru.perm.v.el59.office.iproviders.critery.PlanCritery;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.plan.Plan;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.plan.IPlanProvider;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class PlanDaoTest extends DaoTest<Plan, Long> {

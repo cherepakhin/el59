@@ -1,6 +1,6 @@
 package ru.perm.v.el59.office.test.model;
 
-import ru.el59.office.db.Analog;
+import ru.perm.v.el59.office.db.Analog;
 
 public class SetGroupTovarDaoTest extends DaoTest<Analog,Long>{
 

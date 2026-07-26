@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model.service;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.service.TDocReceiveFromSC;
+import ru.perm.v.el59.office.db.service.TDocReceiveFromSC;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class TDocReceiveFromSCDaoTest extends DaoTest<TDocReceiveFromSC,Long> {

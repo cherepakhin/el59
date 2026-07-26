@@ -16,8 +16,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import ru.el59.office.db.Tovar;
-import ru.el59.office.parser.ParserMailRu;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.parser.ParserMailRu;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext.xml")

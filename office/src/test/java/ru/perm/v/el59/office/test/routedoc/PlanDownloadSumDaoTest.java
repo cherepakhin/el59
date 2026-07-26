@@ -13,21 +13,21 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.DocFile;
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.TypeFile;
-import ru.el59.office.db.routedoc.PlanDownload;
-import ru.el59.office.db.routedoc.PlanDownloadSum;
-import ru.el59.office.iproviders.IContragentProvider;
-import ru.el59.office.iproviders.IManagerProvider;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.ITypeFileProvider;
-import ru.el59.office.iproviders.routedoc.IPlanDownloadProvider;
-import ru.el59.office.iproviders.routedoc.IPlanDownloadSumProvider;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.DocFile;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.TypeFile;
+import ru.perm.v.el59.office.db.routedoc.PlanDownload;
+import ru.perm.v.el59.office.db.routedoc.PlanDownloadSum;
+import ru.perm.v.el59.office.iproviders.IContragentProvider;
+import ru.perm.v.el59.office.iproviders.IManagerProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.ITypeFileProvider;
+import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadProvider;
+import ru.perm.v.el59.office.iproviders.routedoc.IPlanDownloadSumProvider;
 import ru.perm.v.el59.office.test.model.DaoTest;
-import ru.el59.office.util.Helper;
+import ru.perm.v.el59.office.util.Helper;
 
 public class PlanDownloadSumDaoTest extends DaoTest<PlanDownloadSum, Long> {
 

@@ -7,9 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.critery.RestCritery;
-import ru.el59.office.db.RestCur;
-import ru.el59.office.iproviders.IRestCurProvider;
+import ru.perm.v.el59.office.iproviders.critery.RestCritery;
+import ru.perm.v.el59.office.db.RestCur;
+import ru.perm.v.el59.office.iproviders.IRestCurProvider;
 
 public class RestCurDaoTest extends DaoTest<RestCur, Long> {
 

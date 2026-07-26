@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.db.web.RestWeb;
-import ru.el59.office.db.web.TypeSite;
-import ru.el59.office.iproviders.web.IRestWebProvider;
+import ru.perm.v.el59.office.db.web.RestWeb;
+import ru.perm.v.el59.office.db.web.TypeSite;
+import ru.perm.v.el59.office.iproviders.web.IRestWebProvider;
 
 public class RestWebDaoTest extends DaoTest<RestWeb,Long>{
 

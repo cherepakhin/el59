@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model.docw;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.web.SubsFeature;
+import ru.perm.v.el59.office.db.web.SubsFeature;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class SubsFeatureDaoTest extends DaoTest<SubsFeature, Long> {

@@ -45,7 +45,7 @@ return new BigDecimal((rub/100+0.5).intValue()*100-10+kop);
 	@Test
 	public void testBigDecimal() {
 		BigDecimal newCena=new BigDecimal("0.00");
-		newCena.multiply(new BigDecimal(new Double(2)));
+		newCena.multiply(new BigDecimal("2"));
 		Interpreter i = new Interpreter();
 		try {
 			i.set("k", new BigDecimal("2.00"));
@@ -66,7 +66,7 @@ return new BigDecimal((rub/100+0.5).intValue()*100-10+kop);
 		Interpreter i = new Interpreter();
 		try {
 			i.set("cena", new BigDecimal("10.50"));
-			i.set("nnum", new Integer(100000));
+			i.set("nnum", Integer.valueOf(100000));
 			newCena = (BigDecimal) i.eval("" +
 					"import java.math.BigDecimal;" +
 					"if(nnum.equals(71049743)) return cena;" +

@@ -15,10 +15,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.dao.impl.ThingProvider;
-import ru.el59.office.dao.impl.TovarProvider;
-import ru.el59.office.db.Thing;
-import ru.el59.office.db.Tovar;
+import ru.perm.v.el59.office.dao.impl.ThingProvider;
+import ru.perm.v.el59.office.dao.impl.TovarProvider;
+import ru.perm.v.el59.office.db.Thing;
+import ru.perm.v.el59.office.db.Tovar;
 
 public class ThingDaoTest {
 

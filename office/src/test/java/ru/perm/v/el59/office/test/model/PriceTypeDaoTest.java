@@ -8,8 +8,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.db.PriceType;
-import ru.el59.office.iproviders.IPriceTypeProvider;
+import ru.perm.v.el59.office.db.PriceType;
+import ru.perm.v.el59.office.iproviders.IPriceTypeProvider;
 
 public class PriceTypeDaoTest extends DaoTest<PriceType,Long>{
 

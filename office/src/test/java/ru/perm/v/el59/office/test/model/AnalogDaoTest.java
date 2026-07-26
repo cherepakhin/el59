@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.Analog;
+import ru.perm.v.el59.office.db.Analog;
 
 public class AnalogDaoTest extends DaoTest<Analog,Long>{
 

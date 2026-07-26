@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'ru.perm.v.el59_office'
-version = '0.0.1'
+version = '0.0.2'
 
 java {
 	sourceCompatibility = '11'
@@ -16,6 +16,10 @@ java {
 jar {
 	enabled = true
 	archiveClassifier = '' //change PLAIN to empty string
+}
+
+bootJar {
+	enabled = false
 }
 
 repositories {
@@ -36,10 +40,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.8'
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.8'
 	implementation 'org.springframework:spring-jms:4.3.3.RELEASE'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+// Source: https://mvnrepository.com/artifact/commons-io/commons-io
+	implementation("commons-io:commons-io:2.22.0")
 
-	implementation 'org.apache.camel:camel-core:4.0.0'
+	implementation 'org.apache.camel:camel-core:3.12.0'
 	// https://mvnrepository.com/artifact/commons-io/commons-io
 	implementation  'commons-io:commons-io:2.15.1'
+
 	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
 	implementation 'org.apache.commons:commons-lang3:3.14.0'
 
@@ -87,6 +95,10 @@ test {
 //	// the full version (with sources and documentation) of Gradle (ALL)
 //	distributionType = Wrapper.DistributionType.ALL
 //}
+
+tasks.withType(Javadoc).configureEach {
+	options.addStringOption('Xdoclint', '-missing')
+}
 
 tasks.withType(JavaCompile).configureEach {
 	println "Module Application. On JavaCompile. Executing TASK: " + it.name

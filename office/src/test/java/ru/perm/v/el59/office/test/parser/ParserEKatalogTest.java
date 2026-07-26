@@ -6,22 +6,22 @@ import static org.junit.Assert.fail;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import ru.el59.office.db.Feature;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.TovarInfo;
-import ru.el59.office.iproviders.ITovarInfoProvider;
-import ru.el59.office.iproviders.ITovarProvider;
-import ru.el59.office.iproviders.subs.IMainFeatureProvider;
-import ru.el59.office.iproviders.web.ISubsFeatureProvider;
-import ru.el59.office.parser.ParserEKatalog;
+import ru.perm.v.el59.office.db.Feature;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.subs.IMainFeatureProvider;
+import ru.perm.v.el59.office.iproviders.web.ISubsFeatureProvider;
+import ru.perm.v.el59.office.parser.ParserEKatalog;
 
 public class ParserEKatalogTest {
 

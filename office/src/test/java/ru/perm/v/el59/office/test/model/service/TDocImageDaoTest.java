@@ -11,12 +11,12 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import ru.el59.office.db.service.TDoc;
-import ru.el59.office.db.service.TDocImage;
-import ru.el59.office.db.service.TypeTDocImage;
-import ru.el59.office.iproviders.service.ITDocImageProvider;
-import ru.el59.office.iproviders.service.ITDocProvider;
-import ru.el59.office.iproviders.service.ITypeTDocImageProvider;
+import ru.perm.v.el59.office.db.service.TDoc;
+import ru.perm.v.el59.office.db.service.TDocImage;
+import ru.perm.v.el59.office.db.service.TypeTDocImage;
+import ru.perm.v.el59.office.iproviders.service.ITDocImageProvider;
+import ru.perm.v.el59.office.iproviders.service.ITDocProvider;
+import ru.perm.v.el59.office.iproviders.service.ITypeTDocImageProvider;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class TDocImageDaoTest extends DaoTest<TDocImage,Long> {
@@ -51,7 +51,7 @@ public class TDocImageDaoTest extends DaoTest<TDocImage,Long> {
 		tdocImage.setTdoc(tdoc);
 		String filename="/home/vasi/temp/00135441.dbf";
 		tdocImage.setFilename(filename);
-		tdocImage.setName(list.get(0));
+		tdocImage.setName(list.get(0).getName());
 		Long tdocImage_n=new Long(-1);
 		try {
 			byte[] data = FileUtils.readFileToByteArray(new File(filename));

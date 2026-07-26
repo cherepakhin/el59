@@ -1,7 +1,8 @@
 package ru.perm.v.el59.office.test.model;
 
+import ru.perm.v.el59.office.db.subs.CorrectionName;
+
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.subs.CorrectionName;
 
 public class CorrectionNameDaoTest extends DaoTest<CorrectionName,Long>{
 

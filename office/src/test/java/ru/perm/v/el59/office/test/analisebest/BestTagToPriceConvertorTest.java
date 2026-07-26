@@ -12,8 +12,8 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
-import ru.el59.office.analisebest.BestTagToPriceConvertor;
-import ru.el59.office.dto.BestTag;
+import ru.perm.v.el59.dto.BestTag;
+import ru.perm.v.el59.office.analisebest.BestTagToPriceConvertor;
 
 public class BestTagToPriceConvertorTest {
 

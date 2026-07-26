@@ -1,8 +1,8 @@
 package ru.perm.v.el59.office.test.model;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.OpGroup;
-import ru.el59.office.iproviders.IOpGroupProvider;
+import ru.perm.v.el59.office.db.OpGroup;
+import ru.perm.v.el59.office.iproviders.IOpGroupProvider;
 
 public class OpGroupDaoTest extends DaoTest<OpGroup,Long>{
 

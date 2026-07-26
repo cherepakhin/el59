@@ -9,15 +9,15 @@ import java.util.Map;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.el59.office.commerceml.Catalog;
-import ru.el59.office.commerceml.Classificator;
-import ru.el59.office.commerceml.TovarInfoXml;
-import ru.el59.office.db.Feature;
-import ru.el59.office.db.GroupT;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.Photo;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.commerceml.Catalog;
+import ru.perm.v.el59.office.commerceml.Classificator;
+import ru.perm.v.el59.office.commerceml.TovarInfoXml;
+import ru.perm.v.el59.office.db.Feature;
+import ru.perm.v.el59.office.db.GroupT;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.Photo;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.TovarInfo;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 

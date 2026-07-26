@@ -11,14 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import ru.el59.office.db.Manager;
-import ru.el59.office.db.service.LOPT;
-import ru.el59.office.iproviders.IManagerProvider;
-import ru.el59.office.iproviders.RequestItem;
-import ru.el59.office.iproviders.RequestMessage;
-import ru.el59.office.iproviders.service.IControllerTDoc;
-import ru.el59.office.iproviders.service.ILOPTDao;
+import ru.perm.v.el59.office.db.Manager;
+import ru.perm.v.el59.office.db.service.LOPT;
+import ru.perm.v.el59.office.iproviders.IManagerProvider;
+import ru.perm.v.el59.office.iproviders.RequestItem;
+import ru.perm.v.el59.office.iproviders.RequestMessage;
+import ru.perm.v.el59.office.iproviders.service.IControllerTDoc;
+import ru.perm.v.el59.office.iproviders.service.ILOPTDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext-test.xml")

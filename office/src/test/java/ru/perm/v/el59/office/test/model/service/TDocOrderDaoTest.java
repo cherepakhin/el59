@@ -1,7 +1,8 @@
 package ru.perm.v.el59.office.test.model.service;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.service.TDocOrder;
+
+import ru.perm.v.el59.office.db.service.TDocOrder;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class TDocOrderDaoTest extends DaoTest<TDocOrder,Long> {

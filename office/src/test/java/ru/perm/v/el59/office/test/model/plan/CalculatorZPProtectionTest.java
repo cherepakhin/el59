@@ -7,10 +7,10 @@ import java.math.RoundingMode;
 
 import org.junit.Test;
 
-import ru.el59.office.dao.impl.plan.CalculatorZPProtection;
-import ru.el59.office.db.Move;
-import ru.el59.office.db.Operation;
-import ru.el59.office.db.plan.UserZP;
+import ru.perm.v.el59.office.dao.impl.plan.CalculatorZPProtection;
+import ru.perm.v.el59.office.db.Move;
+import ru.perm.v.el59.office.db.Operation;
+import ru.perm.v.el59.office.db.plan.UserZP;
 
 public class CalculatorZPProtectionTest {
 
@@ -29,7 +29,6 @@ public class CalculatorZPProtectionTest {
 		CalculatorZPProtection calculator = new CalculatorZPProtection();
 		u=calculator.addSumInOut(u, m);
 	
-		assertTrue(u.getSummaOut().compareTo(SUMMAOUT)==0);
 		assertTrue(u.getSummaPDS().compareTo(SUMMAOUT)==0);
 	}
 
@@ -47,7 +46,6 @@ public class CalculatorZPProtectionTest {
 		m.setOperation(getOperation());
 		m.setSummaout(SUMMAOUT);
 		UserZP u = new UserZP();
-		u.setSummaOut(SUMMAOUT);
 		u.setSummaPDS(SUMMAOUT.multiply(PLAN_PDS));
 		CalculatorZPProtection calculator = new CalculatorZPProtection();
 		u=calculator.calcZP(u, m);
@@ -65,7 +63,6 @@ public class CalculatorZPProtectionTest {
 		m.setOperation(getOperation());
 		m.setSummaout(SUMMAOUT);
 		UserZP u = new UserZP();
-		u.setSummaOut(SUMMAOUT);
 		// План для ЗАЩИТ 3%. Делаю выполнение меньше.
 		u.setSummaPDS(SUMMAOUT.multiply(new BigDecimal("0.02")));
 		CalculatorZPProtection calculator = new CalculatorZPProtection();

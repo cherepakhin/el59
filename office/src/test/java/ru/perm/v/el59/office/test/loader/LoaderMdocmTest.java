@@ -15,7 +15,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import ru.el59.office.iproviders.ILoaderMdocm;
+import ru.perm.v.el59.office.iproviders.ILoaderMdocm;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext.xml")

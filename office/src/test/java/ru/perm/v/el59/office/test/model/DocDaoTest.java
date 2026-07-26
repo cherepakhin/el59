@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.Doc;
+import ru.perm.v.el59.office.db.Doc;
 
 public class DocDaoTest extends DaoTest<Doc, Long> {
 

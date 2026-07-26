@@ -7,10 +7,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.critery.PriceCritery;
-import ru.el59.office.critery.TovarCritery;
-import ru.el59.office.db.Price;
-import ru.el59.office.iproviders.IPriceProvider;
+import ru.perm.v.el59.office.iproviders.critery.PriceCritery;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
+import ru.perm.v.el59.office.db.Price;
+import ru.perm.v.el59.office.iproviders.IPriceProvider;
 
 public class PriceDaoTest extends DaoTest<Price,Long>{
 

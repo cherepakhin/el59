@@ -16,9 +16,7 @@ import org.junit.Test;
 
 import bsh.EvalError;
 import bsh.Interpreter;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.Price;
-import ru.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.*;
 
 /**
  * Тест формулы для расчета cena1 dbf-прайса для Бест
@@ -58,7 +56,7 @@ public class FormulaBestTagTest {
 		BonusK bonusK = new BonusK();
 		bonusK.setName(nameBonusK);
 		groupTovar.setBonusk(bonusK);
-		p.setCategory(category);
+//		p.setCategory(category);
 		p.setTovar(tovar);
 
 		p.setCena(cena);

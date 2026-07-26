@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import ru.el59.office.db.CreditBank;
+import ru.perm.v.el59.office.db.CreditBank;
 
 public class CreditBankDaoTest extends DaoTest<CreditBank,Long>{
 

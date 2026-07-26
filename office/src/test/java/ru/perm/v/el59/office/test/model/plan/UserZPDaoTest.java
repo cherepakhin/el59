@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.critery.PlanCritery;
-import ru.el59.office.db.plan.UserZP;
-import ru.el59.office.iproviders.plan.IUserZPProvider;
+import ru.perm.v.el59.office.db.plan.UserZP;
+import ru.perm.v.el59.office.iproviders.critery.PlanCritery;
+import ru.perm.v.el59.office.iproviders.plan.IUserZPProvider;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class UserZPDaoTest extends DaoTest<UserZP,Long> {

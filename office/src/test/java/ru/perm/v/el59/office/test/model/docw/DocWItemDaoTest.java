@@ -8,12 +8,12 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.el59.office.db.web.DocW;
-import ru.el59.office.db.web.DocWItem;
-import ru.el59.office.db.web.DocWItemInfo;
-import ru.el59.office.iproviders.web.DocWCritery;
-import ru.el59.office.iproviders.web.DocWItemCritery;
-import ru.el59.office.iproviders.web.IDocWItemProvider;
+import ru.perm.v.el59.office.db.web.DocW;
+import ru.perm.v.el59.office.db.web.DocWItem;
+import ru.perm.v.el59.office.db.web.DocWItemInfo;
+import ru.perm.v.el59.office.iproviders.web.DocWCritery;
+import ru.perm.v.el59.office.iproviders.web.DocWItemCritery;
+import ru.perm.v.el59.office.iproviders.web.IDocWItemProvider;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class DocWItemDaoTest extends DaoTest<DocWItem, Long> {

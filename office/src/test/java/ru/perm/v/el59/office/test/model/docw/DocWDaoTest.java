@@ -7,11 +7,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.web.DocW;
-import ru.el59.office.db.web.DocWInfo;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.web.IDocWProvider;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.web.DocW;
+import ru.perm.v.el59.office.db.web.DocWInfo;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.web.IDocWProvider;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class DocWDaoTest extends DaoTest<DocW, Long> {

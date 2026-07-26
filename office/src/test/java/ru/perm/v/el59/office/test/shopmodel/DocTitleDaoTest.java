@@ -11,21 +11,21 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.el59.office.critery.DocTitleCritery;
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.TypeStock;
-import ru.el59.office.db.UserShop;
-import ru.el59.office.iproviders.IContragentProvider;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.ITypeStockProvider;
-import ru.el59.office.iproviders.IUserShopProvider;
-import ru.el59.office.iproviders.shopmodel.IDocTitleProvider;
-import ru.el59.office.iproviders.shopmodel.ITypeDocShopProvider;
-import ru.el59.office.iproviders.shopmodel.ITypePriceProvider;
-import ru.el59.office.shopmodel.DocTitle;
-import ru.el59.office.shopmodel.TypeDocShop;
-import ru.el59.office.shopmodel.TypePrice;
+import ru.perm.v.el59.office.iproviders.critery.DocTitleCritery;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.TypeStock;
+import ru.perm.v.el59.office.db.UserShop;
+import ru.perm.v.el59.office.iproviders.IContragentProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.ITypeStockProvider;
+import ru.perm.v.el59.office.iproviders.IUserShopProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.IDocTitleProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.ITypeDocShopProvider;
+import ru.perm.v.el59.office.iproviders.shopmodel.ITypePriceProvider;
+import ru.perm.v.el59.office.shopmodel.DocTitle;
+import ru.perm.v.el59.office.shopmodel.TypeDocShop;
+import ru.perm.v.el59.office.shopmodel.TypePrice;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class DocTitleDaoTest extends DaoTest<DocTitle, Long> {

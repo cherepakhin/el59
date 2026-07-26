@@ -15,13 +15,14 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.TovarInfo;
-import ru.el59.office.iproviders.ITovarInfoProvider;
-import ru.el59.office.iproviders.ITovarProvider;
-import ru.el59.office.iproviders.subs.IMainFeatureProvider;
-import ru.el59.office.iproviders.web.ISubsFeatureProvider;
-import ru.el59.office.parser.ParserLogoRu;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.subs.IMainFeatureProvider;
+import ru.perm.v.el59.office.iproviders.web.ISubsFeatureProvider;
+import ru.perm.v.el59.office.parser.ParserLogoRu;
+
 
 public class ParserLogoRuTest {
 

@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model.plan;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.plan.TDocTabel;
+import ru.perm.v.el59.office.db.plan.TDocTabel;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class TDocTabelDaoTest extends DaoTest<TDocTabel,Long> {

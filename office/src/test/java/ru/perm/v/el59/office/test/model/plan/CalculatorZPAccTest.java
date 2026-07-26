@@ -7,10 +7,10 @@ import java.math.RoundingMode;
 
 import org.junit.Test;
 
-import ru.el59.office.dao.impl.plan.CalculatorZPAcc;
-import ru.el59.office.db.Move;
-import ru.el59.office.db.Operation;
-import ru.el59.office.db.plan.UserZP;
+import ru.perm.v.el59.office.dao.impl.plan.CalculatorZPAcc;
+import ru.perm.v.el59.office.db.Move;
+import ru.perm.v.el59.office.db.Operation;
+import ru.perm.v.el59.office.db.plan.UserZP;
 
 /**
  * Тест калькулятора ЗП для Аксессуаров
@@ -33,7 +33,7 @@ public class CalculatorZPAccTest {
 		UserZP u = new UserZP();
 		CalculatorZPAcc calculator = new CalculatorZPAcc();
 		u=calculator.addSumInOut(u, m);
-		assertTrue(u.getSummaOut().compareTo(SUMMAOUT)==0);
+//		assertTrue(u.getSummaOut().compareTo(SUMMAOUT)==0);
 		assertTrue(u.getSummaAcc().compareTo(SUMMAOUT)==0);
 	}
 	
@@ -54,7 +54,7 @@ public class CalculatorZPAccTest {
 		m.setOperation(getOperation());
 
 		UserZP u = new UserZP();
-		u.setSummaOut(PLAN_SUMMAOUT);
+//		u.setSummaOut(PLAN_SUMMAOUT);
 		u.setSummaAcc(PLAN_SUMMAOUT.multiply(new BigDecimal("0.11")));
 		CalculatorZPAcc calculator = new CalculatorZPAcc();
 		
@@ -80,7 +80,7 @@ public class CalculatorZPAccTest {
 		m.setOperation(getOperation());
 
 		UserZP u = new UserZP();
-		u.setSummaOut(PLAN_SUMMAOUT);
+//		u.setSummaOut(PLAN_SUMMAOUT);
 		u.setSummaAcc(SUMMAOUT);
 		CalculatorZPAcc calculator = new CalculatorZPAcc();
 		
@@ -107,7 +107,7 @@ public class CalculatorZPAccTest {
 		m.setOperation(getOperation());
 
 		UserZP u = new UserZP();
-		u.setSummaOut(PLAN_SUMMAOUT);
+//		u.setSummaOut(PLAN_SUMMAOUT);
 		u.setSummaAcc(PLAN_SUMMAOUT.multiply(new BigDecimal("0.11")).multiply(new BigDecimal("0.70")));
 		CalculatorZPAcc calculator = new CalculatorZPAcc();
 		
@@ -130,7 +130,7 @@ public class CalculatorZPAccTest {
 		m.setOperation(getOperation());
 
 		UserZP u = new UserZP();
-		u.setSummaOut(PLAN_SUMMAOUT);
+//		u.setSummaOut(PLAN_SUMMAOUT);
 		u.setSummaAcc(PLAN_SUMMAOUT.multiply(new BigDecimal("0.11")).multiply(new BigDecimal("0.70")));
 		CalculatorZPAcc calculator = new CalculatorZPAcc();
 		

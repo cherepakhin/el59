@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.subs.ValFeature;
+import ru.perm.v.el59.office.db.subs.ValFeature;
 
 public class ValFeatureDaoTest extends DaoTest<ValFeature,Long>{
 

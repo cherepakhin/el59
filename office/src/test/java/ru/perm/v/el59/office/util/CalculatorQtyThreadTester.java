@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import ru.el59.office.util.CalculatorQtyThread;
+import ru.perm.v.el59.office.util.CalculatorQtyThread;
 
 public class CalculatorQtyThreadTester {
 

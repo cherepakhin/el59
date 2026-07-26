@@ -19,13 +19,13 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.camel.StringSource;
+import org.apache.camel.util.xml.StringSource;
 import org.junit.Before;
 import org.junit.Test;
 
-import ru.el59.office.db.Contragent;
-import ru.el59.office.db.RestSupplier;
-import ru.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.Contragent;
+import ru.perm.v.el59.office.db.RestSupplier;
+import ru.perm.v.el59.office.db.Tovar;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;

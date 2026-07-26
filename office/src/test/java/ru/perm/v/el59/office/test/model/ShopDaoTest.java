@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import ru.el59.office.db.Shop;
-import ru.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
 
 public class ShopDaoTest extends DaoTest<Shop,String>{
 

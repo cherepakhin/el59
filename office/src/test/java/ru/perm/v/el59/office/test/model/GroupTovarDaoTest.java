@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.iproviders.IGroupTovarProvider;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
 
 public class GroupTovarDaoTest extends DaoTest<GroupTovar,String>{
 

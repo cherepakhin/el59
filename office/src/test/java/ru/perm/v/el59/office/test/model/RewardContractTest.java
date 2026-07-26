@@ -20,13 +20,13 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import org.xml.sax.SAXException;
 
-import ru.el59.office.dao.impl.shopmodel.RewardCreditProvider;
-import ru.el59.office.db.Shop;
-import ru.el59.office.db.UserShop;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.iproviders.IUserShopProvider;
-import ru.el59.office.shopmodel.RewardCredit;
-import ru.el59.office.shopmodel.RewardCreditXLS;
+import ru.perm.v.el59.office.dao.impl.shopmodel.RewardCreditProvider;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.db.UserShop;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.IUserShopProvider;
+import ru.perm.v.el59.office.shopmodel.RewardCredit;
+import ru.perm.v.el59.office.shopmodel.RewardCreditXLS;
 
 public class RewardContractTest {
 

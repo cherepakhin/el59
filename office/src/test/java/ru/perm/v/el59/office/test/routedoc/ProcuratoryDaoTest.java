@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.routedoc;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.db.routedoc.Procuratory;
+import ru.perm.v.el59.office.db.routedoc.Procuratory;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class ProcuratoryDaoTest extends DaoTest<Procuratory, Long> {

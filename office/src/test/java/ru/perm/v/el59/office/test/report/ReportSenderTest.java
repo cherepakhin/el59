@@ -13,10 +13,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import ru.el59.dao.IGenericDao;
-import ru.el59.office.report.ReportSender;
-import ru.el59.office.util.Helper;
-import ru.el59.office.util.Period;
+import ru.perm.v.el59.office.report.ReportSender;
+import ru.perm.v.el59.office.util.Helper;
+import ru.perm.v.el59.office.util.Period;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext.xml")

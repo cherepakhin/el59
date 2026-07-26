@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.shopmodel;
 
 import static org.junit.Assert.assertTrue;
-import ru.el59.office.shopmodel.PodCard;
+import ru.perm.v.el59.office.shopmodel.PodCard;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class PodCardDaoTest extends DaoTest<PodCard,Long> {

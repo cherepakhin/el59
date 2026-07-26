@@ -16,11 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.critery.TovarCritery;
 
-import ru.el59.office.critery.TovarCritery;
-import ru.el59.office.db.Tovar;
-import ru.el59.office.iproviders.ITovarProvider;
-import ru.el59.office.util.ILuceneSearcher;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:springContext.xml")
@@ -75,11 +74,13 @@ public class LuceneSearcherTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail("Ошибка IO");
-		} catch (ParseException e) {
+		} catch (java.text.ParseException e) {
 			e.printStackTrace();
 			fail("Ошибка Parse");
-		}
-		assertNotNull(listNnum);
+        } catch (org.apache.el.parser.ParseException e) {
+            throw new RuntimeException(e);
+        }
+        assertNotNull(listNnum);
 		assertTrue(listNnum.size()>0);
 	}
 }

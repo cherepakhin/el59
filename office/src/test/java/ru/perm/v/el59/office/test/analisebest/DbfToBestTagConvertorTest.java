@@ -5,13 +5,13 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.List;
+import java.util.logging.Logger;
 
-import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 
-import ru.el59.office.analisebest.DbfToBestTagConvertor;
-import ru.el59.office.dto.BestTag;
+import ru.perm.v.el59.dto.BestTag;
+import ru.perm.v.el59.office.analisebest.DbfToBestTagConvertor;
 
 public class DbfToBestTagConvertorTest {
 

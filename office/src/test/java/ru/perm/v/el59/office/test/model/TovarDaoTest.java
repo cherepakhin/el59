@@ -1,7 +1,7 @@
 package ru.perm.v.el59.office.test.model;
 
 import static org.junit.Assert.assertNotNull;
-import ru.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.Tovar;
 
 public class TovarDaoTest extends DaoTest<Tovar,Integer>{
 

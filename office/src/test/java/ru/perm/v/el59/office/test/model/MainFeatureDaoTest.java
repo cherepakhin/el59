@@ -8,17 +8,17 @@ import java.util.Iterator;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ru.el59.office.dao.impl.subs.MainFeatureProvider;
-import ru.el59.office.db.GroupTovar;
-import ru.el59.office.db.subs.CorrectionName;
-import ru.el59.office.db.subs.CorrectionVal;
-import ru.el59.office.db.subs.GroupTovarMainFeature;
-import ru.el59.office.db.subs.MainFeature;
-import ru.el59.office.db.subs.ValFeature;
-import ru.el59.office.iproviders.IGroupTovarProvider;
-import ru.el59.office.iproviders.subs.IGroupTovarMainFeatureProvider;
-import ru.el59.office.iproviders.subs.IMainFeatureProvider;
-import ru.el59.office.iproviders.subs.IValFeatureProvider;
+import ru.perm.v.el59.office.dao.impl.subs.MainFeatureProvider;
+import ru.perm.v.el59.office.db.GroupTovar;
+import ru.perm.v.el59.office.db.subs.CorrectionName;
+import ru.perm.v.el59.office.db.subs.CorrectionVal;
+import ru.perm.v.el59.office.db.subs.GroupTovarMainFeature;
+import ru.perm.v.el59.office.db.subs.MainFeature;
+import ru.perm.v.el59.office.db.subs.ValFeature;
+import ru.perm.v.el59.office.iproviders.IGroupTovarProvider;
+import ru.perm.v.el59.office.iproviders.subs.IGroupTovarMainFeatureProvider;
+import ru.perm.v.el59.office.iproviders.subs.IMainFeatureProvider;
+import ru.perm.v.el59.office.iproviders.subs.IValFeatureProvider;
 
 public class MainFeatureDaoTest extends DaoTest<MainFeature, Long> {
 

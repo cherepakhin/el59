@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.Properties;
 
 import org.junit.Test;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import ru.el59.office.util.Emailer;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import ru.perm.v.el59.office.util.Emailer;
 
 public class EmailerTest {
 
@@ -27,7 +27,7 @@ public class EmailerTest {
 		props.setProperty("mail.mime.charset", "ISO-8859-1");
 		
 		mailSender.setJavaMailProperties(props);
-		emailer.setMailSender(mailSender );
+//		emailer.setMailSender(mailSender );
 		emailer.setFromAddress("vasi.che@gmail.com");
 		emailer.setControlMail("");
 		emailer.setNameAddress("vasi.che@gmail.com");

@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.db.dto.elxml.Good;
-import ru.el59.office.loaders.LoaderElXml;
+import ru.perm.v.el59.office.db.dto.elxml.Good;
+import ru.perm.v.el59.office.loaders.LoaderElXml;
 
 public class LoaderElXmlTest {
 

@@ -19,15 +19,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import ru.perm.v.el59.office.db.Tovar;
+import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
+import ru.perm.v.el59.office.iproviders.ITovarProvider;
+import ru.perm.v.el59.office.iproviders.subs.IMainFeatureProvider;
+import ru.perm.v.el59.office.iproviders.web.ISubsFeatureProvider;
+import ru.perm.v.el59.office.parser.ParserYandex;
 
-import ru.el59.office.db.Tovar;
-import ru.el59.office.db.TovarInfo;
-import ru.el59.office.iproviders.ITovarInfoProvider;
-import ru.el59.office.iproviders.ITovarProvider;
-import ru.el59.office.iproviders.subs.IMainFeatureProvider;
-import ru.el59.office.iproviders.web.ISubsFeatureProvider;
-import ru.el59.office.parser.ParserEl;
-import ru.el59.office.parser.ParserYandex;
 
 public class ParserYandexTest {
 

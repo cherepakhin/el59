@@ -9,10 +9,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import ru.el59.office.camelcontext.ConvertorBestTagsXml;
-import ru.el59.office.dto.BestTag;
-import ru.el59.office.dto.BestTags;
-import ru.el59.office.dto.message.MessageBestTags;
+import ru.perm.v.el59.dto.BestTag;
+import ru.perm.v.el59.dto.BestTags;
+import ru.perm.v.el59.dto.message.MessageBestTags;
+import ru.perm.v.el59.office.camelcontext.ConvertorBestTagsXml;
 
 public class ConevertorBestTagXmlTest {
 

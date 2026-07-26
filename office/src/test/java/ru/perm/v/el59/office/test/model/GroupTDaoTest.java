@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.db.GroupT;
-import ru.el59.office.iproviders.IGroupTProvider;
+import ru.perm.v.el59.office.db.GroupT;
+import ru.perm.v.el59.office.iproviders.IGroupTProvider;
 
 public class GroupTDaoTest extends DaoTest<GroupT,String>{
 

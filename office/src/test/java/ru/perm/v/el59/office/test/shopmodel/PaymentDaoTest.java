@@ -8,9 +8,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.critery.PaymentCritery;
-import ru.el59.office.iproviders.shopmodel.IPaymentProvider;
-import ru.el59.office.shopmodel.Payment;
+import ru.perm.v.el59.office.iproviders.critery.PaymentCritery;
+import ru.perm.v.el59.office.iproviders.shopmodel.IPaymentProvider;
+import ru.perm.v.el59.office.shopmodel.Payment;
 import ru.perm.v.el59.office.test.model.DaoTest;
 
 public class PaymentDaoTest extends DaoTest<Payment, Long> {

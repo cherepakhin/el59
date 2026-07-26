@@ -9,12 +9,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import ru.el59.office.critery.MoveCritery;
-import ru.el59.office.db.Move;
-import ru.el59.office.db.Shop;
-import ru.el59.office.iproviders.IMoveProvider;
-import ru.el59.office.iproviders.IShopProvider;
-import ru.el59.office.util.Helper;
+import ru.perm.v.el59.dao.IGenericDao;
+import ru.perm.v.el59.office.db.Move;
+import ru.perm.v.el59.office.db.Shop;
+import ru.perm.v.el59.office.iproviders.IMoveProvider;
+import ru.perm.v.el59.office.iproviders.IShopProvider;
+import ru.perm.v.el59.office.iproviders.critery.MoveCritery;
+import ru.perm.v.el59.office.util.Helper;
 
 public class MoveDaoTest extends DaoTest<Move,Long>{
 
@@ -25,7 +26,8 @@ public class MoveDaoTest extends DaoTest<Move,Long>{
 
 	@Override
 	public void read() {
-		IMoveProvider moveDao = (IMoveProvider)getDao();
+//		IMoveProvider moveDao = getDao();
+		IGenericDao<Move, Long> moveDao = getDao();
 		MoveCritery critery = new MoveCritery();
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR, 2014);
@@ -86,7 +88,7 @@ public class MoveDaoTest extends DaoTest<Move,Long>{
 		for (Move move : results) {
 			System.out.println(String.format("%s %.2f",move.getSeller(),move.getSummaout()));
 		}
+
 		assertTrue(results.size()>0);
-				
 	}
 }

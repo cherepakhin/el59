@@ -6,10 +6,10 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import ru.el59.office.db.ConstAnnotFeature;
-import ru.el59.office.db.FeaturePrice;
-import ru.el59.office.db.TovarInfo;
-import ru.el59.office.iproviders.ITovarInfoProvider;
+import ru.perm.v.el59.office.db.ConstAnnotFeature;
+import ru.perm.v.el59.office.db.FeaturePrice;
+import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.iproviders.ITovarInfoProvider;
 
 public class TovarInfoDaoTest extends DaoTest<TovarInfo,Integer>{
 

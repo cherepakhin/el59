@@ -9,9 +9,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import ru.el59.office.analisebest.ICreatotBestTag;
-import ru.el59.office.analisebest.ProtocolForTag;
-import ru.el59.office.dto.BestTag;
+import ru.perm.v.el59.dto.BestTag;
+import ru.perm.v.el59.office.analisebest.ICreatotBestTag;
+import ru.perm.v.el59.office.analisebest.ProtocolForTag;
 
 public class ProtocolForTagTest {
 

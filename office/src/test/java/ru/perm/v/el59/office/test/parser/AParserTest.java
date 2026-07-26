@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import ru.el59.office.db.TovarInfo;
-import ru.el59.office.parser.AParserSite;
+import ru.perm.v.el59.office.db.TovarInfo;
+import ru.perm.v.el59.office.parser.AParserSite;
 
 public class AParserTest {
 
