@@ -22,7 +22,7 @@ repositories {
 	mavenCentral()
 	mavenLocal()
 	maven {
-		url = "http://v:8082/repository/ru.perm.v"
+		url = "http://192.168.1.20:8081/repository/ru.perm.v/"
 		allowInsecureProtocol = true
 		credentials {
 			username = "admin"
